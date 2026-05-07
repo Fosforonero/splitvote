@@ -172,7 +172,7 @@ Use this section to decide whether a task can run without PM confirmation. When 
 
 **GSD method (lightweight, integrated into existing workflow):**
 - GSD = Get Stuff Done: short, scoped sprints with explicit GO gates.
-- Plan → GO → Implement → Verify → Report. No BMAD project-context.md, no new agents.
+- Plan → GO → Implement → Verify → Report. No BMAD project-context.md, no per-story agents.
 - CLAUDE.md is and remains the master governance document.
 - Ralph-style automation is limited to SAFE_AUTONOMOUS tasks only.
 
@@ -188,6 +188,7 @@ Use `.claude/agents/` when a sprint benefits from a focused review:
 - `backend-systems-reviewer.md` — data correctness, API contracts, Redis atomicity, caching strategy, cron idempotency, graceful degradation; use on any sprint that touches `app/api/**`, vote flow, `lib/redis.ts`, Supabase, or caching
 - `mobile-app-readiness-reviewer.md` — use before any PWA, manifest, or app store sprint
 - `blog-seo-editor.md` — use for new articles, existing article updates, SEO cluster audits, EN/IT content planning, internal linking blog → play/results/trending/category/landing pages
+- `pm-orchestrator.md` — daily/sprint-start orchestrator: ingests CLAUDE.md/HANDOFF/git log, validates governance health, emits one production-safe sprint spec ready for PM GO. Read-only, never writes code.
 
 These agents must read the live docs above instead of relying on stale project history.
 
@@ -195,4 +196,5 @@ These agents must read the live docs above instead of relying on stale project h
 
 - **UI/UX/copy sprints**: product-growth-reviewer (intent) + frontend-ui-reviewer (technical) + release-readiness-reviewer (ship gate)
 - **API/vote/Redis/Supabase/caching sprints**: backend-systems-reviewer + security-reviewer (when auth, admin, or user data is touched) + release-readiness-reviewer (ship gate)
-- **Agents are reviewers** — they report findings and do not implement changes directly.
+- **Session start, before any sprint kickoff**: pm-orchestrator runs first, alone, to produce Daily Start Report + Recommended Sprint. No pairing required.
+- **Specialist agents are read-only** — they report findings or sprint specs, never implement changes directly.
