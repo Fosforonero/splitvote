@@ -93,6 +93,7 @@ const EN_COPY = {
   webShareCopied:    '✅ Link copied!',
   moreShareTitle:    'More share options',
   moreShareSub:      'Instagram, TikTok, X, WhatsApp, Discord, Telegram, story card',
+  expertInsightCTA:  'Read the expert analysis',
   insightWhySplit:   'Why people split',
   insightYourChoice: 'What your choice may suggest',
   pathProgress:      (step: number, target: number) => `${step}/${target} complete`,
@@ -164,6 +165,7 @@ const IT_COPY = {
   webShareCopied:    '✅ Link copiato!',
   moreShareTitle:    'Altre opzioni di condivisione',
   moreShareSub:      'Instagram, TikTok, X, WhatsApp, Discord, Telegram, story card',
+  expertInsightCTA:  'Leggi l\'analisi esperta',
   insightWhySplit:   'Perché le persone si dividono',
   insightYourChoice: 'Cosa potrebbe suggerire la tua scelta',
   pathProgress:      (step: number, target: number) => `${step}/${target} completato`,
@@ -680,17 +682,37 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         )}
       </div>
 
-      {/* ── Expert Insight ── */}
-      <div className="mb-6 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-5">
-        <div className="flex items-center gap-2 mb-3">
-          <span aria-hidden className="text-base leading-none">💡</span>
-          <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
-            {expertInsight.title}
-          </span>
-          <span className="ml-auto text-[11px] font-semibold text-cyan-500/70 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20 whitespace-nowrap">
-            {expertInsight.expertType}
-          </span>
-        </div>
+      {/* ── COLLAPSIBLE: Expert Insight (S5b — collapsed by default) ── */}
+      <details className="group mb-6">
+        <summary
+          className="cursor-pointer list-none rounded-2xl border border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all p-4 flex items-center justify-between gap-3 min-h-[56px]"
+          onClick={() => track('expert_insight_toggled', { scenario_id: scenario.id, locale })}
+        >
+          <div className="flex items-center gap-2 flex-1 min-w-0">
+            <span aria-hidden className="text-base leading-none flex-shrink-0">💡</span>
+            <span className="text-sm font-bold text-cyan-300 truncate">
+              {copy.expertInsightCTA}
+            </span>
+            <span className="flex-shrink-0 text-[10px] font-semibold text-cyan-500/70 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20 whitespace-nowrap">
+              {expertInsight.expertType}
+            </span>
+          </div>
+          <svg
+            className="flex-shrink-0 text-cyan-400/60 group-open:rotate-180 transition-transform"
+            width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+
+        <div className="mt-3 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
+              {expertInsight.title}
+            </span>
+          </div>
 
         <p className="text-sm text-[var(--text)] leading-relaxed mb-4">
           {expertInsight.body}
@@ -721,7 +743,8 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         <p className="text-[11px] text-[var(--muted)] italic">
           {expertInsight.disclaimer}
         </p>
-      </div>
+        </div>
+      </details>
 
       {/* ── Primary Web Share CTA ── */}
       <div className="mb-8">
