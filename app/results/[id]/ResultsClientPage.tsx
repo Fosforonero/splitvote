@@ -91,6 +91,8 @@ const EN_COPY = {
   webShareCTA:       '📤 Share result',
   webShareSub:       'Send via messages, stories, or copy link',
   webShareCopied:    '✅ Link copied!',
+  moreShareTitle:    'More share options',
+  moreShareSub:      'Instagram, TikTok, X, WhatsApp, Discord, Telegram, story card',
   insightWhySplit:   'Why people split',
   insightYourChoice: 'What your choice may suggest',
   pathProgress:      (step: number, target: number) => `${step}/${target} complete`,
@@ -160,6 +162,8 @@ const IT_COPY = {
   webShareCTA:       '📤 Condividi risultato',
   webShareSub:       'Invia via messaggi, storie o copia il link',
   webShareCopied:    '✅ Link copiato!',
+  moreShareTitle:    'Altre opzioni di condivisione',
+  moreShareSub:      'Instagram, TikTok, X, WhatsApp, Discord, Telegram, story card',
   insightWhySplit:   'Perché le persone si dividono',
   insightYourChoice: 'Cosa potrebbe suggerire la tua scelta',
   pathProgress:      (step: number, target: number) => `${step}/${target} completato`,
@@ -782,8 +786,33 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         </button>
       </div>
 
+      {/* ── COLLAPSIBLE: VIRAL SHARE + STORY CARD (S5a — collapsed by default) ── */}
+      <details className="group mb-8">
+        <summary
+          className="cursor-pointer list-none rounded-2xl border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface2)] hover:border-[var(--border-hi)] transition-all p-4 flex items-center justify-between gap-3 min-h-[56px]"
+          onClick={() => track('share_more_options_toggled', { scenario_id: scenario.id, locale })}
+        >
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-bold text-[var(--text)] truncate">
+              {copy.moreShareTitle}
+            </div>
+            <div className="text-[11px] text-[var(--muted)] truncate">
+              {copy.moreShareSub}
+            </div>
+          </div>
+          <svg
+            className="flex-shrink-0 text-[var(--muted)] group-open:rotate-180 transition-transform"
+            width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+
+        <div className="mt-3 space-y-8">
       {/* ── VIRAL SHARE SECTION ── */}
-      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden mb-8">
+      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden">
         {/* Share card preview */}
         <div className="relative bg-[#0a0a0f] group cursor-pointer" onClick={() => window.open(ogImageUrl, '_blank')}>
           <img
@@ -887,7 +916,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
       </div>
 
       {/* ── Share as Story (IG/TikTok vertical card) ── */}
-      <div className="rounded-2xl border border-[var(--border)] bg-[#0a0a1a]/60 overflow-hidden mb-8">
+      <div className="rounded-2xl border border-[var(--border)] bg-[#0a0a1a]/60 overflow-hidden">
         <div className="p-5 pb-3">
           <p className="text-xs text-[var(--muted)] font-semibold uppercase tracking-widest mb-3">
             {copy.storyTitle}
@@ -956,6 +985,8 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
           {copy.storyNote}
         </p>
       </div>
+        </div>
+      </details>
 
       {/* ── AdSense — shown after results, before CTA ── */}
       <AdSlot slot={SLOT_RESULTS} className="rounded-2xl mb-8" />
