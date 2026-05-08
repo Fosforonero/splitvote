@@ -2,28 +2,73 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { TrendingUp, Scale, Cpu, Users, Heart, Building2, Compass, BookOpen } from 'lucide-react'
+import { TrendingUp, Compass, BookOpen } from 'lucide-react'
 
-const EN_LINKS = [
-  { href: '/trending',               label: 'Trending',    icon: TrendingUp, color: 'text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 hover:border-purple-500/20' },
-  { href: '/category/morality',      label: 'Morality',    icon: Scale,      color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/category/technology',    label: 'Tech',        icon: Cpu,        color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/category/society',       label: 'Society',     icon: Users,      color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/category/relationships', label: 'Love',        icon: Heart,      color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/personality',            label: 'My Profile',  icon: Compass,    color: 'text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 hover:border-cyan-500/20' },
-  { href: '/blog',                   label: 'Blog',        icon: BookOpen,   color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/business',               label: 'Business',    icon: Building2,  color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
+/**
+ * Top-level header nav (lg+ only). Trimmed to 3 items for mobile-first IA:
+ * categories, business, and other secondary destinations live in the
+ * burger drawer (`MobileMenu.tsx`) and footer.
+ *
+ * Invariants:
+ * - Same 3 items in EN and IT (parity).
+ * - Active state visible (current page is highlighted).
+ * - Hidden below lg breakpoint (drawer takes over).
+ */
+
+type NavItem = {
+  href: string
+  label: string
+  icon: typeof TrendingUp
+  color: string
+  activeColor: string
+}
+
+const EN_LINKS: NavItem[] = [
+  {
+    href: '/trending',
+    label: 'Trending',
+    icon: TrendingUp,
+    color: 'text-[var(--muted)] hover:text-purple-300 hover:bg-purple-500/10 hover:border-purple-500/20',
+    activeColor: 'text-purple-300 bg-purple-500/15 border-purple-500/30',
+  },
+  {
+    href: '/personality',
+    label: 'My Profile',
+    icon: Compass,
+    color: 'text-[var(--muted)] hover:text-cyan-300 hover:bg-cyan-500/10 hover:border-cyan-500/20',
+    activeColor: 'text-cyan-300 bg-cyan-500/15 border-cyan-500/30',
+  },
+  {
+    href: '/blog',
+    label: 'Blog',
+    icon: BookOpen,
+    color: 'text-[var(--muted)] hover:text-emerald-300 hover:bg-emerald-500/10 hover:border-emerald-500/20',
+    activeColor: 'text-emerald-300 bg-emerald-500/15 border-emerald-500/30',
+  },
 ]
 
-const IT_LINKS = [
-  { href: '/it/trending',               label: 'Tendenze',    icon: TrendingUp, color: 'text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 hover:border-purple-500/20' },
-  { href: '/it/category/morality',      label: 'Moralità',    icon: Scale,      color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/it/category/technology',    label: 'Tech',        icon: Cpu,        color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/it/category/society',       label: 'Società',     icon: Users,      color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/it/category/relationships', label: 'Amore',       icon: Heart,      color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/it/personality',            label: 'Il Mio Profilo', icon: Compass, color: 'text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 hover:border-cyan-500/20' },
-  { href: '/it/blog',                   label: 'Blog',        icon: BookOpen,   color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
-  { href: '/it/faq',                    label: 'FAQ',         icon: Building2,  color: 'text-[var(--muted)] hover:text-white hover:bg-white/5' },
+const IT_LINKS: NavItem[] = [
+  {
+    href: '/it/trending',
+    label: 'Tendenze',
+    icon: TrendingUp,
+    color: 'text-[var(--muted)] hover:text-purple-300 hover:bg-purple-500/10 hover:border-purple-500/20',
+    activeColor: 'text-purple-300 bg-purple-500/15 border-purple-500/30',
+  },
+  {
+    href: '/it/personality',
+    label: 'Il Mio Profilo',
+    icon: Compass,
+    color: 'text-[var(--muted)] hover:text-cyan-300 hover:bg-cyan-500/10 hover:border-cyan-500/20',
+    activeColor: 'text-cyan-300 bg-cyan-500/15 border-cyan-500/30',
+  },
+  {
+    href: '/it/blog',
+    label: 'Blog',
+    icon: BookOpen,
+    color: 'text-[var(--muted)] hover:text-emerald-300 hover:bg-emerald-500/10 hover:border-emerald-500/20',
+    activeColor: 'text-emerald-300 bg-emerald-500/15 border-emerald-500/30',
+  },
 ]
 
 export default function NavLinks() {
@@ -32,17 +77,24 @@ export default function NavLinks() {
   const links = isIT ? IT_LINKS : EN_LINKS
 
   return (
-    <div className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
-      {links.map(({ href, label, icon: Icon, color }) => (
-        <Link
-          key={href}
-          href={href}
-          className={`flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest transition-all px-3 py-1.5 rounded-lg border border-transparent ${color}`}
-        >
-          <Icon size={12} />
-          {label}
-        </Link>
-      ))}
+    <div className="hidden lg:flex items-center gap-1 flex-1 justify-center">
+      {links.map(({ href, label, icon: Icon, color, activeColor }) => {
+        const isActive =
+          pathname === href || (href !== (isIT ? '/it' : '/') && pathname.startsWith(href))
+        return (
+          <Link
+            key={href}
+            href={href}
+            aria-current={isActive ? 'page' : undefined}
+            className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-all px-4 py-2 rounded-xl border ${
+              isActive ? activeColor : `border-transparent ${color}`
+            }`}
+          >
+            <Icon size={14} aria-hidden="true" />
+            {label}
+          </Link>
+        )
+      })}
     </div>
   )
 }

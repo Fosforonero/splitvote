@@ -56,11 +56,11 @@ export default function AuthButton() {
     return (
       <a
         href={loginHref}
-        className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-xl transition-all btn-neon-blue"
+        className="flex items-center justify-center w-10 h-10 rounded-xl transition-all btn-neon-blue text-blue-400 hover:text-blue-300 border border-blue-500/30 hover:border-blue-400/60 bg-blue-500/10 hover:bg-blue-500/20 neon-glow-blue"
         aria-label={isIT ? 'Crea profilo gratis o accedi' : 'Join SplitVote free or sign in'}
+        title={isIT ? 'Crea profilo gratis o accedi' : 'Join SplitVote free or sign in'}
       >
-        <User size={13} aria-hidden="true" />
-        {isIT ? 'Unisciti →' : 'Join free →'}
+        <User size={18} aria-hidden="true" />
       </a>
     )
   }
