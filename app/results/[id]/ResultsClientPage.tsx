@@ -462,8 +462,12 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
     }
   }
 
+  // S5c — show sticky bar only on standard CTA (no path flow, nextId available)
+  const showStickyNext = !pathCategory && !!nextId
+
   return (
-    <div className="max-w-2xl mx-auto px-4 py-16">
+    <>
+    <div className={`max-w-2xl mx-auto px-4 pt-16 ${showStickyNext ? 'pb-28 sm:pb-16' : 'pb-16'}`}>
       <Link href={sharePrefix || '/'} className="text-sm text-[var(--muted)] hover:text-white transition-colors mb-8 inline-block">
         {copy.back}
       </Link>
@@ -1030,5 +1034,22 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         </div>
       )}
     </div>
+
+    {/* S5c — Sticky "Next dilemma" CTA: mobile-only fixed bottom bar */}
+    {showStickyNext && (
+      <div
+        className="sm:hidden fixed bottom-0 left-0 right-0 z-40 px-4 py-3 border-t border-white/10 bg-[var(--bg)]/90 backdrop-blur-md"
+        style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
+      >
+        <Link
+          href={`${sharePrefix ?? ''}/play/${nextId}`}
+          onClick={() => track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_sticky' })}
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm px-6 py-3.5 transition-colors"
+        >
+          {copy.nextDilemma}
+        </Link>
+      </div>
+    )}
+    </>
   )
 }
