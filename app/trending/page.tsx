@@ -191,8 +191,8 @@ export default async function TrendingPage() {
         </div>
         <p className="text-sm text-[var(--muted)] mb-5">
           {hasDynamic
-            ? "Moral dilemmas inspired by today's biggest news and trending topics. Fresh every morning at 6am UTC."
-            : "The most debated moral dilemmas on SplitVote. AI-generated ones from today's news appear at 6am UTC."}
+            ? "Moral dilemmas inspired by today's biggest news and trending topics. New ones every day."
+            : "The most debated moral dilemmas on SplitVote. AI-generated ones from today's news appear daily."}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {displayItems.map((scenario) => (
