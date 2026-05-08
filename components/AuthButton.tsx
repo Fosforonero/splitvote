@@ -6,6 +6,7 @@ import { Settings, Star, LayoutDashboard, LogOut, User } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { isRoleAtLeast } from '@/lib/admin-auth'
 import type { UserRole } from '@/lib/admin-auth'
+import { getLevelInfo } from '@/lib/missions'
 import ClaimDot from './ClaimDot'
 
 interface AuthState {
@@ -13,6 +14,8 @@ interface AuthState {
   isPremium: boolean
   avatarEmoji: string
   isAdmin: boolean
+  streakDays: number
+  xp: number
 }
 
 export default function AuthButton() {
@@ -25,6 +28,8 @@ export default function AuthButton() {
     isPremium: false,
     avatarEmoji: '🌍',
     isAdmin: false,
+    streakDays: 0,
+    xp: 0,
   })
 
   useEffect(() => {
@@ -32,12 +37,12 @@ export default function AuthButton() {
     supabase.auth.getUser()
       .then(async ({ data: { user } }) => {
         if (!user) {
-          setAuth({ status: 'anon', isPremium: false, avatarEmoji: '🌍', isAdmin: false })
+          setAuth({ status: 'anon', isPremium: false, avatarEmoji: '🌍', isAdmin: false, streakDays: 0, xp: 0 })
           return
         }
         const { data: profile } = await supabase
           .from('profiles')
-          .select('is_premium, avatar_emoji, role')
+          .select('is_premium, avatar_emoji, role, streak_days, xp')
           .eq('id', user.id)
           .single()
         const role = (profile?.role ?? 'user') as UserRole
@@ -46,9 +51,11 @@ export default function AuthButton() {
           isPremium: profile?.is_premium ?? false,
           avatarEmoji: profile?.avatar_emoji ?? '🌍',
           isAdmin: isRoleAtLeast(role, 'admin'),
+          streakDays: profile?.streak_days ?? 0,
+          xp: profile?.xp ?? 0,
         })
       })
-      .catch(() => setAuth({ status: 'anon', isPremium: false, avatarEmoji: '🌍', isAdmin: false }))
+      .catch(() => setAuth({ status: 'anon', isPremium: false, avatarEmoji: '🌍', isAdmin: false, streakDays: 0, xp: 0 }))
   }, [])
 
   // Show anonymous/login state while loading or actually anonymous
@@ -64,6 +71,13 @@ export default function AuthButton() {
       </a>
     )
   }
+
+  // Compute level info from XP (lib/missions.getLevelInfo). Used in the
+  // dashboard HUD pill on sm+ screens.
+  const levelInfo = getLevelInfo(auth.xp)
+  const dashAriaLabel = isIT
+    ? `Bacheca${auth.streakDays > 0 ? `, streak ${auth.streakDays} giorn${auth.streakDays === 1 ? 'o' : 'i'}` : ''}, livello ${levelInfo.level}`
+    : `Dashboard${auth.streakDays > 0 ? `, ${auth.streakDays}-day streak` : ''}, level ${levelInfo.level}`
 
   return (
     <div className="flex items-center gap-1">
@@ -85,25 +99,34 @@ export default function AuthButton() {
       <a
         href="/profile"
         className="text-base w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-all border border-transparent hover:border-[var(--border-hi)]"
-        title="Profile Settings"
+        title={isIT ? 'Impostazioni profilo' : 'Profile Settings'}
       >
         {auth.avatarEmoji}
       </a>
+      {/* S6a — Pixie HUD: streak + level visible alongside Dashboard link on sm+ */}
       <a
         href="/dashboard"
         className="hidden sm:flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[var(--muted)] hover:text-white transition-colors px-2.5 py-1.5 rounded-lg hover:bg-white/5"
-        title="Dashboard"
+        title={isIT ? 'Bacheca' : 'Dashboard'}
+        aria-label={dashAriaLabel}
       >
-        <LayoutDashboard size={12} />
-        <span>Dash</span>
+        <LayoutDashboard size={12} aria-hidden="true" />
+        {auth.streakDays > 0 && (
+          <span className="text-orange-400 normal-case" aria-hidden="true">
+            🔥{auth.streakDays}
+          </span>
+        )}
+        <span className="text-purple-400 normal-case" aria-hidden="true">
+          Lv {levelInfo.level}
+        </span>
         <ClaimDot />
       </a>
       <form action="/api/auth/signout" method="POST">
         <button
           type="submit"
           className="flex items-center justify-center w-8 h-8 rounded-lg text-[var(--muted)] hover:text-white hover:bg-white/5 transition-all"
-          title="Sign Out"
-          aria-label="Sign out"
+          title={isIT ? 'Esci' : 'Sign Out'}
+          aria-label={isIT ? 'Esci' : 'Sign out'}
         >
           <LogOut size={13} aria-hidden="true" />
         </button>
