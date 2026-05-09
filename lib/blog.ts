@@ -429,6 +429,7 @@ const EN_POSTS: BlogPost[] = [
     date: '2026-04-27',
     readingTime: 5,
     tags: ['trolley problem', 'poll results', 'ethics', 'moral dilemmas'],
+    alternateSlug: 'statistiche-problema-del-carrello',
     relatedDilemmaIds: ['trolley', 'organ-harvest', 'lifeboat', 'cure-secret', 'memory-erase', 'truth-friend'],
     content: [
       {
@@ -1082,6 +1083,282 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'moral-dilemmas-examples',
+    locale: 'en',
+    title: 'Moral Dilemmas: 15 Real Examples and How the World Votes',
+    seoTitle: 'Moral Dilemmas: 15 Real Examples and How the World Votes',
+    description:
+      "The most famous moral dilemmas with concrete examples — from the trolley problem to AI ethics. See live SplitVote poll results for each one.",
+    seoDescription:
+      "The most famous moral dilemmas with concrete examples — from the trolley problem to AI ethics. See live SplitVote poll results for each one.",
+    date: '2026-04-27',
+    readingTime: 6,
+    tags: ['moral dilemmas', 'examples', 'ethics', 'philosophy'],
+    alternateSlug: 'dilemmi-morali-esempi',
+    relatedDilemmaIds: ['trolley', 'organ-harvest', 'lifeboat', 'cure-secret', 'memory-erase', 'truth-friend'],
+    content: [
+      {
+        type: 'p',
+        text: "A moral dilemma isn't just a hard problem. It's a situation where both choices are defensible — and you have to pick one anyway.",
+      },
+      {
+        type: 'p',
+        text: 'Here are 15 concrete examples of moral dilemmas — from classic philosophy to everyday situations. For each one, you can see how the world votes on SplitVote.',
+      },
+      {
+        type: 'cta',
+        label: 'Explore moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'cta',
+        label: 'Hard would you rather questions →',
+        href: '/would-you-rather-questions',
+      },
+      {
+        type: 'h2',
+        text: 'What Makes a Real Moral Dilemma',
+      },
+      {
+        type: 'p',
+        text: "It's not enough for the choice to be difficult. A moral dilemma has three features: both options have real, significant consequences; neither is clearly wrong on ethical grounds; the choice reveals a conflict between genuine values — not between good and evil.",
+      },
+      {
+        type: 'p',
+        text: "Dilemmas don't exist to find the right answer. They exist to show which value wins when two values collide.",
+      },
+      {
+        type: 'p',
+        text: 'The SplitVote results in this article are user polls — not scientific research. Numbers update in real time.',
+      },
+      {
+        type: 'h2',
+        text: 'The Classics: Dilemmas That Have Lasted Decades',
+      },
+      {
+        type: 'h3',
+        text: '1. The Trolley Problem',
+      },
+      {
+        type: 'p',
+        text: "A runaway trolley is heading toward five people tied to the track. You can divert it to a side track where one person is tied. Do you pull the lever?",
+      },
+      {
+        type: 'p',
+        text: "The split is more balanced than most people expect before voting. See the live result on SplitVote.",
+      },
+      {
+        type: 'cta',
+        label: 'Vote the trolley problem →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'h3',
+        text: '2. The Organ Harvest',
+      },
+      {
+        type: 'p',
+        text: "A surgeon can save five dying patients by taking organs from one healthy patient without consent. The math is identical to the trolley problem. The votes tell a different story.",
+      },
+      {
+        type: 'p',
+        text: "The medical context shifts moral perception — even with identical numbers. See the live result on SplitVote.",
+      },
+      {
+        type: 'cta',
+        label: 'Vote the organ harvest dilemma →',
+        href: '/play/organ-harvest',
+      },
+      {
+        type: 'h3',
+        text: '3. The Lifeboat',
+      },
+      {
+        type: 'p',
+        text: "A lifeboat holds 8 people. There are 12 survivors. Someone has to decide who boards — and who stays in the water. Who has the right to decide? On what basis?",
+      },
+      {
+        type: 'cta',
+        label: 'Vote the lifeboat dilemma →',
+        href: '/play/lifeboat',
+      },
+      {
+        type: 'cta',
+        label: 'Vote the trolley problem — live results →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Dilemmas About Truth and Loyalty',
+      },
+      {
+        type: 'h3',
+        text: "4. The Friend's Secret",
+      },
+      {
+        type: 'p',
+        text: "Your best friend asks for your honest opinion on something important. You know the truth will hurt them. What do you do?",
+      },
+      {
+        type: 'p',
+        text: "The split between those who say everything and those who protect their friend is sharp. See the live result on SplitVote.",
+      },
+      {
+        type: 'cta',
+        label: 'Vote the truth dilemma →',
+        href: '/play/truth-friend',
+      },
+      {
+        type: 'h3',
+        text: '5. Report or Stay Silent',
+      },
+      {
+        type: 'p',
+        text: "You discover that a close friend has committed a serious crime. You witnessed it yourself. Do you report them or say nothing? The result shifts significantly depending on how the crime is described.",
+      },
+      {
+        type: 'h3',
+        text: '6. The Forbidden Cure',
+      },
+      {
+        type: 'p',
+        text: "A cure exists for a fatal disease. But obtaining it requires an action most people consider ethically unacceptable. Would you do it?",
+      },
+      {
+        type: 'cta',
+        label: 'Vote the cure dilemma →',
+        href: '/play/cure-secret',
+      },
+      {
+        type: 'h2',
+        text: 'Dilemmas About Identity and Memory',
+      },
+      {
+        type: 'h3',
+        text: '7. Erasing a Memory',
+      },
+      {
+        type: 'p',
+        text: "You can delete the most painful memory of your life. The catch: that memory shaped who you are. After the erasure, you'd be a different person. Is it worth it?",
+      },
+      {
+        type: 'p',
+        text: 'See the live result on SplitVote.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote the memory dilemma →',
+        href: '/play/memory-erase',
+      },
+      {
+        type: 'h3',
+        text: '8. Starting Over',
+      },
+      {
+        type: 'p',
+        text: "Live another 40 years as you are now — or another 80 starting from scratch, with nothing you've built. Which do you choose?",
+      },
+      {
+        type: 'h3',
+        text: '9. Knowing Your Death',
+      },
+      {
+        type: 'p',
+        text: "You're offered the chance to know the exact date of your death — but not the cause. Or the cause — but not the date. Pick one.",
+      },
+      {
+        type: 'h2',
+        text: 'Everyday Life Dilemmas',
+      },
+      {
+        type: 'h3',
+        text: '10. The Betrayed Partner',
+      },
+      {
+        type: 'p',
+        text: "You find out that your best friend's partner is cheating on them. Your friend hasn't asked you anything. Do you tell them?",
+      },
+      {
+        type: 'h3',
+        text: '11. Sacrificing for the Future',
+      },
+      {
+        type: 'p',
+        text: "A costly action for you today could prevent enormous suffering for many people twenty years from now. No guarantees. Nobody will know. Do you act?",
+      },
+      {
+        type: 'h3',
+        text: '12. The Doctor Who Chooses Not to Tell Everything',
+      },
+      {
+        type: 'p',
+        text: "A doctor knows that communicating the full diagnosis would psychologically destroy the patient and reduce their chances of survival. Do they tell everything — or choose what to reveal?",
+      },
+      {
+        type: 'h3',
+        text: '13. The Predictive Algorithm',
+      },
+      {
+        type: 'p',
+        text: "An AI system predicts with high accuracy who will commit a serious crime in the next five years. Can you restrict those people's freedom before they've done anything?",
+      },
+      {
+        type: 'h3',
+        text: '14. The Difficult Inheritance',
+      },
+      {
+        type: 'p',
+        text: "You can receive a large fortune from someone you considered morally reprehensible. The money would be yours, unconditionally. Do you accept it?",
+      },
+      {
+        type: 'h3',
+        text: '15. The Only Spot',
+      },
+      {
+        type: 'p',
+        text: "Two people. One spot to be saved. One is your sister. The other is a doctor who could save many lives in the future. Who do you choose?",
+      },
+      {
+        type: 'h2',
+        text: 'What the Votes Reveal',
+      },
+      {
+        type: 'p',
+        text: "The most interesting thing in SplitVote results isn't which option wins. It's that almost every dilemma splits significantly — often 40/60 or 45/55 — even when the answer seems obvious before voting.",
+      },
+      {
+        type: 'p',
+        text: "Moral dilemmas don't test your ethical knowledge. They test which value system you've internalized: consequentialist (outcomes matter), deontological (actions matter in themselves), or virtue-based (what would a person of integrity do?). Most people hold all three — until a dilemma puts them in direct conflict.",
+      },
+      {
+        type: 'cta',
+        label: 'Vote the trolley problem — no account required →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Try It Yourself',
+      },
+      {
+        type: 'p',
+        text: "Reading a dilemma and actually voting are two different experiences. The moment you have to really choose, the position that seemed obvious becomes suddenly much less clear.",
+      },
+      {
+        type: 'p',
+        text: "Want to see what the world would actually choose? Try SplitVote and compare your answers with other users.",
+      },
+      {
+        type: 'cta',
+        label: 'Explore all dilemmas on SplitVote →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: 'Educational content, not professional advice of any kind. SplitVote results are user polls, not scientific research. All scenarios are hypothetical.',
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -1488,6 +1765,7 @@ const IT_POSTS: BlogPost[] = [
     date: '2026-04-27',
     readingTime: 6,
     tags: ['dilemmi morali', 'esempi', 'etica', 'filosofia'],
+    alternateSlug: 'moral-dilemmas-examples',
     relatedDilemmaIds: ['trolley', 'organ-harvest', 'lifeboat', 'cure-secret', 'memory-erase', 'truth-friend'],
     content: [
       {
@@ -2184,6 +2462,236 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "Gli archetipi SplitVote sono solo per intrattenimento e auto-riflessione — non uno strumento di valutazione psicologica, diagnostica o misura scientifica.",
+      },
+    ],
+  },
+  {
+    slug: 'statistiche-problema-del-carrello',
+    locale: 'it',
+    title: 'Il Problema del Carrello: Risultati del Sondaggio e Come Vota la Gente',
+    seoTitle: 'Il Problema del Carrello: Risultati del Sondaggio e Come Vota la Gente',
+    description:
+      "Come vota davvero la gente sul problema del carrello? Risultati dei sondaggi SplitVote sulla versione classica e le sue varianti. Nessuna scienza — solo voti reali.",
+    seoDescription:
+      "Come vota davvero la gente sul problema del carrello? Risultati dei sondaggi SplitVote sulla versione classica e le sue varianti. Nessuna scienza — solo voti reali.",
+    date: '2026-04-27',
+    readingTime: 5,
+    tags: ['problema del carrello', 'risultati sondaggio', 'etica', 'dilemmi morali'],
+    alternateSlug: 'trolley-problem-statistics',
+    relatedDilemmaIds: ['trolley', 'organ-harvest', 'lifeboat', 'cure-secret', 'memory-erase', 'truth-friend'],
+    content: [
+      {
+        type: 'p',
+        text: "La maggior parte delle persone è sicura di sapere cosa farebbe. Poi vota — e la divisione le sorprende.",
+      },
+      {
+        type: 'p',
+        text: "Il problema del carrello è uno dei dilemmi morali più votati su SplitVote. I risultati cambiano significativamente tra le varianti, e le ragioni che le persone danno per ogni scelta sono più rivelatrici dei numeri.",
+      },
+      {
+        type: 'cta',
+        label: "Cos'è un dilemma morale? →",
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'cta',
+        label: 'Domande "Preferiresti" difficili →',
+        href: '/it/domande-would-you-rather',
+      },
+      {
+        type: 'h2',
+        text: 'Cosa Chiede Davvero il Problema del Carrello',
+      },
+      {
+        type: 'p',
+        text: "Un tram fuori controllo si dirige verso cinque persone legate ai binari. Sei vicino a una leva. Se la tiri, il tram devia su un binario laterale — dove c'è una sola persona legata.",
+      },
+      {
+        type: 'p',
+        text: 'Cinque vite salvate. Una persa. Con la tua azione diretta.',
+      },
+      {
+        type: 'p',
+        text: "Oppure: non tirare. Cinque persone muoiono. Tu non ne sei la causa.",
+      },
+      {
+        type: 'p',
+        text: 'Nessun dettaglio nascosto. Nessuna via d\'uscita. Devi scegliere.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota il problema del carrello — vedi la divisione in tempo reale →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Risultati del Sondaggio: La Versione Classica',
+      },
+      {
+        type: 'p',
+        text: 'Tutti i dati qui sotto sono risultati dei sondaggi SplitVote — non ricerca scientifica. I risultati si aggiornano in tempo reale con ogni nuovo voto.',
+      },
+      {
+        type: 'p',
+        text: "La divisione è più equilibrata di quanto la maggior parte delle persone preveda prima di votare. Prima di provarlo, molti si aspettano qualcosa come 85–90% che tira la leva. I risultati in tempo reale raccontano una storia diversa.",
+      },
+      {
+        type: 'p',
+        text: "La ragione più frequente tra chi non tira: \"Non causerò attivamente la morte di qualcuno, anche per salvarne di più. Quel confine per me è importante.\"",
+      },
+      {
+        type: 'cta',
+        label: 'Vedi la divisione attuale in tempo reale →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Le Varianti Che Cambiano il Voto',
+      },
+      {
+        type: 'p',
+        text: "Il problema del carrello cambia completamente quando cambia un solo dettaglio. Ogni versione qui sotto è un voto dal vivo — provale e confronta.",
+      },
+      {
+        type: 'h3',
+        text: 'La variante del ponte',
+      },
+      {
+        type: 'p',
+        text: "Invece di una leva, sei su un ponte. L'unico modo per fermare il tram è spingere una persona grande nella sua traiettoria. Stessa matematica — 1 vita per 5 — azione diversa.",
+      },
+      {
+        type: 'p',
+        text: "Il calo rispetto alla versione con la leva è significativo. Il caso SplitVote più vicino a questa logica coinvolge lo stesso compromesso etico in un contesto medico.",
+      },
+      {
+        type: 'cta',
+        label: 'Vota il dilemma del trapianto di organi →',
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'h3',
+        text: 'La variante del trapianto di organi',
+      },
+      {
+        type: 'p',
+        text: "Un chirurgo può salvare cinque pazienti prelevando gli organi di una persona sana senza consenso. Aritmetica identica al carrello. Voto molto diverso.",
+      },
+      {
+        type: 'cta',
+        label: 'Vedi la divisione attuale in tempo reale →',
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'h3',
+        text: 'La variante personale',
+      },
+      {
+        type: 'p',
+        text: "Stesso tram. Ma la persona sul binario laterale è qualcuno che conosci. Cambia la tua risposta? Il legame personale sposta consistentemente i numeri.",
+      },
+      {
+        type: 'cta',
+        label: 'Vota il problema del carrello →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h3',
+        text: "La variante dell'inazione",
+      },
+      {
+        type: 'p',
+        text: "Non sei tu alla leva. Qualcun altro potrebbe tirarla ma non lo fa. Intervieni? Ignorare l'inazione altrui ottiene un risultato distinto.",
+      },
+      {
+        type: 'cta',
+        label: 'Vota il problema del carrello →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: '10 Dilemmi Correlati e Le Loro Divisioni in Tempo Reale',
+      },
+      {
+        type: 'p',
+        text: "Questi sono tutti scenari reali su SplitVote, ognuno costruito sulla stessa tensione centrale del problema del carrello. I risultati sono dati di sondaggio — non ricerca.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Trapianto di organi — preleva gli organi di una persona sana per salvarne cinque malate.",
+          'Scialuppa di salvataggio — 8 posti, 12 sopravvissuti. Chi decide chi sale?',
+          'La cura proibita — esiste una cura per una malattia mortale, ma ottenerla richiede un\'azione che la maggior parte considera inaccettabile.',
+          'Cancellare un ricordo — elimina il tuo ricordo più doloroso, ma cambia chi sei per sempre.',
+          'La verità all\'amico — il tuo migliore amico vuole la tua onestà completa su qualcosa che lo farà soffrire.',
+          'Vaccino obbligatorio — dovrebbe la vaccinazione essere legalmente obbligatoria per proteggere chi non può riceverla?',
+          'Il whistleblower — scopri gravi irregolarità nella tua azienda. Denunciarle ti costerà la carriera.',
+          'Il condannato a morte esonerato — un prigioniero risulta innocente due giorni prima dell\'esecuzione. Liberarlo scatena rivolte che uccidono dieci persone.',
+          'La città sorvegliata — la sorveglianza totale riduce significativamente la criminalità, ma registra tutti, ovunque.',
+          "L'IA sostituisce i lavori — un sistema IA elimina il tuo settore in 5 anni, ma riduce i costi per tutti gli altri.",
+        ],
+      },
+      {
+        type: 'cta',
+        label: 'Vota il dilemma del trapianto →',
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'cta',
+        label: 'Vota il dilemma della scialuppa →',
+        href: '/it/play/lifeboat',
+      },
+      {
+        type: 'cta',
+        label: 'Vota il dilemma della cura →',
+        href: '/it/play/cure-secret',
+      },
+      {
+        type: 'cta',
+        label: 'Vota il dilemma della memoria →',
+        href: '/it/play/memory-erase',
+      },
+      {
+        type: 'cta',
+        label: 'Vota il dilemma della verità →',
+        href: '/it/play/truth-friend',
+      },
+      {
+        type: 'h2',
+        text: 'Perché La Divisione Non Si Chiude',
+      },
+      {
+        type: 'p',
+        text: "Il problema del carrello è dibattuto da decenni. La tensione centrale non si risolve perché mette a nudo un conflitto genuino tra due posizioni etiche che la maggior parte delle persone tiene insieme.",
+      },
+      {
+        type: 'p',
+        text: 'Consequenzialismo: contano i risultati. 5 > 1. Tira la leva.',
+      },
+      {
+        type: 'p',
+        text: "Deontologia: alcune azioni sono sbagliate indipendentemente dal risultato. Usare una persona come mezzo viola qualcosa di fondamentale. Non tirare.",
+      },
+      {
+        type: 'p',
+        text: "La maggior parte delle persone non è l'una o l'altra. È entrambe. Il problema del carrello mostra dove si rompe l'equilibrio.",
+      },
+      {
+        type: 'p',
+        text: "Ciò che i risultati SplitVote mostrano è che questa divisione è straordinariamente costante. La tensione non è culturale. È umana.",
+      },
+      {
+        type: 'p',
+        text: "Vuoi vedere come scelgono davvero le persone? Prova SplitVote e confronta le tue risposte con utenti di tutto il mondo.",
+      },
+      {
+        type: 'cta',
+        label: 'Vota il problema del carrello — risultati in tempo reale →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'disclaimer',
+        text: 'I risultati SplitVote rappresentano solo voti degli utenti — non ricerca scientifica. Tutti gli scenari sono ipotetici. Non consulenza etica o psicologica professionale.',
       },
     ],
   },
