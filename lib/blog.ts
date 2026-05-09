@@ -1082,6 +1082,128 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'ai-ethics-what-40-million-people-chose',
+    locale: 'en',
+    title: 'AI Ethics: What 40 Million People Said About Self-Driving Car Crashes',
+    seoTitle: 'AI Ethics Dilemmas: The Moral Machine Study & What 40 Million People Chose',
+    description:
+      'In 2018, researchers collected 40 million moral decisions from 233 countries on self-driving car crashes. Here is what the world actually believes — and why the answers split so sharply by culture.',
+    seoDescription:
+      'A 2018 MIT study gathered 40 million moral decisions from 233 countries on AI crash scenarios. Discover what people chose, why cultures disagreed, and what it means for AI ethics today.',
+    date: '2026-05-09',
+    readingTime: 6,
+    tags: ['ai ethics', 'self-driving cars', 'moral machine', 'technology ethics', 'philosophy'],
+    relatedDilemmaIds: ['self-driving-crash', 'robot-judge', 'ai-replaces-jobs', 'ai-art-copyright', 'brain-upload'],
+    alternateSlug: 'ia-etica-40-milioni-scelte',
+    content: [
+      {
+        type: 'p',
+        text: "When a self-driving car's brakes fail and a crash is unavoidable, who should the algorithm protect — the passenger inside, or the pedestrian outside? This question sounds abstract until you realise that engineers are encoding an answer right now, invisibly, in every autonomous vehicle on the road.",
+      },
+      {
+        type: 'p',
+        text: "In 2018, researchers at MIT ran a large-scale experiment to study what people actually believe about these choices. They built a platform called the Moral Machine and collected over 40 million decisions from people in 233 countries — the largest cross-cultural moral survey ever conducted.",
+      },
+      {
+        type: 'h2',
+        text: 'What the Moral Machine found',
+      },
+      {
+        type: 'p',
+        text: 'Participants were shown variations of the same scenario: an autonomous vehicle facing an unavoidable crash, with different groups in harm\'s way. The researchers varied who was inside the car, who was outside, how many people were involved, whether pedestrians were crossing legally, and other factors.',
+      },
+      {
+        type: 'p',
+        text: "Across those 40 million responses, Awad and colleagues (Nature, 2018) identified several preferences that held broadly across cultures.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Save more lives when numbers differ — most people preferred outcomes that minimised total deaths',
+          'Spare younger people — a preference for saving children over adults, and adults over the elderly, held in most countries',
+          'Reward lawful behaviour — pedestrians crossing legally were more likely to be spared than those jaywalking',
+          'Spare humans over animals — among the most consistent cross-cultural findings in the entire dataset',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Where the world splits',
+      },
+      {
+        type: 'p',
+        text: 'The headline finding was not consensus — it was variation. The researchers identified three distinct cultural clusters. Western countries (most of Europe and North America) showed a stronger preference for sparing pedestrians over passengers. East Asian respondents weighted the preference for sparing the elderly more than Western participants did. Countries in the Global South formed a third cluster, placing greater weight on saving more lives regardless of other characteristics.',
+      },
+      {
+        type: 'p',
+        text: "This variation matters enormously for policy. A self-driving car programmed in California will embed the moral preferences of Californian engineers and regulators — then it will be sold in Tokyo, São Paulo, and Berlin. The Moral Machine showed there is no single global answer to who the algorithm should protect.",
+      },
+      {
+        type: 'h2',
+        text: 'The deeper problem: who decides?',
+      },
+      {
+        type: 'p',
+        text: "Even if there were a clear cross-cultural consensus, a second question remains unanswered: whose preferences should the car follow? The passenger who paid for it? The majority of society? A national regulator? An international standards body? None of these answers is obvious.",
+      },
+      {
+        type: 'p',
+        text: "These are not technical questions. They are political and philosophical ones — about accountability, liability, and the legitimacy of encoding moral choices into code. When a human driver makes a split-second decision, we hold them responsible. When an algorithm does, the accountability chain fractures. Is it the software engineer? The company? The government that approved the car?",
+      },
+      {
+        type: 'h2',
+        text: 'Three dilemmas you can vote on now',
+      },
+      {
+        type: 'p',
+        text: "The self-driving car crash is not the only place AI now makes moral choices. The same logic applies to automated sentencing tools, content moderation systems, and hiring algorithms. Here are three dilemmas that put the questions directly — vote and see how you compare with people worldwide.",
+      },
+      {
+        type: 'cta',
+        label: 'Who should the car protect? Vote →',
+        href: '/play/self-driving-crash',
+      },
+      {
+        type: 'p',
+        text: 'If AI is proven 30% more accurate than human judges in criminal trials, should we replace human judges? The accuracy argument is compelling. So is the accountability one.',
+      },
+      {
+        type: 'cta',
+        label: 'Should AI replace judges? Vote →',
+        href: '/play/robot-judge',
+      },
+      {
+        type: 'p',
+        text: 'When AI is projected to eliminate 30% of jobs in a decade, should governments slow it down or let markets and retraining programmes adapt?',
+      },
+      {
+        type: 'cta',
+        label: 'AI and jobs: slow it down or let it happen? Vote →',
+        href: '/play/ai-replaces-jobs',
+      },
+      {
+        type: 'h2',
+        text: 'Why your vote adds up to something',
+      },
+      {
+        type: 'p',
+        text: "Surveys about abstract ethics often tell us what people think they believe. Moral dilemmas in a live voting context — where you see results from thousands of others in real time — reveal something closer to revealed preference. When you see that 58% of voters chose to protect the pedestrian, or that the split in your region differs from the global average, it changes how you hold the question.",
+      },
+      {
+        type: 'p',
+        text: "The Moral Machine's 40 million data points were collected from self-selected participants — not a representative sample. SplitVote's votes come from the same kind of audience. But aggregate moral preferences, even imperfect ones, matter: they are part of how societies form norms, and norms eventually shape law.",
+      },
+      {
+        type: 'cta',
+        label: 'Explore all AI ethics dilemmas →',
+        href: '/ai-ethics-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presents ethical dilemmas for reflection and discussion. Results represent our community's votes, not scientific conclusions. Source: Awad et al., 'The Moral Machine experiment', Nature 558, 59–64 (2018).",
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -2184,6 +2306,128 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "Gli archetipi SplitVote sono solo per intrattenimento e auto-riflessione — non uno strumento di valutazione psicologica, diagnostica o misura scientifica.",
+      },
+    ],
+  },
+  {
+    slug: 'ia-etica-40-milioni-scelte',
+    locale: 'it',
+    title: "Etica dell'IA: Cosa Hanno Scelto 40 Milioni di Persone sugli Incidenti delle Auto Autonome",
+    seoTitle: "Dilemmi Etici dell'Intelligenza Artificiale: Lo Studio Moral Machine e le Scelte di 40 Milioni di Persone",
+    description:
+      "Nel 2018, i ricercatori del MIT hanno raccolto 40 milioni di decisioni morali da 233 paesi sugli incidenti delle auto a guida autonoma. Ecco cosa crede davvero il mondo — e perché le risposte differiscono così tanto tra culture.",
+    seoDescription:
+      "Un esperimento del 2018 ha raccolto 40 milioni di decisioni morali da 233 paesi su scenari di crash con auto autonome. Scopri cosa hanno scelto le persone, dove le culture si dividono e cosa significa per l'etica dell'IA.",
+    date: '2026-05-09',
+    readingTime: 6,
+    tags: ['etica ia', 'auto a guida autonoma', 'moral machine', 'etica tecnologia', 'filosofia'],
+    relatedDilemmaIds: ['self-driving-crash', 'robot-judge', 'ai-replaces-jobs', 'ai-art-copyright', 'brain-upload'],
+    alternateSlug: 'ai-ethics-what-40-million-people-chose',
+    content: [
+      {
+        type: 'p',
+        text: "Quando i freni di un'auto a guida autonoma cedono e un incidente è inevitabile, chi deve proteggere l'algoritmo — il passeggero a bordo o il pedone fuori? La domanda sembra astratta, finché non ci si rende conto che gli ingegneri stanno codificando una risposta proprio in questo momento, in modo invisibile, in ogni veicolo autonomo sulle strade.",
+      },
+      {
+        type: 'p',
+        text: "Nel 2018, un gruppo di ricercatori del MIT ha condotto un esperimento su larga scala per studiare cosa credono davvero le persone riguardo a queste scelte. Hanno costruito una piattaforma chiamata Moral Machine e raccolto oltre 40 milioni di decisioni da persone in 233 paesi — il più grande sondaggio morale cross-culturale mai realizzato.",
+      },
+      {
+        type: 'h2',
+        text: 'Cosa ha scoperto il Moral Machine',
+      },
+      {
+        type: 'p',
+        text: "Ai partecipanti venivano mostrate variazioni dello stesso scenario: un veicolo autonomo di fronte a un incidente inevitabile, con diversi gruppi a rischio. I ricercatori variavano chi si trovava all'interno dell'auto, chi era fuori, quante persone erano coinvolte, se i pedoni attraversavano con il semaforo verde, e altri fattori.",
+      },
+      {
+        type: 'p',
+        text: "Analizzando quei 40 milioni di risposte, Awad e colleghi (Nature, 2018) hanno identificato diverse preferenze che emergevano con una certa coerenza tra le culture.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Salvare più vite quando i numeri differiscono — la maggior parte delle persone preferiva gli esiti che minimizzavano il numero totale di morti',
+          'Risparmiare i più giovani — la preferenza per salvare bambini rispetto agli adulti, e adulti rispetto agli anziani, era presente nella maggior parte dei paesi',
+          'Premiare il comportamento rispettoso delle regole — i pedoni che attraversavano con semaforo verde erano più spesso salvati rispetto a chi attraversava fuori dalle strisce',
+          "Risparmiare gli esseri umani rispetto agli animali — uno dei risultati più costanti e trasversali dell'intero dataset",
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Dove il mondo si divide',
+      },
+      {
+        type: 'p',
+        text: "Il dato più rilevante non era il consenso — era la variazione. I ricercatori hanno identificato tre distinti cluster culturali. I paesi occidentali (gran parte di Europa e Nord America) mostravano una preferenza più marcata per proteggere i pedoni rispetto ai passeggeri. I paesi dell'Asia orientale attribuivano maggiore peso al risparmio degli anziani rispetto ai partecipanti occidentali. I paesi del Sud del mondo formavano un terzo cluster, con una tendenza a privilegiare la minimizzazione del numero totale di vittime indipendentemente da altre caratteristiche.",
+      },
+      {
+        type: 'p',
+        text: "Questa variazione ha implicazioni enormi per le politiche pubbliche. Un'auto a guida autonoma programmata in California incorporerà le preferenze morali degli ingegneri e dei regolatori californiani — ma poi verrà venduta a Tokyo, São Paulo e Berlino. Il Moral Machine ha dimostrato che non esiste una risposta globale univoca su chi l'algoritmo debba proteggere.",
+      },
+      {
+        type: 'h2',
+        text: 'Il problema più profondo: chi decide?',
+      },
+      {
+        type: 'p',
+        text: "Anche se ci fosse un consenso cross-culturale chiaro, resterebbe irrisolta una seconda domanda: le preferenze di chi dovrebbe seguire l'auto? Del passeggero che l'ha pagata? Della maggioranza della società? Di un regolatore nazionale? Di un organismo internazionale di standardizzazione? Nessuna di queste risposte è ovvia.",
+      },
+      {
+        type: 'p',
+        text: "Non sono domande tecniche. Sono domande politiche e filosofiche — sulla responsabilità, sulla responsabilità legale e sulla legittimità di codificare scelte morali in algoritmi. Quando un guidatore umano prende una decisione in una frazione di secondo, possiamo tenerlo responsabile. Quando lo fa un algoritmo, la catena di responsabilità si spezza. È colpa dell'ingegnere del software? Dell'azienda? Del governo che ha approvato il veicolo?",
+      },
+      {
+        type: 'h2',
+        text: 'Tre dilemmi su cui puoi votare adesso',
+      },
+      {
+        type: 'p',
+        text: "Il crash dell'auto autonoma non è l'unico contesto in cui l'IA prende oggi decisioni morali. La stessa logica si applica agli strumenti automatizzati di sentencing, ai sistemi di moderazione dei contenuti e agli algoritmi di selezione del personale. Ecco tre dilemmi che mettono le domande direttamente al centro — vota e scopri come ti compari con persone da tutto il mondo.",
+      },
+      {
+        type: 'cta',
+        label: "Chi deve proteggere l'auto? Vota →",
+        href: '/it/play/self-driving-crash',
+      },
+      {
+        type: 'p',
+        text: "Se un'IA è dimostrata accurata il 30% in più rispetto ai giudici umani nei processi penali, dovremmo sostituire i giudici umani con l'IA? L'argomento dell'accuratezza è convincente. Lo è anche quello della responsabilità.",
+      },
+      {
+        type: 'cta',
+        label: "L'IA dovrebbe sostituire i giudici? Vota →",
+        href: '/it/play/robot-judge',
+      },
+      {
+        type: 'p',
+        text: "Quando si prevede che l'IA eliminerà il 30% dei posti di lavoro in un decennio, i governi dovrebbero rallentarne l'adozione o lasciare che i mercati e i programmi di riqualificazione si adattino?",
+      },
+      {
+        type: 'cta',
+        label: "IA e lavoro: frenare o lasciar andare? Vota →",
+        href: '/it/play/ai-replaces-jobs',
+      },
+      {
+        type: 'h2',
+        text: 'Perché il tuo voto conta',
+      },
+      {
+        type: 'p',
+        text: "I sondaggi sull'etica astratta spesso ci dicono cosa le persone pensano di credere. I dilemmi morali in un contesto di voto dal vivo — dove vedi in tempo reale i risultati di migliaia di altri — rivelano qualcosa di più vicino alle preferenze reali. Quando vedi che il 58% dei votanti ha scelto di proteggere il pedone, o che la divisione nella tua area geografica è molto diversa dalla media globale, il modo in cui tieni la domanda cambia.",
+      },
+      {
+        type: 'p',
+        text: "I 40 milioni di dati del Moral Machine provengono da partecipanti che si sono iscritti volontariamente — non un campione rappresentativo dell'umanità. I voti di SplitVote vengono dallo stesso tipo di pubblico. Ma le preferenze morali aggregate, anche imperfette, hanno peso: fanno parte del modo in cui le società formano le norme, e le norme alla fine modellano le leggi.",
+      },
+      {
+        type: 'cta',
+        label: "Esplora tutti i dilemmi sull'etica dell'IA →",
+        href: '/it/dilemmi-etici-intelligenza-artificiale',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche. Fonte: Awad et al., 'The Moral Machine experiment', Nature 558, 59–64 (2018).",
       },
     ],
   },
