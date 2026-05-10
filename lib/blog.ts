@@ -2988,6 +2988,166 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'trolley-problem-moral-personality',
+    locale: 'en',
+    title: 'What Your Trolley Problem Answer Reveals About Your Moral Personality',
+    seoTitle: 'What Your Trolley Problem Answer Says About Your Moral Personality',
+    description:
+      'Most people pull the lever — but nearly half do not. The reason why reveals something deep about how your moral brain works.',
+    seoDescription:
+      'Do you pull the lever on the trolley problem? Your answer reveals whether you reason like a utilitarian or a deontologist — and maps to a specific moral personality archetype.',
+    date: '2026-05-10',
+    readingTime: 6,
+    tags: ['trolley problem', 'moral psychology', 'ethics', 'personality'],
+    relatedDilemmaIds: ['trolley', 'organ-harvest', 'self-driving-crash', 'innocent-juror', 'cure-secret'],
+    alternateSlug: 'problema-tram-personalita-morale',
+    content: [
+      {
+        type: 'p',
+        text: 'A trolley is speeding toward five people who are tied to the tracks. You are standing next to a lever. Pull it, and the trolley diverts onto a side track — where one person stands. Do nothing, and five people die. What do you do?',
+      },
+      {
+        type: 'p',
+        text: 'Most people pull the lever. But the split is never 90/10. On SplitVote, it consistently runs closer to 60/40. That persistent minority — people who refuse to pull — is not confused or cruel. They have a coherent moral framework that leads them to a different conclusion.',
+      },
+      {
+        type: 'p',
+        text: 'The trolley problem was designed by philosopher Philippa Foot in 1967 precisely to expose this kind of deep disagreement. Six decades later, it remains the most discussed thought experiment in moral philosophy — and the divergence in answers has never fully closed.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote on the trolley problem now →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Two moral frameworks, one lever',
+      },
+      {
+        type: 'p',
+        text: 'The core reason people split on the trolley problem is that they are operating under fundamentally different moral frameworks — without always knowing it.',
+      },
+      {
+        type: 'p',
+        text: 'Utilitarians count outcomes: five lives saved outweigh one lost. For them, pulling the lever is not just permissible — it is required. Failing to pull it is a moral failure of omission. Deontologists focus on acts rather than consequences: pulling the lever makes you the agent of the one person\'s death. You are using someone as a means to save others. That, for many, is a line they will not cross regardless of the arithmetic.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Pull the lever → utilitarian reasoning: outcomes matter most',
+          'Don\'t pull → deontological reasoning: some acts are wrong regardless of outcomes',
+          'Can\'t decide → virtue ethics: what would a good person do in this situation?',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'The footbridge variant changes everything',
+      },
+      {
+        type: 'p',
+        text: 'Philosopher Judith Jarvis Thomson introduced a variant that scrambles the intuitions: you are on a footbridge above the tracks. Next to you stands a large man. If you push him onto the tracks, his body will stop the trolley and save five lives. He will die. Do you push?',
+      },
+      {
+        type: 'p',
+        text: 'Most people say no — even those who pulled the lever in the original version. The arithmetic is identical (one death saves five), but the physical act of pushing someone changes the moral response dramatically.',
+      },
+      {
+        type: 'p',
+        text: 'Researchers including Joshua Greene at Harvard have used this divergence to argue that two separate cognitive systems are active in moral judgment: a fast emotional system that reacts to the physical act of pushing, and a slower deliberative system that calculates consequences. In the lever case, the emotional response is lower — pulling a lever is more abstract. In the footbridge case, it overpowers the calculation for most people.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote: would you harvest one organ to save five lives? →',
+        href: '/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: 'The doctrine of double effect',
+      },
+      {
+        type: 'p',
+        text: 'Catholic moral philosophy developed a principle — the doctrine of double effect — that many people apply intuitively without knowing the name. An action that causes harm is permissible if: the action itself is not intrinsically wrong; you intend the good effect, not the bad; the bad effect is a foreseen side effect, not the means to the good; and the good effect is proportionate to the bad.',
+      },
+      {
+        type: 'p',
+        text: 'Under this doctrine, pulling the lever is acceptable (you intend to save five; the death of one is a foreseen side effect). Pushing the man is not (his death is the direct means to saving the others). This maps precisely onto why so many people who pull the lever also refuse to push.',
+      },
+      {
+        type: 'h2',
+        text: 'Your answer and your moral archetype',
+      },
+      {
+        type: 'p',
+        text: 'How you answer the trolley problem is not a perfect predictor of your moral type — but it is a signal. SplitVote\'s personality system maps voters across five ethical axes. Trolley problem responses tend to cluster around three archetypes:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Guardians and Sentinels: rule-oriented, tend not to pull — preserving the order of who caused the threat matters',
+          'Strategists and Oracles: outcome-focused, tend to pull — five lives saved is five lives saved',
+          'Empaths and Caretakers: emotionally driven, often conflicted — feel both the five and the one acutely, may refuse to choose',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Of course, context changes everything. People who pull the lever on the basic trolley problem may refuse when the victim is someone they love. Moral responses are stable across populations but variable within individuals when the stakes become personal.',
+      },
+      {
+        type: 'cta',
+        label: 'Discover your moral personality archetype →',
+        href: '/personality',
+      },
+      {
+        type: 'h2',
+        text: 'Cross-dilemma consistency: does your answer hold?',
+      },
+      {
+        type: 'p',
+        text: 'The interesting question is not just what you answer on the trolley problem — it is whether you are consistent across related scenarios. People who identify as consequentialists sometimes refuse to answer consistently when the victim is personalized. People who claim deontological principles sometimes allow exceptions when lives saved rise from five to fifty.',
+      },
+      {
+        type: 'p',
+        text: 'That inconsistency is not hypocrisy — it is a feature of moral psychology. Real ethical reasoning is often more intuition-driven and context-sensitive than we like to admit. The trolley problem surfaces this gap between stated principles and actual responses.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote: who is responsible when a self-driving car must choose? →',
+        href: '/play/self-driving-crash',
+      },
+      {
+        type: 'h2',
+        text: 'What does it mean for real-world ethics?',
+      },
+      {
+        type: 'p',
+        text: 'Trolley problems were dismissed for decades as overly abstract. Then real-world analogues arrived: self-driving car algorithms that must prioritize in crash scenarios, triage protocols during pandemics, AI systems that optimize for metrics that may harm individuals.',
+      },
+      {
+        type: 'p',
+        text: 'The question of whether to divert harm — and who bears the cost — is no longer hypothetical. The split we see on SplitVote between outcome-thinkers and rule-thinkers reflects a genuine societal divide over how those systems should be built.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote: innocent prisoner — stay silent or testify? →',
+        href: '/play/innocent-juror',
+      },
+      {
+        type: 'cta',
+        label: 'What is a moral dilemma? →',
+        href: '/blog/what-is-a-moral-dilemma',
+      },
+      {
+        type: 'cta',
+        label: 'Consequentialism: the greatest good for the greatest number →',
+        href: '/blog/consequentialism-the-greatest-good',
+      },
+      {
+        type: 'disclaimer',
+        text: 'References to trolley problem research, dual-process moral psychology, and the doctrine of double effect are for contextual and educational purposes. Research described is attributed to Philippa Foot, Judith Jarvis Thomson, and Joshua Greene. SplitVote is an entertainment and reflection platform, not a scientific study. Archetype associations described are illustrative patterns, not statistically validated predictions.',
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -5946,6 +6106,166 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "I riferimenti alla ricerca sull'effetto spettatore, diffusione della responsabilità, ignoranza pluralistica e disimpegno morale sono a scopo contestuale ed educativo. La ricerca originale descritta è attribuita a Darley, Latané e Bandura. Il caso citato riflette i resoconti storici rivisti che hanno messo in discussione i primi articoli di stampa. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico. I dati di voto descritti rappresentano pattern della community, non risultati sperimentali controllati.",
+      },
+    ],
+  },
+  {
+    slug: 'problema-tram-personalita-morale',
+    locale: 'it',
+    title: 'Cosa rivela la tua risposta al problema del tram sulla tua personalità morale',
+    seoTitle: 'Problema del Tram e Personalità Morale: Cosa Rivela la Tua Risposta',
+    description:
+      'La maggior parte delle persone tira la leva — ma quasi la metà no. Il motivo rivela qualcosa di profondo su come funziona il tuo cervello morale.',
+    seoDescription:
+      'Tiri la leva nel problema del tram? La tua risposta rivela se ragioni come un utilitarista o un deontologista — e si collega a un archetipo di personalità morale specifico.',
+    date: '2026-05-10',
+    readingTime: 6,
+    tags: ['problema del tram', 'psicologia morale', 'etica', 'personalità'],
+    relatedDilemmaIds: ['trolley', 'organ-harvest', 'self-driving-crash', 'innocent-juror', 'cure-secret'],
+    alternateSlug: 'trolley-problem-moral-personality',
+    content: [
+      {
+        type: 'p',
+        text: 'Un tram fuori controllo sta per investire cinque persone legate ai binari. Sei vicino a una leva. Tirarla devierebbe il tram su un binario laterale — dove si trova una persona. Non fare nulla significa cinque morti. Cosa fai?',
+      },
+      {
+        type: 'p',
+        text: 'La maggior parte delle persone tira la leva. Ma la divisione non è mai 90/10. Su SplitVote si attesta costantemente vicino al 60/40. Quella minoranza persistente — le persone che rifiutano di tirare — non è confusa né crudele. Ha un sistema morale coerente che la porta a una conclusione diversa.',
+      },
+      {
+        type: 'p',
+        text: 'Il problema del tram fu formulato dalla filosofa Philippa Foot nel 1967 proprio per esporre questo tipo di disaccordo profondo. Sei decenni dopo, rimane l\'esperimento mentale più discusso della filosofia morale — e la divergenza nelle risposte non si è mai chiusa del tutto.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota sul problema del tram ora →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Due sistemi morali, una leva',
+      },
+      {
+        type: 'p',
+        text: 'La ragione fondamentale per cui le persone si dividono sul problema del tram è che operano con sistemi morali radicalmente diversi — spesso senza saperlo.',
+      },
+      {
+        type: 'p',
+        text: 'Gli utilitaristi contano gli esiti: cinque vite salvate pesano più di una persa. Per loro, tirare la leva non è solo permissibile — è obbligatorio. Non farlo è un fallimento morale per omissione. I deontologisti si concentrano sugli atti, non sulle conseguenze: tirare la leva ti rende l\'agente della morte di quella persona. La stai usando come mezzo per salvare gli altri. Questo, per molti, è un confine che non attraverseranno indipendentemente dall\'aritmetica.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Tiri la leva → ragionamento utilitarista: gli esiti contano di più',
+          'Non tiri → ragionamento deontologico: certi atti sono sbagliati indipendentemente dagli esiti',
+          'Non riesci a decidere → etica della virtù: cosa farebbe una persona buona in questa situazione?',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'La variante del ponte cambia tutto',
+      },
+      {
+        type: 'p',
+        text: 'La filosofa Judith Jarvis Thomson introdusse una variante che sconvolge le intuizioni: sei su un ponte sopra i binari. Accanto a te c\'è un uomo corpulento. Se lo spingi sui binari, il suo corpo fermerà il tram e salverà cinque persone. Lui morirà. Lo spingi?',
+      },
+      {
+        type: 'p',
+        text: 'La maggior parte delle persone dice no — anche quelle che hanno tirato la leva nella versione originale. L\'aritmetica è identica (una morte salva cinque), ma l\'atto fisico di spingere qualcuno cambia drasticamente la risposta morale.',
+      },
+      {
+        type: 'p',
+        text: 'Ricercatori come Joshua Greene di Harvard hanno usato questa divergenza per sostenere che nel giudizio morale sono attivi due sistemi cognitivi separati: un sistema emotivo rapido che reagisce all\'atto fisico di spingere, e un sistema deliberativo più lento che calcola le conseguenze. Nel caso della leva, la risposta emotiva è più bassa — tirare una leva è più astratto. Nel caso del ponte, sovrasta il calcolo per la maggior parte delle persone.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota: useresti un organo per salvare cinque vite? →',
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: 'La dottrina del doppio effetto',
+      },
+      {
+        type: 'p',
+        text: 'La filosofia morale cattolica ha sviluppato un principio — la dottrina del doppio effetto — che molte persone applicano intuitivamente senza conoscere il nome. Un\'azione che causa danno è permissibile se: l\'azione in sé non è intrinsecamente sbagliata; intendi l\'effetto buono, non quello cattivo; l\'effetto cattivo è una conseguenza collaterale prevista, non il mezzo per raggiungere il bene; e l\'effetto buono è proporzionato a quello cattivo.',
+      },
+      {
+        type: 'p',
+        text: 'Secondo questa dottrina, tirare la leva è accettabile (intendi salvare cinque; la morte di uno è una conseguenza collaterale prevista). Spingere l\'uomo non lo è (la sua morte è il mezzo diretto per salvare gli altri). Questo spiega esattamente perché così tante persone che tirano la leva si rifiutano anche di spingere.',
+      },
+      {
+        type: 'h2',
+        text: 'La tua risposta e il tuo archetipo morale',
+      },
+      {
+        type: 'p',
+        text: 'Come risponde al problema del tram non predice perfettamente il tuo tipo morale — ma è un segnale. Il sistema di personalità di SplitVote mappa i votanti su cinque assi etici. Le risposte al problema del tram tendono a raggrupparsi attorno a tre archetipi:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Guardiani e Sentinelle: orientati alle regole, tendono a non tirare — rispettare l\'ordine di chi ha causato la minaccia conta',
+          'Strateghi e Oracoli: orientati agli esiti, tendono a tirare — cinque vite salvate sono cinque vite salvate',
+          'Empatici e Custodi: guidati dalle emozioni, spesso in conflitto — sentono sia il cinque che l\'uno acutamente, possono rifiutarsi di scegliere',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Il contesto cambia tutto, naturalmente. Le persone che tirano la leva nel problema base potrebbero rifiutarsi quando la vittima è qualcuno che amano. Le risposte morali sono stabili tra le popolazioni ma variabili all\'interno degli individui quando la posta diventa personale.',
+      },
+      {
+        type: 'cta',
+        label: 'Scopri il tuo archetipo di personalità morale →',
+        href: '/it/personality',
+      },
+      {
+        type: 'h2',
+        text: 'Coerenza tra dilemmi: la tua risposta regge?',
+      },
+      {
+        type: 'p',
+        text: 'La domanda interessante non è solo cosa rispondi al problema del tram — ma se sei coerente attraverso scenari correlati. Le persone che si identificano come consequenzialiste a volte non rispondono in modo coerente quando la vittima viene personalizzata. Le persone che rivendicano principi deontologici a volte ammettono eccezioni quando le vite salvate salgono da cinque a cinquanta.',
+      },
+      {
+        type: 'p',
+        text: 'Quella incoerenza non è ipocrisia — è una caratteristica della psicologia morale. Il ragionamento etico reale è spesso più guidato dall\'intuizione e sensibile al contesto di quanto ci piaccia ammettere. Il problema del tram porta in superficie questo divario tra principi dichiarati e risposte reali.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota: chi è responsabile quando un\'auto autonoma deve scegliere? →',
+        href: '/it/play/self-driving-crash',
+      },
+      {
+        type: 'h2',
+        text: 'Cosa significa per l\'etica reale',
+      },
+      {
+        type: 'p',
+        text: 'I problemi del tram sono stati liquidati per decenni come troppo astratti. Poi sono arrivati gli analoghi reali: algoritmi di auto a guida autonoma che devono dare priorità negli scenari di incidente, protocolli di triage durante le pandemie, sistemi di intelligenza artificiale che ottimizzano per metriche che possono danneggiare gli individui.',
+      },
+      {
+        type: 'p',
+        text: 'La questione se deviare il danno — e chi ne paga il costo — non è più ipotetica. La divisione che vediamo su SplitVote tra pensatori orientati agli esiti e pensatori orientati alle regole riflette una genuina divisione sociale su come quei sistemi dovrebbero essere costruiti.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota: prigioniero innocente — tacere o testimoniare? →',
+        href: '/it/play/innocent-juror',
+      },
+      {
+        type: 'cta',
+        label: "Cos'è un dilemma morale? →",
+        href: '/it/blog/cos-e-un-dilemma-morale',
+      },
+      {
+        type: 'cta',
+        label: 'Consequenzialismo: il maggior bene per il maggior numero →',
+        href: '/it/blog/consequenzialismo-il-bene-maggiore',
+      },
+      {
+        type: 'disclaimer',
+        text: 'I riferimenti alla ricerca sul problema del tram, sulla psicologia morale a doppio processo e sulla dottrina del doppio effetto sono a scopo contestuale ed educativo. La ricerca descritta è attribuita a Philippa Foot, Judith Jarvis Thomson e Joshua Greene. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico. Le associazioni di archetipi descritte sono pattern illustrativi, non previsioni statisticamente validate.',
       },
     ],
   },
