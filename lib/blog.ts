@@ -177,6 +177,11 @@ const EN_POSTS: BlogPost[] = [
         href: '/blog/deontology-some-things-are-always-wrong',
       },
       {
+        type: 'cta',
+        label: 'Doing vs allowing harm: why the distinction matters →',
+        href: '/blog/doing-vs-allowing-harm',
+      },
+      {
         type: 'disclaimer',
         text: 'Educational content, not professional advice.',
       },
@@ -1142,6 +1147,16 @@ const EN_POSTS: BlogPost[] = [
         href: '/blog/virtue-ethics-what-would-a-good-person-do',
       },
       {
+        type: 'cta',
+        label: 'Why good people disagree: Moral Foundations Theory explained →',
+        href: '/blog/moral-foundations-theory-why-good-people-disagree',
+      },
+      {
+        type: 'cta',
+        label: 'How science studies moral intuitions →',
+        href: '/blog/experimental-moral-psychology-how-science-studies-moral-intuitions',
+      },
+      {
         type: 'disclaimer',
         text: 'SplitVote archetypes are for entertainment and self-reflection only — not a psychological assessment, diagnostic tool, or scientific measure.',
       },
@@ -1418,6 +1433,16 @@ const EN_POSTS: BlogPost[] = [
         href: '/moral-dilemmas',
       },
       {
+        type: 'cta',
+        label: 'Bioethics: when medicine forces impossible choices →',
+        href: '/blog/bioethics-when-medicine-forces-impossible-choices',
+      },
+      {
+        type: 'cta',
+        label: 'Doing vs allowing harm: the distinction that shapes medical and legal ethics →',
+        href: '/blog/doing-vs-allowing-harm',
+      },
+      {
         type: 'disclaimer',
         text: 'Educational content, not professional advice of any kind. SplitVote results are user polls, not scientific research. All scenarios are hypothetical.',
       },
@@ -1540,6 +1565,16 @@ const EN_POSTS: BlogPost[] = [
         href: '/ai-ethics-dilemmas',
       },
       {
+        type: 'cta',
+        label: 'How science studies moral intuitions →',
+        href: '/blog/experimental-moral-psychology-how-science-studies-moral-intuitions',
+      },
+      {
+        type: 'cta',
+        label: 'Bioethics: when medicine forces impossible choices →',
+        href: '/blog/bioethics-when-medicine-forces-impossible-choices',
+      },
+      {
         type: 'disclaimer',
         text: "SplitVote presents ethical dilemmas for reflection and discussion. Results represent our community's votes, not scientific conclusions. Source: Awad et al., 'The Moral Machine experiment', Nature 558, 59–64 (2018).",
       },
@@ -1651,6 +1686,16 @@ const EN_POSTS: BlogPost[] = [
         href: '/loyalty-vs-honesty',
       },
       {
+        type: 'cta',
+        label: 'Why good people disagree: Moral Foundations Theory explained →',
+        href: '/blog/moral-foundations-theory-why-good-people-disagree',
+      },
+      {
+        type: 'cta',
+        label: 'Privacy in public voting: what your anonymous vote reveals →',
+        href: '/blog/privacy-in-public-voting',
+      },
+      {
         type: 'disclaimer',
         text: "SplitVote presents ethical dilemmas for reflection and discussion. Mention of Moral Foundations Theory is for context only — SplitVote's design is inspired by, and not a replication of, any academic framework. Results represent our community's votes, not scientific conclusions.",
       },
@@ -1750,6 +1795,11 @@ const EN_POSTS: BlogPost[] = [
         href: '/moral-dilemmas',
       },
       {
+        type: 'cta',
+        label: 'Bioethics: when medicine forces impossible choices →',
+        href: '/blog/bioethics-when-medicine-forces-impossible-choices',
+      },
+      {
         type: 'disclaimer',
         text: "SplitVote presents ethical dilemmas for reflection and discussion. References to philosophical frameworks are for context only — the goal is to help you reflect, not to provide academic instruction. Results represent our community's votes, not scientific conclusions.",
       },
@@ -1842,6 +1892,16 @@ const EN_POSTS: BlogPost[] = [
         type: 'cta',
         label: 'Explore all moral dilemmas →',
         href: '/moral-dilemmas',
+      },
+      {
+        type: 'cta',
+        label: 'Doing vs allowing harm: the distinction deontology cares about most →',
+        href: '/blog/doing-vs-allowing-harm',
+      },
+      {
+        type: 'cta',
+        label: 'Bioethics: when medicine forces impossible choices →',
+        href: '/blog/bioethics-when-medicine-forces-impossible-choices',
       },
       {
         type: 'disclaimer',
@@ -1944,6 +2004,16 @@ const EN_POSTS: BlogPost[] = [
         type: 'cta',
         label: 'Explore all moral dilemmas →',
         href: '/moral-dilemmas',
+      },
+      {
+        type: 'cta',
+        label: 'Bioethics: when medicine forces impossible choices →',
+        href: '/blog/bioethics-when-medicine-forces-impossible-choices',
+      },
+      {
+        type: 'cta',
+        label: 'How science studies moral intuitions →',
+        href: '/blog/experimental-moral-psychology-how-science-studies-moral-intuitions',
       },
       {
         type: 'disclaimer',
@@ -2780,6 +2850,11 @@ const IT_POSTS: BlogPost[] = [
         href: '/it/blog/deontologia-alcune-cose-sono-sempre-sbagliate',
       },
       {
+        type: 'cta',
+        label: 'Causare vs permettere il danno: perché la distinzione conta →',
+        href: '/it/blog/causare-vs-permettere-danno',
+      },
+      {
         type: 'disclaimer',
         text: 'Contenuto educativo, non consulenza professionale.',
       },
@@ -3307,6 +3382,16 @@ const IT_POSTS: BlogPost[] = [
         href: '/it/dilemmi-morali',
       },
       {
+        type: 'cta',
+        label: 'Bioetica: quando la medicina impone scelte impossibili →',
+        href: '/it/blog/bioetica-quando-la-medicina-impone-scelte-impossibili',
+      },
+      {
+        type: 'cta',
+        label: 'Causare vs permettere il danno: la distinzione che conta in etica medica e legale →',
+        href: '/it/blog/causare-vs-permettere-danno',
+      },
+      {
         type: 'disclaimer',
         text: 'Contenuto educativo, non consulenza professionale di alcun tipo. I risultati SplitVote sono sondaggi utente, non ricerca scientifica. Tutti gli scenari sono ipotetici.',
       },
@@ -3789,6 +3874,16 @@ const IT_POSTS: BlogPost[] = [
         href: '/it/blog/etica-della-virtu-cosa-farebbe-una-persona-buona',
       },
       {
+        type: 'cta',
+        label: 'Perché le persone per bene non sono d\'accordo: la Teoria dei Fondamenti Morali →',
+        href: '/it/blog/teoria-fondamenti-morali',
+      },
+      {
+        type: 'cta',
+        label: 'Come la scienza studia le intuizioni morali →',
+        href: '/it/blog/psicologia-morale-sperimentale-come-la-scienza-studia-le-intuizioni-morali',
+      },
+      {
         type: 'disclaimer',
         text: "Gli archetipi SplitVote sono solo per intrattenimento e auto-riflessione — non uno strumento di valutazione psicologica, diagnostica o misura scientifica.",
       },
@@ -4137,6 +4232,16 @@ const IT_POSTS: BlogPost[] = [
         href: '/it/dilemmi-etici-intelligenza-artificiale',
       },
       {
+        type: 'cta',
+        label: 'Come la scienza studia le intuizioni morali →',
+        href: '/it/blog/psicologia-morale-sperimentale-come-la-scienza-studia-le-intuizioni-morali',
+      },
+      {
+        type: 'cta',
+        label: 'Bioetica: quando la medicina impone scelte impossibili →',
+        href: '/it/blog/bioetica-quando-la-medicina-impone-scelte-impossibili',
+      },
+      {
         type: 'disclaimer',
         text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche. Fonte: Awad et al., 'The Moral Machine experiment', Nature 558, 59–64 (2018).",
       },
@@ -4248,6 +4353,16 @@ const IT_POSTS: BlogPost[] = [
         href: '/it/lealta-vs-onesta',
       },
       {
+        type: 'cta',
+        label: 'Perché le persone per bene non sono d\'accordo: la Teoria dei Fondamenti Morali →',
+        href: '/it/blog/teoria-fondamenti-morali',
+      },
+      {
+        type: 'cta',
+        label: 'Privacy nel voto pubblico: cosa rivela il tuo voto anonimo →',
+        href: '/it/blog/privacy-nel-voto-pubblico',
+      },
+      {
         type: 'disclaimer',
         text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. Il riferimento alla Moral Foundations Theory è solo contestuale — il design di SplitVote è ispirato a, e non una replica di, alcun framework accademico. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
       },
@@ -4347,6 +4462,11 @@ const IT_POSTS: BlogPost[] = [
         href: '/it/dilemmi-morali',
       },
       {
+        type: 'cta',
+        label: 'Bioetica: quando la medicina impone scelte impossibili →',
+        href: '/it/blog/bioetica-quando-la-medicina-impone-scelte-impossibili',
+      },
+      {
         type: 'disclaimer',
         text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework filosofici sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire istruzione accademica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
       },
@@ -4439,6 +4559,16 @@ const IT_POSTS: BlogPost[] = [
         type: 'cta',
         label: 'Esplora tutti i dilemmi morali →',
         href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'cta',
+        label: 'Causare vs permettere il danno: la distinzione che la deontologia difende →',
+        href: '/it/blog/causare-vs-permettere-danno',
+      },
+      {
+        type: 'cta',
+        label: 'Bioetica: quando la medicina impone scelte impossibili →',
+        href: '/it/blog/bioetica-quando-la-medicina-impone-scelte-impossibili',
       },
       {
         type: 'disclaimer',
@@ -4541,6 +4671,16 @@ const IT_POSTS: BlogPost[] = [
         type: 'cta',
         label: 'Esplora tutti i dilemmi morali →',
         href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'cta',
+        label: 'Bioetica: quando la medicina impone scelte impossibili →',
+        href: '/it/blog/bioetica-quando-la-medicina-impone-scelte-impossibili',
+      },
+      {
+        type: 'cta',
+        label: 'Come la scienza studia le intuizioni morali →',
+        href: '/it/blog/psicologia-morale-sperimentale-come-la-scienza-studia-le-intuizioni-morali',
       },
       {
         type: 'disclaimer',

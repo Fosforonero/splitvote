@@ -158,6 +158,18 @@ nav, main, footer {
 .neon-text-cyan   { text-shadow: 0 0 10px rgba(0,212,255,0.8); }
 .neon-text-yellow { text-shadow: 0 0 10px rgba(255,215,0,0.8); }
 
+/* ── Button neon utilities ───────────────────────────── */
+.btn-neon-blue {
+  cursor: pointer;
+  outline: none;
+}
+.btn-neon-blue:focus-visible {
+  box-shadow: 0 0 0 2px rgba(77,159,255,0.6), 0 0 8px rgba(77,159,255,0.3);
+}
+.btn-neon-blue:active {
+  transform: scale(0.97);
+}
+
 /* ── Card neon hover ─────────────────────────────────── */
 .card-neon {
   transition: all 0.2s ease;
@@ -260,7 +272,11 @@ nav, main, footer {
     animation: none;
   }
   .card-neon,
-  .card-neon-yellow {
+  .card-neon-yellow,
+  .btn-neon-blue {
     transition: none;
+  }
+  .btn-neon-blue:active {
+    transform: none;
   }
 }
