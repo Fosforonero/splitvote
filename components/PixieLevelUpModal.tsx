@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { getPixieImagePath } from '@/lib/pixie'
 import { sharePixieLevelUp } from '@/lib/share-pixie'
-import { STAGE_LABELS } from '@/lib/companion'
+import { STAGE_LABELS, COMPANION_MAP } from '@/lib/companion'
+import type { CompanionSpecies } from '@/lib/companion'
 
 const IT_STAGE_LABELS: Record<number, string> = {
   1: 'Cucciolo',
@@ -58,7 +59,9 @@ export default function PixieLevelUpModal({ species, stage, xp, locale, userId, 
   async function handleShare() {
     const origin = window.location.origin
     const profileUrl = `${origin}/u/${userId}`
-    const result = await sharePixieLevelUp({ stage, stageLabel, profileUrl, locale })
+    const companionDef = COMPANION_MAP[species as CompanionSpecies]
+    const speciesName = companionDef?.name ?? 'Pixie'
+    const result = await sharePixieLevelUp({ species, speciesName, stage, stageLabel, profileUrl, locale })
     setShareState(result)
     if (result !== 'error') {
       setTimeout(() => setShareState('idle'), 2200)

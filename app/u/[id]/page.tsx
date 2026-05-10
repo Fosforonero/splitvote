@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import CompanionDisplay from '@/components/CompanionDisplay'
-import type { CompanionSpecies } from '@/lib/companion'
+import { getCompanionStage, getSpeciesVotes, type CompanionSpecies, type PixieXpMap } from '@/lib/companion'
 
 const BASE = 'https://splitvote.io'
 
@@ -20,19 +20,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const admin = await createClient()
   const { data } = await admin
     .from('profiles')
-    .select('display_name, votes_count, avatar_emoji')
+    .select('display_name, votes_count, avatar_emoji, companion_species, pixie_xp')
     .eq('id', params.id)
     .single()
 
   if (!data) return {}
   const name = data.display_name ?? 'A SplitVote member'
   const avatar = data.avatar_emoji ?? '🌍'
+  const votesCount = data.votes_count ?? 0
+
+  // Build pixie-card OG image URL
+  const species = ((data as Record<string, unknown>).companion_species as CompanionSpecies | null) ?? 'spark'
+  const pixieXp = ((data as Record<string, unknown>).pixie_xp as PixieXpMap | null) ?? {}
+  const speciesVotes = getSpeciesVotes(pixieXp, species)
+  const stage = getCompanionStage(speciesVotes > 0 ? speciesVotes : votesCount)
+  const cardUrl = `${BASE}/api/pixie-card?species=${encodeURIComponent(species)}&stage=${stage}&name=${encodeURIComponent(name.slice(0, 22))}&locale=en`
+
   return {
     title: `${avatar} ${name} on SplitVote`,
-    description: `${name} has voted on ${data.votes_count ?? 0} dilemmas worldwide. See their trophy case on SplitVote.`,
+    description: `${name} has voted on ${votesCount} dilemmas worldwide. See their Pixie companion and trophy case on SplitVote.`,
     openGraph: {
       title: `${avatar} ${name} — SplitVote Profile`,
-      description: `${data.votes_count ?? 0} votes cast. Check out their badges and dilemma history.`,
+      description: `${votesCount} votes cast. Check out their Pixie companion and badges.`,
+      images: [
+        {
+          url: cardUrl,
+          width: 1200,
+          height: 630,
+          alt: `${name}'s Pixie companion on SplitVote`,
+        },
+      ],
     },
   }
 }
