@@ -1,6 +1,6 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 9 May 2026 (post-push c25184c — 4 content sprints merged: blog parity + AI ethics + loyalty + share button)
+Last updated: 10 May 2026 (post-push 98b53c2 — G3 ethics trio EN+IT: consequentialism, deontology, virtue ethics)
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6)
 
@@ -10,7 +10,7 @@ Implementer: Claude Code (Sonnet 4.6)
 
 - **Branch:** `main`
 - **Local vs remote:** `main` is **in sync** with `origin/main`
-  - HEAD: `c25184c` — `Merge branch 'claude/share-before-vote'` (pushed ✅, deploying)
+  - HEAD: `98b53c2` — `Merge branch 'claude/blog-ethics-trio'` (pushed ✅, deploying)
 - **Previous verified deploy:** `d59af3c` (S7 merged 8 May 2026, smoke 8/8 PASS)
 - **Full discovery QA verified:** 9/9 PASS (steps #86–94, 8 May 2026) — Home/Category/Trending/Admin EN+IT, sort, regressions
 
@@ -43,6 +43,7 @@ Implementer: Claude Code (Sonnet 4.6)
 | Blog EN/IT parity fix | ✅ live (`a6e5c3a`) — `moral-dilemmas-examples` (EN) + `statistiche-problema-del-carrello` (IT) |
 | G1 AI Ethics article EN+IT | ✅ live (`6ce40be`) — `ai-ethics-what-40-million-people-chose` + `ia-etica-40-milioni-scelte` |
 | G2 Loyalty vs Honesty article EN+IT | ✅ live (`372d085`) — `loyalty-vs-honesty-when-they-collide` + `lealta-vs-onesta-quando-si-scontrano` |
+| G3 Ethics Trio EN+IT | ✅ live (`98b53c2`) — consequentialism + deontology + virtue ethics (3 EN + 3 IT) |
 
 ---
 
@@ -93,37 +94,18 @@ All HUMAN_ONLY — require credentials, env vars in Vercel, or external dashboar
 
 ## 4. Active Sprint / Next Recommended Step
 
-**PROSSIMO SPRINT CONFERMATO DA MATTEO: G3 — Trio teorie etiche**
+**G3 COMPLETATO ✅** — blog ora a 20 EN + 20 IT articoli.
 
-Da fare come prima cosa nella prossima sessione. GO esplicito già dato.
+### Prossimi sprint (ordine priorità)
 
-### G3 — Piano dettagliato
+**HUMAN_ONLY — richiedono azione di Matteo (5 min totali):**
+- Visita `splitvote.io/profile` → clicca "Upgrade to Premium" → verifica checkout si apre con piano mensile €4,99
+- Richiedi revisione AdSense dal dashboard Google: Sites → splitvote.io → Request review
 
-3 articoli EN + 3 articoli IT, stesso schema di G1/G2 (`lib/blog.ts`, pattern `alternateSlug`, disclaimer accademico).
-
-**Articoli da scrivere:**
-
-| Slug EN | Slug IT | Topic |
-|---|---|---|
-| `consequentialism-the-greatest-good` | `consequenzialismo-il-bene-maggiore` | Bentham/Mill, trolley problem come caso reale, 4-5 CTA (trolley, pandemic-dose, organ-harvest, rich-or-fair, universal-basic-income) |
-| `deontology-some-things-are-always-wrong` | `deontologia-alcune-cose-sono-sempre-sbagliate` | Kant senza jargon, conflitto con consequentialism, CTA (whistleblower, cover-accident, innocent-juror, mandatory-vaccine) |
-| `virtue-ethics-what-would-a-good-person-do` | `etica-della-virtu-cosa-farebbe-una-persona-buona` | Aristotele, come risponde alle domande che le altre due evitano, CTA (truth-friend, forgive-cheater, sibling-secret, love-or-career) |
-
-**Regole applicate in G1/G2 da rispettare:**
-- `alternateSlug` bidirezionale per hreflang automatico
-- `relatedDilemmaIds` = IDs degli scenari statici linkati nelle CTA
-- `date: '2026-05-10'` (domani)
-- `readingTime: 5` per tutti
-- Disclaimer finale in ogni articolo: variante MFT per consequentialism/deontology/virtue ethics (non è replica di framework accademico)
-- Cross-link tra i 3 articoli del trio (ogni articolo menziona gli altri due)
-- CTA chiusura: link alla categoria landing page rilevante
-
-**Al termine di G3:** blog a 20 EN + 20 IT articoli → richiedere revisione AdSense (task Matteo).
-
-**Dopo G3 (ordine priorità):**
-- Matteo: visita `splitvote.io/profile` → clicca "Upgrade to Premium" → verifica checkout si apre con piano mensile €4,99 (5 min, sblocca Stripe)
-- Matteo: richiedi revisione AdSense dal dashboard (3 min)
+**SAFE_AUTONOMOUS (Claude può eseguire senza GO):**
 - OpenRouter optimization: set `OPENROUTER_MODEL_REVIEW` a modello economico (haiku/mistral) — risparmio 50% crediti per ogni seed batch
+- Blog cluster gap audit (read-only SEO report → reports/)
+- S8b — Mobile UI polish phase 2 (profile page, missions HUD)
 
 ### HUMAN_ONLY (require PM action first)
 
