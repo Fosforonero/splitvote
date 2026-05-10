@@ -1,6 +1,6 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 10 May 2026 (post-push `67ff0b9` — G6 moral foundations EN+IT)
+Last updated: 10 May 2026 (post-push `e52dfa6` — btn-neon-blue + internal linking G4-G10)
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6)
 
@@ -9,9 +9,9 @@ Implementer: Claude Code (Sonnet 4.6)
 ## 1. Production State
 
 - **Branch:** `main`
-- **Local vs remote:** `main` is **in sync** with `origin/main`
-  - HEAD: `67ff0b9` — `Merge G6: moral foundations theory EN+IT blog articles`
-- **Previous verified deploy:** `d59af3c` (S7 merged 8 May 2026, smoke 8/8 PASS)
+- **Local vs remote:** `main` is **ahead of** `origin/main` by 1 commit (`e52dfa6`)
+  - HEAD: `e52dfa6` — `feat: btn-neon-blue class + internal linking G4-G10 EN+IT`
+- **Previous pushed:** `b9e80f1` (G10 experimental moral psychology + bioethics landing EN+IT)
 - **Full discovery QA verified:** 9/9 PASS (steps #86–94, 8 May 2026) — Home/Category/Trending/Admin EN+IT, sort, regressions
 
 ### Feature state
@@ -21,11 +21,11 @@ Implementer: Claude Code (Sonnet 4.6)
 | Anonymous vote flow | ✅ working |
 | EN/IT routes | ✅ complete + locale-isolated (verified #86–94) |
 | AdSense slots (HOME/PLAY/RESULTS) | ✅ live |
-| AdSense review | ❌ **not yet requested** — manual step in AdSense dashboard |
-| Stripe Premium config | ✅ Price ID set; live checkout QA pending (Task #55) |
+| AdSense review | ✅ **requested** (Matteo confirmed 10 May 2026) |
+| Stripe Premium config | ✅ live checkout QA done (Matteo confirmed 10 May 2026) |
 | Dynamic discovery EN/IT | ✅ live, locale-isolated, sort verified DESC |
-| Admin approve flow EN+IT | ✅ verified (171→172 EN, 173→174 IT) |
-| OPENROUTER_MODEL_REVIEW env | ✅ set in Vercel + redeploy completed (Task #3) |
+| Admin approve flow EN+IT | ✅ verified |
+| OPENROUTER_MODEL_REVIEW env | ✅ set in Vercel + redeploy completed |
 | AI generation (save mode) | ⚠️ **un-blocked technically** but pending re-QA decision matrix |
 | S1 — Login icon-only button | ✅ live (`71d4c01`) |
 | S2 — NavLinks 3 canonical items | ✅ live (`71d4c01`) |
@@ -34,28 +34,34 @@ Implementer: Claude Code (Sonnet 4.6)
 | S5c — Sticky "Next dilemma" CTA mobile | ✅ live (`7299607`) |
 | S6a — Pixie HUD (streak + level header) | ✅ live (`0549f74`) |
 | S7 — Mobile play page polish | ✅ live (`d59af3c`) |
-| S8 — Discovery audit (Codex parallel session) | ✅ deployed + 9/9 QA PASS |
+| S8 — Discovery audit | ✅ deployed + 9/9 QA PASS |
 | S8c — Mobile touch active states | ✅ live (`fb2b76a`) |
 | pm-orchestrator agent | ✅ live in `.claude/agents/pm-orchestrator.md` |
 | Blog Draft Queue | ✅ deployed and QA'd |
 | IT topic landing pages | ✅ live (`2dbb133`) |
-| Content Seed Pack Integration v1 | ✅ pushed (`ea2a3b4`) — admin only; dry-run first |
 | DilemmaCard share button | ✅ live (`c25184c`) |
 | Blog EN/IT parity fix | ✅ live (`a6e5c3a`) |
 | G1 AI Ethics article EN+IT | ✅ live (`6ce40be`) |
 | G2 Loyalty vs Honesty article EN+IT | ✅ live (`372d085`) |
-| G3 Ethics Trio EN+IT | ✅ live (`98b53c2`) — consequentialism + deontology + virtue ethics |
-| G4 Harm Prevention article EN+IT | ✅ live (`088a37d`) — doing vs allowing harm |
-| G5 Privacy article EN+IT | ✅ live (`025ee0f`) — privacy in public voting |
-| G6 Moral Foundations article EN+IT | ✅ live (`67ff0b9`) — MFT split into standalone cluster |
-| G7 Ethics theory SEO landings | ✅ live (`bff5073`) — consequentialism/deontology/virtue-ethics EN+IT |
-| G9 Internal linking refresh | ✅ live (`b8718c7`) — cross-links from old articles to G3 |
+| G3 Ethics Trio EN+IT | ✅ live (`98b53c2`) |
+| G4 Harm Prevention article EN+IT | ✅ live (`088a37d`) |
+| G5 Privacy article EN+IT | ✅ live (`025ee0f`) |
+| G6 Moral Foundations article EN+IT | ✅ live (`67ff0b9`) |
+| G7 Ethics theory SEO landings | ✅ live (`bff5073`) |
+| G8 Bioethics article EN+IT + sources | ✅ live (`b9e80f1`) |
+| G9 SEO landings privacy-ethics + moral-foundations EN+IT | ✅ live (`b9e80f1`) |
+| G10 Experimental moral psychology EN+IT + bioethics landing | ✅ live (`b9e80f1`) |
+| G9-refresh Internal linking G4-G10 | ✅ committed (`e52dfa6`) — pending push |
+| btn-neon-blue CSS class | ✅ committed (`e52dfa6`) — pending push |
+| VotedDilemmaCard on category pages (Sprint B) | ✅ already live (pre-existing) |
+| canStillChange interactive affordance (Sprint C) | ✅ already live (pre-existing) |
+| IT trending empty state copy (Sprint D) | ✅ already clean (pre-existing) |
 
 ---
 
 ## 2. Blog content inventory (10 May 2026)
 
-**19 EN + 19 IT = 38 articles total** (all SSG-generated)
+**21 EN + 21 IT = 42 articles total** (all SSG-generated)
 
 ### EN articles
 1. `what-is-a-moral-dilemma`
@@ -77,27 +83,45 @@ Implementer: Claude Code (Sonnet 4.6)
 17. `doing-vs-allowing-harm` (G4)
 18. `privacy-in-public-voting` (G5)
 19. `moral-foundations-theory-why-good-people-disagree` (G6)
+20. `bioethics-when-medicine-forces-impossible-choices` (G8)
+21. `experimental-moral-psychology-how-science-studies-moral-intuitions` (G10)
 
-**IT (19):** full parity — every EN article has an IT pair via `alternateSlug`.
+**IT (21):** full parity — every EN article has an IT pair via `alternateSlug`.
 
-### SEO landing pages (lib/seo-topics.ts) — 9 total
-EN: `/trolley-problem`, `/ai-ethics-dilemmas`, `/loyalty-vs-honesty`, `/consequentialism`, `/deontology`, `/virtue-ethics`
-IT: `/it/problema-del-carrello`, `/it/dilemmi-etici-intelligenza-artificiale`, `/it/lealta-vs-onesta`, `/it/consequenzialismo`, `/it/deontologia`, `/it/etica-della-virtu`
+### SEO landing pages (lib/seo-topics.ts) — 13 total
+
+**EN (6+1):**
+`/trolley-problem`, `/ai-ethics-dilemmas`, `/loyalty-vs-honesty`,
+`/consequentialism`, `/deontology`, `/virtue-ethics`,
+`/privacy-ethics`, `/moral-foundations`, `/bioethics`
+
+**IT (6+1):**
+`/it/problema-del-carrello`, `/it/dilemmi-etici-intelligenza-artificiale`,
+`/it/lealta-vs-onesta`, `/it/consequenzialismo`, `/it/deontologia`,
+`/it/etica-della-virtu`, `/it/etica-della-privacy`, `/it/fondamenti-morali`,
+`/it/bioetica`
+
+**Total:** 201 static pages (verified build 10 May 2026)
 
 ---
 
-## 3. Last Completed Work (Session 10 May 2026)
+## 3. Last Completed Work (Session 10 May 2026 — continuation)
 
-### S8c — Mobile Touch Feedback (`fb2b76a`)
-- `app/globals.css` — `.card-neon:active` blue neon burst + scale(0.99) on `@media (hover: none)`; new `.card-neon-yellow` with 0.15s transition + stronger golden glow on active; both in reduced-motion block
-- `components/DailyDilemma.tsx` — added `card-neon-yellow` class to wrapper div; `active:scale-[0.97] active:bg-yellow-300` to CTA button
-- `app/page.tsx` + `app/it/page.tsx` — game loop numbers 1/2/3 now have `neon-text-blue/purple/yellow` glow (EN + IT parity)
+### Internal linking G4-G10 + btn-neon-blue (`e52dfa6`)
+- **`lib/blog.ts`** — Added cross-links from 8 older EN articles and 8 IT articles to
+  G4-G10 content. Targeted 1-2 CTA links per article before existing disclaimer.
+  Articles updated: trolley-problem-explained, what-your-moral-personality-means,
+  moral-dilemmas-examples, ai-ethics-what-40-million-people-chose,
+  loyalty-vs-honesty-when-they-collide, consequentialism, deontology, virtue-ethics
+  (+ IT counterparts of all 8).
+- **`app/globals.css`** — Added `.btn-neon-blue` utility: `cursor: pointer; outline: none;`
+  + `focus-visible` blue ring + `active: scale(0.97)` + reduced-motion override.
+  Previously used in `AuthButton.tsx` without a definition.
 
-### G5 Privacy article (`025ee0f`)
-- `lib/blog.ts` — `privacy-in-public-voting` (EN) + `privacy-nel-voto-pubblico` (IT); 5 play CTAs; bridges anonymous voting + AI surveillance + GDPR
-
-### G6 Moral Foundations article (`67ff0b9`)
-- `lib/blog.ts` — `moral-foundations-theory-why-good-people-disagree` (EN) + `teoria-fondamenti-morali` (IT); 5 play CTAs covering all 6 foundations; splits MFT content from `what-your-moral-personality-means` into dedicated cluster; MFT disclaimer included
+### Verified pre-existing (no changes needed):
+- **Sprint B** — VotedDilemmaCard on category pages: already in both EN and IT category pages
+- **Sprint C** — canStillChange interactive affordance: already fully implemented in VoteClientPage.tsx
+- **Sprint D** — IT trending empty state: already clean (no "cron"/"UTC" text)
 
 ---
 
@@ -105,50 +129,47 @@ IT: `/it/problema-del-carrello`, `/it/dilemmi-etici-intelligenza-artificiale`, `
 
 | Task | ID | Description | Owner | Priority |
 |---|---|---|---|---|
-| Stripe MVP premium subscription | #55 | Stripe live checkout QA + webhook + entitlements end-to-end | Matteo | High |
+| Push `e52dfa6` to origin/main | — | `git push` — 1 commit ahead | Matteo | High |
 | Stripe Name Change €0.99 | #46 | One-shot purchase price ID + webhook handler | Matteo | Medium |
 | Discord OAuth | #24 | OAuth callback URL config in Discord dev portal + Supabase | Matteo | Medium |
-| Request AdSense review | — | AdSense dashboard → Sites → splitvote.io | Matteo | High |
 | AI generation re-QA decision | — | Run 4 dry-run scenarios; gate ≥60% accepted + `review_err` < 20% → enable save mode | Matteo | Optional |
 
 All HUMAN_ONLY — require credentials, env vars in Vercel, or external dashboard configuration.
 
 ---
 
-## 5. Blog cluster gap status (post-G1→G6 + G7 + G9)
+## 5. Blog cluster gap status (post-G1→G10)
 
 | Cluster | Article | Landing | Status |
 |---|---|---|---|
 | trolley-problem | ✅ 2 articles | ✅ `/trolley-problem` | STRONG |
-| harm-prevention | ✅ G4 doing-vs-allowing | (folded in trolley landing) | RESOLVED |
+| harm-prevention | ✅ G4 doing-vs-allowing | (folded in trolley landing) | STRONG |
 | ai-ethics | ✅ G1 | ✅ `/ai-ethics-dilemmas` | STRONG |
-| privacy | ✅ G5 | — | RESOLVED (no landing yet) |
+| privacy | ✅ G5 | ✅ `/privacy-ethics` (G9) | STRONG |
 | loyalty-honesty | ✅ G2 | ✅ `/loyalty-vs-honesty` | STRONG |
-| moral-foundations | ✅ G6 standalone | — | RESOLVED (no landing yet) |
+| moral-foundations | ✅ G6 standalone | ✅ `/moral-foundations` (G9) | STRONG |
 | consequentialism | ✅ G3 | ✅ `/consequentialism` | STRONG |
 | deontology | ✅ G3 | ✅ `/deontology` | STRONG |
 | virtue-ethics | ✅ G3 | ✅ `/virtue-ethics` | STRONG |
-| experimental-moral-psychology | 1 tangential | — | ⚠️ Gap |
-| bioethics | 0 | — | 🔴 PM decision: build or prune `'bioethics'` from MoralCluster type |
+| bioethics | ✅ G8 article | ✅ `/bioethics` (G10) | STRONG |
+| experimental-moral-psychology | ✅ G10 article | — | RESOLVED (no landing yet) |
 
-**Next content opportunity (if Matteo GOes):**
-- G8: Bioethics — PM decision needed (prune MoralCluster type, or build ≥2 sources + article + landing)
-- G10: SEO landings for privacy + moral-foundations clusters (same pattern as G7 ethics trio landings)
-- G11: Experimental moral psychology standalone article
+**All clusters fully covered.** No 🔴 gaps remain.
 
 ---
 
 ## 6. Active Sprint / Next Recommended Step
 
-**All autonomous content sprints done for this session.** Blog is at 19 EN + 19 IT.
+**All autonomous content sprints complete.** Blog at 21 EN + 21 IT. All MoralCluster gaps closed.
 
-**HUMAN_ONLY — require Matteo action (5 min total):**
-- Visit `splitvote.io/profile` → click "Upgrade to Premium" → verify checkout opens with monthly plan €4.99
-- Request AdSense review from Google dashboard: Sites → splitvote.io → Request review
+**HUMAN_ONLY — require Matteo action:**
+- `git push` — 1 commit ahead of origin (`e52dfa6`)
+- Stripe Name Change feature (Task #46) — when ready
+- Discord OAuth (Task #24) — when ready
 
-**PM decision needed:**
-- G8 Bioethics: prune `'bioethics'` from `MoralCluster` type (clean), or build the cluster (2+ sources + article + landing)?
-- G10 Privacy/MFT landings: create SEO landing pages for privacy and moral-foundations clusters?
+**PM decision needed (optional next content):**
+- G11: Experimental moral psychology SEO landing page (`/experimental-moral-psychology`) — would close the last cluster without a dedicated landing
+- G12: Cross-cluster article — e.g. "The science behind why we disagree on ethics" combining experimental psychology + MFT + trolley data
 
 ---
 
@@ -174,13 +195,13 @@ Without a dedicated sprint and explicit GO:
 
 | Risk | Status |
 |---|---|
-| Stripe live payment never tested end-to-end | Open — Task #55 |
-| AdSense review not yet requested | Open |
+| Stripe live payment never tested end-to-end | **Resolved** — Matteo confirmed QA done 10 May |
+| AdSense review not yet requested | **Resolved** — Matteo confirmed request submitted 10 May |
 | `<html lang="en">` on IT pages | Pre-existing; root layout not locale-scoped |
 | EN dilemma card text on IT topic pages | `lib/scenarios.ts` has no IT translations — pre-existing |
 | Save mode unblocked technically but no decision made | OPENROUTER_MODEL_REVIEW env set; re-QA gate decision pending |
-| Bioethics cluster declared in MoralCluster type but empty | 0 sources, 0 articles, 0 landing — technical debt; needs PM prune/build decision |
 | PRODUCT_STRATEGY.md + ROADMAP.md unstaged | Local PM changes uncommitted; leave to PM |
+| `e52dfa6` not yet pushed | 1 commit ahead of origin — needs `git push` |
 
 ---
 
@@ -205,30 +226,29 @@ Per `## Autonomous / Ralph-style Safe Tasks` in CLAUDE.md:
 ## 10. Next Session Prompt
 
 ```
-Ripartenza sessione SplitVote — 10 Maggio 2026.
+Ripartenza sessione SplitVote — 10 Maggio 2026 (sera).
 
 Leggi prima (in questo ordine):
 - CLAUDE.md
-- CURRENT_HANDOFF.md ← stato aggiornato post-sessione
+- CURRENT_HANDOFF.md ← stato aggiornato
 - git status --short --branch
 - git log --oneline -5
 
-State al 10 maggio sera:
-- HEAD main: 67ff0b9 (G6 moral foundations EN+IT — pushed a origin/main)
-- Blog: 19 EN + 19 IT articoli live (G1→G6 + parity fix + share button)
-- SEO landings: 9 totali (3 EN + 3 IT ethics trio G7 + 3 esistenti)
-- S8c mobile touch feedback: live (fb2b76a)
-- Branch locale attivi: claude/blog-moral-foundations (mergiato, puoi eliminarlo)
+State:
+- HEAD main: e52dfa6 (btn-neon-blue + internal linking G4-G10 — NON ancora pushato)
+- Blog: 21 EN + 21 IT articoli (G1→G10 completi + parity)
+- SEO landings: 13 totali (9 EN + 9 IT) — tutti i cluster coperti
+- 201 static pages (build verificato)
 - PRODUCT_STRATEGY.md + ROADMAP.md hanno modifiche locali non committed (lasciale al PM)
 
-PROSSIMI SPRINT CANDIDATI (richiedono GO):
-- G8 Bioethics: decisione PM — pruning MoralCluster o build?
-- G10 SEO landings per privacy + moral-foundations clusters
-- G11 Experimental moral psychology standalone article
+PROSSIMI STEP (richiedono GO):
+- git push origin main (1 commit in attesa — e52dfa6)
+- G11 experimental moral psychology SEO landing (opzionale — unico cluster senza landing)
+- G12 articolo cross-cluster (opzionale)
 
 HUMAN_ONLY (non blocca content sprints):
-- Stripe live QA: splitvote.io/profile → Upgrade to Premium → verifica checkout €4,99/mese
-- AdSense review request: dashboard Google AdSense → Sites → splitvote.io → richiedi revisione
+- Task #46 Stripe Name Change €0.99
+- Task #24 Discord OAuth
 
 Nessuna modifica a PRODUCT_STRATEGY.md / ROADMAP.md / LEGAL.md / CLAUDE.md senza GO esplicito.
 ```
