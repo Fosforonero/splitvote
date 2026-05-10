@@ -1592,6 +1592,301 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'consequentialism-the-greatest-good',
+    locale: 'en',
+    title: 'Consequentialism: The Greatest Good for the Greatest Number',
+    seoTitle: 'Consequentialism Explained — Why the Math of Morality Has Limits',
+    description:
+      'Consequentialism judges actions by their outcomes. Produce the most good, minimize harm. It sounds obvious — until the calculations force you to do something that feels clearly wrong.',
+    seoDescription:
+      'What is consequentialism? How does it work, where does it break down, and what real dilemmas does it struggle to answer? Explore the ethics of outcomes through five thought experiments.',
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['consequentialism', 'utilitarianism', 'ethics', 'moral philosophy', 'trolley problem'],
+    relatedDilemmaIds: ['trolley', 'pandemic-dose', 'organ-harvest', 'rich-or-fair', 'universal-basic-income'],
+    alternateSlug: 'consequenzialismo-il-bene-maggiore',
+    content: [
+      {
+        type: 'p',
+        text: "You are standing at a lever. A runaway trolley is heading toward five people tied to the tracks. You can pull the lever and divert it — but then it will kill one person on the side track. What do you do? Most people pull the lever. And in doing so, they are reasoning as consequentialists.",
+      },
+      {
+        type: 'p',
+        text: 'Consequentialism is the view that the moral worth of an action is determined entirely by its outcomes. The right act is whichever one produces the most good — or the least harm. Associated with Jeremy Bentham and John Stuart Mill, this family of theories goes by many names (utilitarianism being the most famous), but they share a common structure: do the moral math, choose the best result.',
+      },
+      {
+        type: 'h2',
+        text: 'How it works in practice',
+      },
+      {
+        type: 'p',
+        text: "The consequentialist approach is appealingly clear. Faced with a difficult choice, you ask: which option produces the best overall outcome? Count up the benefits and harms to everyone affected — not just yourself — and choose accordingly. Five lives outweigh one. Preventing suffering outweighs respecting a minor rule. The results are what matter.",
+      },
+      {
+        type: 'p',
+        text: "This framework resonates with most people's instincts in certain situations. When a doctor rations scarce medicine to save the most lives, or when a government implements a policy that benefits millions at a cost to a few, consequentialist reasoning is at work. It is the ethics of emergency rooms and public health.",
+      },
+      {
+        type: 'h2',
+        text: 'Where the math breaks down',
+      },
+      {
+        type: 'p',
+        text: "Consider a different scenario: five patients in a hospital will die without organ transplants. A healthy visitor happens to match all five. A strictly consequentialist doctor could justify harvesting the visitor's organs to save five lives. The math says yes. Almost no one agrees.",
+      },
+      {
+        type: 'p',
+        text: "This is consequentialism's central tension. It can endorse actions that feel deeply wrong — sacrificing individuals, punishing the innocent, breaking trust — if the aggregate outcome is better. Critics argue that it treats people as instruments rather than as beings with inherent worth. Defenders argue that ignoring outcomes is a form of moral self-indulgence.",
+      },
+      {
+        type: 'h2',
+        text: 'The dilemmas that test it',
+      },
+      {
+        type: 'p',
+        text: 'These scenarios push consequentialist reasoning to its limits. Some feel easy. Others reveal where the math starts to conflict with something deeper.',
+      },
+      {
+        type: 'cta',
+        label: 'A runaway trolley. Five lives or one. Which do you choose? →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'cta',
+        label: 'One dose of a vaccine. Two patients, one will die. Who gets it? →',
+        href: '/play/pandemic-dose',
+      },
+      {
+        type: 'cta',
+        label: 'Five patients will die without organs. One healthy person could save them all. →',
+        href: '/play/organ-harvest',
+      },
+      {
+        type: 'cta',
+        label: 'Tax the ultra-rich heavily to fund public services. Fair trade-off? →',
+        href: '/play/rich-or-fair',
+      },
+      {
+        type: 'cta',
+        label: 'Universal basic income for everyone — even if it costs jobs? →',
+        href: '/play/universal-basic-income',
+      },
+      {
+        type: 'h2',
+        text: 'How it relates to the other major theories',
+      },
+      {
+        type: 'p',
+        text: "Consequentialism is one of three major frameworks in Western moral philosophy. Deontology holds that some actions are wrong regardless of outcomes — pulling the lever might still violate a duty not to actively cause death. Virtue ethics asks not what the outcome is, but what a person of good character would do. All three frameworks illuminate different aspects of difficult choices, and real moral reasoning often draws on all three.",
+      },
+      {
+        type: 'cta',
+        label: 'Explore all moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presents ethical dilemmas for reflection and discussion. References to philosophical frameworks are for context only — the goal is to help you reflect, not to provide academic instruction. Results represent our community's votes, not scientific conclusions.",
+      },
+    ],
+  },
+  {
+    slug: 'deontology-some-things-are-always-wrong',
+    locale: 'en',
+    title: 'Deontology: Some Things Are Always Wrong, No Matter the Outcome',
+    seoTitle: 'Deontology Explained — When Rules Matter More Than Results',
+    description:
+      'Deontological ethics holds that some actions are simply wrong, regardless of the good they might produce. Immanuel Kant built the most famous version of this idea — and it still divides moral philosophers today.',
+    seoDescription:
+      "What is deontology? How does Kant's categorical imperative work, where does duty-based ethics break down, and what dilemmas test it most sharply? Explore the ethics of rules and duties.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['deontology', 'Kant', 'ethics', 'moral philosophy', 'duty'],
+    relatedDilemmaIds: ['whistleblower', 'cover-accident', 'innocent-juror', 'mandatory-vaccine'],
+    alternateSlug: 'deontologia-alcune-cose-sono-sempre-sbagliate',
+    content: [
+      {
+        type: 'p',
+        text: "Some things are wrong regardless of what good might come from them. You cannot torture an innocent person even if it would save a hundred lives. You cannot frame someone for a crime they did not commit even if it would prevent a riot. This is the core intuition behind deontological ethics — and it is an intuition that most people share, at least some of the time.",
+      },
+      {
+        type: 'p',
+        text: "Deontology (from the Greek deon, meaning duty) holds that morality is fundamentally about rules and obligations, not outcomes. The most influential version comes from Immanuel Kant, who argued that certain actions are intrinsically right or wrong, independent of their consequences. His test: act only according to principles you could consistently will to be universal laws.",
+      },
+      {
+        type: 'h2',
+        text: "Kant's categorical imperative",
+      },
+      {
+        type: 'p',
+        text: "The categorical imperative is Kant's central idea: before acting, ask whether you could rationally will that everyone in your situation act the same way. If you make an exception for yourself that you would not accept as a universal rule — lying when convenient, breaking promises when beneficial — you are acting immorally, regardless of the outcome.",
+      },
+      {
+        type: 'p',
+        text: "Kant also formulated it another way: always treat people as ends in themselves, never merely as means. This is why deontology objects to the organ-harvest scenario — the healthy patient is not a resource to be used for others, even to save five lives. Every person has inherent dignity that cannot be traded away in a calculation.",
+      },
+      {
+        type: 'h2',
+        text: 'Why outcomes do not settle the question',
+      },
+      {
+        type: 'p',
+        text: "Consequentialism says: if lying produces the better outcome, lying is right. Deontology disagrees. If lying is wrong, it is wrong even when the lie would prevent harm. The wrongness is in the act itself, not in the results it produces.",
+      },
+      {
+        type: 'p',
+        text: "This might sound rigid, and it can be. Kant's strict view implies that you cannot lie even to a murderer who asks where your friend is hiding. Most people find this conclusion too extreme — which is why contemporary deontologists usually allow for contextual judgment while preserving the core idea that some constraints are near-absolute.",
+      },
+      {
+        type: 'h2',
+        text: 'The dilemmas that test it',
+      },
+      {
+        type: 'p',
+        text: 'These scenarios put deontological constraints under pressure. Each one involves a case where breaking a rule might produce a better outcome — and asks whether the rule still holds.',
+      },
+      {
+        type: 'cta',
+        label: 'Your company illegally pollutes a river. Do you have a duty to report it? →',
+        href: '/play/whistleblower',
+      },
+      {
+        type: 'cta',
+        label: 'Your partner caused a fatal accident. Is covering for them always wrong? →',
+        href: '/play/cover-accident',
+      },
+      {
+        type: 'cta',
+        label: "You are on a jury. The defendant is innocent — but you were told to vote guilty. →",
+        href: '/play/innocent-juror',
+      },
+      {
+        type: 'cta',
+        label: 'Mandatory vaccination: is there a duty to protect others even against your will? →',
+        href: '/play/mandatory-vaccine',
+      },
+      {
+        type: 'h2',
+        text: 'How it relates to the other major theories',
+      },
+      {
+        type: 'p',
+        text: "Deontology and consequentialism are in direct tension: one says outcomes are all that matter, the other says some actions are off the table regardless of outcomes. Virtue ethics offers a third path — instead of rules or calculations, it asks what a person of good character would do. Each framework reveals something the others miss.",
+      },
+      {
+        type: 'cta',
+        label: 'Explore all moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presents ethical dilemmas for reflection and discussion. References to philosophical frameworks are for context only — the goal is to help you reflect, not to provide academic instruction. Results represent our community's votes, not scientific conclusions.",
+      },
+    ],
+  },
+  {
+    slug: 'virtue-ethics-what-would-a-good-person-do',
+    locale: 'en',
+    title: 'Virtue Ethics: What Would a Good Person Do?',
+    seoTitle: "Virtue Ethics Explained — Aristotle, Character, and the Good Life",
+    description:
+      "Instead of asking what rule applies or what outcome to maximize, virtue ethics asks a different question: what would a person of good character do? Aristotle's answer still challenges moral philosophy today.",
+    seoDescription:
+      "What is virtue ethics? How does Aristotle's approach to moral character differ from consequentialism and deontology? Explore the ethics of who you are, not just what you do.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['virtue ethics', 'Aristotle', 'ethics', 'moral character', 'moral philosophy'],
+    relatedDilemmaIds: ['truth-friend', 'forgive-cheater', 'sibling-secret', 'love-or-career'],
+    alternateSlug: 'etica-della-virtu-cosa-farebbe-una-persona-buona',
+    content: [
+      {
+        type: 'p',
+        text: "Consequentialism says: calculate the best outcome. Deontology says: follow the right rules. Virtue ethics says: become the right kind of person. It shifts the fundamental moral question from 'what should I do?' to 'who should I be?' — and it is the oldest of the three major Western ethical frameworks.",
+      },
+      {
+        type: 'p',
+        text: "Aristotle argued that the goal of human life is eudaimonia — flourishing, living and acting well. This is achieved not by following rules or maximizing outcomes, but by developing virtues: stable character traits like courage, honesty, compassion, and practical wisdom. Virtues are excellences of character, and they are acquired by practice. You become courageous by doing courageous things.",
+      },
+      {
+        type: 'h2',
+        text: 'What makes it different from the other frameworks',
+      },
+      {
+        type: 'p',
+        text: "Consequentialism and deontology both provide a decision procedure — a method for working out what to do. Virtue ethics is more interested in the person making the decision than in the decision itself. A virtuous person brings practical wisdom (phronesis) to situations: the ability to perceive what matters, weigh competing considerations, and act appropriately — without needing to consult a rulebook.",
+      },
+      {
+        type: 'p',
+        text: "This makes virtue ethics flexible where the others are rigid, but also less precise. It can acknowledge that the same action — telling a hard truth, for example — is courageous in one context and cruel in another. Context, relationship, and character all matter.",
+      },
+      {
+        type: 'h2',
+        text: 'Where virtue ethics is strongest',
+      },
+      {
+        type: 'p',
+        text: "Virtue ethics handles relationship and character questions that the other frameworks find awkward. When a friend asks for your honest opinion about a decision that will hurt them, consequentialism calculates pain and gain; deontology invokes duties of honesty and kindness that may conflict. Virtue ethics asks what an honest, compassionate, loyal friend would do — and accepts that this requires judgment, not just calculation.",
+      },
+      {
+        type: 'p',
+        text: "It also captures something that consequentialism and deontology tend to miss: that how you act matters, not just what you do. A person who does the right thing resentfully, or for the wrong reasons, is not fully virtuous — even if the action itself was correct.",
+      },
+      {
+        type: 'h2',
+        text: 'Where it breaks down',
+      },
+      {
+        type: 'p',
+        text: "Virtue ethics is less useful when you need a clear answer fast, or when virtues conflict. What does a courageous and honest person do when telling the truth will cause serious harm? The framework gives you no formula — only the instruction to exercise practical wisdom, which presupposes you already have it.",
+      },
+      {
+        type: 'h2',
+        text: 'The dilemmas that test it',
+      },
+      {
+        type: 'p',
+        text: 'These scenarios ask less about rules or outcomes and more about character. What kind of person do you want to be — and what does that person do here?',
+      },
+      {
+        type: 'cta',
+        label: "Your best friend's new partner is wrong for them. Honest or kind? →",
+        href: '/play/truth-friend',
+      },
+      {
+        type: 'cta',
+        label: 'Your partner cheated. Does a forgiving person take them back? →',
+        href: '/play/forgive-cheater',
+      },
+      {
+        type: 'cta',
+        label: "Your sibling is cheating — and their spouse is your friend. What does loyalty require? →",
+        href: '/play/sibling-secret',
+      },
+      {
+        type: 'cta',
+        label: 'Love or career: what does a person who knows their own values choose? →',
+        href: '/play/love-or-career',
+      },
+      {
+        type: 'h2',
+        text: 'How it connects to the other major frameworks',
+      },
+      {
+        type: 'p',
+        text: "Virtue ethics completes the trio of major Western moral frameworks alongside consequentialism and deontology. Consequentialism asks what outcomes to produce; deontology asks what rules apply; virtue ethics asks what character to express. Real moral reasoning often draws on all three — which is why the same dilemma can look very different depending on where you start.",
+      },
+      {
+        type: 'cta',
+        label: 'Explore all moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presents ethical dilemmas for reflection and discussion. References to philosophical frameworks are for context only — the goal is to help you reflect, not to provide academic instruction. Results represent our community's votes, not scientific conclusions.",
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -3154,6 +3449,301 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. Il riferimento alla Moral Foundations Theory è solo contestuale — il design di SplitVote è ispirato a, e non una replica di, alcun framework accademico. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
+      },
+    ],
+  },
+  {
+    slug: 'consequenzialismo-il-bene-maggiore',
+    locale: 'it',
+    title: 'Consequenzialismo: Il Bene Maggiore per il Maggior Numero',
+    seoTitle: 'Consequenzialismo — Perché la Matematica della Morale Ha i Suoi Limiti',
+    description:
+      'Il consequenzialismo giudica le azioni dai risultati. Produrre il massimo bene, minimizzare il danno. Sembra ovvio — finché i calcoli non ti costringono a fare qualcosa che sembra chiaramente sbagliato.',
+    seoDescription:
+      "Cos'è il consequenzialismo? Come funziona, dove si rompe, e quali dilemmi reali fatica ad affrontare? Esplora l'etica dei risultati attraverso cinque scenari.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['consequenzialismo', 'utilitarismo', 'etica', 'filosofia morale', 'problema del carrello'],
+    relatedDilemmaIds: ['trolley', 'pandemic-dose', 'organ-harvest', 'rich-or-fair', 'universal-basic-income'],
+    alternateSlug: 'consequentialism-the-greatest-good',
+    content: [
+      {
+        type: 'p',
+        text: "Sei davanti a una leva. Un tram fuori controllo si dirige verso cinque persone legate ai binari. Puoi deviarlo — ma così colpirebbe una persona sul binario laterale. Cosa fai? La maggior parte delle persone tira la leva. E nel farlo, ragiona da consequenzialista.",
+      },
+      {
+        type: 'p',
+        text: "Il consequenzialismo è la visione secondo cui il valore morale di un'azione dipende interamente dai suoi risultati. L'azione giusta è quella che produce il maggior bene — o il minor danno. Associato a Jeremy Bentham e John Stuart Mill, questo insieme di teorie — l'utilitarismo è la versione più nota — condivide una struttura comune: fai i conti morali, scegli il risultato migliore.",
+      },
+      {
+        type: 'h2',
+        text: 'Come funziona nella pratica',
+      },
+      {
+        type: 'p',
+        text: "L'approccio consequenzialista è seducentemente chiaro. Di fronte a una scelta difficile, chiedi: quale opzione produce il miglior risultato complessivo? Conta vantaggi e danni per tutti gli interessati — non solo per te — e scegli di conseguenza. Cinque vite valgono più di una. Prevenire la sofferenza vale più di rispettare una regola minore. Contano i risultati.",
+      },
+      {
+        type: 'p',
+        text: "Questo framework risuona con gli istinti di molte persone in certi contesti. Quando un medico raziona medicine scarse per salvare più vite, o quando un governo implementa una politica che beneficia milioni a spese di pochi, il ragionamento consequenzialista è all'opera. È l'etica dei pronto soccorso e della sanità pubblica.",
+      },
+      {
+        type: 'h2',
+        text: 'Dove la matematica si rompe',
+      },
+      {
+        type: 'p',
+        text: "Consideriamo uno scenario diverso: cinque pazienti in un ospedale moriranno senza trapianti d'organo. Un visitatore sano corrisponde a tutti e cinque. Un medico strettamente consequenzialista potrebbe giustificare il prelievo degli organi del visitatore per salvare cinque vite. La matematica dice sì. Quasi nessuno è d'accordo.",
+      },
+      {
+        type: 'p',
+        text: "Questa è la tensione centrale del consequenzialismo. Può approvare azioni che sembrano profondamente sbagliate — sacrificare individui, punire gli innocenti, tradire la fiducia — se il risultato aggregato è migliore. I critici sostengono che tratta le persone come strumenti. I difensori rispondono che ignorare i risultati è una forma di autocompiacimento morale.",
+      },
+      {
+        type: 'h2',
+        text: 'I dilemmi che lo mettono alla prova',
+      },
+      {
+        type: 'p',
+        text: "Questi scenari spingono il ragionamento consequenzialista ai suoi limiti. Alcuni sembrano facili. Altri rivelano dove i calcoli entrano in conflitto con qualcosa di più profondo.",
+      },
+      {
+        type: 'cta',
+        label: 'Un tram fuori controllo. Cinque vite o una. Cosa scegli? →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'cta',
+        label: 'Una dose di vaccino. Due pazienti, uno morirà. Chi la riceve? →',
+        href: '/it/play/pandemic-dose',
+      },
+      {
+        type: 'cta',
+        label: 'Cinque pazienti moriranno senza organi. Una persona sana potrebbe salvarli tutti. →',
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'cta',
+        label: 'Tassare i super-ricchi pesantemente per finanziare i servizi pubblici. Giusto? →',
+        href: '/it/play/rich-or-fair',
+      },
+      {
+        type: 'cta',
+        label: 'Reddito universale di base per tutti — anche se costa posti di lavoro? →',
+        href: '/it/play/universal-basic-income',
+      },
+      {
+        type: 'h2',
+        text: 'Come si relaziona alle altre teorie',
+      },
+      {
+        type: 'p',
+        text: "Il consequenzialismo è uno dei tre grandi framework della filosofia morale occidentale. La deontologia sostiene che alcune azioni sono sbagliate indipendentemente dai risultati — tirare la leva potrebbe comunque violare un dovere di non causare attivamente la morte. L'etica della virtù chiede non quale sia il risultato, ma cosa farebbe una persona di buon carattere. Tutti e tre illuminano aspetti diversi delle scelte difficili.",
+      },
+      {
+        type: 'cta',
+        label: 'Esplora tutti i dilemmi morali →',
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework filosofici sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire istruzione accademica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
+      },
+    ],
+  },
+  {
+    slug: 'deontologia-alcune-cose-sono-sempre-sbagliate',
+    locale: 'it',
+    title: 'Deontologia: Alcune Cose Sono Sempre Sbagliate, Qualunque Sia il Risultato',
+    seoTitle: 'Deontologia — Quando le Regole Contano Più dei Risultati',
+    description:
+      "La deontologia sostiene che alcune azioni sono semplicemente sbagliate, indipendentemente dal bene che potrebbero produrre. Kant ha costruito la versione più famosa di questa idea — e divide ancora oggi i filosofi morali.",
+    seoDescription:
+      "Cos'è la deontologia? Come funziona l'imperativo categorico di Kant e dove si rompe l'etica del dovere? Esplora i dilemmi che mettono alla prova le regole morali.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['deontologia', 'Kant', 'etica', 'filosofia morale', 'dovere morale'],
+    relatedDilemmaIds: ['whistleblower', 'cover-accident', 'innocent-juror', 'mandatory-vaccine'],
+    alternateSlug: 'deontology-some-things-are-always-wrong',
+    content: [
+      {
+        type: 'p',
+        text: "Alcune cose sono sbagliate indipendentemente da quale bene potrebbero produrre. Non puoi torturare un innocente anche se salverebbe cento vite. Non puoi incastrare qualcuno per un crimine che non ha commesso anche se impedirebbe una rivolta. Questa è l'intuizione centrale dell'etica deontologica — e la maggior parte delle persone la condivide, almeno a volte.",
+      },
+      {
+        type: 'p',
+        text: "La deontologia (dal greco deon, dovere) sostiene che la moralità riguarda fondamentalmente regole e obblighi, non risultati. La versione più influente viene da Immanuel Kant, che sosteneva che certe azioni siano intrinsecamente giuste o sbagliate, indipendentemente dalle conseguenze. Il suo test: agisci solo secondo principi che potresti razionalmente volere come leggi universali.",
+      },
+      {
+        type: 'h2',
+        text: "L'imperativo categorico di Kant",
+      },
+      {
+        type: 'p',
+        text: "L'imperativo categorico è l'idea centrale di Kant: prima di agire, chiedi se potresti razionalmente volere che tutti nella tua situazione agissero allo stesso modo. Se fai un'eccezione per te stesso che non accetteresti come regola universale — mentendo quando conviene, rompendo promesse quando è vantaggioso — stai agendo in modo immorale, indipendentemente dal risultato.",
+      },
+      {
+        type: 'p',
+        text: "Kant lo ha anche formulato in un altro modo: tratta sempre le persone come fini in sé, mai solo come mezzi. Ecco perché la deontologia si oppone allo scenario del prelievo degli organi — il paziente sano non è una risorsa da usare per gli altri, anche per salvare cinque vite. Ogni persona ha una dignità intrinseca che non può essere scambiata in un calcolo.",
+      },
+      {
+        type: 'h2',
+        text: 'Perché i risultati non risolvono la questione',
+      },
+      {
+        type: 'p',
+        text: "Il consequenzialismo dice: se mentire produce il risultato migliore, mentire è giusto. La deontologia non è d'accordo. Se mentire è sbagliato, è sbagliato anche quando la bugia impedirebbe un danno. L'errore è nell'azione stessa, non nei risultati che produce.",
+      },
+      {
+        type: 'p',
+        text: "Questo può sembrare rigido, e può esserlo. La versione stretta di Kant implica che non puoi mentire nemmeno a un assassino che chiede dove si nasconde il tuo amico. La maggior parte delle persone trova questa conclusione troppo estrema — ecco perché i deontologi contemporanei di solito consentono un giudizio contestuale pur preservando l'idea centrale che alcuni vincoli siano quasi assoluti.",
+      },
+      {
+        type: 'h2',
+        text: 'I dilemmi che lo mettono alla prova',
+      },
+      {
+        type: 'p',
+        text: "Questi scenari mettono i vincoli deontologici sotto pressione. Ognuno coinvolge un caso in cui rompere una regola potrebbe produrre un risultato migliore — e chiede se la regola vale ancora.",
+      },
+      {
+        type: 'cta',
+        label: 'La tua azienda inquina illegalmente un fiume. Hai il dovere di denunciarla? →',
+        href: '/it/play/whistleblower',
+      },
+      {
+        type: 'cta',
+        label: 'Il tuo partner ha causato un incidente fatale. Coprirlo è sempre sbagliato? →',
+        href: '/it/play/cover-accident',
+      },
+      {
+        type: 'cta',
+        label: "Sei in giuria. L'imputato è innocente — ma ti è stato detto di votare colpevole. →",
+        href: '/it/play/innocent-juror',
+      },
+      {
+        type: 'cta',
+        label: 'Vaccinazione obbligatoria: esiste un dovere di proteggere gli altri anche contro la propria volontà? →',
+        href: '/it/play/mandatory-vaccine',
+      },
+      {
+        type: 'h2',
+        text: 'Come si relaziona alle altre teorie',
+      },
+      {
+        type: 'p',
+        text: "Deontologia e consequenzialismo sono in tensione diretta: l'uno dice che contano solo i risultati, l'altro che alcune azioni sono escluse a prescindere. L'etica della virtù offre una terza via — invece di regole o calcoli, chiede cosa farebbe una persona di buon carattere. Ogni framework rivela qualcosa che gli altri mancano.",
+      },
+      {
+        type: 'cta',
+        label: 'Esplora tutti i dilemmi morali →',
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework filosofici sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire istruzione accademica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
+      },
+    ],
+  },
+  {
+    slug: 'etica-della-virtu-cosa-farebbe-una-persona-buona',
+    locale: 'it',
+    title: 'Etica della Virtù: Cosa Farebbe una Persona di Buon Carattere?',
+    seoTitle: "Etica della Virtù — Aristotele, il Carattere e la Vita Buona",
+    description:
+      "Invece di chiedere quale regola si applica o quale risultato massimizzare, l'etica della virtù pone una domanda diversa: cosa farebbe una persona di buon carattere? La risposta di Aristotele sfida ancora oggi la filosofia morale.",
+    seoDescription:
+      "Cos'è l'etica della virtù? Come si differenzia l'approccio di Aristotele rispetto a consequenzialismo e deontologia? Esplora l'etica di chi sei, non solo di cosa fai.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['etica della virtù', 'Aristotele', 'etica', 'carattere morale', 'filosofia morale'],
+    relatedDilemmaIds: ['truth-friend', 'forgive-cheater', 'sibling-secret', 'love-or-career'],
+    alternateSlug: 'virtue-ethics-what-would-a-good-person-do',
+    content: [
+      {
+        type: 'p',
+        text: "Il consequenzialismo dice: calcola il risultato migliore. La deontologia dice: segui le regole giuste. L'etica della virtù dice: diventa il tipo giusto di persona. Sposta la domanda morale fondamentale da 'cosa dovrei fare?' a 'chi dovrei essere?' — ed è il più antico dei tre grandi framework etici occidentali.",
+      },
+      {
+        type: 'p',
+        text: "Aristotele sosteneva che il fine della vita umana è l'eudaimonia — il fiorire, il vivere e agire bene. Questo si raggiunge non seguendo regole o massimizzando risultati, ma sviluppando virtù: tratti stabili del carattere come coraggio, onestà, compassione e saggezza pratica. Le virtù sono eccellenze del carattere, e si acquisiscono con la pratica. Si diventa coraggiosi facendo cose coraggiose.",
+      },
+      {
+        type: 'h2',
+        text: 'Cosa la rende diversa dagli altri framework',
+      },
+      {
+        type: 'p',
+        text: "Consequenzialismo e deontologia forniscono entrambi una procedura decisionale — un metodo per capire cosa fare. L'etica della virtù è più interessata alla persona che prende la decisione che alla decisione stessa. Una persona virtuosa porta la saggezza pratica (phronesis) nelle situazioni: la capacità di percepire ciò che conta, soppesare considerazioni in competizione e agire in modo appropriato — senza dover consultare un manuale di regole.",
+      },
+      {
+        type: 'p',
+        text: "Questo rende l'etica della virtù flessibile dove gli altri framework sono rigidi, ma anche meno precisa. Può riconoscere che la stessa azione — dire una verità difficile, per esempio — è coraggiosa in un contesto e crudele in un altro. Contano il contesto, la relazione e il carattere.",
+      },
+      {
+        type: 'h2',
+        text: "Dove l'etica della virtù è più forte",
+      },
+      {
+        type: 'p',
+        text: "L'etica della virtù gestisce le domande di relazione e di carattere che gli altri framework trovano difficili. Quando un amico ti chiede un'opinione onesta su una decisione che lo farà soffrire, il consequenzialismo calcola dolore e guadagno; la deontologia invoca doveri di onestà e gentilezza che possono confliggere. L'etica della virtù chiede cosa farebbe un amico onesto, compassionevole e leale — e accetta che questo richieda giudizio, non solo calcolo.",
+      },
+      {
+        type: 'p',
+        text: "Cattura anche qualcosa che consequenzialismo e deontologia tendono a trascurare: che il come si agisce conta, non solo il cosa. Una persona che fa la cosa giusta con risentimento, o per le ragioni sbagliate, non è pienamente virtuosa — anche se l'azione in sé era corretta.",
+      },
+      {
+        type: 'h2',
+        text: 'Dove si rompe',
+      },
+      {
+        type: 'p',
+        text: "L'etica della virtù è meno utile quando hai bisogno di una risposta chiara e rapida, o quando le virtù entrano in conflitto. Cosa fa una persona coraggiosa e onesta quando dire la verità causerà un danno serio? Il framework non ti dà una formula — solo l'istruzione di esercitare la saggezza pratica, che presuppone che tu ce l'abbia già.",
+      },
+      {
+        type: 'h2',
+        text: 'I dilemmi che lo mettono alla prova',
+      },
+      {
+        type: 'p',
+        text: "Questi scenari chiedono meno di regole o risultati e più di carattere. Che tipo di persona vuoi essere — e cosa fa quella persona qui?",
+      },
+      {
+        type: 'cta',
+        label: "Il nuovo partner del tuo migliore amico non va bene per lui. Sei onesto o gentile? →",
+        href: '/it/play/truth-friend',
+      },
+      {
+        type: 'cta',
+        label: 'Il tuo partner ti ha tradito. Una persona che sa perdonare lo riprende? →',
+        href: '/it/play/forgive-cheater',
+      },
+      {
+        type: 'cta',
+        label: "Tuo fratello tradisce il coniuge — che è anche tuo amico. Cosa richiede la lealtà? →",
+        href: '/it/play/sibling-secret',
+      },
+      {
+        type: 'cta',
+        label: 'Amore o carriera: cosa sceglie una persona che conosce i propri valori? →',
+        href: '/it/play/love-or-career',
+      },
+      {
+        type: 'h2',
+        text: 'Come si connette agli altri framework',
+      },
+      {
+        type: 'p',
+        text: "L'etica della virtù completa il trio dei grandi framework morali occidentali insieme a consequenzialismo e deontologia. Il consequenzialismo chiede quali risultati produrre; la deontologia chiede quali regole applicare; l'etica della virtù chiede quale carattere esprimere. Il ragionamento morale reale spesso attinge a tutti e tre — ecco perché lo stesso dilemma può sembrare molto diverso a seconda da dove si parte.",
+      },
+      {
+        type: 'cta',
+        label: 'Esplora tutti i dilemmi morali →',
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework filosofici sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire istruzione accademica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
       },
     ],
   },
