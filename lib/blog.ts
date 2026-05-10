@@ -2205,6 +2205,150 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'moral-foundations-theory-why-good-people-disagree',
+    locale: 'en',
+    title: 'Moral Foundations Theory — Why Good People Disagree',
+    seoTitle: 'Moral Foundations Theory: Why Good People Have Completely Different Ethics',
+    description:
+      "Jonathan Haidt's Moral Foundations Theory explains why two reasonable, caring people can reach opposite moral conclusions — and why neither of them is simply wrong.",
+    seoDescription:
+      "Moral Foundations Theory reveals why people disagree on ethics: we use different moral foundations — Care, Fairness, Loyalty, Authority, Sanctity, Liberty. Discover yours on SplitVote.",
+    date: '2026-05-10',
+    readingTime: 6,
+    tags: ['moral psychology', 'moral foundations', 'Jonathan Haidt', 'ethics', 'political psychology'],
+    relatedDilemmaIds: ['trolley', 'innocent-juror', 'truth-friend', 'surveillance-city', 'mandatory-vaccine'],
+    alternateSlug: 'teoria-fondamenti-morali',
+    content: [
+      {
+        type: 'p',
+        text: "You see a trolley heading toward five people. You can pull a lever and divert it — but that kills one person on the other track. You pull the lever. Your friend, equally thoughtful and equally compassionate, says they would never intervene: you'd be using someone as a means to an end. You're both moral people reasoning carefully. So why the complete disagreement?",
+      },
+      {
+        type: 'p',
+        text: "The answer, according to psychologist Jonathan Haidt, is that you're not using the same moral language. His Moral Foundations Theory proposes that human morality is built on several distinct psychological systems — and different people weight them differently. Understanding which foundations drive your reasoning changes how you interpret moral conflict.",
+      },
+      {
+        type: 'h2',
+        text: 'The six moral foundations',
+      },
+      {
+        type: 'p',
+        text: "Haidt and his colleagues identify six foundational moral intuitions that appear across cultures, though they are expressed differently in different societies:",
+      },
+      {
+        type: 'list',
+        items: [
+          'Care / Harm — sensitivity to suffering and the impulse to protect the vulnerable. This is the foundation that makes cruelty feel viscerally wrong.',
+          'Fairness / Cheating — concern for equal treatment, justice, and the punishment of those who take more than their share.',
+          'Loyalty / Betrayal — the moral weight of group membership, solidarity, and the duty not to betray your tribe.',
+          'Authority / Subversion — respect for legitimate hierarchy, tradition, and the institutions that coordinate social life.',
+          'Sanctity / Degradation — the sense that some things are sacred and that certain acts are morally polluting regardless of their consequences.',
+          'Liberty / Oppression — resistance to domination and the right to self-determination, even against authorities claiming to act for the common good.',
+        ],
+      },
+      {
+        type: 'p',
+        text: "These six foundations are not equally weighted by everyone. Research suggests that people who self-identify as politically liberal tend to weight Care and Fairness most heavily — and are often sceptical of Loyalty, Authority, and Sanctity as valid moral concerns. People who self-identify as conservative tend to value all six more evenly, treating Loyalty, Authority, and Sanctity as genuine moral considerations, not mere social conventions.",
+      },
+      {
+        type: 'h2',
+        text: 'The trolley problem through a foundations lens',
+      },
+      {
+        type: 'p',
+        text: "Return to the trolley problem. Someone who weights Care heavily sees five lives that can be saved and acts. Someone who weights Sanctity and Loyalty more heavily may feel that actively causing a death — even to save more — crosses a line that passive inaction does not. Neither position is irrational. They are reasoning from different foundations.",
+      },
+      {
+        type: 'cta',
+        label: 'A trolley is heading toward five people. Pull the lever? →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Fairness and the problem of innocent conviction',
+      },
+      {
+        type: 'p',
+        text: "Fairness-driven reasoning is particularly sensitive to procedural justice — not just whether outcomes are good, but whether the process that produces them is legitimate. This distinction shows up sharply in legal dilemmas: should you follow rules even when following them produces an outcome you know is unjust? Someone who weights Authority alongside Fairness may say yes — the system's legitimacy depends on consistent rule-following. Someone weighting only Fairness may say no — the point of the rules was never to produce injustice.",
+      },
+      {
+        type: 'cta',
+        label: 'You know the defendant is innocent. Convict to uphold the jury system? →',
+        href: '/play/innocent-juror',
+      },
+      {
+        type: 'h2',
+        text: 'Loyalty and the hardest kind of honesty',
+      },
+      {
+        type: 'p',
+        text: "Loyalty is the foundation that makes betraying a friend feel almost physically wrong — even when the friend has done something objectively harmful. This is not irrationality. It reflects a genuine moral concern: relationships of trust are fragile and valuable, and the social fabric depends on people keeping them. The moral tension arises when Loyalty conflicts with Care (your friend's partner is being hurt) or Fairness (the truth matters). How you resolve that tension often reveals which foundation is running the deeper script in your moral reasoning.",
+      },
+      {
+        type: 'cta',
+        label: "Your best friend's partner is cheating. Tell them the truth? →",
+        href: '/play/truth-friend',
+      },
+      {
+        type: 'h2',
+        text: 'Liberty, Authority, and the surveillance dilemma',
+      },
+      {
+        type: 'p',
+        text: "The Liberty foundation creates particular tension with Authority: what does a city owe its citizens when safety and freedom pull in opposite directions? People who weight Liberty highly experience surveillance as a direct violation — an imposition of control that undermines the autonomy the state exists to protect. People who weight Authority and Care more evenly may regard pervasive monitoring as an acceptable trade: a managed constraint in exchange for genuine security. Neither is simply wrong. They are calibrating different foundations.",
+      },
+      {
+        type: 'cta',
+        label: 'Total surveillance makes your city 30% safer. Accept the trade-off? →',
+        href: '/play/surveillance-city',
+      },
+      {
+        type: 'cta',
+        label: 'Mandatory vaccines for all: justified by Care, or a violation of Liberty? →',
+        href: '/play/mandatory-vaccine',
+      },
+      {
+        type: 'h2',
+        text: 'What the research says — and where it gets complicated',
+      },
+      {
+        type: 'p',
+        text: "Moral Foundations Theory has generated substantial research and also substantial criticism. Some critics argue that the theory conflates descriptive findings (people do weight these foundations) with normative claims (they should). Others note that the six foundations are not culturally universal in the way early formulations implied — they appear across societies, but their content and ranking vary considerably. The Liberty foundation was added to the original five partly in response to critics who felt the theory did not adequately capture libertarian moral intuitions.",
+      },
+      {
+        type: 'p',
+        text: "The practical insight that survives the theoretical debates is durable: most serious moral disagreements are not disagreements about facts or even about which outcomes matter. They are disagreements about which moral dimensions are relevant in the first place — and which should take priority when they conflict. Understanding that your moral opponent is weighting a different foundation, not ignoring the foundations you care about, can change how a difficult conversation goes.",
+      },
+      {
+        type: 'h2',
+        text: 'Your moral profile on SplitVote',
+      },
+      {
+        type: 'p',
+        text: "Every dilemma on SplitVote implicitly activates one or more moral foundations. The scenarios involving harm and protection activate Care. Dilemmas about following unjust rules activate Fairness and Authority in tension. Questions about loyalty, secrecy, and betrayal activate Loyalty. Scenarios involving surveillance, bodily autonomy, or drug policy activate Liberty and Sanctity. Voting across enough dilemmas builds a picture — not of your \"moral type\", but of which considerations you consistently treat as decisive when they come into conflict.",
+      },
+      {
+        type: 'cta',
+        label: 'Discover what your votes reveal about your moral personality →',
+        href: '/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Virtue ethics: what does a good person do? →',
+        href: '/blog/virtue-ethics-what-would-a-good-person-do',
+      },
+      {
+        type: 'cta',
+        label: 'Explore all moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "Moral Foundations Theory is a theoretical framework in moral psychology, not a validated psychological test. References to Haidt and colleagues' work are for contextual background only. SplitVote dilemmas are for reflection and discussion — not clinical assessment. Results represent our community's votes, not scientific conclusions about individual personalities.",
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -4380,6 +4524,150 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework sulla privacy e alla ricerca sull'IA sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire consulenza legale o tecnica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
+      },
+    ],
+  },
+  {
+    slug: 'teoria-fondamenti-morali',
+    locale: 'it',
+    title: 'La Teoria dei Fondamenti Morali — Perché le Persone Oneste Non Sono d\'Accordo',
+    seoTitle: 'Teoria dei Fondamenti Morali: Perché Persone Ragionevoli Hanno Etiche Completamente Diverse',
+    description:
+      "La Teoria dei Fondamenti Morali di Jonathan Haidt spiega perché due persone ragionevoli e solidali possono arrivare a conclusioni morali opposte — e perché nessuna delle due ha semplicemente torto.",
+    seoDescription:
+      "La Teoria dei Fondamenti Morali spiega perché le persone non sono d'accordo sull'etica: usiamo fondamenti diversi — Cura, Equità, Lealtà, Autorità, Sacralità, Libertà. Scopri i tuoi su SplitVote.",
+    date: '2026-05-10',
+    readingTime: 6,
+    tags: ['psicologia morale', 'fondamenti morali', 'Jonathan Haidt', 'etica', 'psicologia politica'],
+    relatedDilemmaIds: ['trolley', 'innocent-juror', 'truth-friend', 'surveillance-city', 'mandatory-vaccine'],
+    alternateSlug: 'moral-foundations-theory-why-good-people-disagree',
+    content: [
+      {
+        type: 'p',
+        text: "Vedi un tram diretto verso cinque persone. Puoi tirare una leva e deviarlo — ma questo ucciderà una persona sull'altro binario. Tiri la leva. Il tuo amico, altrettanto riflessivo e altrettanto compassionevole, dice che non interverrebbe mai: staresti usando qualcuno come mezzo per un fine. Siete entrambi persone morali che ragionano con cura. Allora perché il disaccordo totale?",
+      },
+      {
+        type: 'p',
+        text: "La risposta, secondo lo psicologo Jonathan Haidt, è che non state usando lo stesso linguaggio morale. La sua Teoria dei Fondamenti Morali propone che la moralità umana si costruisca su diversi sistemi psicologici distinti — e persone diverse li pesano in modo diverso. Capire quali fondamenti guidano il tuo ragionamento cambia il modo in cui interpreti i conflitti morali.",
+      },
+      {
+        type: 'h2',
+        text: 'I sei fondamenti morali',
+      },
+      {
+        type: 'p',
+        text: "Haidt e i suoi colleghi identificano sei intuizioni morali fondamentali che appaiono tra le culture, sebbene siano espresse diversamente nelle diverse società:",
+      },
+      {
+        type: 'list',
+        items: [
+          'Cura / Danno — sensibilità alla sofferenza e impulso a proteggere i vulnerabili. È il fondamento che rende la crudeltà visceralemente sbagliata.',
+          'Equità / Imbroglio — preoccupazione per il trattamento uguale, la giustizia e la punizione di chi prende più del dovuto.',
+          'Lealtà / Tradimento — il peso morale dell\'appartenenza al gruppo, la solidarietà e il dovere di non tradire la propria comunità.',
+          'Autorità / Sovversione — rispetto per la gerarchia legittima, la tradizione e le istituzioni che coordinano la vita sociale.',
+          'Sacralità / Degradazione — la sensazione che alcune cose siano sacre e che certi atti siano moralmente contaminanti indipendentemente dalle loro conseguenze.',
+          'Libertà / Oppressione — resistenza al dominio e diritto all\'autodeterminazione, anche contro autorità che affermano di agire per il bene comune.',
+        ],
+      },
+      {
+        type: 'p',
+        text: "Questi sei fondamenti non sono pesati allo stesso modo da tutti. La ricerca suggerisce che le persone che si identificano come politicamente liberal tendono a valorizzare principalmente Cura ed Equità — e sono spesso scettiche verso Lealtà, Autorità e Sacralità come preoccupazioni morali valide. Le persone che si identificano come conservatrici tendono a valorizzare tutti e sei in modo più equilibrato, trattando Lealtà, Autorità e Sacralità come genuini riferimenti morali, non semplici convenzioni sociali.",
+      },
+      {
+        type: 'h2',
+        text: 'Il problema del tram attraverso la lente dei fondamenti',
+      },
+      {
+        type: 'p',
+        text: "Torniamo al problema del tram. Chi pesa molto la Cura vede cinque vite da salvare e agisce. Chi pesa di più Sacralità e Lealtà può sentire che causare attivamente una morte — anche per salvarne di più — supera una linea che l'inazione passiva non attraversa. Nessuna delle due posizioni è irrazionale. Stanno ragionando da fondamenti diversi.",
+      },
+      {
+        type: 'cta',
+        label: 'Un tram è diretto verso cinque persone. Tiri la leva? →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Equità e il problema della condanna ingiusta',
+      },
+      {
+        type: 'p',
+        text: "Il ragionamento guidato dall'Equità è particolarmente sensibile alla giustizia procedurale — non solo se i risultati sono buoni, ma se il processo che li produce è legittimo. Questa distinzione emerge chiaramente nei dilemmi legali: dovresti seguire le regole anche quando farlo produce un risultato che sai essere ingiusto? Chi pesa l'Autorità insieme all'Equità può dire sì — la legittimità del sistema dipende dall'applicazione coerente delle regole. Chi pesa solo l'Equità può dire no — il punto delle regole non era mai produrre ingiustizia.",
+      },
+      {
+        type: 'cta',
+        label: 'Sai che l\'imputato è innocente. Condanni per sostenere il sistema giudiziario? →',
+        href: '/it/play/innocent-juror',
+      },
+      {
+        type: 'h2',
+        text: 'Lealtà e il tipo di onestà più difficile',
+      },
+      {
+        type: 'p',
+        text: "La Lealtà è il fondamento che rende il tradire un amico qualcosa di quasi fisicamente sbagliato — anche quando l'amico ha fatto qualcosa di oggettivamente dannoso. Non è irrazionalità. Riflette una genuina preoccupazione morale: le relazioni di fiducia sono fragili e preziose, e il tessuto sociale dipende dal fatto che le persone le mantengano. La tensione morale nasce quando la Lealtà entra in conflitto con la Cura (il partner del tuo amico viene ferito) o con l'Equità (la verità conta). Come risolvi quella tensione spesso rivela quale fondamento sta guidando lo script più profondo del tuo ragionamento morale.",
+      },
+      {
+        type: 'cta',
+        label: 'Il partner del tuo migliore amico lo tradisce. Digli la verità? →',
+        href: '/it/play/truth-friend',
+      },
+      {
+        type: 'h2',
+        text: 'Libertà, Autorità e il dilemma della sorveglianza',
+      },
+      {
+        type: 'p',
+        text: "Il fondamento della Libertà crea una tensione particolare con l'Autorità: cosa deve ai suoi cittadini una città quando sicurezza e libertà si contraddicono? Chi pesa molto la Libertà vive la sorveglianza come una violazione diretta — un'imposizione di controllo che mina l'autonomia che lo stato esiste per proteggere. Chi pesa Autorità e Cura in modo più equilibrato può considerare il monitoraggio pervasivo un compromesso accettabile: un vincolo gestito in cambio di sicurezza reale. Nessuno dei due ha semplicemente torto. Stanno calibrando fondamenti diversi.",
+      },
+      {
+        type: 'cta',
+        label: 'La sorveglianza totale rende la tua città il 30% più sicura. Accetti il compromesso? →',
+        href: '/it/play/surveillance-city',
+      },
+      {
+        type: 'cta',
+        label: 'Vaccini obbligatori per tutti: giustificati dalla Cura o violazione della Libertà? →',
+        href: '/it/play/mandatory-vaccine',
+      },
+      {
+        type: 'h2',
+        text: 'Cosa dice la ricerca — e dove si complica',
+      },
+      {
+        type: 'p',
+        text: "La Teoria dei Fondamenti Morali ha generato ricerche sostanziali e anche critiche sostanziali. Alcuni critici sostengono che la teoria confonde i risultati descrittivi (le persone pesano questi fondamenti) con affermazioni normative (dovrebbero farlo). Altri notano che i sei fondamenti non sono culturalmente universali nel modo in cui le prime formulazioni implicavano — appaiono tra le società, ma i loro contenuti e la loro gerarchia variano considerevolmente. Il fondamento della Libertà è stato aggiunto ai cinque originali in parte in risposta ai critici che ritenevano che la teoria non catturasse adeguatamente le intuizioni morali libertarie.",
+      },
+      {
+        type: 'p',
+        text: "L'intuizione pratica che sopravvive ai dibattiti teorici è duratura: la maggior parte dei seri disaccordi morali non sono disaccordi sui fatti o nemmeno su quali risultati contino. Sono disaccordi su quali dimensioni morali siano rilevanti in primo luogo — e quale debba avere la priorità quando entrano in conflitto. Capire che il tuo avversario morale sta pesando un fondamento diverso, non ignorando i fondamenti che ti interessano, può cambiare come va una conversazione difficile.",
+      },
+      {
+        type: 'h2',
+        text: 'Il tuo profilo morale su SplitVote',
+      },
+      {
+        type: 'p',
+        text: "Ogni dilemma su SplitVote attiva implicitamente uno o più fondamenti morali. Gli scenari che coinvolgono danno e protezione attivano la Cura. I dilemmi sul seguire regole ingiuste attivano Equità e Autorità in tensione. Le domande su lealtà, segreti e tradimenti attivano la Lealtà. Gli scenari che coinvolgono sorveglianza, autonomia corporea o politica sulle droghe attivano Libertà e Sacralità. Votare su abbastanza dilemmi costruisce un quadro — non del tuo 'tipo morale', ma di quali considerazioni tratti costantemente come decisive quando entrano in conflitto.",
+      },
+      {
+        type: 'cta',
+        label: 'Scopri cosa rivelano i tuoi voti sulla tua personalità morale →',
+        href: '/it/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Etica della virtù: cosa farebbe una persona buona? →',
+        href: '/it/blog/etica-della-virtu-cosa-farebbe-una-persona-buona',
+      },
+      {
+        type: 'cta',
+        label: 'Esplora tutti i dilemmi morali →',
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "La Teoria dei Fondamenti Morali è un framework teorico della psicologia morale, non un test psicologico validato. I riferimenti al lavoro di Haidt e colleghi sono solo contestuali. I dilemmi di SplitVote sono per la riflessione e il confronto — non per una valutazione clinica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche sulla personalità individuale.",
       },
     ],
   },
