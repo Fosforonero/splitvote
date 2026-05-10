@@ -43,8 +43,11 @@ export default function CompanionDisplay({
 }: Props) {
   const IT = locale === 'it'
   const companion = COMPANION_MAP[species] ?? COMPANION_MAP['spark']
-  // Use per-species vote count when available; fall back to global votesCount
-  const effectiveVotes = pixieXp ? getSpeciesVotes(pixieXp, species) : votesCount
+  // Use per-species vote count when available; fall back to global votesCount.
+  // Guard: an empty pixieXp map {} is truthy but has no species keys yet —
+  // in that case treat as 0 and fall back to votesCount so the stage stays correct.
+  const speciesVotes = pixieXp ? getSpeciesVotes(pixieXp, species) : 0
+  const effectiveVotes = speciesVotes > 0 ? speciesVotes : votesCount
   const stage = getCompanionStage(effectiveVotes)
 
   const [imgError, setImgError] = useState(false)
