@@ -340,6 +340,60 @@ export const RESEARCH_SOURCES: ResearchSource[] = [
     addedAt: '2026-05-04',
     addedBy: 'research-planning',
   },
+  {
+    id: 'sep-bioethics',
+    title: 'Bioethics',
+    institution: 'Stanford Encyclopedia of Philosophy',
+    url: 'https://plato.stanford.edu/entries/bioethics/',
+    type: 'encyclopedia',
+    openAccess: true,
+    clusters: ['bioethics'],
+    moralAxes: ['utility', 'individual', 'freedom'],
+    safeClaim:
+      'Bioethics addresses the moral dimensions of decisions in medicine and life sciences, including end-of-life care, organ allocation, resource scarcity, and the limits of bodily autonomy. Philosophers argue these cases expose fundamental tensions between welfare maximisation and respect for persons.',
+    claimsToAvoid: [
+      'SplitVote gives medical or clinical advice',
+      'bioethics has settled answers',
+      'your vote indicates what you would do in a real medical situation',
+    ],
+    citationStyle: 'paraphrase-only',
+    requiresDisclaimer: true,
+    contentOpportunities: [
+      '/bioethics',
+      'blog:bioethics-when-medicine-forces-impossible-choices',
+      'scenario:organ-harvest',
+      'scenario:mercy-kill',
+      'scenario:pandemic-dose',
+    ],
+    addedAt: '2026-05-10',
+    addedBy: 'research-planning',
+  },
+  {
+    id: 'sep-euthanasia',
+    title: 'Voluntary Euthanasia',
+    institution: 'Stanford Encyclopedia of Philosophy',
+    url: 'https://plato.stanford.edu/entries/euthanasia-voluntary/',
+    type: 'encyclopedia',
+    openAccess: true,
+    clusters: ['bioethics', 'harm-prevention'],
+    moralAxes: ['freedom', 'individual', 'utility'],
+    safeClaim:
+      'Philosophers debate voluntary euthanasia through competing frameworks: autonomy-based arguments hold that competent individuals have the right to control their own death; welfare-based arguments focus on the relief of irremediable suffering; slippery-slope arguments warn of risks to vulnerable populations if assisted dying is legalised.',
+    claimsToAvoid: [
+      'euthanasia is morally permitted',
+      'euthanasia is morally wrong',
+      'SplitVote has a position on end-of-life law',
+    ],
+    citationStyle: 'paraphrase-only',
+    requiresDisclaimer: true,
+    contentOpportunities: [
+      '/bioethics',
+      'blog:bioethics-when-medicine-forces-impossible-choices',
+      'scenario:mercy-kill',
+    ],
+    addedAt: '2026-05-10',
+    addedBy: 'research-planning',
+  },
 ]
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

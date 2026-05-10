@@ -2349,6 +2349,148 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'bioethics-when-medicine-forces-impossible-choices',
+    locale: 'en',
+    title: 'Bioethics — When Medicine Forces the Impossible Choices',
+    seoTitle: 'Bioethics: When Medicine Forces the Hardest Moral Choices',
+    description:
+      "Who gets the one available organ? Is it right to end a life to relieve irremediable suffering? Bioethics studies the moral questions medicine raises that no protocol can fully answer.",
+    seoDescription:
+      "Bioethics explores the hardest moral questions in medicine — organ allocation, euthanasia, bodily autonomy, scarce resources. Vote on real dilemmas at SplitVote.",
+    date: '2026-05-10',
+    readingTime: 6,
+    tags: ['bioethics', 'medical ethics', 'euthanasia', 'bodily autonomy', 'philosophy'],
+    relatedDilemmaIds: ['organ-harvest', 'mercy-kill', 'mandatory-vaccine', 'pandemic-dose', 'brain-upload'],
+    alternateSlug: 'bioetica-quando-la-medicina-impone-scelte-impossibili',
+    content: [
+      {
+        type: 'p',
+        text: "In a waiting room sit five patients on a transplant list. They will die without an organ. Into the emergency room arrives a healthy patient — a road accident. His organs are compatible with all five. No consent. No family reachable. The surgeon must decide. This hypothetical — deliberately extreme — captures something real about bioethics: its questions are not theoretical. They emerge every day in hospitals, ethics committees, and courtrooms.",
+      },
+      {
+        type: 'p',
+        text: "Bioethics is the branch of philosophy that studies the moral dimensions of decisions in medicine and the life sciences. Its questions concern the allocation of scarce resources, the limits of individual autonomy, the definition of death, and the justice of access to care.",
+      },
+      {
+        type: 'h2',
+        text: 'Four foundational principles',
+      },
+      {
+        type: 'p',
+        text: "The most influential framework in practical bioethics — that of Beauchamp and Childress — organises reasoning around four principles:",
+      },
+      {
+        type: 'list',
+        items: [
+          'Autonomy — the right of the competent patient to make informed decisions about their own care, including the refusal of treatment.',
+          'Non-maleficence — do not deliberately cause harm. The classical principle primum non nocere.',
+          'Beneficence — act in the patient\'s interest, even when that requires invasive intervention.',
+          'Justice — distribute benefits, risks, and resources fairly among patients and across society.',
+        ],
+      },
+      {
+        type: 'p',
+        text: "Bioethical dilemmas arise when these principles enter direct conflict. Voluntary euthanasia sets autonomy against non-maleficence. Organ allocation sets beneficence against justice. Mandatory treatment — such as vaccination — sets public health against individual autonomy.",
+      },
+      {
+        type: 'h2',
+        text: 'Who gets the one available organ?',
+      },
+      {
+        type: 'p',
+        text: "Organ allocation is one of the most studied fields in bioethics because its trade-offs are brutally visible: donated organs are scarce, patients on waiting lists are many, and every selection criterion produces winners and losers. The criteria in use combine medical urgency, compatibility, waiting time, and, in some systems, likelihood of success. But every criterion embeds implicit values — about who counts more, about what constitutes a saved life, about whether 'fault' in illness should carry weight.",
+      },
+      {
+        type: 'cta',
+        label: 'Sacrifice one healthy patient to save five who need a transplant? →',
+        href: '/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: 'Euthanasia: autonomy against the duty not to harm',
+      },
+      {
+        type: 'p',
+        text: "The debate over voluntary euthanasia is one of the most enduring in bioethics. Autonomy-based arguments hold that competent individuals have the right to control their own death when facing irremediable suffering. Welfare-based arguments focus on relieving suffering that no palliative treatment can manage. Slippery-slope arguments warn that legalising euthanasia exposes vulnerable populations to subtle pressure — perceiving themselves as a burden, choosing death for others' convenience.",
+      },
+      {
+        type: 'p',
+        text: "None of these arguments resolves cleanly. The controversy persists not because participants are irrational but because they weight different principles — autonomy against non-maleficence, individual compassion against systemic risk.",
+      },
+      {
+        type: 'cta',
+        label: 'A terminally ill patient asks you to end their suffering. Do you help? →',
+        href: '/play/mercy-kill',
+      },
+      {
+        type: 'h2',
+        text: 'Bodily autonomy and public health',
+      },
+      {
+        type: 'p',
+        text: "The principle of autonomy — the right to make informed decisions about one's own body — is treated as near-sacred in contemporary bioethics. But medical decisions rarely concern only the individual. Vaccination protects people who cannot be vaccinated. Antibiotic resistance is shaped by individual prescription decisions. Donating blood, organs, or plasma affects availability for others. Bioethics must repeatedly confront the tension between the body as private property and the body as a node in a network of interdependence.",
+      },
+      {
+        type: 'cta',
+        label: 'Mandatory vaccines for everyone: justified by public health, or a violation of autonomy? →',
+        href: '/play/mandatory-vaccine',
+      },
+      {
+        type: 'h2',
+        text: 'Scarce resources, impossible decisions',
+      },
+      {
+        type: 'p',
+        text: "Pandemics made visible the triage protocols that healthcare systems normally keep hidden: who gets the last ventilator when there are not enough? Who is treated first when emergency rooms are overwhelmed? Guidelines vary — by age, prognosis, order of arrival — but all must answer the same foundational question: how do you make an inherently unjust situation as fair as possible?",
+      },
+      {
+        type: 'cta',
+        label: 'One experimental vaccine dose. Give it to the sickest patient or the youngest? →',
+        href: '/play/pandemic-dose',
+      },
+      {
+        type: 'h2',
+        text: 'Bioethics in the age of digital identity',
+      },
+      {
+        type: 'p',
+        text: "Emerging technologies push bioethics into new territory. If consciousness and memory could be uploaded to a digital substrate, is the surviving entity the same person? What rights would it have? Could it be terminated, copied, or sold? These scenarios look like science fiction but anticipate questions bioethics will need to face as brain-computer interface technologies advance — and they test which of our current moral concepts depend on biological assumptions that may not hold.",
+      },
+      {
+        type: 'cta',
+        label: 'Your digital self uploaded to a server — is it still you? →',
+        href: '/play/brain-upload',
+      },
+      {
+        type: 'h2',
+        text: 'Why bioethics has no easy answers',
+      },
+      {
+        type: 'p',
+        text: "Bioethics is hard not for lack of data or expertise but because its dilemmas require choosing between genuinely competing values. A healthcare system that always prioritises individual autonomy cannot guarantee public health. One that always prioritises aggregate welfare will risk violating individual rights. The tension does not resolve — it is negotiated, case by case, with transparency about the values at stake.",
+      },
+      {
+        type: 'cta',
+        label: 'See how you reason across the hardest ethical dilemmas →',
+        href: '/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Consequentialism: does the end justify the means? →',
+        href: '/blog/consequentialism-the-greatest-good',
+      },
+      {
+        type: 'cta',
+        label: 'Explore all moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presents ethical dilemmas for reflection and discussion. References to bioethics and philosophical literature are for contextual background only — the goal is to help you reflect, not to provide medical or legal advice. Results represent our community's votes, not scientific conclusions. If you are facing real medical decisions, consult a qualified healthcare professional.",
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -4668,6 +4810,148 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "La Teoria dei Fondamenti Morali è un framework teorico della psicologia morale, non un test psicologico validato. I riferimenti al lavoro di Haidt e colleghi sono solo contestuali. I dilemmi di SplitVote sono per la riflessione e il confronto — non per una valutazione clinica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche sulla personalità individuale.",
+      },
+    ],
+  },
+  {
+    slug: 'bioetica-quando-la-medicina-impone-scelte-impossibili',
+    locale: 'it',
+    title: 'Bioetica — Quando la Medicina Impone le Scelte più Difficili',
+    seoTitle: 'Bioetica: Quando la Medicina Ci Mette di Fronte alle Scelte più Difficili',
+    description:
+      "Chi ottiene l'unico organo disponibile? È giusto porre fine a una vita per alleviare una sofferenza irrimediabile? La bioetica studia le domande morali che la medicina solleva e che nessun protocollo può risolvere del tutto.",
+    seoDescription:
+      "Bioetica: le domande morali più difficili della medicina — allocazione degli organi, eutanasia, autonomia corporea, risorse limitate. Vota sui dilemmi reali su SplitVote.",
+    date: '2026-05-10',
+    readingTime: 6,
+    tags: ['bioetica', 'etica medica', 'eutanasia', 'autonomia corporea', 'filosofia'],
+    relatedDilemmaIds: ['organ-harvest', 'mercy-kill', 'mandatory-vaccine', 'pandemic-dose', 'brain-upload'],
+    alternateSlug: 'bioethics-when-medicine-forces-impossible-choices',
+    content: [
+      {
+        type: 'p',
+        text: "In una sala d'attesa ci sono cinque pazienti in attesa di trapianto. Moriranno senza un organo. In pronto soccorso arriva un paziente sano — un incidente. I suoi organi sono compatibili con tutti e cinque. Nessun consenso. Nessuna famiglia raggiungibile. Il chirurgo deve decidere. Questo scenario ipotetico — deliberatamente estremo — cattura qualcosa di reale sulla bioetica: le sue domande non sono teoriche. Emergono ogni giorno in ospedali, comitati etici e aule di tribunale.",
+      },
+      {
+        type: 'p',
+        text: "La bioetica è la branca della filosofia che studia le dimensioni morali delle decisioni in medicina e nelle scienze della vita. Le sue domande riguardano l'allocazione delle risorse scarse, i limiti dell'autonomia individuale, la definizione di morte e la giustizia nell'accesso alle cure.",
+      },
+      {
+        type: 'h2',
+        text: 'Quattro principi fondamentali',
+      },
+      {
+        type: 'p',
+        text: "Il framework più influente nella bioetica pratica — quello di Beauchamp e Childress — organizza il ragionamento attorno a quattro principi:",
+      },
+      {
+        type: 'list',
+        items: [
+          "Autonomia — il diritto del paziente di prendere decisioni informate sulla propria cura, incluso il rifiuto del trattamento.",
+          "Non maleficenza — non causare danno deliberato. Il principio classico primum non nocere.",
+          "Beneficenza — agire nell'interesse del paziente, anche quando questo richiede interventi invasivi.",
+          "Giustizia — distribuire benefici, rischi e risorse in modo equo tra i pazienti e nella società.",
+        ],
+      },
+      {
+        type: 'p',
+        text: "I dilemmi bioetici emergono quando questi principi entrano in conflitto diretto. L'eutanasia volontaria oppone autonomia a non maleficenza. L'allocazione degli organi oppone beneficenza a giustizia. Il trattamento obbligatorio — come la vaccinazione — oppone salute pubblica ad autonomia individuale.",
+      },
+      {
+        type: 'h2',
+        text: "Chi ha diritto all'unico organo disponibile?",
+      },
+      {
+        type: 'p',
+        text: "L'allocazione degli organi è uno dei campi più studiati della bioetica perché i suoi compromessi sono brutalmente visibili: gli organi donati sono rari, i pazienti in lista d'attesa sono molti, e ogni criterio di selezione produce vincitori e perdenti. I criteri in uso combinano urgenza medica, compatibilità, tempo di attesa e, in alcuni sistemi, probabilità di successo. Ma ogni criterio incorpora valori impliciti — su chi conta di più, su cosa costituisce una vita salvata, su se la 'colpa' nella malattia debba avere peso.",
+      },
+      {
+        type: 'cta',
+        label: 'Scarifichi un paziente sano per salvarne cinque che hanno bisogno di trapianto? →',
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: "Eutanasia: autonomia contro il dovere di non causare danno",
+      },
+      {
+        type: 'p',
+        text: "Il dibattito sull'eutanasia volontaria è uno dei più duraturi in bioetica. Gli argomenti basati sull'autonomia sostengono che le persone competenti hanno il diritto di controllare la propria morte quando affrontano una sofferenza irrimediabile. Gli argomenti basati sul benessere si concentrano sull'alleviare una sofferenza che nessun trattamento palliativo riesce a controllare. Gli argomenti del piano inclinato avvertono che legalizzare l'eutanasia espone le popolazioni vulnerabili a pressioni sottili — percepire di essere un peso, scegliere la morte per convenienza degli altri.",
+      },
+      {
+        type: 'p',
+        text: "Nessuno di questi argomenti si risolve facilmente. La controversia persiste non perché i partecipanti siano irrazionali, ma perché pesano principi diversi — autonomia contro non maleficenza, compassione individuale contro rischio sistemico.",
+      },
+      {
+        type: 'cta',
+        label: 'Un paziente terminale ti chiede di porre fine alla sua sofferenza. Lo aiuti? →',
+        href: '/it/play/mercy-kill',
+      },
+      {
+        type: 'h2',
+        text: 'Autonomia corporea e salute pubblica',
+      },
+      {
+        type: 'p',
+        text: "Il principio di autonomia — il diritto di prendere decisioni informate sul proprio corpo — è considerato quasi sacro nella bioetica contemporanea. Ma le decisioni mediche raramente riguardano solo l'individuo. La vaccinazione protegge le persone che non possono vaccinarsi. La resistenza agli antibiotici è modellata da decisioni individuali di prescrizione. Il donare sangue, organi o plasma influenza la disponibilità per gli altri. La bioetica deve affrontare continuamente la tensione tra il corpo come proprietà privata e il corpo come nodo in una rete di interdipendenza.",
+      },
+      {
+        type: 'cta',
+        label: 'Vaccinazione obbligatoria per tutti: giustificata dalla salute pubblica o violazione dell\'autonomia? →',
+        href: '/it/play/mandatory-vaccine',
+      },
+      {
+        type: 'h2',
+        text: 'Risorse scarse, decisioni impossibili',
+      },
+      {
+        type: 'p',
+        text: "La pandemia ha reso visibili i protocolli di triage che i sistemi sanitari normalmente nascondono: chi riceve l'ultimo ventilatore quando non ce ne sono abbastanza? Chi viene trattato per primo quando il pronto soccorso è al collasso? Le linee guida variano — per età, prognosi, ordine di arrivo — ma tutte devono rispondere alla stessa domanda fondamentale: come rendere equa una situazione intrinsecamente ingiusta?",
+      },
+      {
+        type: 'cta',
+        label: 'Un\'unica dose di vaccino sperimentale. La dai al paziente più malato o al più giovane? →',
+        href: '/it/play/pandemic-dose',
+      },
+      {
+        type: 'h2',
+        text: "La bioetica nell'era dell'identità digitale",
+      },
+      {
+        type: 'p',
+        text: "Le tecnologie emergenti spingono la bioetica in territori nuovi. Se coscienza e memoria potessero essere caricate su un supporto digitale, la persona che sopravvive è la stessa? Quali diritti avrebbe? Potrebbe essere terminata, copiata, venduta? Questi scenari sembrano fantascienza, ma anticipano domande che la bioetica dovrà affrontare man mano che le tecnologie di interfaccia cervello-computer avanzano — e testano quali dei nostri concetti morali attuali dipendono da presupposti biologici che potrebbero non reggere.",
+      },
+      {
+        type: 'cta',
+        label: 'Il tuo io digitale caricato su un server è ancora te? →',
+        href: '/it/play/brain-upload',
+      },
+      {
+        type: 'h2',
+        text: 'Perché la bioetica non ha risposte semplici',
+      },
+      {
+        type: 'p',
+        text: "La bioetica è difficile non per mancanza di dati o competenza, ma perché i suoi dilemmi richiedono di scegliere tra valori genuinamente in competizione. Un sistema sanitario che privilegia sempre l'autonomia individuale non potrà garantire la salute pubblica. Uno che privilegia sempre il benessere aggregato rischierà di violare diritti individuali. La tensione non si risolve — si negozia, caso per caso, con trasparenza sui valori in gioco.",
+      },
+      {
+        type: 'cta',
+        label: 'Scopri come ragioni nei dilemmi etici più difficili →',
+        href: '/it/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Consequenzialismo: il fine giustifica i mezzi? →',
+        href: '/it/blog/consequenzialismo-il-bene-maggiore',
+      },
+      {
+        type: 'cta',
+        label: 'Esplora tutti i dilemmi morali →',
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti alla bioetica e alla letteratura filosofica sono contestuali — l'obiettivo è aiutarti a riflettere, non fornire consulenza medica o legale. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche. Se stai affrontando decisioni mediche reali, consulta un professionista sanitario.",
       },
     ],
   },

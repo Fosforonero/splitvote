@@ -272,7 +272,7 @@ export const SEO_TOPICS: SeoTopic[] = [
       'Five lives saved at the cost of one — most people accept that calculation. But change the case slightly and the math becomes unbearable: would you sacrifice one healthy patient to save five who need transplants? The arithmetic is identical. The verdict almost always isn\'t. Consequentialism judges actions by their outcomes — produce the most good, minimise the most harm — and it captures something real about how people reason in emergencies. It also runs into a sharp limit when the best aggregate outcome requires using a person as a means.',
     primaryScenarioId: 'organ-harvest',
     relatedScenarioIds: ['trolley', 'pandemic-dose', 'rich-or-fair', 'universal-basic-income'],
-    relatedTopicSlugs: ['deontology', 'virtue-ethics', 'trolley-problem'],
+    relatedTopicSlugs: ['deontology', 'virtue-ethics', 'trolley-problem', 'moral-foundations'],
     researchNote:
       'Bentham and Mill formulated the modern utilitarian version of consequentialism in the 18th and 19th centuries. Contemporary philosophers continue to debate where the boundary lies between aggregate welfare and individual rights.',
     researchSources: [
@@ -362,7 +362,7 @@ export const SEO_TOPICS: SeoTopic[] = [
       "Cinque vite salvate al costo di una — la maggior parte delle persone accetta questo calcolo. Ma cambia leggermente il caso e la matematica diventa insostenibile: sacrificheresti un paziente sano per salvarne cinque che hanno bisogno di trapianti? L'aritmetica è identica. Il verdetto quasi mai. Il consequenzialismo giudica le azioni dai risultati — produrre il maggior bene, minimizzare il maggior danno — e cattura qualcosa di reale su come ragioniamo nelle emergenze. Si scontra anche con un limite netto quando il miglior risultato aggregato richiede di usare una persona come strumento.",
     primaryScenarioId: 'organ-harvest',
     relatedScenarioIds: ['trolley', 'pandemic-dose', 'rich-or-fair', 'universal-basic-income'],
-    relatedTopicSlugs: ['deontologia', 'etica-della-virtu', 'problema-del-carrello'],
+    relatedTopicSlugs: ['deontologia', 'etica-della-virtu', 'problema-del-carrello', 'fondamenti-morali'],
     researchNote:
       "Bentham e Mill hanno formulato la versione utilitarista moderna del consequenzialismo nei secoli XVIII e XIX. I filosofi contemporanei continuano a dibattere dove si trovi il confine tra benessere aggregato e diritti individuali.",
     researchSources: [
@@ -435,6 +435,126 @@ export const SEO_TOPICS: SeoTopic[] = [
         title: 'Moral Dilemmas',
         institution: 'Stanford Encyclopedia of Philosophy',
         url: 'https://plato.stanford.edu/entries/moral-dilemmas/',
+      },
+    ],
+    status: 'published',
+    noindexUntilReady: false,
+  },
+  {
+    slug: 'privacy-ethics',
+    locale: 'en',
+    alternateSlug: 'etica-della-privacy',
+    topic: 'Privacy Ethics',
+    searchIntent: 'privacy ethics dilemmas, right to privacy philosophy, anonymity vs surveillance, digital privacy morality',
+    tension: 'the right to be left alone vs collective security and accountability',
+    headline: 'Privacy Ethics — When the Right to Be Left Alone Runs Out',
+    intro:
+      'Anonymous voting protects who you are. Surveillance cameras protect where you go. Data brokers record what you buy. AI infers what you believe. At every layer, a trade-off: give up some privacy to gain some safety, or hold the line and accept the risk. Privacy ethics asks where that line should fall — and who gets to draw it. The dilemmas below have no clean answers. They test what you actually value when the stakes are real.',
+    primaryScenarioId: 'surveillance-city',
+    relatedScenarioIds: ['privacy-terror', 'deepfake-expose', 'censor-speech', 'delete-social-media'],
+    relatedTopicSlugs: ['ai-ethics-dilemmas', 'moral-foundations', 'consequentialism'],
+    researchNote:
+      'Philosophers distinguish identity privacy (who you are) from information privacy (what you think or do). AI-driven inference increasingly collapses this distinction: anonymous datasets can be re-identified; behavioural patterns can reveal beliefs never explicitly disclosed.',
+    researchSources: [
+      {
+        title: 'Privacy',
+        institution: 'Stanford Encyclopedia of Philosophy',
+        url: 'https://plato.stanford.edu/entries/privacy/',
+      },
+      {
+        title: 'Privacy and Information Technology',
+        institution: 'Stanford Encyclopedia of Philosophy',
+        url: 'https://plato.stanford.edu/entries/it-privacy/',
+      },
+    ],
+    status: 'published',
+    noindexUntilReady: false,
+  },
+  {
+    slug: 'moral-foundations',
+    locale: 'en',
+    alternateSlug: 'fondamenti-morali',
+    topic: 'Moral Foundations',
+    searchIntent: 'moral foundations theory, why people disagree on ethics, Jonathan Haidt morality, moral psychology, care fairness loyalty authority sanctity liberty',
+    tension: 'different moral foundations producing irreconcilable but internally coherent worldviews',
+    headline: 'Moral Foundations — Why Good People Reach Opposite Conclusions',
+    intro:
+      "Two people read the same dilemma and reach completely opposite conclusions — each convinced the other is missing something obvious. Moral Foundations Theory proposes that this happens because they're reasoning from different psychological systems: Care, Fairness, Loyalty, Authority, Sanctity, Liberty. The dilemmas below activate these foundations in ways that reveal which ones are running your deepest moral reasoning. Neither response is wrong. They're different moral languages.",
+    primaryScenarioId: 'trolley',
+    relatedScenarioIds: ['innocent-juror', 'truth-friend', 'mandatory-vaccine', 'surveillance-city'],
+    relatedTopicSlugs: ['consequentialism', 'deontology', 'virtue-ethics'],
+    researchNote:
+      "Jonathan Haidt and colleagues developed Moral Foundations Theory to explain cross-cultural variation in moral intuitions. The framework identifies six foundational systems — Care, Fairness, Loyalty, Authority, Sanctity, Liberty — each with evolutionary origins and contemporary moral weight. Liberal and conservative moral systems differ primarily in how heavily the non-Care/Fairness foundations are weighted.",
+    researchSources: [
+      {
+        title: 'Moral Psychology Research Lab',
+        institution: 'University of Virginia / NYU',
+        url: 'https://moralfoundations.org',
+      },
+      {
+        title: 'The Righteous Mind',
+        institution: 'Jonathan Haidt (Pantheon Books, 2012)',
+        url: 'https://righteousmind.com',
+      },
+    ],
+    status: 'published',
+    noindexUntilReady: false,
+  },
+  {
+    slug: 'etica-della-privacy',
+    locale: 'it',
+    alternateSlug: 'privacy-ethics',
+    topic: 'Etica della privacy',
+    searchIntent: 'etica della privacy, diritto alla privacy filosofia, anonimato vs sorveglianza, moralità privacy digitale',
+    tension: 'il diritto a essere lasciati in pace contro la sicurezza collettiva e la responsabilità',
+    headline: 'Etica della Privacy — Quando il Diritto a Essere Lasciati in Pace Finisce',
+    intro:
+      "Il voto anonimo protegge chi sei. Le telecamere di sorveglianza proteggono dove vai. I data broker registrano cosa compri. L'IA inferisce cosa credi. A ogni livello, un compromesso: cedere un po' di privacy per guadagnare un po' di sicurezza, o tenere la linea e accettare il rischio. L'etica della privacy chiede dove dovrebbe cadere quella linea — e chi ha il diritto di tracciarla. I dilemmi qui sotto non hanno risposte pulite. Testano cosa valorizzi davvero quando le posta è alta.",
+    primaryScenarioId: 'surveillance-city',
+    relatedScenarioIds: ['privacy-terror', 'deepfake-expose', 'censor-speech', 'delete-social-media'],
+    relatedTopicSlugs: ['dilemmi-etici-intelligenza-artificiale', 'fondamenti-morali', 'consequenzialismo'],
+    researchNote:
+      "I filosofi distinguono la privacy dell'identità (chi sei) dalla privacy dell'informazione (cosa pensi o fai). L'inferenza guidata dall'IA sta sempre più collassando questa distinzione: i dataset anonimi possono essere re-identificati; i pattern comportamentali possono rivelare convinzioni mai esplicitamente dichiarate.",
+    researchSources: [
+      {
+        title: 'Privacy',
+        institution: 'Stanford Encyclopedia of Philosophy',
+        url: 'https://plato.stanford.edu/entries/privacy/',
+      },
+      {
+        title: 'Privacy and Information Technology',
+        institution: 'Stanford Encyclopedia of Philosophy',
+        url: 'https://plato.stanford.edu/entries/it-privacy/',
+      },
+    ],
+    status: 'published',
+    noindexUntilReady: false,
+  },
+  {
+    slug: 'fondamenti-morali',
+    locale: 'it',
+    alternateSlug: 'moral-foundations',
+    topic: 'Fondamenti morali',
+    searchIntent: 'teoria dei fondamenti morali, perché le persone non sono d\'accordo sull\'etica, Jonathan Haidt moralità, psicologia morale, cura equità lealtà autorità sacralità libertà',
+    tension: 'fondamenti morali diversi che producono visioni del mondo irriconciliabili ma internamente coerenti',
+    headline: 'Fondamenti Morali — Perché le Persone Oneste Arrivano a Conclusioni Opposte',
+    intro:
+      "Due persone leggono lo stesso dilemma e arrivano a conclusioni completamente opposte — ognuna convinta che l'altra stia mancando qualcosa di ovvio. La Teoria dei Fondamenti Morali propone che questo accada perché ragionano da sistemi psicologici diversi: Cura, Equità, Lealtà, Autorità, Sacralità, Libertà. I dilemmi qui sotto attivano questi fondamenti in modi che rivelano quali stanno guidando il tuo ragionamento morale più profondo. Nessuna risposta è sbagliata. Sono linguaggi morali diversi.",
+    primaryScenarioId: 'trolley',
+    relatedScenarioIds: ['innocent-juror', 'truth-friend', 'mandatory-vaccine', 'surveillance-city'],
+    relatedTopicSlugs: ['consequenzialismo', 'deontologia', 'etica-della-virtu'],
+    researchNote:
+      "Jonathan Haidt e colleghi hanno sviluppato la Teoria dei Fondamenti Morali per spiegare la variazione cross-culturale nelle intuizioni morali. Il framework identifica sei sistemi fondazionali — Cura, Equità, Lealtà, Autorità, Sacralità, Libertà — ognuno con origini evolutive e peso morale contemporaneo. I sistemi morali liberal e conservatori differiscono principalmente nel peso dato ai fondamenti non-Cura/Equità.",
+    researchSources: [
+      {
+        title: 'Moral Psychology Research Lab',
+        institution: 'University of Virginia / NYU',
+        url: 'https://moralfoundations.org',
+      },
+      {
+        title: 'The Righteous Mind',
+        institution: 'Jonathan Haidt (Pantheon Books, 2012)',
+        url: 'https://righteousmind.com',
       },
     ],
     status: 'published',
