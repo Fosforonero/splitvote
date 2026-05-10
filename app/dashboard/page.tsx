@@ -11,6 +11,7 @@ import OnboardingModal from './OnboardingModal'
 import CompanionDisplay from '@/components/CompanionDisplay'
 import DailyMissions from '@/components/DailyMissions'
 import PixieSelector from '@/components/PixieSelector'
+import ProfileShareButton from '@/components/ProfileShareButton'
 import type { CompanionSpecies, PixieXpMap } from '@/lib/companion'
 import { STREAK_MILESTONES, getStreakProgress } from '@/lib/badges'
 
@@ -208,6 +209,39 @@ export default async function DashboardPage() {
         streakDays={streakDays}
         locale={locale}
       />
+
+      {/* ── Public profile ── */}
+      <div className="rounded-2xl border border-[var(--border)] bg-[#0d0d1a]/60 p-5 mb-8 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <span className="text-lg">🌐</span>
+          </div>
+          <div className="min-w-0">
+            <p className="font-bold text-white text-sm">
+              {IT ? 'Il tuo profilo pubblico' : 'Your public profile'}
+            </p>
+            <p className="text-[var(--muted)] text-xs mt-0.5 truncate">
+              splitvote.io/u/{user.id.slice(0, 8)}…
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <Link
+            href={`/u/${user.id}`}
+            className="text-xs font-bold px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-[var(--muted)] hover:bg-white/10 hover:text-white transition-colors"
+            target="_blank"
+            rel="noopener"
+          >
+            {IT ? 'Vedi →' : 'View →'}
+          </Link>
+          <ProfileShareButton
+            profileUrl={`https://splitvote.io/u/${user.id}`}
+            displayName={profile?.display_name ?? 'SplitVote user'}
+            locale={locale}
+            compact
+          />
+        </div>
+      </div>
 
       {/* ── Personality entry ── */}
       <div className="rounded-2xl border border-purple-500/30 bg-purple-500/5 p-5 mb-8 flex items-center justify-between gap-4">

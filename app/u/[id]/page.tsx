@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import CompanionDisplay from '@/components/CompanionDisplay'
 import { getCompanionStage, getSpeciesVotes, type CompanionSpecies, type PixieXpMap } from '@/lib/companion'
+import ProfileShareButton from '@/components/ProfileShareButton'
 
 const BASE = 'https://splitvote.io'
 
@@ -185,6 +186,14 @@ export default async function PublicProfilePage({ params }: Props) {
           </p>
         </div>
       )}
+
+      {/* ── Share profile ── */}
+      <div className="mb-8">
+        <ProfileShareButton
+          profileUrl={`${BASE}/u/${params.id}`}
+          displayName={displayName}
+        />
+      </div>
 
       {/* ── CTA ── */}
       <div className="text-center">
