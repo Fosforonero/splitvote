@@ -1951,6 +1951,139 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'doing-vs-allowing-harm',
+    locale: 'en',
+    title: 'Doing vs Allowing Harm — When Inaction Is Also a Choice',
+    seoTitle: 'Doing vs Allowing Harm — Why Pulling the Lever Feels Different from Pushing the Man',
+    description:
+      'Pulling a lever to redirect a trolley feels different from pushing someone to stop it — even when the math is identical. The doing/allowing distinction is one of the deepest puzzles in moral philosophy. And it shapes how you reason about everything from medicine to global poverty.',
+    seoDescription:
+      "What is the doing vs allowing distinction in ethics? Why do most people accept active killing in some cases and refuse it in others? Explore the moral asymmetry that divides consequentialists from deontologists.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['doing vs allowing', 'ethics', 'moral philosophy', 'trolley problem', 'omission'],
+    relatedDilemmaIds: ['trolley', 'plane-parachute', 'pandemic-dose', 'mercy-kill', 'steal-medicine'],
+    alternateSlug: 'causare-vs-permettere-danno',
+    content: [
+      {
+        type: 'p',
+        text: "A trolley is heading toward five people. Pulling a lever to divert it onto a side track will kill one person but save the five. Most people pull the lever. Now change the case: instead of a lever, you must push a large man off a bridge to stop the trolley. Same math. Same outcome. Almost no one pushes the man.",
+      },
+      {
+        type: 'p',
+        text: "The asymmetry is the puzzle. Why does pulling a lever feel acceptable when pushing the man does not? Both are active choices that result in one death to save five. The difference is one of the most studied questions in moral philosophy — and it sits behind countless real-world debates about medicine, poverty, and responsibility.",
+      },
+      {
+        type: 'h2',
+        text: 'The doing/allowing distinction, defined',
+      },
+      {
+        type: 'p',
+        text: "The distinction is between actively doing harm and merely allowing harm to happen. A doctor who administers a lethal injection actively causes death. A doctor who removes life support allows death. A bystander who fails to throw a rope to a drowning person allows them to die. Most ethical traditions treat these as morally different — even when the outcome is identical.",
+      },
+      {
+        type: 'p',
+        text: "The intuition behind the distinction: the world contains harms we did not cause. We have a strong duty not to add to them. Our duty to actively prevent them is weaker. This is why a surgeon who refuses to harvest organs to save five lives does not feel like a killer — even though five people will die as a result of the refusal.",
+      },
+      {
+        type: 'h2',
+        text: 'Why most people feel the difference',
+      },
+      {
+        type: 'p',
+        text: "In large surveys, roughly 85% of people pull the trolley lever, but only about 30% push the man off the bridge. The difference is not in the outcome — it is in the role you play. Pulling a lever is causing harm as a side effect of saving lives. Pushing a person is using them as a means to save lives. The latter feels deeply wrong, even when the arithmetic is identical.",
+      },
+      {
+        type: 'p',
+        text: "Researchers who study moral cognition argue that this is not a quirk of survey design but a stable feature of how human moral judgment works. People reason about active causation and passive permission as fundamentally different categories — even when they cannot articulate why.",
+      },
+      {
+        type: 'h2',
+        text: 'Why some philosophers reject the distinction',
+      },
+      {
+        type: 'p',
+        text: "Consequentialists are skeptical. If the outcome is the same, why should how it came about matter morally? The drowning child argument makes the case sharply: if you would save a drowning child at minor cost, you should also act on a global poverty problem you could meaningfully reduce at similar cost. Failing to act, on this view, is morally equivalent to actively causing the harm you allowed.",
+      },
+      {
+        type: 'p',
+        text: "On the strict consequentialist view, the doing/allowing distinction is a moral illusion — a comforting story we tell ourselves to avoid the demanding implications of our power to prevent harm. If you can save a life at low cost and choose not to, you are responsible for that death. The distinction between doing and allowing dissolves under pressure.",
+      },
+      {
+        type: 'h2',
+        text: 'Where the line breaks down in practice',
+      },
+      {
+        type: 'p',
+        text: "The distinction is hardest to maintain in medical contexts. Withdrawing life support and administering a lethal injection can produce the same outcome on the same timeline. Many ethicists argue these cases differ; many argue they do not. The legal answer in most jurisdictions is closer to the first view, but the philosophical debate is far from settled.",
+      },
+      {
+        type: 'p',
+        text: "Cases where someone could easily save another life and chooses not to also strain the distinction. If you are the only person who could give a stranger life-saving medicine — at no cost to yourself — and you walk away, most people consider this morally serious. The pure doing/allowing distinction would say you did nothing wrong because you only allowed the death. Most intuitions disagree.",
+      },
+      {
+        type: 'h2',
+        text: 'The dilemmas that test it',
+      },
+      {
+        type: 'p',
+        text: "These scenarios push the doing/allowing line in different directions. Each one changes something — the relationship to the victim, the cost of acting, the directness of causation. Where do you draw the line?",
+      },
+      {
+        type: 'cta',
+        label: 'A runaway trolley. Five lives or one. Pull the lever or do nothing? →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'cta',
+        label: "A plane crashes. One parachute, two of you. Take it or give it? →",
+        href: '/play/plane-parachute',
+      },
+      {
+        type: 'cta',
+        label: 'One vaccine dose. Two patients. Choose, or refuse to choose? →',
+        href: '/play/pandemic-dose',
+      },
+      {
+        type: 'cta',
+        label: "A terminally ill patient asks for help to die. Refuse or assist? →",
+        href: '/play/mercy-kill',
+      },
+      {
+        type: 'cta',
+        label: "Your child needs medicine you cannot afford. Steal it or let them suffer? →",
+        href: '/play/steal-medicine',
+      },
+      {
+        type: 'h2',
+        text: 'How the major frameworks handle it',
+      },
+      {
+        type: 'p',
+        text: "Consequentialism tends to deny the distinction: outcomes are what matter, and the path to them is morally secondary. Deontology defends the distinction: there is a stronger duty not to actively cause harm than to prevent it, and people have rights against being used as means. Where you sit on this question shapes how you reason about much more than trolleys — it shapes how you think about medicine, charity, war, and the limits of personal responsibility.",
+      },
+      {
+        type: 'cta',
+        label: 'Consequentialism: why outcomes are all that matter →',
+        href: '/blog/consequentialism-the-greatest-good',
+      },
+      {
+        type: 'cta',
+        label: 'Deontology: why some constraints are near-absolute →',
+        href: '/blog/deontology-some-things-are-always-wrong',
+      },
+      {
+        type: 'cta',
+        label: 'Explore all moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presents ethical dilemmas for reflection and discussion. References to philosophical frameworks are for context only — the goal is to help you reflect, not to provide academic instruction. Results represent our community's votes, not scientific conclusions.",
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -3863,6 +3996,139 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'p',
         text: "L'etica della virtù completa il trio dei grandi framework morali occidentali insieme a consequenzialismo e deontologia. Il consequenzialismo chiede quali risultati produrre; la deontologia chiede quali regole applicare; l'etica della virtù chiede quale carattere esprimere. Il ragionamento morale reale spesso attinge a tutti e tre — ecco perché lo stesso dilemma può sembrare molto diverso a seconda da dove si parte.",
+      },
+      {
+        type: 'cta',
+        label: 'Esplora tutti i dilemmi morali →',
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework filosofici sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire istruzione accademica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
+      },
+    ],
+  },
+  {
+    slug: 'causare-vs-permettere-danno',
+    locale: 'it',
+    title: "Causare vs Permettere il Danno — Quando l'Inazione È Anche una Scelta",
+    seoTitle: "Causare vs Permettere il Danno — Perché Tirare la Leva Sembra Diverso da Spingere l'Uomo",
+    description:
+      "Tirare una leva per deviare un carrello sembra diverso dallo spingere qualcuno per fermarlo — anche quando la matematica è identica. La distinzione tra causare e permettere è uno degli enigmi più profondi della filosofia morale. E modella come ragioniamo su tutto, dalla medicina alla povertà globale.",
+    seoDescription:
+      "Cos'è la distinzione tra causare e permettere il danno? Perché la maggior parte delle persone accetta un'uccisione attiva in alcuni casi e la rifiuta in altri? Esplora l'asimmetria morale che divide consequenzialisti e deontologi.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['causare vs permettere', 'etica', 'filosofia morale', 'problema del carrello', 'omissione'],
+    relatedDilemmaIds: ['trolley', 'plane-parachute', 'pandemic-dose', 'mercy-kill', 'steal-medicine'],
+    alternateSlug: 'doing-vs-allowing-harm',
+    content: [
+      {
+        type: 'p',
+        text: "Un carrello sta per investire cinque persone. Tirare una leva per deviarlo su un binario laterale ucciderà una persona ma ne salverà cinque. La maggior parte delle persone tira la leva. Ora cambia il caso: invece di una leva, devi spingere un uomo robusto giù da un ponte per fermare il carrello. Stessa matematica. Stesso risultato. Quasi nessuno spinge l'uomo.",
+      },
+      {
+        type: 'p',
+        text: "L'asimmetria è l'enigma. Perché tirare una leva sembra accettabile mentre spingere l'uomo no? Entrambe sono scelte attive che producono una morte per salvarne cinque. La differenza è una delle questioni più studiate della filosofia morale — e si trova alla base di innumerevoli dibattiti reali su medicina, povertà e responsabilità.",
+      },
+      {
+        type: 'h2',
+        text: 'La distinzione causare/permettere, definita',
+      },
+      {
+        type: 'p',
+        text: "La distinzione è tra causare attivamente un danno e semplicemente permettere che accada. Un medico che somministra un'iniezione letale causa attivamente la morte. Un medico che stacca il supporto vitale permette la morte. Un passante che non lancia una corda a una persona che annega ne permette la morte. La maggior parte delle tradizioni etiche tratta questi casi come moralmente diversi — anche quando l'esito è identico.",
+      },
+      {
+        type: 'p',
+        text: "L'intuizione dietro la distinzione: il mondo contiene danni che non abbiamo causato. Abbiamo un dovere forte di non aggiungerne. Il nostro dovere di prevenirli attivamente è più debole. Per questo un chirurgo che si rifiuta di prelevare organi per salvare cinque vite non si sente un assassino — anche se cinque persone moriranno per via del rifiuto.",
+      },
+      {
+        type: 'h2',
+        text: 'Perché la maggior parte delle persone sente la differenza',
+      },
+      {
+        type: 'p',
+        text: "In sondaggi su larga scala, circa l'85% delle persone tira la leva del carrello, ma solo circa il 30% spinge l'uomo dal ponte. La differenza non è nell'esito — è nel ruolo che giochi. Tirare una leva è causare un danno come effetto collaterale del salvare vite. Spingere una persona è usarla come mezzo per salvare vite. Quest'ultimo sembra profondamente sbagliato, anche quando l'aritmetica è identica.",
+      },
+      {
+        type: 'p',
+        text: "I ricercatori che studiano la cognizione morale sostengono che questa non è un'idiosincrasia del design dei sondaggi ma una caratteristica stabile di come funziona il giudizio morale umano. Le persone ragionano sulla causazione attiva e sulla permissione passiva come categorie fondamentalmente diverse — anche quando non sanno articolare perché.",
+      },
+      {
+        type: 'h2',
+        text: 'Perché alcuni filosofi rifiutano la distinzione',
+      },
+      {
+        type: 'p',
+        text: "I consequenzialisti sono scettici. Se l'esito è lo stesso, perché dovrebbe contare moralmente come è arrivato? L'argomento del bambino che annega lo rende netto: se salveresti un bambino che annega a costo minimo, dovresti anche agire su un problema di povertà globale che potresti significativamente ridurre a costo simile. Non agire, da questo punto di vista, è moralmente equivalente a causare attivamente il danno che hai permesso.",
+      },
+      {
+        type: 'p',
+        text: "Nella visione consequenzialista stretta, la distinzione causare/permettere è un'illusione morale — una storia confortante che ci raccontiamo per evitare le implicazioni esigenti del nostro potere di prevenire il danno. Se puoi salvare una vita a basso costo e scegli di non farlo, sei responsabile di quella morte. La distinzione tra causare e permettere si dissolve sotto pressione.",
+      },
+      {
+        type: 'h2',
+        text: 'Dove la linea si rompe nella pratica',
+      },
+      {
+        type: 'p',
+        text: "La distinzione è più difficile da mantenere nei contesti medici. Staccare il supporto vitale e somministrare un'iniezione letale possono produrre lo stesso esito sulla stessa tempistica. Molti eticisti sostengono che questi casi siano diversi; molti sostengono che non lo siano. La risposta legale nella maggior parte delle giurisdizioni è più vicina alla prima visione, ma il dibattito filosofico è tutt'altro che chiuso.",
+      },
+      {
+        type: 'p',
+        text: "Anche i casi in cui qualcuno potrebbe facilmente salvare un'altra vita e sceglie di non farlo mettono sotto stress la distinzione. Se sei l'unica persona che potrebbe dare a uno sconosciuto una medicina salvavita — senza alcun costo per te — e te ne vai, la maggior parte delle persone considera la cosa moralmente seria. La distinzione pura tra causare e permettere direbbe che non hai fatto nulla di male perché hai solo permesso la morte. La maggior parte delle intuizioni dissente.",
+      },
+      {
+        type: 'h2',
+        text: 'I dilemmi che lo mettono alla prova',
+      },
+      {
+        type: 'p',
+        text: "Questi scenari spingono il confine causare/permettere in direzioni diverse. Ognuno cambia qualcosa — la relazione con la vittima, il costo di agire, la direttezza della causazione. Dove tracci tu il confine?",
+      },
+      {
+        type: 'cta',
+        label: 'Un carrello fuori controllo. Cinque vite o una. Tiri la leva o stai fermo? →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'cta',
+        label: 'Un aereo precipita. Un paracadute, voi due. Lo prendi o lo dai? →',
+        href: '/it/play/plane-parachute',
+      },
+      {
+        type: 'cta',
+        label: 'Una dose di vaccino. Due pazienti. Scegli, o rifiuti di scegliere? →',
+        href: '/it/play/pandemic-dose',
+      },
+      {
+        type: 'cta',
+        label: "Un paziente terminale chiede aiuto per morire. Rifiuti o assisti? →",
+        href: '/it/play/mercy-kill',
+      },
+      {
+        type: 'cta',
+        label: "Tuo figlio ha bisogno di una medicina che non puoi permetterti. La rubi o lo lasci soffrire? →",
+        href: '/it/play/steal-medicine',
+      },
+      {
+        type: 'h2',
+        text: 'Come i grandi framework lo affrontano',
+      },
+      {
+        type: 'p',
+        text: "Il consequenzialismo tende a negare la distinzione: contano gli esiti, e il percorso per arrivarci è moralmente secondario. La deontologia difende la distinzione: c'è un dovere più forte di non causare attivamente danno che di prevenirlo, e le persone hanno diritti contro l'essere usate come mezzi. Dove ti collochi su questa questione modella come ragioni su molto più dei carrelli — modella come pensi a medicina, beneficenza, guerra e i limiti della responsabilità personale.",
+      },
+      {
+        type: 'cta',
+        label: 'Consequenzialismo: perché contano solo gli esiti →',
+        href: '/it/blog/consequenzialismo-il-bene-maggiore',
+      },
+      {
+        type: 'cta',
+        label: 'Deontologia: perché alcuni vincoli sono quasi assoluti →',
+        href: '/it/blog/deontologia-alcune-cose-sono-sempre-sbagliate',
       },
       {
         type: 'cta',
