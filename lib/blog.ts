@@ -3148,6 +3148,215 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  // G15
+  {
+    slug: 'moral-emotions-gut-feeling-moral-compass',
+    locale: 'en',
+    title: 'Moral Emotions: When Your Gut Feeling Is Your Moral Compass',
+    seoTitle: 'Moral Emotions: How Gut Feelings Drive Ethical Judgment | SplitVote',
+    description:
+      'Your gut reacts before your brain explains itself. Research shows moral emotions — disgust, guilt, elevation — are the real engines of ethical judgment.',
+    seoDescription:
+      'Discover how moral emotions like disgust, guilt, and elevation shape your ethical choices before you start reasoning. Based on Haidt\'s social intuitionist model.',
+    date: '2026-05-10',
+    readingTime: 7,
+    tags: ['moral psychology', 'emotions', 'intuition', 'Haidt', 'ethics'],
+    relatedDilemmaIds: ['organ-harvest', 'trolley', 'cure-secret', 'self-driving-crash'],
+    alternateSlug: 'emozioni-morali-istinto-bussola-morale',
+    content: [
+      {
+        type: 'p',
+        text: 'A surgeon has five patients dying of organ failure. One healthy patient arrives for a routine check-up. Harvesting that patient\'s organs would save five lives and end one.',
+      },
+      {
+        type: 'p',
+        text: 'Almost everyone recoils immediately. The reasoning comes later — if it comes at all.',
+      },
+      {
+        type: 'p',
+        text: 'Jonathan Haidt called this "the emotional dog wagging the rational tail." Your gut fires first. Your reasoning faculty follows — often working backward to justify the verdict that already arrived.',
+      },
+      {
+        type: 'h2',
+        text: 'What are moral emotions?',
+      },
+      {
+        type: 'p',
+        text: 'Moral emotions are feelings that arise specifically in response to perceived right or wrong behaviour — whether by yourself or by others.',
+      },
+      {
+        type: 'p',
+        text: 'They differ from general emotions in one key way: they carry moral meaning. You feel guilty because you believe you caused harm. You feel elevated when you witness unexpected kindness. You feel contempt when someone violates what you consider basic decency.',
+      },
+      {
+        type: 'p',
+        text: 'Psychologist Paul Ekman catalogued six basic emotions. Jonathan Haidt extended that framework to moral emotions specifically: guilt, shame, elevation, moral anger, contempt — and, critically, disgust.',
+      },
+      {
+        type: 'h2',
+        text: 'The elephant and the rider',
+      },
+      {
+        type: 'p',
+        text: 'In 2001, Haidt published a paper that shifted moral psychology. He proposed the Social Intuitionist Model: moral judgments are primarily driven by fast, automatic emotional responses — and reasoning is recruited afterwards to explain or defend them.',
+      },
+      {
+        type: 'p',
+        text: 'The metaphor he later popularised: the elephant and the rider. The elephant is the intuitive, emotional system — large, powerful, hard to steer. The rider is reasoning — perched on top, believing it is in control, but mostly rationalising where the elephant was already going.',
+      },
+      {
+        type: 'p',
+        text: 'This directly challenged the rationalist tradition in moral psychology — the view, following Kohlberg, that moral development means learning to reason better. Haidt\'s answer: you are mostly a post-hoc rationaliser of gut feelings. And that is not a bug.',
+      },
+      {
+        type: 'h2',
+        text: 'Moral dumbfounding — when emotions outrun reasoning',
+      },
+      {
+        type: 'p',
+        text: 'Haidt\'s most striking demonstration involved scenarios designed to provoke strong gut reactions while blocking the usual harm-based justifications.',
+      },
+      {
+        type: 'p',
+        text: 'The classic example: a sibling pair who, once while travelling, consensually have sex. They use protection. Both enjoy it. It brings them closer. They never do it again. No one is harmed and no one ever finds out.',
+      },
+      {
+        type: 'p',
+        text: 'Most people immediately say this is wrong. When pressed for reasons, they cite harms — disease, pregnancy, psychological damage. The researchers point out these are explicitly ruled out by the scenario. Most people hold firm: "It\'s just wrong." They have been morally dumbfounded — certain in their judgment, unable to justify it, unwilling to abandon it.',
+      },
+      {
+        type: 'p',
+        text: 'Haidt\'s conclusion: the certainty came from an emotional response. The reasoning was an attempt to articulate that response, not to derive it.',
+      },
+      {
+        type: 'h2',
+        text: 'Disgust: the moral emotion that colonised other domains',
+      },
+      {
+        type: 'p',
+        text: 'Of all moral emotions, disgust is the most studied and the most surprising in its reach.',
+      },
+      {
+        type: 'p',
+        text: 'Disgust evolved as a pathogen-avoidance system. It fires in response to potential contaminants: rotting food, bodily fluids, parasites. The physiological response — nausea, turning away, the characteristic "ick" expression — is ancient and appears across cultures.',
+      },
+      {
+        type: 'p',
+        text: 'What researchers discovered is that disgust has been co-opted by moral reasoning. It now fires in response to moral violations that have nothing to do with biological contamination: betrayal, taboo actions, violations of purity norms, symbolic sacrilege.',
+      },
+      {
+        type: 'p',
+        text: 'Haidt and colleagues found that people who score high on disgust sensitivity tend to hold more conservative positions on purity-related moral issues — sexual morality, bodily violations, the treatment of sacred objects. They are more likely to feel that something is wrong even when no one is demonstrably harmed.',
+      },
+      {
+        type: 'p',
+        text: 'Disgust-prone individuals are not less rational. They are running a different emotional filter — one calibrated to detect a different class of violations.',
+      },
+      {
+        type: 'h2',
+        text: 'The full roster of moral emotions',
+      },
+      {
+        type: 'list',
+        items: [
+          'Guilt — self-directed, triggered by believing you caused harm or violated your own standards. Corrective: it motivates repair and avoidance.',
+          'Shame — related to guilt but focused on the self being fundamentally flawed, not just having done something wrong. Tends toward withdrawal rather than repair.',
+          'Elevation — Haidt\'s term for the warm, uplifting feeling when witnessing extraordinary kindness, courage, or sacrifice. Motivates prosocial action in the observer.',
+          'Moral anger — fires when you perceive someone else being harmed, even when you are not the victim. The engine of moral outrage and of much moral activism.',
+          'Contempt — triggered by perceived violations of community norms by someone seen as beneath those standards. Unlike anger, contempt dismisses rather than seeks repair.',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'How reasoning and emotion interact — Greene\'s contribution',
+      },
+      {
+        type: 'p',
+        text: 'Joshua Greene at Harvard extended Haidt\'s work using fMRI scans of people making moral decisions. He found that different types of dilemmas activate fundamentally different brain systems.',
+      },
+      {
+        type: 'p',
+        text: 'Personal moral dilemmas — where you must directly harm someone with your own hands to save others — strongly activate emotional circuits, particularly those associated with social conflict and harm aversion.',
+      },
+      {
+        type: 'p',
+        text: 'Impersonal dilemmas — pull a lever, redirect a trolley, press a button from a distance — activate more deliberative, prefrontal reasoning circuits.',
+      },
+      {
+        type: 'p',
+        text: 'Greene\'s theory: emotional reactions to personal harm evolved to regulate behaviour in close-knit groups where any direct harm was always intimate and proximate. Impersonal moral decisions, which became possible only at civilisational scale, require deliberative reasoning to override those emotional defaults.',
+      },
+      {
+        type: 'p',
+        text: 'This is why most people are willing to pull the trolley lever but not to push a person off a bridge — even though the outcomes are formally identical. The emotional system distinguishes direct from indirect harm in a way deliberative reasoning alone does not.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote: organ harvest — save five by sacrificing one? →',
+        href: '/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: 'What this means for your moral archetype',
+      },
+      {
+        type: 'p',
+        text: 'On SplitVote, these patterns appear in real votes across hundreds of thousands of responses.',
+      },
+      {
+        type: 'p',
+        text: 'The Guardian archetype shows strong responses to purity and loyalty dilemmas — exactly the scenarios where disgust and contempt are most likely to activate. Guardians frequently feel that some actions are wrong regardless of their consequences.',
+      },
+      {
+        type: 'p',
+        text: 'The Strategist archetype consistently favours outcome-based reasoning — pulling levers, authorising difficult tradeoffs, accepting impersonal harm to prevent greater harm. This profile aligns with lower disgust sensitivity and stronger deliberative engagement.',
+      },
+      {
+        type: 'p',
+        text: 'The Empath archetype shows high activation around direct harm and social conflict — strong moral anger when individuals are sacrificed for the collective, and strong elevation responses to stories of solidarity and sacrifice.',
+      },
+      {
+        type: 'p',
+        text: 'None of these profiles is more evolved or more correct. They reflect different calibrations of moral emotions that are present in every human — just weighted differently across people.',
+      },
+      {
+        type: 'h2',
+        text: 'Try it yourself',
+      },
+      {
+        type: 'p',
+        text: 'The best way to understand your own moral emotion profile is to face dilemmas that activate different emotional systems. The organ harvest scenario triggers near-universal disgust. The trolley problem separates those who override emotional reactions through deliberation from those who do not.',
+      },
+      {
+        type: 'p',
+        text: 'Your patterns across multiple dilemmas reveal something real about which moral emotions are loudest in your system — and that, Haidt would say, is the core of your moral identity.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote: the trolley problem →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'cta',
+        label: 'Discover your moral personality type →',
+        href: '/personality',
+      },
+      {
+        type: 'cta',
+        label: 'What is a moral dilemma? →',
+        href: '/blog/what-is-a-moral-dilemma',
+      },
+      {
+        type: 'cta',
+        label: 'Moral foundations theory: why good people disagree →',
+        href: '/blog/moral-foundations-theory-why-good-people-disagree',
+      },
+      {
+        type: 'disclaimer',
+        text: 'References to Jonathan Haidt\'s Social Intuitionist Model, Joshua Greene\'s dual-process research, and Paul Ekman\'s emotion taxonomy are for contextual and educational purposes. Research cited is attributed to its original authors. SplitVote is an entertainment and reflection platform, not a scientific study. Archetype associations described are illustrative patterns based on aggregated voting data, not clinically validated personality assessments.',
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -6266,6 +6475,215 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: 'I riferimenti alla ricerca sul problema del tram, sulla psicologia morale a doppio processo e sulla dottrina del doppio effetto sono a scopo contestuale ed educativo. La ricerca descritta è attribuita a Philippa Foot, Judith Jarvis Thomson e Joshua Greene. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico. Le associazioni di archetipi descritte sono pattern illustrativi, non previsioni statisticamente validate.',
+      },
+    ],
+  },
+  // G15
+  {
+    slug: 'emozioni-morali-istinto-bussola-morale',
+    locale: 'it',
+    title: 'Emozioni Morali: Quando l\'Istinto È la Tua Bussola Morale',
+    seoTitle: 'Emozioni Morali: Come l\'Istinto Guida il Giudizio Etico | SplitVote',
+    description:
+      'Il tuo istinto reagisce prima che il cervello si spieghi. La ricerca mostra che emozioni morali come disgusto, colpa ed elevazione sono i veri motori del giudizio etico.',
+    seoDescription:
+      'Scopri come emozioni morali come disgusto, colpa ed elevazione plasmano le tue scelte etiche prima ancora di ragionare. Basato sul modello intuizionista sociale di Haidt.',
+    date: '2026-05-10',
+    readingTime: 7,
+    tags: ['psicologia morale', 'emozioni', 'intuizione', 'Haidt', 'etica'],
+    relatedDilemmaIds: ['organ-harvest', 'trolley', 'cure-secret', 'self-driving-crash'],
+    alternateSlug: 'moral-emotions-gut-feeling-moral-compass',
+    content: [
+      {
+        type: 'p',
+        text: 'Un chirurgo ha cinque pazienti in fin di vita per insufficienza d\'organo. Un paziente sano arriva per un controllo di routine. Prelevare gli organi di quel paziente salverebbe cinque vite e ne terminerebbe una.',
+      },
+      {
+        type: 'p',
+        text: 'Quasi tutti reagiscono immediatamente con repulsione. Il ragionamento arriva dopo — se arriva.',
+      },
+      {
+        type: 'p',
+        text: 'Jonathan Haidt ha chiamato questo "il cane emotivo che scodinzola la coda razionale." Il tuo istinto scatta per primo. La tua facoltà razionale segue — spesso lavorando a ritroso per giustificare il verdetto già emesso.',
+      },
+      {
+        type: 'h2',
+        text: 'Cosa sono le emozioni morali?',
+      },
+      {
+        type: 'p',
+        text: 'Le emozioni morali sono sentimenti che emergono specificamente in risposta a comportamenti percepiti come giusti o sbagliati — che siano tuoi o altrui.',
+      },
+      {
+        type: 'p',
+        text: 'Si distinguono dalle emozioni generali per una caratteristica fondamentale: portano un significato morale. Ti senti in colpa perché credi di aver causato un danno. Ti senti elevato quando testimoni una gentilezza inattesa. Provi disprezzo quando qualcuno viola quella che consideri la decenza di base.',
+      },
+      {
+        type: 'p',
+        text: 'Lo psicologo Paul Ekman ha catalogato sei emozioni di base. Jonathan Haidt ha esteso quel framework alle emozioni morali in modo specifico: colpa, vergogna, elevazione, rabbia morale, disprezzo — e, in modo cruciale, disgusto.',
+      },
+      {
+        type: 'h2',
+        text: 'L\'elefante e il cavaliere',
+      },
+      {
+        type: 'p',
+        text: 'Nel 2001, Haidt ha pubblicato un articolo che ha cambiato la psicologia morale. Ha proposto il Modello Intuizionista Sociale: i giudizi morali sono guidati principalmente da risposte emotive rapide e automatiche — e il ragionamento viene reclutato in seguito per spiegarli o difenderli.',
+      },
+      {
+        type: 'p',
+        text: 'La metafora che ha poi reso popolare: l\'elefante e il cavaliere. L\'elefante è il sistema intuitivo ed emotivo — grande, potente, difficile da governare. Il cavaliere è il ragionamento — seduto in cima, convinto di controllare, ma per lo più razionalizzando dove l\'elefante stava già andando.',
+      },
+      {
+        type: 'p',
+        text: 'Questo ha sfidato direttamente la tradizione razionalista nella psicologia morale — la visione, seguendo Kohlberg, che lo sviluppo morale significhi imparare a ragionare meglio. La risposta di Haidt: sei per lo più un razionalizzatore post-hoc di sentimenti istintivi. E questo non è un difetto.',
+      },
+      {
+        type: 'h2',
+        text: 'L\'ottundimento morale — quando le emozioni superano il ragionamento',
+      },
+      {
+        type: 'p',
+        text: 'La dimostrazione più sorprendente di Haidt ha coinvolto scenari progettati per provocare forti reazioni istintive bloccando le consuete giustificazioni basate sul danno.',
+      },
+      {
+        type: 'p',
+        text: 'L\'esempio classico: una coppia di fratelli che, durante un viaggio, hanno consensualmente un rapporto sessuale. Usano la contraccezione. Entrambi trovano l\'esperienza piacevole. Li avvicina. Non lo ripetono mai. Nessuno viene danneggiato e nessuno lo viene mai a sapere.',
+      },
+      {
+        type: 'p',
+        text: 'La maggior parte delle persone dice immediatamente che è sbagliato. Quando si chiede il perché, citano danni — malattie, gravidanza, trauma psicologico. I ricercatori fanno notare che questi fattori sono esplicitamente esclusi dallo scenario. La maggior parte rimane ferma: "È semplicemente sbagliato." Sono stati moralmente ottunditi — certi del loro giudizio, incapaci di giustificarlo, ma restii ad abbandonarlo.',
+      },
+      {
+        type: 'p',
+        text: 'La conclusione di Haidt: la certezza proveniva da una risposta emotiva. Il ragionamento era un tentativo di articolare quella risposta, non di derivarla.',
+      },
+      {
+        type: 'h2',
+        text: 'Disgusto: l\'emozione morale che ha colonizzato altri domini',
+      },
+      {
+        type: 'p',
+        text: 'Tra tutte le emozioni morali, il disgusto è la più studiata e la più sorprendente nella sua portata.',
+      },
+      {
+        type: 'p',
+        text: 'Il disgusto si è evoluto come sistema di evitamento dei patogeni. Si attiva in risposta a potenziali contaminanti: cibo in decomposizione, fluidi corporei, parassiti. La risposta fisiologica — nausea, la caratteristica smorfia di repulsione, il voltarsi dall\'altra parte — è antica e appare in tutte le culture.',
+      },
+      {
+        type: 'p',
+        text: 'Ciò che i ricercatori hanno scoperto è che il disgusto è stato cooptato dal ragionamento morale. Ora si attiva in risposta a violazioni morali che non hanno nulla a che fare con la contaminazione biologica: tradimento, azioni tabù, violazioni delle norme di purezza, sacrilegio simbolico.',
+      },
+      {
+        type: 'p',
+        text: 'Haidt e colleghi hanno scoperto che le persone con alta sensibilità al disgusto tendono ad assumere posizioni più conservative su questioni morali legate alla purezza — moralità sessuale, violazioni corporee, trattamento di oggetti sacri. Hanno più probabilità di sentire che qualcosa è sbagliato anche quando nessuno viene dimostrabilmente danneggiato.',
+      },
+      {
+        type: 'p',
+        text: 'Le persone inclini al disgusto non sono meno razionali. Utilizzano un filtro emotivo diverso — calibrato per rilevare una classe di violazioni differente.',
+      },
+      {
+        type: 'h2',
+        text: 'Il repertorio completo delle emozioni morali',
+      },
+      {
+        type: 'list',
+        items: [
+          'Colpa — autodiretta, scattata quando credi di aver causato un danno o violato i tuoi standard. Correttiva: motiva la riparazione e l\'evitamento.',
+          'Vergogna — correlata alla colpa ma centrata sul sé come fondamentalmente difettoso, non solo su aver fatto qualcosa di sbagliato. Tende al ritiro piuttosto che alla riparazione.',
+          'Elevazione — il termine di Haidt per il calore e il senso di sollevamento che si prova testimoniando straordinaria gentilezza, coraggio o sacrificio. Motiva azioni prosociali nell\'osservatore.',
+          'Rabbia morale — si attiva quando percepisci qualcun altro essere danneggiato, anche quando non sei tu la vittima. Il motore dell\'indignazione morale e di gran parte dell\'attivismo morale.',
+          'Disprezzo — innescato da violazioni percepite delle norme della comunità da parte di qualcuno visto come al di sotto di quegli standard. A differenza della rabbia, il disprezzo liquida piuttosto che cercare riparazione.',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Come ragionamento ed emozione interagiscono — il contributo di Greene',
+      },
+      {
+        type: 'p',
+        text: 'Joshua Greene ad Harvard ha esteso il lavoro di Haidt usando la risonanza magnetica funzionale su persone che prendevano decisioni morali. Ha scoperto che diversi tipi di dilemmi attivano sistemi cerebrali fondamentalmente diversi.',
+      },
+      {
+        type: 'p',
+        text: 'I dilemmi morali personali — in cui devi danneggiare direttamente qualcuno con le tue mani per salvare altri — attivano fortemente i circuiti emotivi, in particolare quelli associati al conflitto sociale e all\'avversione al danno.',
+      },
+      {
+        type: 'p',
+        text: 'I dilemmi impersonali — tirare una leva, deviare un tram, premere un pulsante a distanza — attivano circuiti deliberativi prefrontali più razionali.',
+      },
+      {
+        type: 'p',
+        text: 'La teoria di Greene: le reazioni emotive al danno personale si sono evolute per regolare il comportamento in gruppi uniti dove qualsiasi danno diretto era sempre intimo e prossimo. Le decisioni morali impersonali, diventate possibili solo su scala civilizzazionale, richiedono il ragionamento deliberativo per sovrascrivere quelle impostazioni predefinite emotive.',
+      },
+      {
+        type: 'p',
+        text: 'Ecco perché la maggior parte delle persone è disposta a tirare la leva del tram ma non a spingere una persona dal ponte — anche se i risultati sono formalmente identici. Il sistema emotivo distingue il danno diretto da quello indiretto in un modo che il ragionamento deliberativo da solo non fa.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota: prelievo d\'organi — salvare cinque sacrificando uno? →',
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: 'Cosa significa per il tuo archetipo morale',
+      },
+      {
+        type: 'p',
+        text: 'Su SplitVote, questi pattern emergono in voti reali raccolti da centinaia di migliaia di risposte.',
+      },
+      {
+        type: 'p',
+        text: 'L\'archetipo Guardian mostra forti reazioni ai dilemmi di purezza e lealtà — esattamente gli scenari in cui disgusto e disprezzo hanno più probabilità di attivarsi. I Guardian sentono frequentemente che alcune azioni sono sbagliate indipendentemente dalle loro conseguenze.',
+      },
+      {
+        type: 'p',
+        text: 'L\'archetipo Strategist favorisce costantemente il ragionamento basato sugli esiti — tirare leve, autorizzare compromessi difficili, accettare danni impersonali per prevenire danni maggiori. Questo profilo si allinea con una minore sensibilità al disgusto e un maggiore coinvolgimento deliberativo.',
+      },
+      {
+        type: 'p',
+        text: 'L\'archetipo Empath mostra alta attivazione intorno al danno diretto e al conflitto sociale — forte rabbia morale quando gli individui vengono sacrificati per il collettivo, e forti risposte di elevazione alle storie di solidarietà e sacrificio.',
+      },
+      {
+        type: 'p',
+        text: 'Nessuno di questi profili è più evoluto o più corretto. Riflettono diverse calibrazioni di emozioni morali presenti in ogni essere umano — semplicemente ponderate diversamente tra le persone.',
+      },
+      {
+        type: 'h2',
+        text: 'Provalo tu stesso',
+      },
+      {
+        type: 'p',
+        text: 'Il modo migliore per comprendere il proprio profilo emotivo morale è affrontare dilemmi che attivano sistemi emotivi diversi. Lo scenario del prelievo d\'organi scatena un disgusto quasi universale. Il problema del tram separa chi riesce a sovrascrivere le reazioni emotive attraverso la deliberazione da chi non lo fa.',
+      },
+      {
+        type: 'p',
+        text: 'I tuoi pattern attraverso più dilemmi rivelano qualcosa di reale su quali emozioni morali sono più forti nel tuo sistema — e questo, direbbe Haidt, è il nucleo della tua identità morale.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota: il problema del tram →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'cta',
+        label: 'Scopri il tuo tipo di personalità morale →',
+        href: '/it/personality',
+      },
+      {
+        type: 'cta',
+        label: "Cos'è un dilemma morale? →",
+        href: '/it/blog/cos-e-un-dilemma-morale',
+      },
+      {
+        type: 'cta',
+        label: 'Teoria dei fondamenti morali: perché le persone buone non sono d\'accordo →',
+        href: '/it/blog/teoria-fondamenti-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: 'I riferimenti al Modello Intuizionista Sociale di Jonathan Haidt, alla ricerca a doppio processo di Joshua Greene e alla tassonomia delle emozioni di Paul Ekman sono a scopo contestuale ed educativo. La ricerca citata è attribuita ai suoi autori originali. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico. Le associazioni di archetipi descritte sono pattern illustrativi basati su dati di voto aggregati, non valutazioni della personalità clinicamente validate.',
       },
     ],
   },
