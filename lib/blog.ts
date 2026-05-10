@@ -2084,6 +2084,127 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'privacy-in-public-voting',
+    locale: 'en',
+    title: 'What Privacy Means in a World of Public Voting',
+    seoTitle: 'Privacy in a World of Public Voting — When Anonymous Is Not the Same as Private',
+    description:
+      "Anonymous voting protects who you are. Aggregated data reveals what your group thinks. AI-driven inference can re-identify both. Privacy in 2026 is not one thing — and the dilemmas around it are getting harder, fast.",
+    seoDescription:
+      "What does privacy mean when votes are anonymous but data is public? Explore the difference between identity privacy and information privacy, and the moral dilemmas AI surveillance creates.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['privacy', 'surveillance', 'AI ethics', 'GDPR', 'anonymous voting'],
+    relatedDilemmaIds: ['surveillance-city', 'privacy-terror', 'deepfake-expose', 'censor-speech', 'delete-social-media'],
+    alternateSlug: 'privacy-nel-voto-pubblico',
+    content: [
+      {
+        type: 'p',
+        text: "You vote anonymously on a moral dilemma. Your individual choice stays hidden — no name, no profile, no record tied to you. But the aggregate vote is published: 62% chose option A, 38% chose option B. From your single private act, a public truth emerges. This is the basic structure of anonymous polling — and it raises a question that gets harder every year: when does anonymous stop being private?",
+      },
+      {
+        type: 'p',
+        text: "Privacy in 2026 is not one thing. It is several distinct concerns that often get bundled together — and pulling them apart matters because the moral dilemmas they create are different in each case.",
+      },
+      {
+        type: 'h2',
+        text: 'The two dimensions of privacy',
+      },
+      {
+        type: 'p',
+        text: "Identity privacy is about who you are: your name, your face, your verifiable attributes. Information privacy is about what you think, choose, or do — even when nobody knows it was you. Anonymous voting protects identity privacy strongly. But it does not automatically protect information privacy: aggregate patterns reveal what groups believe, even when no individual is identifiable.",
+      },
+      {
+        type: 'p',
+        text: "These two dimensions can come apart sharply. A perfectly anonymous dataset can still expose what people in your demographic, region, or category believe — sometimes in ways those people would never have shared if asked directly. Anonymity at the individual level does not prevent inference at the group level.",
+      },
+      {
+        type: 'h2',
+        text: 'Why anonymous is not always private',
+      },
+      {
+        type: 'p',
+        text: "Anonymisation often fails under cross-referencing. Combine an anonymous dataset with one or two other public sources — a payment record, a location trace, a social media post — and individuals can be re-identified with surprising accuracy. Researchers have demonstrated this repeatedly: even strong-looking anonymisation breaks when adversaries have other data to work with.",
+      },
+      {
+        type: 'p',
+        text: "Beyond re-identification, aggregate data raises a different concern: profiling. Even if no individual is named, knowing how a group reasons can shape how that group is treated — by advertisers, employers, insurers, or governments. The privacy question shifts from 'who voted what' to 'what does this say about the kind of people they are' — and the second question is in some ways more consequential than the first.",
+      },
+      {
+        type: 'h2',
+        text: 'How AI changes the privacy stakes',
+      },
+      {
+        type: 'p',
+        text: "Algorithmic inference makes the gap between identity and information privacy much narrower. A model trained on enough behavioural data can predict things you never explicitly disclosed: political beliefs, sexual orientation, mental health state, future behaviour. The data that powers such inference is often gathered from anonymous or pseudonymous interactions — exactly the kind that classical privacy frameworks treated as low-risk.",
+      },
+      {
+        type: 'p',
+        text: "Synthetic media adds another layer. Deepfakes test the question of what truth even means in a world where evidence can be fabricated convincingly. The consent that anchored older privacy regimes — control over what is published about you — becomes harder to enforce when convincing fake content can be produced from a few seconds of public footage.",
+      },
+      {
+        type: 'h2',
+        text: 'The dilemmas that put privacy under pressure',
+      },
+      {
+        type: 'p',
+        text: "These scenarios test where privacy ends and other values — security, accountability, free expression, public safety — begin. Each one changes something about who is watching, who is being watched, and what is at stake.",
+      },
+      {
+        type: 'cta',
+        label: 'A safer city through total surveillance. Worth it? →',
+        href: '/play/surveillance-city',
+      },
+      {
+        type: 'cta',
+        label: "An AI predicts a terrorist attack with 90% accuracy. Detain the suspect? →",
+        href: '/play/privacy-terror',
+      },
+      {
+        type: 'cta',
+        label: 'A deepfake exposes a real crime. Use it as evidence or destroy it? →',
+        href: '/play/deepfake-expose',
+      },
+      {
+        type: 'cta',
+        label: "A government wants to censor disinformation. Where do you draw the line? →",
+        href: '/play/censor-speech',
+      },
+      {
+        type: 'cta',
+        label: 'Delete your entire social media history. Free or erased? →',
+        href: '/play/delete-social-media',
+      },
+      {
+        type: 'h2',
+        text: 'How SplitVote thinks about this',
+      },
+      {
+        type: 'p',
+        text: "The platform takes the distinction between identity privacy and information privacy seriously. Votes are anonymous by default — no account required, no personal data tied to choices. IP addresses used for rate limiting are hashed before storage. Aggregate results are published; individual voting histories for logged-in users are not exposed publicly. The trade-off is honest: you contribute to a public dataset of moral patterns, and the platform contributes back the protection that your individual choices stay yours.",
+      },
+      {
+        type: 'cta',
+        label: 'How anonymous voting actually works on SplitVote →',
+        href: '/blog/how-anonymous-voting-works',
+      },
+      {
+        type: 'cta',
+        label: 'AI ethics: what 40 million people chose about machine decisions →',
+        href: '/blog/ai-ethics-what-40-million-people-chose',
+      },
+      {
+        type: 'cta',
+        label: 'Explore all moral dilemmas →',
+        href: '/moral-dilemmas',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presents ethical dilemmas for reflection and discussion. References to privacy frameworks and AI research are for context only — the goal is to help you reflect, not to provide legal or technical advice. Results represent our community's votes, not scientific conclusions.",
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -4138,6 +4259,127 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework filosofici sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire istruzione accademica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
+      },
+    ],
+  },
+  {
+    slug: 'privacy-nel-voto-pubblico',
+    locale: 'it',
+    title: 'Cosa Significa Privacy in un Mondo di Voti Pubblici',
+    seoTitle: "Privacy in un Mondo di Voti Pubblici — Quando Anonimo Non È la Stessa Cosa di Privato",
+    description:
+      "Il voto anonimo protegge chi sei. I dati aggregati rivelano cosa pensa il tuo gruppo. L'inferenza basata sull'IA può re-identificare entrambi. La privacy nel 2026 non è una cosa sola — e i dilemmi che la circondano si fanno più difficili, in fretta.",
+    seoDescription:
+      "Cosa significa privacy quando i voti sono anonimi ma i dati pubblici? Esplora la differenza tra privacy d'identità e privacy d'informazione, e i dilemmi morali creati dalla sorveglianza basata sull'IA.",
+    date: '2026-05-10',
+    readingTime: 5,
+    tags: ['privacy', 'sorveglianza', 'etica IA', 'GDPR', 'voto anonimo'],
+    relatedDilemmaIds: ['surveillance-city', 'privacy-terror', 'deepfake-expose', 'censor-speech', 'delete-social-media'],
+    alternateSlug: 'privacy-in-public-voting',
+    content: [
+      {
+        type: 'p',
+        text: "Voti in modo anonimo su un dilemma morale. La tua scelta individuale resta nascosta — niente nome, niente profilo, nessun record collegato a te. Ma il voto aggregato viene pubblicato: 62% ha scelto l'opzione A, 38% l'opzione B. Dal tuo singolo atto privato emerge una verità pubblica. Questa è la struttura di base del sondaggio anonimo — e solleva una domanda che si fa più difficile ogni anno: quando l'anonimo smette di essere privato?",
+      },
+      {
+        type: 'p',
+        text: "La privacy nel 2026 non è una cosa sola. È un insieme di preoccupazioni distinte che spesso vengono raggruppate insieme — e separarle conta perché i dilemmi morali che creano sono diversi in ciascun caso.",
+      },
+      {
+        type: 'h2',
+        text: "Le due dimensioni della privacy",
+      },
+      {
+        type: 'p',
+        text: "La privacy d'identità riguarda chi sei: il tuo nome, il tuo volto, i tuoi attributi verificabili. La privacy d'informazione riguarda cosa pensi, scegli o fai — anche quando nessuno sa che sei stato tu. Il voto anonimo protegge fortemente la privacy d'identità. Ma non protegge automaticamente la privacy d'informazione: i pattern aggregati rivelano cosa credono i gruppi, anche quando nessun individuo è identificabile.",
+      },
+      {
+        type: 'p',
+        text: "Queste due dimensioni possono separarsi nettamente. Un dataset perfettamente anonimo può ancora esporre cosa credono le persone della tua categoria demografica, regione o gruppo — a volte in modi che quelle persone non avrebbero mai condiviso se direttamente interrogate. L'anonimato a livello individuale non impedisce l'inferenza a livello di gruppo.",
+      },
+      {
+        type: 'h2',
+        text: 'Perché anonimo non è sempre privato',
+      },
+      {
+        type: 'p',
+        text: "L'anonimizzazione spesso fallisce sotto il riferimento incrociato. Combina un dataset anonimo con una o due altre fonti pubbliche — un record di pagamento, una traccia di posizione, un post sui social — e gli individui possono essere re-identificati con sorprendente accuratezza. I ricercatori l'hanno dimostrato ripetutamente: anche un'anonimizzazione apparentemente forte si rompe quando gli avversari hanno altri dati su cui lavorare.",
+      },
+      {
+        type: 'p',
+        text: "Oltre alla re-identificazione, i dati aggregati sollevano una preoccupazione diversa: la profilazione. Anche se nessun individuo è nominato, sapere come ragiona un gruppo può modellare come quel gruppo viene trattato — da pubblicitari, datori di lavoro, assicuratori o governi. La domanda sulla privacy si sposta da 'chi ha votato cosa' a 'cosa dice questo sul tipo di persone che sono' — e la seconda domanda è in qualche modo più consequenziale della prima.",
+      },
+      {
+        type: 'h2',
+        text: 'Come l\'IA cambia la posta in gioco della privacy',
+      },
+      {
+        type: 'p',
+        text: "L'inferenza algoritmica rende molto più stretto il divario tra privacy d'identità e privacy d'informazione. Un modello addestrato su sufficienti dati comportamentali può prevedere cose che non hai mai esplicitamente rivelato: convinzioni politiche, orientamento sessuale, stato di salute mentale, comportamenti futuri. I dati che alimentano tale inferenza vengono spesso raccolti da interazioni anonime o pseudonime — esattamente il tipo che i framework classici della privacy trattavano come a basso rischio.",
+      },
+      {
+        type: 'p',
+        text: "I media sintetici aggiungono un ulteriore livello. I deepfake mettono alla prova la domanda di cosa significhi anche solo verità in un mondo dove le prove possono essere fabbricate in modo convincente. Il consenso che ancorava i regimi più vecchi della privacy — il controllo su cosa viene pubblicato di te — diventa più difficile da far rispettare quando contenuti falsi convincenti possono essere prodotti da pochi secondi di filmato pubblico.",
+      },
+      {
+        type: 'h2',
+        text: 'I dilemmi che mettono la privacy sotto pressione',
+      },
+      {
+        type: 'p',
+        text: "Questi scenari mettono alla prova dove finisce la privacy e dove iniziano altri valori — sicurezza, responsabilità, libera espressione, sicurezza pubblica. Ognuno cambia qualcosa su chi sta osservando, chi viene osservato e cosa è in gioco.",
+      },
+      {
+        type: 'cta',
+        label: 'Una città più sicura attraverso la sorveglianza totale. Ne vale la pena? →',
+        href: '/it/play/surveillance-city',
+      },
+      {
+        type: 'cta',
+        label: "Un'IA prevede un attacco terroristico con il 90% di accuratezza. Detieni il sospetto? →",
+        href: '/it/play/privacy-terror',
+      },
+      {
+        type: 'cta',
+        label: 'Un deepfake espone un crimine reale. Lo usi come prova o lo distruggi? →',
+        href: '/it/play/deepfake-expose',
+      },
+      {
+        type: 'cta',
+        label: "Un governo vuole censurare la disinformazione. Dove tracci il confine? →",
+        href: '/it/play/censor-speech',
+      },
+      {
+        type: 'cta',
+        label: "Cancella tutta la tua storia sui social media. Liberato o cancellato? →",
+        href: '/it/play/delete-social-media',
+      },
+      {
+        type: 'h2',
+        text: 'Come SplitVote affronta questa cosa',
+      },
+      {
+        type: 'p',
+        text: "La piattaforma prende sul serio la distinzione tra privacy d'identità e privacy d'informazione. I voti sono anonimi di default — nessun account richiesto, nessun dato personale legato alle scelte. Gli indirizzi IP usati per il rate limiting vengono hashati prima dell'archiviazione. I risultati aggregati sono pubblicati; le storie individuali di voto degli utenti loggati non vengono esposte pubblicamente. Il compromesso è onesto: contribuisci a un dataset pubblico di pattern morali, e la piattaforma contribuisce restituendo la protezione che le tue scelte individuali restino tue.",
+      },
+      {
+        type: 'cta',
+        label: 'Come funziona davvero il voto anonimo su SplitVote →',
+        href: '/it/blog/come-funziona-il-voto-anonimo',
+      },
+      {
+        type: 'cta',
+        label: "Etica dell'IA: cosa hanno scelto 40 milioni di persone sulle decisioni delle macchine →",
+        href: '/it/blog/ia-etica-40-milioni-scelte',
+      },
+      {
+        type: 'cta',
+        label: 'Esplora tutti i dilemmi morali →',
+        href: '/it/dilemmi-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "SplitVote presenta dilemmi etici per la riflessione e il confronto. I riferimenti a framework sulla privacy e alla ricerca sull'IA sono solo contestuali — l'obiettivo è aiutarti a riflettere, non fornire consulenza legale o tecnica. I risultati rappresentano i voti della nostra community, non conclusioni scientifiche.",
       },
     ],
   },
