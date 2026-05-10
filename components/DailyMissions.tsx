@@ -13,19 +13,20 @@ interface Props {
   locale?: string
 }
 
-const MISSION_TARGETS: Partial<Record<MissionId, string>> = {
-  vote_3:            '/',
-  vote_2_categories: '/',
-  challenge_friend:  '/trending',
-  share_result:      '/trending',
-  daily_dilemma:     '/',
+type LocaleTargets = { en: string; it: string }
+
+const MISSION_TARGETS: Partial<Record<MissionId, LocaleTargets>> = {
+  vote_3:            { en: '/moral-dilemmas',  it: '/it/dilemmi-morali' },
+  vote_2_categories: { en: '/moral-dilemmas',  it: '/it/dilemmi-morali' },
+  challenge_friend:  { en: '/trending',         it: '/it/trending' },
+  share_result:      { en: '/trending',         it: '/it/trending' },
+  daily_dilemma:     { en: '/',                it: '/it' },
 }
 
 function getMissionTarget(id: MissionId, locale: string): string | undefined {
-  const base = MISSION_TARGETS[id]
-  if (!base) return undefined
-  if (locale === 'it') return base === '/' ? '/it' : `/it${base}`
-  return base
+  const entry = MISSION_TARGETS[id]
+  if (!entry) return undefined
+  return locale === 'it' ? entry.it : entry.en
 }
 
 const IT_MISSION_TITLES: Record<string, string> = {
