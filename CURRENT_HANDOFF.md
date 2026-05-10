@@ -1,6 +1,6 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 10 May 2026 (post-push `e52dfa6` — btn-neon-blue + internal linking G4-G10)
+Last updated: 10 May 2026 (post `60fd479` — G12 article + mission deep links)
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6)
 
@@ -9,24 +9,28 @@ Implementer: Claude Code (Sonnet 4.6)
 ## 1. Production State
 
 - **Branch:** `main`
-- **Local vs remote:** `main` is **ahead of** `origin/main` by 1 commit (`e52dfa6`)
-  - HEAD: `e52dfa6` — `feat: btn-neon-blue class + internal linking G4-G10 EN+IT`
-- **Previous pushed:** `b9e80f1` (G10 experimental moral psychology + bioethics landing EN+IT)
-- **Full discovery QA verified:** 9/9 PASS (steps #86–94, 8 May 2026) — Home/Category/Trending/Admin EN+IT, sort, regressions
+- **Local vs remote:** `main` is **ahead of** `origin/main` by 5 commits
+  - `60fd479` — fix(missions): improve deep-link targets + locale-aware paths
+  - `8bf24b9` — feat(g12): cross-cluster article EN+IT
+  - `471a99d` — feat(g11): experimental-moral-psychology SEO landing EN+IT
+  - `525dcb5` — docs: CURRENT_HANDOFF refresh
+  - `e52dfa6` — feat: btn-neon-blue + internal linking G4-G10 EN+IT
+- **Last pushed:** `b9e80f1` (G10 experimental moral psychology + bioethics landing EN+IT)
+- **Full discovery QA verified:** 9/9 PASS (steps #86–94, 8 May 2026) — Home/Category/Trending/Admin EN+IT
 
 ### Feature state
 
 | Feature | State |
 |---|---|
 | Anonymous vote flow | ✅ working |
-| EN/IT routes | ✅ complete + locale-isolated (verified #86–94) |
+| EN/IT routes | ✅ complete + locale-isolated |
 | AdSense slots (HOME/PLAY/RESULTS) | ✅ live |
-| AdSense review | ✅ **requested** (Matteo confirmed 10 May 2026) |
+| AdSense review | ✅ requested (Matteo confirmed 10 May 2026) |
 | Stripe Premium config | ✅ live checkout QA done (Matteo confirmed 10 May 2026) |
 | Dynamic discovery EN/IT | ✅ live, locale-isolated, sort verified DESC |
 | Admin approve flow EN+IT | ✅ verified |
 | OPENROUTER_MODEL_REVIEW env | ✅ set in Vercel + redeploy completed |
-| AI generation (save mode) | ⚠️ **un-blocked technically** but pending re-QA decision matrix |
+| AI generation (save mode) | ⚠️ unblocked technically but pending re-QA decision |
 | S1 — Login icon-only button | ✅ live (`71d4c01`) |
 | S2 — NavLinks 3 canonical items | ✅ live (`71d4c01`) |
 | S5a — Share section collapsible | ✅ live (`78e2bac`) |
@@ -51,17 +55,20 @@ Implementer: Claude Code (Sonnet 4.6)
 | G8 Bioethics article EN+IT + sources | ✅ live (`b9e80f1`) |
 | G9 SEO landings privacy-ethics + moral-foundations EN+IT | ✅ live (`b9e80f1`) |
 | G10 Experimental moral psychology EN+IT + bioethics landing | ✅ live (`b9e80f1`) |
-| G9-refresh Internal linking G4-G10 | ✅ committed (`e52dfa6`) — pending push |
-| btn-neon-blue CSS class | ✅ committed (`e52dfa6`) — pending push |
+| G9-refresh Internal linking G4-G10 + btn-neon-blue | ✅ committed (`e52dfa6`) — pending push |
+| G11 Experimental moral psychology SEO landing EN+IT | ✅ committed (`471a99d`) — pending push |
+| G12 Cross-cluster article EN+IT (why we disagree on ethics) | ✅ committed (`8bf24b9`) — pending push |
+| Mission deep links locale-aware targets | ✅ committed (`60fd479`) — pending push |
 | VotedDilemmaCard on category pages (Sprint B) | ✅ already live (pre-existing) |
 | canStillChange interactive affordance (Sprint C) | ✅ already live (pre-existing) |
 | IT trending empty state copy (Sprint D) | ✅ already clean (pre-existing) |
+| Daily Dilemma full-card click | ✅ already live (pre-existing) |
 
 ---
 
 ## 2. Blog content inventory (10 May 2026)
 
-**21 EN + 21 IT = 42 articles total** (all SSG-generated)
+**22 EN + 22 IT = 44 articles total** (all SSG-generated)
 
 ### EN articles
 1. `what-is-a-moral-dilemma`
@@ -85,43 +92,47 @@ Implementer: Claude Code (Sonnet 4.6)
 19. `moral-foundations-theory-why-good-people-disagree` (G6)
 20. `bioethics-when-medicine-forces-impossible-choices` (G8)
 21. `experimental-moral-psychology-how-science-studies-moral-intuitions` (G10)
+22. `why-we-disagree-on-ethics` (G12) ← NEW
 
-**IT (21):** full parity — every EN article has an IT pair via `alternateSlug`.
+**IT (22):** full parity — every EN article has an IT pair via `alternateSlug`.
 
-### SEO landing pages (lib/seo-topics.ts) — 13 total
+### SEO landing pages (lib/seo-topics.ts) — 15 total
 
-**EN (6+1):**
+**EN (8+1):**
 `/trolley-problem`, `/ai-ethics-dilemmas`, `/loyalty-vs-honesty`,
 `/consequentialism`, `/deontology`, `/virtue-ethics`,
-`/privacy-ethics`, `/moral-foundations`, `/bioethics`
+`/privacy-ethics`, `/moral-foundations`, `/bioethics`,
+`/experimental-moral-psychology` (G11)
 
-**IT (6+1):**
+**IT (8+1):**
 `/it/problema-del-carrello`, `/it/dilemmi-etici-intelligenza-artificiale`,
 `/it/lealta-vs-onesta`, `/it/consequenzialismo`, `/it/deontologia`,
 `/it/etica-della-virtu`, `/it/etica-della-privacy`, `/it/fondamenti-morali`,
-`/it/bioetica`
+`/it/bioetica`, `/it/psicologia-morale-sperimentale` (G11)
 
-**Total:** 201 static pages (verified build 10 May 2026)
+**Total:** 205 static pages (build verified 10 May 2026)
 
 ---
 
 ## 3. Last Completed Work (Session 10 May 2026 — continuation)
 
-### Internal linking G4-G10 + btn-neon-blue (`e52dfa6`)
-- **`lib/blog.ts`** — Added cross-links from 8 older EN articles and 8 IT articles to
-  G4-G10 content. Targeted 1-2 CTA links per article before existing disclaimer.
-  Articles updated: trolley-problem-explained, what-your-moral-personality-means,
-  moral-dilemmas-examples, ai-ethics-what-40-million-people-chose,
-  loyalty-vs-honesty-when-they-collide, consequentialism, deontology, virtue-ethics
-  (+ IT counterparts of all 8).
-- **`app/globals.css`** — Added `.btn-neon-blue` utility: `cursor: pointer; outline: none;`
-  + `focus-visible` blue ring + `active: scale(0.97)` + reduced-motion override.
-  Previously used in `AuthButton.tsx` without a definition.
+### G12 cross-cluster article EN+IT (`8bf24b9`)
+- **`lib/blog.ts`** — Added `why-we-disagree-on-ethics` (EN) + `perche-non-siamo-daccordo-sull-etica` (IT)
+  Synthesizes MFT (Haidt), dual-process cognition (Greene), Moral Machine cross-cultural data,
+  and SplitVote aggregate patterns into a single cross-cluster article.
+  5 play CTAs per article: trolley / self-driving-crash / robot-judge / organ-harvest / innocent-juror
+  Full `alternateSlug` cross-linking EN↔IT. Standard disclaimer. Date: 2026-05-10. Reading time: 7 min.
+
+### Mission deep links improvement (`60fd479`)
+- **`components/DailyMissions.tsx`** — Refactored `MISSION_TARGETS` from `string` to `{ en, it }` locale pairs.
+  `vote_3` and `vote_2_categories` now route to `/moral-dilemmas` (EN) / `/it/dilemmi-morali` (IT)
+  instead of generic home. `challenge_friend` and `share_result` already correct (`/trending`).
+  `daily_dilemma` keeps home. `getMissionTarget()` no longer uses a naive `/it` prefix — correct for
+  `/it/dilemmi-morali` which would have been wrong with the old approach.
 
 ### Verified pre-existing (no changes needed):
-- **Sprint B** — VotedDilemmaCard on category pages: already in both EN and IT category pages
-- **Sprint C** — canStillChange interactive affordance: already fully implemented in VoteClientPage.tsx
-- **Sprint D** — IT trending empty state: already clean (no "cron"/"UTC" text)
+- **Daily Dilemma full-card click** — already implemented via `absolute inset-0 z-0` overlay `<Link>`
+  with interactive elements at `relative z-10`. No changes needed.
 
 ---
 
@@ -129,16 +140,18 @@ Implementer: Claude Code (Sonnet 4.6)
 
 | Task | ID | Description | Owner | Priority |
 |---|---|---|---|---|
-| Push `e52dfa6` to origin/main | — | `git push` — 1 commit ahead | Matteo | High |
+| Push `60fd479` to origin/main | — | `git push` — 5 commits ahead | Matteo | High |
+| Search Console sitemap re-submit | — | After push: submit sitemap.xml for new pages | Matteo | Medium |
 | Stripe Name Change €0.99 | #46 | One-shot purchase price ID + webhook handler | Matteo | Medium |
-| Discord OAuth | #24 | OAuth callback URL config in Discord dev portal + Supabase | Matteo | Medium |
-| AI generation re-QA decision | — | Run 4 dry-run scenarios; gate ≥60% accepted + `review_err` < 20% → enable save mode | Matteo | Optional |
+| Discord OAuth | #24 | OAuth callback URL in Discord dev portal + Supabase | Matteo | Medium |
+| AI generation re-QA decision | — | 4 dry-run scenarios; gate ≥60% accepted + `review_err` <20% → enable save | Matteo | Optional |
+| Pixie PNG assets — 4 species | — | Glitch/Blip, Leaf/Momo, Moonlight/Shade, Hologram/Orbit — design work | Matteo | Design |
 
-All HUMAN_ONLY — require credentials, env vars in Vercel, or external dashboard configuration.
+All HUMAN_ONLY — require credentials, env vars, external dashboard, or design work.
 
 ---
 
-## 5. Blog cluster gap status (post-G1→G10)
+## 5. Blog cluster gap status (post-G12)
 
 | Cluster | Article | Landing | Status |
 |---|---|---|---|
@@ -152,24 +165,26 @@ All HUMAN_ONLY — require credentials, env vars in Vercel, or external dashboar
 | deontology | ✅ G3 | ✅ `/deontology` | STRONG |
 | virtue-ethics | ✅ G3 | ✅ `/virtue-ethics` | STRONG |
 | bioethics | ✅ G8 article | ✅ `/bioethics` (G10) | STRONG |
-| experimental-moral-psychology | ✅ G10 article | — | RESOLVED (no landing yet) |
+| experimental-moral-psychology | ✅ G10 article | ✅ `/experimental-moral-psychology` (G11) | STRONG |
+| cross-cluster synthesis | ✅ G12 article | — | RESOLVED |
 
-**All clusters fully covered.** No 🔴 gaps remain.
+**All clusters fully covered. No gaps remain.**
 
 ---
 
 ## 6. Active Sprint / Next Recommended Step
 
-**All autonomous content sprints complete.** Blog at 21 EN + 21 IT. All MoralCluster gaps closed.
+**All autonomous content sprints complete.** Blog at 22 EN + 22 IT. All MoralCluster gaps closed including G11 landing + G12 synthesis article.
 
 **HUMAN_ONLY — require Matteo action:**
-- `git push` — 1 commit ahead of origin (`e52dfa6`)
-- Stripe Name Change feature (Task #46) — when ready
-- Discord OAuth (Task #24) — when ready
+- `git push` — 5 commits ahead of origin
+- Search Console sitemap re-submit after push
+- Stripe Name Change (#46), Discord OAuth (#24)
 
 **PM decision needed (optional next content):**
-- G11: Experimental moral psychology SEO landing page (`/experimental-moral-psychology`) — would close the last cluster without a dedicated landing
-- G12: Cross-cluster article — e.g. "The science behind why we disagree on ethics" combining experimental psychology + MFT + trolley data
+- G13: Second cross-cluster article — e.g. bioethics + trolley + organ harvest data synthesis
+- Pixie Phase 3 — share card MVP (`/api/pixie-card`) — needs Pixie PNG assets for remaining 4 species first
+- Pixie PNG design (Glitch/Blip, Leaf/Momo, Moonlight/Shade, Hologram/Orbit) — design-only work
 
 ---
 
@@ -201,7 +216,7 @@ Without a dedicated sprint and explicit GO:
 | EN dilemma card text on IT topic pages | `lib/scenarios.ts` has no IT translations — pre-existing |
 | Save mode unblocked technically but no decision made | OPENROUTER_MODEL_REVIEW env set; re-QA gate decision pending |
 | PRODUCT_STRATEGY.md + ROADMAP.md unstaged | Local PM changes uncommitted; leave to PM |
-| `e52dfa6` not yet pushed | 1 commit ahead of origin — needs `git push` |
+| 5 commits not yet pushed | ahead of origin — needs `git push` |
 
 ---
 
@@ -226,29 +241,32 @@ Per `## Autonomous / Ralph-style Safe Tasks` in CLAUDE.md:
 ## 10. Next Session Prompt
 
 ```
-Ripartenza sessione SplitVote — 10 Maggio 2026 (sera).
+Ripartenza sessione SplitVote — 10 Maggio 2026 (sera/continuazione).
 
 Leggi prima (in questo ordine):
 - CLAUDE.md
 - CURRENT_HANDOFF.md ← stato aggiornato
 - git status --short --branch
-- git log --oneline -5
+- git log --oneline -6
 
 State:
-- HEAD main: e52dfa6 (btn-neon-blue + internal linking G4-G10 — NON ancora pushato)
-- Blog: 21 EN + 21 IT articoli (G1→G10 completi + parity)
-- SEO landings: 13 totali (9 EN + 9 IT) — tutti i cluster coperti
-- 201 static pages (build verificato)
+- HEAD main: 60fd479 (mission deep links fix — NON ancora pushato)
+- 5 commits ahead of origin (e52dfa6, 471a99d, 525dcb5, 8bf24b9, 60fd479)
+- Blog: 22 EN + 22 IT articoli (G1→G12 completi + parity)
+- SEO landings: 15 totali (10 EN + 10 IT, include G11 experimental-moral-psychology) — tutti i cluster coperti
+- 205 static pages (build verificato)
 - PRODUCT_STRATEGY.md + ROADMAP.md hanno modifiche locali non committed (lasciale al PM)
 
 PROSSIMI STEP (richiedono GO):
-- git push origin main (1 commit in attesa — e52dfa6)
-- G11 experimental moral psychology SEO landing (opzionale — unico cluster senza landing)
-- G12 articolo cross-cluster (opzionale)
+- git push origin main (5 commit in attesa)
+- Search Console sitemap re-submit (dopo push)
+- G13 secondo articolo cross-cluster (opzionale)
+- Pixie Phase 3 share card (richiede PNG assets per 4 specie prima)
 
 HUMAN_ONLY (non blocca content sprints):
 - Task #46 Stripe Name Change €0.99
 - Task #24 Discord OAuth
+- Pixie PNG assets design (Glitch/Blip, Leaf/Momo, Moonlight/Shade, Hologram/Orbit)
 
 Nessuna modifica a PRODUCT_STRATEGY.md / ROADMAP.md / LEGAL.md / CLAUDE.md senza GO esplicito.
 ```
