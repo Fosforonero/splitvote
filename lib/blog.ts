@@ -2694,6 +2694,147 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'why-we-disagree-on-ethics',
+    locale: 'en',
+    title: 'Why We Disagree on Ethics: The Science Behind Moral Disagreement',
+    seoTitle: 'Why Good People Disagree on Ethics — Moral Psychology Explained',
+    description:
+      'Smart, caring people reach opposite conclusions on the same moral dilemma. Research in moral psychology and Moral Foundations Theory reveals why — and what it means.',
+    seoDescription:
+      'Good people disagree on ethics because of how our brains evolved, how culture shaped our moral foundations, and how emotions outrun reasoning. Science explains the gap.',
+    date: '2026-05-10',
+    readingTime: 7,
+    tags: ['ethics', 'moral psychology', 'moral foundations theory', 'moral disagreement', 'trolley problem'],
+    relatedDilemmaIds: ['trolley', 'self-driving-crash', 'robot-judge', 'organ-harvest', 'innocent-juror'],
+    alternateSlug: 'perche-non-siamo-daccordo-sull-etica',
+    content: [
+      {
+        type: 'p',
+        text: 'Two thoughtful, well-intentioned people look at the same trolley problem and reach opposite conclusions. One says pull the lever — save five lives. The other says keep your hands clean — you cannot use someone as a means to an end. Both have reasons. Both feel certain. Neither is obviously confused or cruel. So what is actually happening?',
+      },
+      {
+        type: 'p',
+        text: 'Research in moral psychology over the past three decades has assembled a partial answer — and it is more unsettling than "one person has better values." Moral disagreement appears to be built into the architecture of human reasoning, shaped by evolution, culture, and the competing cognitive systems we use to evaluate right and wrong.',
+      },
+      {
+        type: 'h2',
+        text: 'Moral foundations are not all the same',
+      },
+      {
+        type: 'p',
+        text: 'Psychologist Jonathan Haidt and colleagues proposed Moral Foundations Theory as one account of why moral disagreement runs so deep. The theory identifies several distinct moral intuitive concerns that all human societies draw on — including care, fairness, loyalty, authority, and purity — but in different proportions. Political liberals tend to weigh care and fairness heavily. Conservatives tend to weigh loyalty, authority, and purity alongside care and fairness.',
+      },
+      {
+        type: 'p',
+        text: 'This does not mean one group is right and the other is wrong. It means that the same dilemma activates different moral modules in different people. When someone says "I cannot betray my group, even to prevent greater harm," they are not being irrational — they are running on a different moral operating system, one that assigns heavy weight to the loyalty foundation. When someone else says "the numbers are the numbers — five lives outweigh one," they are running a care-and-fairness-dominated calculation.',
+      },
+      {
+        type: 'cta',
+        label: 'Pull the lever — is it right to sacrifice one to save five? →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Two cognitive systems, one dilemma',
+      },
+      {
+        type: 'p',
+        text: "A separate strand of research, associated primarily with psychologist Joshua Greene at Harvard, focuses not on the content of moral foundations but on the process of moral reasoning. Greene's influential dual-process account proposes that moral judgments are produced by two competing systems: a fast, automatic, emotionally-driven System 1, and a slower, deliberative, more consequentialist System 2.",
+      },
+      {
+        type: 'p',
+        text: 'Classic trolley experiments illustrate the tension. Most people are willing to pull a lever that redirects a trolley, killing one to save five. Far fewer are willing to push a large man off a bridge to achieve the same arithmetic result. The math is identical. The physical immediacy is not — and System 1, which evolved to respond strongly to direct physical harm, fires much harder in the footbridge version. Whether that emotional signal is tracking a genuine moral distinction (direct harm really is different from indirect harm) or producing a bias (numbers should be what matter) is still debated.',
+      },
+      {
+        type: 'cta',
+        label: 'How should an autonomous car decide who lives in a crash? →',
+        href: '/play/self-driving-crash',
+      },
+      {
+        type: 'h2',
+        text: 'Cross-cultural patterns — and where they break down',
+      },
+      {
+        type: 'p',
+        text: 'A 2018 study published in Nature — the Moral Machine experiment — collected over 40 million moral decisions from people across 233 countries, asking how self-driving cars should prioritize lives in unavoidable crash scenarios. Some patterns were remarkably stable across cultures: a preference for saving more lives over fewer, a preference for sparing children over the elderly. Others varied sharply: preferences for sparing higher-status individuals, for prioritizing pedestrians over passengers, and for swerving versus staying straight differed substantially by region.',
+      },
+      {
+        type: 'p',
+        text: 'The cross-cultural variation suggests that moral foundations are not a fixed human universal. Culture shapes which concerns get weighted heavily, which scenarios activate moral alarm, and which tradeoffs feel acceptable. The same action that feels like an obvious violation in one moral community may feel like the obvious right answer in another.',
+      },
+      {
+        type: 'cta',
+        label: 'Should an AI judge decide criminal cases better than human courts? →',
+        href: '/play/robot-judge',
+      },
+      {
+        type: 'h2',
+        text: 'The moral dumbfounding problem',
+      },
+      {
+        type: 'p',
+        text: "Haidt's research on \"moral dumbfounding\" adds another layer. When people are presented with scenarios that trigger strong moral intuitions but where every harm-based justification has been pre-empted by the story's setup, many continue to maintain that something is wrong — even when they cannot say what the harm is. They know it feels wrong before they know why.",
+      },
+      {
+        type: 'p',
+        text: 'This suggests that moral reasoning is often post-hoc rationalization rather than the cause of moral verdicts. We reach conclusions first, via intuition, and then construct arguments to justify them. If that is accurate, then moral disagreement may persist even after extensive rational discussion — because the argument was never really what was driving the verdict.',
+      },
+      {
+        type: 'cta',
+        label: "Harvest one patient's organs to save five waiting for transplants? →",
+        href: '/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: 'What SplitVote data shows',
+      },
+      {
+        type: 'p',
+        text: 'On SplitVote, the same dilemmas that have split laboratory participants split real-world voters in remarkably similar proportions. Trolley-style scenarios that pit aggregate welfare against individual rights tend to produce near-even splits. Scenarios that activate strong emotional alarm — physical immediacy, identifiable victims, violations of bodily autonomy — tend to produce stronger consensus, often against the arithmetically "efficient" outcome.',
+      },
+      {
+        type: 'p',
+        text: 'SplitVote is not a scientific instrument — the sample is self-selected, the framing is fixed, and individual votes carry no experimental controls. But at scale, the patterns are suggestive: moral disagreement is not random noise. It clusters around the fault lines that moral psychology has identified — System 1 vs. System 2 activation, loyalty vs. harm-prevention foundations, cultural variation in authority and purity concerns.',
+      },
+      {
+        type: 'cta',
+        label: 'You know the defendant is innocent — do you still vote to convict? →',
+        href: '/play/innocent-juror',
+      },
+      {
+        type: 'h2',
+        text: 'Is moral disagreement resolvable?',
+      },
+      {
+        type: 'p',
+        text: 'Moral psychology does not settle the philosophical question of whether there are objective moral truths that disagreement fails to reach. But it does reframe the question. If two people disagree on a moral dilemma, it may not be because one has thought harder than the other. It may be because they are activating different emotional systems, weighing different foundations, or applying frameworks shaped by different cultural histories.',
+      },
+      {
+        type: 'p',
+        text: 'That is not a counsel of relativism. Some moral positions are still better reasoned than others, more consistent, more attentive to evidence. But it is a reason for epistemic humility: the confidence that feels like clarity may be a fast-responding System 1 alarm, not a carefully derived conclusion. Moral progress — when it happens — usually requires slowing down enough to examine the intuitions rather than simply trusting them.',
+      },
+      {
+        type: 'cta',
+        label: 'See your moral personality based on how you vote →',
+        href: '/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Experimental moral psychology — how science studies moral intuitions →',
+        href: '/blog/experimental-moral-psychology-how-science-studies-moral-intuitions',
+      },
+      {
+        type: 'cta',
+        label: 'Moral Foundations Theory — why good people disagree →',
+        href: '/blog/moral-foundations-theory-why-good-people-disagree',
+      },
+      {
+        type: 'disclaimer',
+        text: "References to Moral Foundations Theory, dual-process moral cognition, and the Moral Machine study are for contextual and educational purposes. SplitVote is an entertainment and reflection platform, not a scientific study. Results represent community votes — not peer-reviewed data, and not conclusions about individual moral character. Theories described here are contested within moral philosophy and cognitive science.",
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -5358,6 +5499,147 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: "I riferimenti a Greene, Haidt e alla ricerca di filosofia morale sperimentale sono solo contestuali. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico. I risultati rappresentano voti della community — non dati peer-reviewed, e non conclusioni sul carattere morale individuale. La teoria del doppio processo descritta qui è contestata nell'ambito della scienza cognitiva e della filosofia morale.",
+      },
+    ],
+  },
+  {
+    slug: 'perche-non-siamo-daccordo-sull-etica',
+    locale: 'it',
+    title: "Perché Non Siamo d'Accordo sull'Etica: La Scienza del Disaccordo Morale",
+    seoTitle: "Perché le Persone Oneste Dissentono in Etica — La Psicologia Morale Spiega",
+    description:
+      "Persone intelligenti e premuranti raggiungono conclusioni opposte sullo stesso dilemma morale. La ricerca in psicologia morale e la Teoria dei Fondamenti Morali rivelano perché.",
+    seoDescription:
+      "Le persone oneste non sono d'accordo in etica per via dell'evoluzione cognitiva, dei fondamenti morali culturali e delle emozioni che precedono la ragione. La scienza spiega il divario.",
+    date: '2026-05-10',
+    readingTime: 7,
+    tags: ['etica', 'psicologia morale', 'teoria dei fondamenti morali', 'disaccordo morale', 'problema del tram'],
+    relatedDilemmaIds: ['trolley', 'self-driving-crash', 'robot-judge', 'organ-harvest', 'innocent-juror'],
+    alternateSlug: 'why-we-disagree-on-ethics',
+    content: [
+      {
+        type: 'p',
+        text: "Due persone riflessive e in buona fede guardano lo stesso problema del tram e arrivano a conclusioni opposte. Una dice di tirare la leva — salva cinque vite. L'altra dice di tenere le mani pulite — non si può usare qualcuno come mezzo per un fine. Entrambe hanno ragioni. Entrambe sono certe. Nessuna è ovviamente confusa o crudele. Cosa sta accadendo, esattamente?",
+      },
+      {
+        type: 'p',
+        text: "La ricerca in psicologia morale degli ultimi tre decenni ha assemblato una risposta parziale — ed è più inquietante di 'una persona ha valori migliori'. Il disaccordo morale sembra essere incorporato nell'architettura del ragionamento umano, plasmato dall'evoluzione, dalla cultura e dai sistemi cognitivi concorrenti che usiamo per valutare il bene e il male.",
+      },
+      {
+        type: 'h2',
+        text: 'I fondamenti morali non sono tutti uguali',
+      },
+      {
+        type: 'p',
+        text: "Lo psicologo Jonathan Haidt e i suoi colleghi hanno proposto la Teoria dei Fondamenti Morali come spiegazione del perché il disaccordo morale sia così profondo. La teoria identifica diverse preoccupazioni intuitive morali distinte su cui si basano tutte le società umane — tra cui cura, equità, lealtà, autorità e purezza — ma in proporzioni diverse. I liberali tendono a pesare fortemente cura ed equità. I conservatori tendono a pesare lealtà, autorità e purezza insieme a cura ed equità.",
+      },
+      {
+        type: 'p',
+        text: "Questo non significa che un gruppo abbia ragione e l'altro torto. Significa che lo stesso dilemma attiva moduli morali diversi in persone diverse. Quando qualcuno dice 'Non posso tradire il mio gruppo, anche per prevenire un danno maggiore', non sta ragionando in modo irrazionale — sta operando con un diverso sistema operativo morale, uno che assegna un peso elevato al fondamento della lealtà. Quando qualcun altro dice 'i numeri sono i numeri — cinque vite pesano più di una', sta eseguendo un calcolo dominato dalla cura e dall'equità.",
+      },
+      {
+        type: 'cta',
+        label: 'Tira la leva — è giusto sacrificare uno per salvarne cinque? →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Due sistemi cognitivi, un dilemma',
+      },
+      {
+        type: 'p',
+        text: "Un filone di ricerca separato, associato principalmente allo psicologo Joshua Greene ad Harvard, si concentra non sul contenuto dei fondamenti morali ma sul processo del ragionamento morale. Il modello a doppio processo di Greene propone che i giudizi morali siano prodotti da due sistemi concorrenti: un Sistema 1 veloce, automatico, guidato emotivamente, e un Sistema 2 più lento, deliberativo, più consequenzialista.",
+      },
+      {
+        type: 'p',
+        text: "Gli esperimenti classici sul tram illustrano la tensione. La maggior parte delle persone è disposta a tirare una leva che reindirizza il tram, uccidendo uno per salvarne cinque. Molte meno sono disposte a spingere un uomo grande giù da una passerella per ottenere lo stesso risultato aritmetico. La matematica è identica. La prossimità fisica no — e il Sistema 1, che si è evoluto per rispondere con forza al danno fisico diretto, si attiva molto più intensamente nella versione della passerella. Se quel segnale emotivo stia tracciando una distinzione morale genuina (il danno diretto è davvero diverso da quello indiretto) o producendo un bias (i numeri dovrebbero essere ciò che conta) è ancora dibattuto.",
+      },
+      {
+        type: 'cta',
+        label: "Come dovrebbe decidere un'auto autonoma chi salva in un incidente? →",
+        href: '/it/play/self-driving-crash',
+      },
+      {
+        type: 'h2',
+        text: 'Pattern cross-culturali — e dove si rompono',
+      },
+      {
+        type: 'p',
+        text: "Uno studio pubblicato su Nature nel 2018 — l'esperimento Moral Machine — ha raccolto oltre 40 milioni di decisioni morali da persone di 233 paesi, chiedendo loro come le auto a guida autonoma dovrebbero privilegiare le vite in scenari di incidente inevitabili. Alcuni pattern erano notevolmente stabili tra le culture: una preferenza per salvare più vite rispetto a meno, una preferenza per risparmiare i bambini rispetto agli anziani. Altri variavano notevolmente: le preferenze per risparmiare individui di status più elevato, per dare priorità ai pedoni rispetto ai passeggeri e per sterzare rispetto a restare dritti differivano sostanzialmente per regione.",
+      },
+      {
+        type: 'p',
+        text: "La variazione cross-culturale suggerisce che i fondamenti morali non siano un universale umano fisso. La cultura plasma quali preoccupazioni vengono ponderate fortemente, quali scenari attivano l'allarme morale e quali compromessi sembrano accettabili. La stessa azione che sembra un'ovvia violazione in una comunità morale può sembrare la risposta ovviamente giusta in un'altra.",
+      },
+      {
+        type: 'cta',
+        label: 'Un giudice IA dovrebbe decidere i casi penali meglio dei tribunali umani? →',
+        href: '/it/play/robot-judge',
+      },
+      {
+        type: 'h2',
+        text: 'Il problema del moral dumbfounding',
+      },
+      {
+        type: 'p',
+        text: "La ricerca di Haidt sul 'moral dumbfounding' (lo stupore morale) aggiunge un ulteriore livello. Quando si presentano scenari che innescano forti intuizioni morali ma dove ogni giustificazione basata sul danno è stata pre-emessa dalla configurazione della storia, molte persone continuano a sostenere che qualcosa è sbagliato — anche quando non riescono a dire quale sia il danno. Sanno che sembra sbagliato prima di sapere perché.",
+      },
+      {
+        type: 'p',
+        text: "Ciò suggerisce che il ragionamento morale sia spesso una razionalizzazione post-hoc piuttosto che la causa dei verdetti morali. Raggiungiamo prima le conclusioni, tramite l'intuizione, e poi costruiamo argomenti per giustificarle. Se è così, il disaccordo morale può persistere anche dopo una discussione razionale estesa — perché l'argomento non era mai stato davvero ciò che guidava il verdetto.",
+      },
+      {
+        type: 'cta',
+        label: "Prelevi gli organi di un paziente sano per salvarne cinque in lista d'attesa? →",
+        href: '/it/play/organ-harvest',
+      },
+      {
+        type: 'h2',
+        text: 'Cosa mostrano i dati di SplitVote',
+      },
+      {
+        type: 'p',
+        text: "Su SplitVote, gli stessi dilemmi che hanno diviso i partecipanti in laboratorio dividono i votanti del mondo reale in proporzioni notevolmente simili. Gli scenari in stile tram che contrappongono il benessere aggregato ai diritti individuali tendono a produrre divisioni quasi paritarie. Gli scenari che attivano un forte allarme emotivo — prossimità fisica, vittime identificabili, violazioni dell'autonomia corporea — tendono a produrre un consenso più forte, spesso contro l'esito aritmeticamente 'efficiente'.",
+      },
+      {
+        type: 'p',
+        text: "SplitVote non è uno strumento scientifico — il campione è auto-selezionato, il framing è fisso e i voti individuali non hanno controlli sperimentali. Ma su scala, i pattern sono suggestivi: il disaccordo morale non è rumore casuale. Si raggruppa attorno alle linee di faglia che la psicologia morale ha identificato — attivazione del Sistema 1 vs. Sistema 2, fondamenti di lealtà vs. prevenzione del danno, variazione culturale nelle preoccupazioni di autorità e purezza.",
+      },
+      {
+        type: 'cta',
+        label: "Sai che l'imputato è innocente — voti comunque per condannarlo? →",
+        href: '/it/play/innocent-juror',
+      },
+      {
+        type: 'h2',
+        text: 'Il disaccordo morale è risolvibile?',
+      },
+      {
+        type: 'p',
+        text: "La psicologia morale non risolve la questione filosofica se esistano verità morali oggettive che il disaccordo non riesce a raggiungere. Ma riformula la domanda. Se due persone non sono d'accordo su un dilemma morale, potrebbe non essere perché una ha ragionato più a lungo dell'altra. Potrebbe essere perché stanno attivando sistemi emotivi diversi, pesando fondamenti diversi o applicando framework plasmati da storie culturali diverse.",
+      },
+      {
+        type: 'p',
+        text: "Questo non è un invito al relativismo. Alcune posizioni morali sono ancora meglio ragionate di altre, più coerenti, più attente all'evidenza. Ma è una ragione per l'umiltà epistemica: la certezza che sembra chiarezza potrebbe essere un allarme del Sistema 1 a risposta rapida, non una conclusione attentamente derivata. Il progresso morale — quando avviene — di solito richiede di rallentare abbastanza da esaminare le intuizioni piuttosto che semplicemente fidarsi di esse.",
+      },
+      {
+        type: 'cta',
+        label: 'Scopri la tua personalità morale in base a come voti →',
+        href: '/it/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Psicologia morale sperimentale — come la scienza studia le intuizioni morali →',
+        href: '/it/blog/psicologia-morale-sperimentale-come-la-scienza-studia-le-intuizioni-morali',
+      },
+      {
+        type: 'cta',
+        label: "Teoria dei Fondamenti Morali — perché le persone oneste non sono d'accordo →",
+        href: '/it/blog/teoria-fondamenti-morali',
+      },
+      {
+        type: 'disclaimer',
+        text: "I riferimenti alla Teoria dei Fondamenti Morali, alla cognizione morale a doppio processo e allo studio del Moral Machine sono a scopo contestuale ed educativo. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico. I risultati rappresentano voti della community — non dati peer-reviewed e non conclusioni sul carattere morale individuale. Le teorie descritte qui sono contestate nella filosofia morale e nelle scienze cognitive.",
       },
     ],
   },
