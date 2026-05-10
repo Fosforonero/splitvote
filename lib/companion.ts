@@ -99,6 +99,29 @@ export const RARITY_STYLES: Record<string, string> = {
   legendary: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-300',
 }
 
+// ── Per-species XP ────────────────────────────────────────────────────────────
+
+/**
+ * Maps each species to the number of votes cast while it was equipped.
+ * Stored as JSONB `pixie_xp` on profiles. Keys may be absent (treat as 0).
+ */
+export type PixieXpMap = Partial<Record<CompanionSpecies, number>>
+
+/** Votes accumulated for a specific species. Falls back to 0. */
+export function getSpeciesVotes(xpMap: PixieXpMap, species: CompanionSpecies): number {
+  return xpMap[species] ?? 0
+}
+
+/** Stage for a specific species based on its own accumulated votes. */
+export function getSpeciesStage(xpMap: PixieXpMap, species: CompanionSpecies): 1 | 2 | 3 | 4 | 5 | 6 {
+  return getCompanionStage(getSpeciesVotes(xpMap, species))
+}
+
+/** Votes the current species needs to reach the next stage. */
+export function votesToNextStageForSpecies(xpMap: PixieXpMap, species: CompanionSpecies): number {
+  return votesToNextStage(getSpeciesVotes(xpMap, species))
+}
+
 /** Unlock conditions (in sync with CompanionDef.unlockCondition strings). */
 const UNLOCK_REQUIREMENTS: Record<CompanionSpecies, (votes: number, streak: number) => boolean> = {
   spark: () => true,

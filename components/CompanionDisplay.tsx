@@ -6,16 +6,21 @@ import {
   STAGE_LABELS,
   STAGE_THRESHOLDS,
   getCompanionStage,
+  getSpeciesVotes,
   votesToNextStage,
   RARITY_STYLES,
   type CompanionSpecies,
+  type PixieXpMap,
 } from '@/lib/companion'
 import { getPixieImagePath } from '@/lib/pixie'
 import PixieLevelUpModal from './PixieLevelUpModal'
 
 interface Props {
   species: CompanionSpecies
+  /** Global votes — kept for fallback when pixieXp is absent */
   votesCount: number
+  /** Per-species XP map. When provided, stage/progress are derived per species. */
+  pixieXp?: PixieXpMap
   xp?: number
   compact?: boolean
   locale?: string
@@ -33,12 +38,14 @@ const IT_STAGE_LABELS: Record<number, string> = {
 }
 
 export default function CompanionDisplay({
-  species, votesCount, xp = 0, compact = false,
+  species, votesCount, pixieXp, xp = 0, compact = false,
   locale = 'en', userId, enableLevelUpModal = false,
 }: Props) {
   const IT = locale === 'it'
   const companion = COMPANION_MAP[species] ?? COMPANION_MAP['spark']
-  const stage = getCompanionStage(votesCount)
+  // Use per-species vote count when available; fall back to global votesCount
+  const effectiveVotes = pixieXp ? getSpeciesVotes(pixieXp, species) : votesCount
+  const stage = getCompanionStage(effectiveVotes)
 
   const [imgError, setImgError] = useState(false)
   const [xpPulse, setXpPulse] = useState(false)
@@ -74,14 +81,14 @@ export default function CompanionDisplay({
   }, [stage, userId, enableLevelUpModal])
   const stageLabel = IT ? (IT_STAGE_LABELS[stage] ?? STAGE_LABELS[stage]) : STAGE_LABELS[stage]
   const emoji = companion.stageEmoji[stage - 1]
-  const toNext = votesToNextStage(votesCount)
+  const toNext = votesToNextStage(effectiveVotes)
   const isMaxStage = stage === 6
 
-  // Progress bar within current stage
+  // Progress bar within current stage (uses per-species votes)
   const currentThreshold = STAGE_THRESHOLDS[stage - 1]
-  const nextThreshold = isMaxStage ? votesCount : STAGE_THRESHOLDS[stage]
+  const nextThreshold = isMaxStage ? effectiveVotes : STAGE_THRESHOLDS[stage]
   const range = nextThreshold - currentThreshold
-  const progress = isMaxStage ? 100 : Math.min(100, Math.round(((votesCount - currentThreshold) / range) * 100))
+  const progress = isMaxStage ? 100 : Math.min(100, Math.round(((effectiveVotes - currentThreshold) / range) * 100))
 
   const rarityStyle = RARITY_STYLES[companion.rarity] ?? RARITY_STYLES.common
 
@@ -173,7 +180,7 @@ export default function CompanionDisplay({
           {!isMaxStage ? (
             <>
               <div className="flex justify-between text-xs text-[var(--muted)] mb-1">
-                <span>{votesCount} {IT ? 'voti' : 'votes'}</span>
+                <span>{effectiveVotes} {IT ? 'voti' : 'votes'}</span>
                 <span>{toNext} {IT ? `per Stadio ${stage + 1}` : `to Stage ${stage + 1}`}</span>
               </div>
               <div className="h-2 rounded-full bg-white/5 overflow-hidden">

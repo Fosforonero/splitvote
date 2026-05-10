@@ -271,6 +271,9 @@ export default function VoteClientPage({
         choice: option,
         locale,
       })
+      // Fire-and-forget: increment per-species Pixie XP for authenticated users.
+      // Does NOT touch vote logic, Redis, or dilemma_votes — pure profile update.
+      fetch('/api/pixie/xp', { method: 'POST' }).catch(() => {})
       let resultsUrl = `${localePrefix}/results/${scenario.id}?voted=${option}`
       if (pathCategory && pathStep && pathTarget) {
         resultsUrl += `&path=${pathCategory}&step=${pathStep}&target=${pathTarget}`

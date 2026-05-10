@@ -11,7 +11,7 @@ import OnboardingModal from './OnboardingModal'
 import CompanionDisplay from '@/components/CompanionDisplay'
 import DailyMissions from '@/components/DailyMissions'
 import PixieSelector from '@/components/PixieSelector'
-import type { CompanionSpecies } from '@/lib/companion'
+import type { CompanionSpecies, PixieXpMap } from '@/lib/companion'
 import { STREAK_MILESTONES, getStreakProgress } from '@/lib/badges'
 
 export const metadata = { title: 'Dashboard | SplitVote' }
@@ -58,6 +58,7 @@ interface Profile {
   xp: number | null
   streak_days: number | null
   companion_species: string | null
+  pixie_xp: Record<string, number> | null
 }
 
 const STATUS_BADGE: Record<PollStatus, { label: string; classes: string }> = {
@@ -87,7 +88,7 @@ export default async function DashboardPage() {
   const [profileRes, pollsRes, dilemmaVotesRes, badgesRes] = await Promise.all([
     supabase
       .from('profiles')
-      .select('display_name, email, is_premium, role, votes_count, equipped_frame, equipped_badge, onboarding_done, xp, streak_days, companion_species')
+      .select('display_name, email, is_premium, role, votes_count, equipped_frame, equipped_badge, onboarding_done, xp, streak_days, companion_species, pixie_xp')
       .eq('id', user.id)
       .single<Profile>(),
     supabase
@@ -126,6 +127,7 @@ export default async function DashboardPage() {
   const xp = profile?.xp ?? 0
   const streakDays = profile?.streak_days ?? 0
   const companionSpecies = (profile?.companion_species ?? 'spark') as CompanionSpecies
+  const pixieXp: PixieXpMap = (profile?.pixie_xp as PixieXpMap) ?? {}
 
 
   // Fetch dynamic scenarios ONCE (no N+1 Redis calls)
@@ -183,6 +185,7 @@ export default async function DashboardPage() {
       <CompanionDisplay
         species={companionSpecies}
         votesCount={votesCount}
+        pixieXp={pixieXp}
         xp={xp}
         locale={locale}
         userId={user.id}
@@ -194,6 +197,7 @@ export default async function DashboardPage() {
         currentSpecies={companionSpecies}
         votesCount={votesCount}
         streakDays={streakDays}
+        pixieXp={pixieXp}
         locale={locale}
       />
 
