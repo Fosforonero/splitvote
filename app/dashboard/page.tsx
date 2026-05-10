@@ -12,6 +12,8 @@ import CompanionDisplay from '@/components/CompanionDisplay'
 import DailyMissions from '@/components/DailyMissions'
 import PixieSelector from '@/components/PixieSelector'
 import ProfileShareButton from '@/components/ProfileShareButton'
+import MobileStickyHUD from '@/components/MobileStickyHUD'
+import MobileFloatingVoteCTA from '@/components/MobileFloatingVoteCTA'
 import type { CompanionSpecies, PixieXpMap } from '@/lib/companion'
 import { STREAK_MILESTONES, getStreakProgress } from '@/lib/badges'
 import { getLevelInfo } from '@/lib/missions'
@@ -157,6 +159,12 @@ export default async function DashboardPage() {
   const referralAll = referralAllRes.error ? null : (referralAllRes.count ?? 0)
   const showReferralCard = referralAll !== null
 
+  // Has the user voted today? Drives the floating CTA pulse animation.
+  const todayStart = new Date()
+  todayStart.setHours(0, 0, 0, 0)
+  const hasVotedToday = dilemmaVotes.some(v => new Date(v.voted_at) >= todayStart)
+  const voteCtaHref = IT ? '/it/dilemmi-morali' : '/moral-dilemmas'
+
 
   // Fetch dynamic scenarios ONCE (no N+1 Redis calls)
   let dynamicMap = new Map<string, Awaited<ReturnType<typeof getDynamicScenarios>>[number]>()
@@ -181,7 +189,29 @@ export default async function DashboardPage() {
   })
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
+    <div className="max-w-3xl mx-auto px-4 pt-6 pb-28 md:pt-12 md:pb-12">
+
+      {/* ── Mobile-only sticky HUD (appears on scroll past hero) ── */}
+      <MobileStickyHUD
+        species={companionSpecies}
+        pixieXp={pixieXp}
+        votesCount={votesCount}
+        level={levelInfo.level}
+        levelTitle={levelInfo.title}
+        levelColor={levelInfo.color}
+        xpIntoLevel={levelInfo.xpIntoLevel}
+        xpForLevel={levelInfo.xpNeeded}
+        progressPct={levelInfo.progressPct}
+        streakDays={streakDays}
+        locale={locale}
+      />
+
+      {/* ── Mobile-only floating "Vote" FAB (pulses if not voted today) ── */}
+      <MobileFloatingVoteCTA
+        href={voteCtaHref}
+        pulse={!hasVotedToday}
+        locale={locale}
+      />
 
       {/* ── Onboarding modal (first login) ── */}
       {profile && !profile.onboarding_done && <OnboardingModal />}
