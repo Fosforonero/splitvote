@@ -2,10 +2,13 @@
 export type CompanionAccess = 'free' | 'premium' | 'admin'
 
 export type CompanionSpecies =
-  | 'spark' | 'blip' | 'momo' | 'shade' | 'orbit'   // free
-  | 'heart' | 'robot' | 'crown' | 'diamond'           // premium
-  | 'galaxy' | 'angel' | 'devil'                      // premium
-  | 'overseer' | 'void'                               // admin-only
+  | 'spark' | 'blip' | 'momo' | 'shade' | 'orbit'                           // free
+  | 'heart' | 'robot' | 'crown' | 'diamond'                                  // premium
+  | 'galaxy' | 'angel' | 'devil'                                             // premium
+  | 'fuoco' | 'banana' | 'caffe' | 'hologram' | 'ice'                       // premium (new)
+  | 'leaf' | 'moonlight' | 'scintille' | 'triste'                           // premium (new)
+  | 'overseer' | 'void'                                                      // admin-only
+  | 'voidcore'                                                               // admin-only (new)
 
 export interface CompanionDef {
   id: CompanionSpecies
@@ -148,6 +151,98 @@ export const COMPANIONS: CompanionDef[] = [
     color: 'text-red-400',
   },
 
+  // ── Premium — new illustrated species ────────────────────────────
+  {
+    id: 'fuoco',
+    name: 'Pixie Ember',
+    description: 'A fiery spirit who burns brightest when facing impossible choices.',
+    rarity: 'epic',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['🔥', '🔥', '🌋', '☄️', '🌟', '⚡'],
+    color: 'text-orange-400',
+  },
+  {
+    id: 'banana',
+    name: 'Pixie Nana',
+    description: 'A cheerful, sunny companion who finds joy even in the hardest dilemmas.',
+    rarity: 'rare',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['🍌', '🍌', '🌟', '✨', '💛', '🌈'],
+    color: 'text-yellow-400',
+  },
+  {
+    id: 'caffe',
+    name: 'Pixie Brew',
+    description: 'A sharp, caffeinated spirit who thinks faster than anyone — even before your first cup.',
+    rarity: 'rare',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['☕', '☕', '🫖', '⚡', '💫', '✨'],
+    color: 'text-amber-600',
+  },
+  {
+    id: 'hologram',
+    name: 'Pixie Aura',
+    description: 'A shimmering digital entity whose form shifts with every moral stance.',
+    rarity: 'rare',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['🔵', '🔵', '💠', '🌐', '✨', '💎'],
+    color: 'text-blue-400',
+  },
+  {
+    id: 'ice',
+    name: 'Pixie Frost',
+    description: 'A cool, calculating creature who never loses composure under moral pressure.',
+    rarity: 'epic',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['❄️', '❄️', '🧊', '⛄', '🌨️', '💎'],
+    color: 'text-cyan-400',
+  },
+  {
+    id: 'leaf',
+    name: 'Pixie Blossom',
+    description: 'A gentle nature spirit who blooms with every courageous vote.',
+    rarity: 'epic',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['🌱', '🌱', '🌸', '🌺', '🌳', '🍃'],
+    color: 'text-green-400',
+  },
+  {
+    id: 'moonlight',
+    name: 'Pixie Luna',
+    description: 'A serene lunar spirit who illuminates the darkest moral dilemmas.',
+    rarity: 'rare',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['🌙', '🌙', '⭐', '🌟', '🌠', '🪐'],
+    color: 'text-slate-300',
+  },
+  {
+    id: 'scintille',
+    name: 'Pixie Nova',
+    description: 'An explosive starburst spirit who makes every choice feel like a supernova.',
+    rarity: 'legendary',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['✨', '✨', '💫', '⭐', '🌟', '💥'],
+    color: 'text-yellow-300',
+  },
+  {
+    id: 'triste',
+    name: 'Pixie Gloom',
+    description: 'A melancholy soul who finds profound meaning in life\'s heaviest questions.',
+    rarity: 'epic',
+    access: 'premium',
+    unlockCondition: 'Available in the Pixie Market',
+    stageEmoji: ['😔', '😔', '🌧️', '☁️', '⛈️', '🌪️'],
+    color: 'text-indigo-300',
+  },
+
   // ── Admin-only (never in public store) ────────────────────────────
   {
     id: 'overseer',
@@ -168,6 +263,16 @@ export const COMPANIONS: CompanionDef[] = [
     unlockCondition: 'Admin only',
     stageEmoji: ['🌑', '🌑', '⚫', '🕳️', '💜', '🌌'],
     color: 'text-purple-300',
+  },
+  {
+    id: 'voidcore',
+    name: 'Pixie Wraith',
+    description: 'An enigmatic entity from the void, existing beyond all moral frameworks.',
+    rarity: 'legendary',
+    access: 'admin',
+    unlockCondition: 'Admin only',
+    stageEmoji: ['👻', '👻', '🌑', '💀', '🌌', '⚫'],
+    color: 'text-purple-400',
   },
 ]
 
@@ -260,9 +365,20 @@ const UNLOCK_REQUIREMENTS: Record<CompanionSpecies, UnlockFn> = {
   galaxy:   (_, _s, isPremium) => !!isPremium,
   angel:    (_, _s, isPremium) => !!isPremium,
   devil:    (_, _s, isPremium) => !!isPremium,
+  // Premium — new illustrated species
+  fuoco:     (_, _s, isPremium) => !!isPremium,
+  banana:    (_, _s, isPremium) => !!isPremium,
+  caffe:     (_, _s, isPremium) => !!isPremium,
+  hologram:  (_, _s, isPremium) => !!isPremium,
+  ice:       (_, _s, isPremium) => !!isPremium,
+  leaf:      (_, _s, isPremium) => !!isPremium,
+  moonlight: (_, _s, isPremium) => !!isPremium,
+  scintille: (_, _s, isPremium) => !!isPremium,
+  triste:    (_, _s, isPremium) => !!isPremium,
   // Admin-only
-  overseer: (_, _s, _p, isAdmin) => !!isAdmin,
-  void:     (_, _s, _p, isAdmin) => !!isAdmin,
+  overseer:  (_, _s, _p, isAdmin) => !!isAdmin,
+  void:      (_, _s, _p, isAdmin) => !!isAdmin,
+  voidcore:  (_, _s, _p, isAdmin) => !!isAdmin,
 }
 
 /**
