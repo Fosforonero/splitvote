@@ -6,6 +6,7 @@ import {
   markWebhookEventProcessed,
   markWebhookEventFailed,
 } from '@/lib/stripe-webhook-events'
+import { findProductByStripePriceId } from '@/lib/purchases'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -106,6 +107,83 @@ async function processStripeEvent(
       console.log(`✅ Name change: user=${userId.slice(0, 8)} (#${currentChanges + 1})`)
     }
 
+    // ── one-time purchase (Pixie Market, future cosmetics) ──
+    // Uses the Stripe Price ID from the session as the source of truth (not
+    // metadata.productId) so a metadata bug can't grant the wrong item.
+    if (type === 'one_time_purchase' && session.mode === 'payment') {
+      if (!userId || session.payment_status !== 'paid') return
+
+      // Lazy-init Stripe client at runtime to fetch line items
+      const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+        apiVersion: '2025-02-24.acacia',
+      })
+
+      let lineItems: Stripe.ApiList<Stripe.LineItem>
+      try {
+        lineItems = await stripeClient.checkout.sessions.listLineItems(session.id, { limit: 1 })
+      } catch (err) {
+        console.error('[stripe/webhook] one_time_purchase listLineItems failed:', err instanceof Error ? err.message : String(err))
+        throw new Error('listLineItems failed')
+      }
+
+      const firstLine = lineItems.data[0]
+      const priceId   = firstLine?.price?.id
+      if (!priceId) {
+        console.error('[stripe/webhook] one_time_purchase: missing priceId on session', session.id)
+        return // No retry — this session is malformed beyond our control
+      }
+
+      const product = findProductByStripePriceId(priceId)
+      if (!product) {
+        console.error(`[stripe/webhook] one_time_purchase: unknown Stripe Price ${priceId} (not in catalog)`)
+        return // Don't grant ownership for an unknown product
+      }
+
+      // Cross-check: metadata.productId should match the price-derived product.
+      // Mismatch = log warning but still trust the price (Stripe's truth).
+      const metadataProductId = session.metadata?.productId
+      if (metadataProductId && metadataProductId !== product.id) {
+        console.warn(`[stripe/webhook] one_time_purchase: metadata.productId=${metadataProductId} != price-derived=${product.id} — trusting price`)
+      }
+
+      const paymentIntentId = typeof session.payment_intent === 'string'
+        ? session.payment_intent
+        : session.payment_intent?.id
+      if (!paymentIntentId) {
+        console.error('[stripe/webhook] one_time_purchase: missing payment_intent_id')
+        throw new Error('payment_intent_id missing')
+      }
+
+      const amountCents = session.amount_total ?? product.priceCents
+      const currency    = (session.currency ?? 'eur').toLowerCase()
+
+      // UPSERT pattern: handles re-purchase after refund (same user+product,
+      // new payment_intent_id, status reset to 'completed').
+      const { error } = await admin
+        .from('user_purchases')
+        .upsert(
+          {
+            user_id:                   userId,
+            product_id:                product.id,
+            product_type:              product.type,
+            stripe_payment_intent_id:  paymentIntentId,
+            stripe_session_id:         session.id,
+            amount_cents:              amountCents,
+            currency,
+            status:                    'completed',
+            purchased_at:              new Date().toISOString(),
+            refunded_at:               null,
+          },
+          { onConflict: 'user_id,product_id' },
+        )
+
+      if (error) {
+        console.error('[stripe/webhook] user_purchases upsert failed:', error.code, error.message)
+        throw new Error('user_purchases upsert failed')
+      }
+      console.log(`✅ One-time purchase: user=${userId.slice(0, 8)} product=${product.id} amount=${amountCents}`)
+    }
+
     // ── subscription checkout completed ──
     if (type === 'subscription' && session.mode === 'subscription') {
       if (!userId) return
@@ -149,6 +227,40 @@ async function processStripeEvent(
 
     if (error) console.error('[stripe/webhook] subscription.updated sync failed:', error.code)
     console.log(`✅ Subscription updated: customer=${customerId.slice(0, 12)} status=${status}`)
+  }
+
+  // ── charge.refunded ─────────────────────────────────────────────────────
+  // Stripe fires this when a refund is issued (full or partial) on a charge.
+  // We mark the matching user_purchases row as 'refunded' so the entitlement
+  // check (status = 'completed') removes the unlock.
+  // Partial refunds: we treat amount_refunded == amount_paid as full refund.
+  // For partial refunds we currently leave the row as 'completed' (user keeps
+  // the item) — this is the safer default; partial refunds for cosmetics are
+  // rare and easy to handle manually.
+  if (event.type === 'charge.refunded') {
+    const charge = event.data.object as Stripe.Charge
+    const paymentIntentId = typeof charge.payment_intent === 'string'
+      ? charge.payment_intent
+      : charge.payment_intent?.id
+    if (!paymentIntentId) {
+      console.warn('[stripe/webhook] charge.refunded: no payment_intent_id, skipping')
+    } else if (charge.amount_refunded < charge.amount) {
+      console.log(`ℹ️  charge.refunded partial (${charge.amount_refunded}/${charge.amount}) — keeping unlock for pi=${paymentIntentId.slice(0, 12)}`)
+    } else {
+      const { error } = await admin
+        .from('user_purchases')
+        .update({ status: 'refunded', refunded_at: new Date().toISOString() })
+        .eq('stripe_payment_intent_id', paymentIntentId)
+        .eq('status', 'completed')
+
+      if (error) {
+        console.error('[stripe/webhook] charge.refunded update failed:', error.code, error.message)
+        // Non-throwing — refund correctness is operationally important but
+        // not as critical as granting unlocks. Log and continue.
+      } else {
+        console.log(`✅ Refund processed: pi=${paymentIntentId.slice(0, 12)}`)
+      }
+    }
   }
 
   // ── customer.subscription.deleted ──────────────────────────────────────

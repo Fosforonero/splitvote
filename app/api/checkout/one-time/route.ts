@@ -1,51 +1,139 @@
 /**
  * POST /api/checkout/one-time
  *
- * Creates a Stripe Checkout Session in `payment` mode for a one-time purchase
- * (Pixie Market species, cosmetics, etc.).
+ * Creates a Stripe Checkout Session in `payment` mode for a one-time
+ * purchase (Pixie Market species, cosmetics, etc.).
  *
- * STATUS: STUB — Sprint 2 ships the store UI without a working checkout so
- * the page can be QA'd and indexed safely. Sprint 3 replaces this with the
- * real Stripe flow + ownership creation on webhook.
+ * Flow:
+ *   1. Authenticate user
+ *   2. Validate productId against PRODUCT_CATALOG
+ *   3. Resolve Stripe Price ID via env var
+ *   4. Refuse if user already owns the product (idempotent UX — they should
+ *      not be able to pay twice for the same one-time unlock)
+ *   5. Create Stripe Checkout Session with metadata.userId & productId
+ *   6. Return { url } for client-side redirect
  *
- * Returning 501 keeps the client-side coming-soon modal in <ProductCard/>
- * happy: it sees `comingSoon: true` and shows a "Checkout coming online" hint.
+ * Security:
+ * - productId is validated against catalog (never trusted as-is from client)
+ * - The webhook handler will additionally verify the Stripe Price ID on the
+ *   completed session matches the catalog before granting ownership.
  */
 import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe'
 import { createClient } from '@/lib/supabase/server'
+import {
+  PRODUCT_BY_ID,
+  getStripePriceId,
+  type ProductId,
+} from '@/lib/purchases'
 
 export const dynamic = 'force-dynamic'
 
+function isProductId(value: unknown): value is ProductId {
+  return typeof value === 'string' && value in PRODUCT_BY_ID
+}
+
 export async function POST(req: NextRequest) {
-  // Auth gate — the real route in Sprint 3 needs an authenticated user, so we
-  // enforce the same contract now to surface auth errors during UI testing.
+  // ── Env gate ──────────────────────────────────────────────────────────
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return NextResponse.json({ error: 'Stripe not configured' }, { status: 500 })
+  }
+
+  // ── Auth ──────────────────────────────────────────────────────────────
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  // Lightweight body validation so the client gets the same error shape it
-  // will get from the real endpoint.
+  // ── Input validation ──────────────────────────────────────────────────
   let body: { productId?: string; locale?: string }
   try {
     body = await req.json()
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
-  if (!body.productId || typeof body.productId !== 'string') {
-    return NextResponse.json({ error: 'productId required' }, { status: 400 })
+
+  if (!isProductId(body.productId)) {
+    return NextResponse.json({ error: 'Unknown productId' }, { status: 400 })
+  }
+  const productId = body.productId
+  const product = PRODUCT_BY_ID[productId]
+
+  if (product.comingSoon) {
+    return NextResponse.json(
+      { comingSoon: true, error: 'Product not yet available' },
+      { status: 503 },
+    )
   }
 
-  // STUB — Sprint 3 implements:
-  //  1. Look up product in PRODUCT_CATALOG, resolve Stripe Price ID
-  //  2. Create Checkout Session in mode 'payment' with metadata.userId & productId
-  //  3. Return { url: session.url }
-  return NextResponse.json(
-    {
-      comingSoon: true,
-      message: 'One-time checkout activates in the next deploy.',
-    },
-    { status: 501 },
-  )
+  const priceId = getStripePriceId(productId)
+  if (!priceId) {
+    // Env var missing — return graceful "coming soon" rather than 500 so the
+    // store UI can show its standard "checkout coming online" hint.
+    return NextResponse.json(
+      { comingSoon: true, error: `Stripe Price ID not configured (${product.stripePriceEnvVar})` },
+      { status: 501 },
+    )
+  }
+
+  // ── Idempotent UX: refuse if already owned ────────────────────────────
+  // Graceful if table missing (pre-v16 migration): treat as not-owned.
+  try {
+    const { data: existing } = await supabase
+      .from('user_purchases')
+      .select('product_id')
+      .eq('user_id', user.id)
+      .eq('product_id', productId)
+      .eq('status', 'completed')
+      .maybeSingle()
+
+    if (existing) {
+      return NextResponse.json(
+        { error: 'You already own this item', alreadyOwned: true },
+        { status: 409 },
+      )
+    }
+  } catch {
+    // Table may not exist yet — continue with checkout
+  }
+
+  // ── Create Checkout Session ───────────────────────────────────────────
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2025-02-24.acacia',
+  })
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://splitvote.io'
+  const locale = body.locale === 'it' ? '/it' : ''
+  const successUrl = `${baseUrl}${locale}/store?purchased=${encodeURIComponent(productId)}&session_id={CHECKOUT_SESSION_ID}`
+  const cancelUrl  = `${baseUrl}${locale}/store?cancelled=1`
+
+  let session: Stripe.Checkout.Session
+  try {
+    session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{ price: priceId, quantity: 1 }],
+      mode: 'payment',
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+      metadata: {
+        userId: user.id,
+        productId,
+        type: 'one_time_purchase',
+      },
+      customer_email: user.email ?? undefined,
+      // Tie the PaymentIntent to the user so refunds are easy to correlate
+      payment_intent_data: {
+        metadata: {
+          userId: user.id,
+          productId,
+        },
+      },
+    })
+  } catch (err) {
+    console.error('[checkout/one-time] sessions.create failed:', err instanceof Error ? err.message : String(err))
+    return NextResponse.json({ error: 'Payment initiation failed' }, { status: 500 })
+  }
+
+  return NextResponse.json({ url: session.url })
 }

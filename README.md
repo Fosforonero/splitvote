@@ -73,7 +73,27 @@ CRON_SECRET=random-strong-secret
 STRIPE_SECRET_KEY=sk_live_...        # NEVER commit — set in Vercel only
 STRIPE_WEBHOOK_SECRET=whsec_...     # from stripe listen or Stripe dashboard
 STRIPE_PRICE_ID_NAME_CHANGE=price_... # €0.99 one-time
-STRIPE_PRICE_ID_PREMIUM=price_...    # premium subscription
+STRIPE_PRICE_ID_PREMIUM=price_...    # premium subscription (€4.99/month)
+
+# Stripe — Pixie Market (one-time purchases, Sprint 3+)
+# Each is a Stripe Product in mode=payment. See lib/purchases.ts catalog.
+# Missing env vars cause the checkout to return 501 "coming soon" — graceful.
+STRIPE_PRICE_PIXIE_CROWN=price_...    # €3.99
+STRIPE_PRICE_PIXIE_DIAMOND=price_...  # €3.99
+STRIPE_PRICE_PIXIE_GALAXY=price_...   # €3.99
+STRIPE_PRICE_PIXIE_ANGEL=price_...    # €3.99
+STRIPE_PRICE_PIXIE_DEVIL=price_...    # €3.99
+STRIPE_PRICE_PIXIE_NOVA=price_...     # €4.99 (legendary)
+
+# Stripe — Cosmetics (future sprint, all currently marked comingSoon in catalog)
+# STRIPE_PRICE_FRAME_GOLD=price_...
+# STRIPE_PRICE_FRAME_RAINBOW=price_...
+# STRIPE_PRICE_FRAME_PULSE=price_...
+# STRIPE_PRICE_FRAME_HOLO=price_...
+# STRIPE_PRICE_GLOW_FIRE=price_...
+# STRIPE_PRICE_GLOW_FROST=price_...
+# STRIPE_PRICE_GLOW_AURORA=price_...
+# STRIPE_PRICE_NAME_COLOR_BUNDLE=price_...
 
 # Resend (transactional email — set in Vercel only, NEVER commit)
 RESEND_API_KEY=re_...                  # from resend.com dashboard

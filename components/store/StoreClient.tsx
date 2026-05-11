@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { PRODUCT_CATALOG, type ProductId } from '@/lib/purchases'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
+import { PRODUCT_BY_ID, PRODUCT_CATALOG, type ProductId } from '@/lib/purchases'
 import ProductCard from './ProductCard'
 
 type Tab = 'premium' | 'pixies' | 'cosmetics'
@@ -49,6 +50,16 @@ const COPY = {
       sub: 'Frames, glows, name colors. Make your profile pop.',
       empty: 'Cosmetics drop in the next update — stay tuned.',
     },
+    purchased: {
+      title: '🎉 Unlocked!',
+      body: (name: string) => `${name} is yours forever. Equip it from the Pixie selector in your dashboard.`,
+      cta: 'Equip in dashboard →',
+      dashboard: '/dashboard',
+    },
+    cancelled: {
+      title: 'Checkout cancelled',
+      body: 'No charge was made. Take your time.',
+    },
     backToDashboard: '← Back to dashboard',
   },
   it: {
@@ -83,16 +94,58 @@ const COPY = {
       sub: 'Cornici, glow, colori del nome. Rendi il tuo profilo unico.',
       empty: 'I cosmetici arrivano nel prossimo update — resta connesso.',
     },
+    purchased: {
+      title: '🎉 Sbloccato!',
+      body: (name: string) => `${name} è tuo per sempre. Equipaggialo dal selettore Pixie nella dashboard.`,
+      cta: 'Equipaggia in dashboard →',
+      dashboard: '/it/dashboard',
+    },
+    cancelled: {
+      title: 'Checkout annullato',
+      body: 'Nessun addebito. Prenditi il tempo che vuoi.',
+    },
     backToDashboard: '← Torna alla dashboard',
   },
 } as const
 
 export default function StoreClient({ isLoggedIn, isPremium, ownedProductIds, locale, initialTab = 'pixies' }: Props) {
   const copy = COPY[locale]
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
   const [tab, setTab] = useState<Tab>(initialTab)
   const [premiumLoading, setPremiumLoading] = useState(false)
   const [premiumError, setPremiumError] = useState<string | null>(null)
   const ownedSet = new Set(ownedProductIds)
+
+  // ── Post-purchase success banner ────────────────────────────────────────
+  // After Stripe redirects back with ?purchased=pixie_crown&session_id=...
+  // we show a celebratory banner. The actual ownership comes from the
+  // webhook (granted server-side), so the banner is purely UX confirmation.
+  const purchasedParam = searchParams?.get('purchased')
+  const cancelledParam = searchParams?.get('cancelled')
+  const purchasedProduct = purchasedParam && purchasedParam in PRODUCT_BY_ID
+    ? PRODUCT_BY_ID[purchasedParam as ProductId]
+    : null
+
+  const [dismissedSuccess, setDismissedSuccess] = useState(false)
+  const [dismissedCancel, setDismissedCancel] = useState(false)
+
+  // Strip the query params from the URL after the banner is rendered so a
+  // refresh doesn't re-show it. Keep the tab param if it was there.
+  useEffect(() => {
+    if (purchasedParam || cancelledParam) {
+      const t = setTimeout(() => {
+        const params = new URLSearchParams(searchParams?.toString() ?? '')
+        params.delete('purchased')
+        params.delete('session_id')
+        params.delete('cancelled')
+        const qs = params.toString()
+        router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false })
+      }, 250)
+      return () => clearTimeout(t)
+    }
+  }, [purchasedParam, cancelledParam, pathname, router, searchParams])
 
   const pixieProducts = PRODUCT_CATALOG.filter(p => p.type === 'pixie')
   const cosmeticProducts = PRODUCT_CATALOG.filter(p => p.type !== 'pixie')
@@ -121,6 +174,52 @@ export default function StoreClient({ isLoggedIn, isPremium, ownedProductIds, lo
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
+
+      {/* ── Post-purchase success banner ── */}
+      {purchasedProduct && !dismissedSuccess && (
+        <div className="mb-6 rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent p-5 flex items-start gap-4">
+          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-2xl">
+            🎉
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-black text-emerald-300 mb-1">{copy.purchased.title}</p>
+            <p className="text-sm text-white/90 mb-3">{copy.purchased.body(purchasedProduct.name)}</p>
+            <Link
+              href={copy.purchased.dashboard}
+              className="inline-block text-xs font-bold text-emerald-300 hover:text-emerald-200 transition-colors"
+            >
+              {copy.purchased.cta}
+            </Link>
+          </div>
+          <button
+            type="button"
+            onClick={() => setDismissedSuccess(true)}
+            aria-label="Dismiss"
+            className="text-white/40 hover:text-white text-xl leading-none flex-shrink-0"
+          >
+            ×
+          </button>
+        </div>
+      )}
+
+      {/* ── Checkout-cancelled banner ── */}
+      {cancelledParam && !purchasedProduct && !dismissedCancel && (
+        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-4 flex items-center gap-3">
+          <div className="text-2xl">🤷</div>
+          <div className="flex-1 min-w-0">
+            <p className="font-bold text-white text-sm">{copy.cancelled.title}</p>
+            <p className="text-xs text-[var(--muted)]">{copy.cancelled.body}</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setDismissedCancel(true)}
+            aria-label="Dismiss"
+            className="text-white/40 hover:text-white text-xl leading-none flex-shrink-0"
+          >
+            ×
+          </button>
+        </div>
+      )}
 
       {/* Hero */}
       <div className="text-center mb-10">
