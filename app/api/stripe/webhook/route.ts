@@ -7,6 +7,7 @@ import {
   markWebhookEventFailed,
 } from '@/lib/stripe-webhook-events'
 import { findProductByStripePriceId } from '@/lib/purchases'
+import { sendEmail } from '@/lib/email'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -182,6 +183,24 @@ async function processStripeEvent(
         throw new Error('user_purchases upsert failed')
       }
       console.log(`✅ One-time purchase: user=${userId.slice(0, 8)} product=${product.id} amount=${amountCents}`)
+
+      // Fire-and-forget confirmation email. Never blocks ownership grant —
+      // if email fails the user still owns the product. Stripe also sends
+      // its own receipt; this is the SplitVote-branded follow-up.
+      const buyerEmail = session.customer_details?.email ?? session.customer_email
+      if (buyerEmail) {
+        try {
+          await sendPurchaseConfirmationEmail({
+            to: buyerEmail,
+            productName: product.name,
+            amountCents,
+            currency,
+            sessionId: session.id,
+          })
+        } catch (err) {
+          console.error('[stripe/webhook] confirmation email failed:', err instanceof Error ? err.message : String(err))
+        }
+      }
     }
 
     // ── subscription checkout completed ──
@@ -280,4 +299,84 @@ async function processStripeEvent(
     if (error) console.error('[stripe/webhook] subscription.deleted sync failed:', error.code)
     console.log(`✅ Subscription cancelled: customer=${customerId.slice(0, 12)}`)
   }
+}
+
+// ── Purchase confirmation email ─────────────────────────────────────────
+// Lightweight branded receipt. Stripe also sends an automatic receipt with
+// the line item and refund link — this is the SplitVote-side "thanks +
+// here's where to use it" follow-up.
+
+async function sendPurchaseConfirmationEmail(opts: {
+  to: string
+  productName: string
+  amountCents: number
+  currency: string
+  sessionId: string
+}): Promise<void> {
+  const { to, productName, amountCents, currency, sessionId } = opts
+  const eur = (amountCents / 100).toFixed(2)
+  const symbol = currency.toUpperCase() === 'EUR' ? '€' : currency.toUpperCase() + ' '
+  const priceFormatted = `${symbol}${eur}`
+
+  const subject = `🎉 Your ${productName} is yours — SplitVote`
+
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="margin:0; padding:0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#0a0a0f; color:#f1f5f9;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#0a0a0f;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px; background:#0d0d1a; border:1px solid #1e293b; border-radius:16px; overflow:hidden;">
+          <tr>
+            <td style="background: linear-gradient(135deg, #10b981, #059669); padding: 32px 24px; text-align: center;">
+              <h1 style="margin:0; color:white; font-size:28px; font-weight:900;">🎉 Sblocco completato</h1>
+              <p style="margin:8px 0 0; color:rgba(255,255,255,0.85); font-size:14px;">Grazie per il supporto a SplitVote</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 32px 24px;">
+              <h2 style="margin:0 0 16px; color:#f1f5f9; font-size:20px;">${productName}</h2>
+              <p style="margin:0 0 24px; color:#94a3b8; font-size:14px; line-height:1.6;">
+                Il tuo nuovo sblocco è già attivo. Vai alla dashboard e trovalo nel selettore Pixie o nel widget Cosmetici.
+              </p>
+
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#0a0a1a; border:1px solid #1e293b; border-radius:12px; margin-bottom: 24px;">
+                <tr><td style="padding: 14px 18px; color:#64748b; font-size:12px;">Importo</td>
+                    <td style="padding: 14px 18px; color:#f1f5f9; font-size:14px; font-weight:700; text-align:right;">${priceFormatted}</td></tr>
+                <tr><td style="padding: 14px 18px; border-top:1px solid #1e293b; color:#64748b; font-size:12px;">ID transazione</td>
+                    <td style="padding: 14px 18px; border-top:1px solid #1e293b; color:#94a3b8; font-size:11px; font-family:monospace; text-align:right;">${sessionId.slice(0, 28)}…</td></tr>
+              </table>
+
+              <div style="text-align:center; margin-bottom: 24px;">
+                <a href="https://splitvote.io/dashboard"
+                   style="display:inline-block; background:#3b82f6; color:white; text-decoration:none; font-weight:900; font-size:14px; padding:14px 32px; border-radius:12px;">
+                  Vai alla Dashboard →
+                </a>
+              </div>
+
+              <p style="margin:0; color:#475569; font-size:11px; line-height:1.6; text-align:center;">
+                Hai bisogno di aiuto? Rispondi a questa email o scrivi a
+                <a href="mailto:hello@splitvote.io" style="color:#60a5fa; text-decoration:none;">hello@splitvote.io</a>.<br>
+                Storico acquisti completo su <a href="https://splitvote.io/orders" style="color:#60a5fa; text-decoration:none;">splitvote.io/orders</a>.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="background:#0a0a0f; padding: 20px 24px; text-align:center; color:#334155; font-size:11px; border-top:1px solid #1e293b;">
+              SplitVote · splitvote.io<br>
+              Beni digitali — consegna immediata, rinuncia al recesso 14gg ai sensi della Direttiva 2011/83/UE.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`
+
+  await sendEmail({ to, subject, html })
 }

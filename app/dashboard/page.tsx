@@ -389,6 +389,27 @@ export default async function DashboardPage() {
         </div>
       </div>
 
+      {/* ── Order history link ── */}
+      <Link
+        href="/orders"
+        className="group mb-8 flex items-center justify-between gap-3 rounded-2xl border border-[var(--border)] bg-[#0d0d1a]/60 px-5 py-4 transition-all hover:border-blue-500/30 hover:bg-[#0a0a1a]/80"
+      >
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-lg">
+            🧾
+          </div>
+          <div className="min-w-0">
+            <p className="text-sm font-bold text-white">
+              {IT ? 'Storico Acquisti' : 'Order History'}
+            </p>
+            <p className="text-xs text-[var(--muted)]">
+              {IT ? 'Pixie e cosmetici comprati' : 'Pixies and cosmetics you\'ve bought'}
+            </p>
+          </div>
+        </div>
+        <span className="text-[var(--muted)] font-bold text-sm transition-transform group-hover:translate-x-1 group-hover:text-blue-400">→</span>
+      </Link>
+
       {/* ── Referral impact (only when data is queryable) ── */}
       {showReferralCard && (
         <div className="rounded-2xl border border-yellow-500/20 bg-gradient-to-br from-yellow-500/5 to-orange-500/5 p-5 mb-8">

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const admin = await createClient()
   const { data } = await admin
     .from('profiles')
-    .select('display_name, votes_count, avatar_emoji, companion_species, pixie_xp')
+    .select('display_name, votes_count, avatar_emoji, companion_species, pixie_xp, equipped_frame, name_color, is_premium')
     .eq('id', params.id)
     .single()
 
@@ -34,12 +34,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const avatar = data.avatar_emoji ?? '🌍'
   const votesCount = data.votes_count ?? 0
 
-  // Build pixie-card OG image URL
+  // Build pixie-card OG image URL — includes cosmetics so the share preview
+  // matches what visitors see on the public profile (frame, name color, VIP).
   const species = ((data as Record<string, unknown>).companion_species as CompanionSpecies | null) ?? 'spark'
   const pixieXp = ((data as Record<string, unknown>).pixie_xp as PixieXpMap | null) ?? {}
   const speciesVotes = getSpeciesVotes(pixieXp, species)
   const stage = getCompanionStage(speciesVotes > 0 ? speciesVotes : votesCount)
-  const cardUrl = `${BASE}/api/pixie-card?species=${encodeURIComponent(species)}&stage=${stage}&name=${encodeURIComponent(name.slice(0, 22))}&locale=en`
+
+  const params2 = new URLSearchParams({
+    species,
+    stage: String(stage),
+    name: name.slice(0, 22),
+    locale: 'en',
+  })
+  const equippedFrame = (data as Record<string, unknown>).equipped_frame as string | null
+  const nameColor    = (data as Record<string, unknown>).name_color    as string | null
+  const isPremium    = Boolean((data as Record<string, unknown>).is_premium)
+  if (equippedFrame) params2.set('frame', equippedFrame)
+  if (nameColor)     params2.set('color', nameColor)
+  if (isPremium)     params2.set('premium', '1')
+  const cardUrl = `${BASE}/api/pixie-card?${params2.toString()}`
 
   return {
     title: `${avatar} ${name} on SplitVote`,

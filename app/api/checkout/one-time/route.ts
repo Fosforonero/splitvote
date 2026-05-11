@@ -108,6 +108,17 @@ export async function POST(req: NextRequest) {
   const successUrl = `${baseUrl}${locale}/store?purchased=${encodeURIComponent(productId)}&session_id={CHECKOUT_SESSION_ID}`
   const cancelUrl  = `${baseUrl}${locale}/store?cancelled=1`
 
+  // EU consumer protection disclaimer for digital goods (required under
+  // Directive 2011/83/EU when the user waives their 14-day right of withdrawal
+  // because the product is consumed immediately on delivery).
+  const refundDisclaimerEN =
+    'Digital goods are delivered immediately. By completing this purchase you ' +
+    'consent to immediate performance and waive your 14-day right of withdrawal.'
+  const refundDisclaimerIT =
+    'I beni digitali sono consegnati immediatamente. Procedendo con l\'acquisto ' +
+    'acconsenti all\'esecuzione immediata e rinunci al diritto di recesso di 14 giorni.'
+  const refundDisclaimer = body.locale === 'it' ? refundDisclaimerIT : refundDisclaimerEN
+
   let session: Stripe.Checkout.Session
   try {
     session = await stripe.checkout.sessions.create({
@@ -127,6 +138,14 @@ export async function POST(req: NextRequest) {
         metadata: {
           userId: user.id,
           productId,
+        },
+        // Receipt/disclaimer copy attached to the Stripe payment
+        description: `${product.name} — ${refundDisclaimer}`,
+      },
+      // Show the disclaimer in Stripe Checkout under "Terms" link
+      custom_text: {
+        submit: {
+          message: refundDisclaimer,
         },
       },
     })
