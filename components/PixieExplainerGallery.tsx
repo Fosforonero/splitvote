@@ -1,5 +1,9 @@
-import { COMPANIONS, RARITY_STYLES } from '@/lib/companion'
+'use client'
+
+import { useState } from 'react'
+import { COMPANIONS, RARITY_STYLES, type CompanionDef } from '@/lib/companion'
 import { getPixieImagePath } from '@/lib/pixie'
+import PixieDetailModal from './PixieDetailModal'
 
 interface Props {
   locale?: 'en' | 'it'
@@ -61,13 +65,15 @@ const IT_RARITY: Record<string, string> = {
 
 /**
  * Public explainer gallery. Stages 1-3 visible, 4-6 hidden as mystery cards.
- * Excludes admin-only species.
+ * Excludes admin-only species. Tapping a card opens a preview-only PixieDetailModal.
  */
 export default function PixieExplainerGallery({ locale = 'en' }: Props) {
   const IT = locale === 'it'
   const species = COMPANIONS.filter(c => c.access !== 'admin')
+  const [modalSpecies, setModalSpecies] = useState<CompanionDef | null>(null)
 
   return (
+    <>
     <div className="space-y-4">
       {species.map(c => {
         const rarityBadge = RARITY_STYLES[c.rarity] ?? RARITY_STYLES.common
@@ -77,9 +83,12 @@ export default function PixieExplainerGallery({ locale = 'en' }: Props) {
         const isPremium = c.access === 'premium'
 
         return (
-          <div
+          <button
             key={c.id}
-            className="rounded-2xl border border-[var(--border)] bg-[#0d0d1a]/60 p-4 sm:p-5"
+            type="button"
+            onClick={() => setModalSpecies(c)}
+            aria-label={IT ? `Anteprima ${c.name}` : `Preview ${c.name}`}
+            className="w-full text-left rounded-2xl border border-[var(--border)] bg-[#0d0d1a]/60 p-4 sm:p-5 cursor-pointer hover:border-blue-500/30 hover:bg-[#0a0a1a]/70 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
           >
             {/* Header */}
             <div className="flex items-start justify-between gap-3 mb-3">
@@ -102,6 +111,9 @@ export default function PixieExplainerGallery({ locale = 'en' }: Props) {
                 </p>
                 <p className="text-[11px] text-white/40 mt-1.5">{unlockHint}</p>
               </div>
+              <span className="text-[10px] text-blue-400/70 font-bold whitespace-nowrap mt-0.5 flex-shrink-0">
+                {IT ? 'Anteprima →' : 'Preview →'}
+              </span>
             </div>
 
             {/* Evolution strip: stages 1-3 visible, 4-6 mystery */}
@@ -142,9 +154,30 @@ export default function PixieExplainerGallery({ locale = 'en' }: Props) {
                 ? 'Le ultime 3 evoluzioni si rivelano votando.'
                 : 'The last 3 evolutions reveal as you vote.'}
             </p>
-          </div>
+          </button>
         )
       })}
     </div>
+
+    {/* Preview modal */}
+    {modalSpecies && (
+      <PixieDetailModal
+        companion={modalSpecies}
+        stage={1}
+        isCurrentSpecies={false}
+        isUnlocked={false}
+        unlockHint={IT ? (IT_UNLOCK[modalSpecies.id] ?? '') : (EN_UNLOCK[modalSpecies.id] ?? '')}
+        pixieXp={{}}
+        votesCount={0}
+        locale={locale}
+        saving={false}
+        error={null}
+        previewOnly
+        descriptionOverride={IT ? (IT_DESCRIPTIONS[modalSpecies.id] ?? undefined) : undefined}
+        onEquip={() => {}}
+        onClose={() => setModalSpecies(null)}
+      />
+    )}
+    </>
   )
 }

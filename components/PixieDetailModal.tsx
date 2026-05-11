@@ -44,11 +44,19 @@ interface Props {
   error: string | null
   onEquip: () => void
   onClose: () => void
+  /**
+   * Preview-only mode: used on the public /pixie explainer page.
+   * Forces stage-1 image at full colour, hides XP progress, shows only Close.
+   */
+  previewOnly?: boolean
+  /** Override companion.description (used for locale-aware copy on the explainer page). */
+  descriptionOverride?: string
 }
 
 export default function PixieDetailModal({
   companion, stage, isCurrentSpecies, isUnlocked, unlockHint,
   pixieXp, votesCount, locale, saving, error, onEquip, onClose,
+  previewOnly = false, descriptionOverride,
 }: Props) {
   const IT = locale === 'it'
   const rarityBadge = RARITY_STYLES[companion.rarity] ?? RARITY_STYLES.common
@@ -56,7 +64,11 @@ export default function PixieDetailModal({
   const isPremium = companion.access === 'premium'
   const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({})
 
-  // Per-species vote progress.
+  // In preview-only mode (explainer page) we always show stage 1 at full colour.
+  const heroStage   = previewOnly ? 1 : stage
+  const showUnlocked = previewOnly ? true : isUnlocked
+
+  // Per-species vote progress (not shown in preview mode).
   // Same guard as CompanionDisplay: if the XP map has no keys yet (empty {})
   // the tracking migration hasn't fired — fall back to votesCount for the
   // currently-equipped species only. For any other species, 0 is the correct answer.
@@ -166,21 +178,21 @@ export default function PixieDetailModal({
             overflow: 'hidden',
             boxShadow: isCurrentSpecies ? '0 0 36px rgba(77,159,255,0.18)' : undefined,
           }}>
-            {!imgErrors[stage] ? (
+            {!imgErrors[heroStage] ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={getPixieImagePath(companion.id, isUnlocked ? stage : 1)}
+                src={getPixieImagePath(companion.id, heroStage)}
                 alt={companion.name}
                 style={{
                   width: '100%', height: '100%', objectFit: 'contain',
-                  filter: !isUnlocked ? 'grayscale(1)' : undefined,
-                  opacity: !isUnlocked ? 0.45 : 1,
+                  filter: !showUnlocked ? 'grayscale(1)' : undefined,
+                  opacity: !showUnlocked ? 0.45 : 1,
                 }}
-                onError={() => setImgErrors(prev => ({ ...prev, [stage]: true }))}
+                onError={() => setImgErrors(prev => ({ ...prev, [heroStage]: true }))}
               />
             ) : (
               <span style={{ fontSize: '64px' }}>
-                {companion.stageEmoji[isUnlocked ? stage - 1 : 0]}
+                {companion.stageEmoji[heroStage - 1]}
               </span>
             )}
           </div>
@@ -213,12 +225,12 @@ export default function PixieDetailModal({
             fontSize: '12px', color: 'rgba(255,255,255,0.48)',
             lineHeight: 1.55, margin: 0,
           }}>
-            {companion.description}
+            {descriptionOverride ?? companion.description}
           </p>
         </div>
 
-        {/* ── Stage progress (unlocked only) ── */}
-        {isUnlocked && !isMaxStage && (
+        {/* ── Stage progress (unlocked only, not in preview mode) ── */}
+        {!previewOnly && isUnlocked && !isMaxStage && (
           <div style={{ marginBottom: '16px' }}>
             <div style={{
               display: 'flex', justifyContent: 'space-between',
@@ -239,7 +251,7 @@ export default function PixieDetailModal({
             </div>
           </div>
         )}
-        {isUnlocked && isMaxStage && (
+        {!previewOnly && isUnlocked && isMaxStage && (
           <p style={{
             textAlign: 'center', fontSize: '12px',
             color: '#facc15', fontWeight: 700, marginBottom: '16px',
@@ -248,13 +260,13 @@ export default function PixieDetailModal({
           </p>
         )}
 
-        {/* ── Unlock hint (locked) ── */}
-        {!isUnlocked && (
+        {/* ── Unlock hint (always shown in preview mode; shown when locked otherwise) ── */}
+        {(previewOnly || !isUnlocked) && (
           <p style={{
             textAlign: 'center', fontSize: '12px',
             color: 'rgba(255,255,255,0.32)', marginBottom: '16px',
           }}>
-            🔒 {unlockHint}
+            {previewOnly ? unlockHint : `🔒 ${unlockHint}`}
           </p>
         )}
 
@@ -265,7 +277,8 @@ export default function PixieDetailModal({
         }}>
           {[1, 2, 3, 4, 5, 6].map(s => {
             const visible = s <= 3
-            const isCurrent = s === stage && isUnlocked
+            // In preview mode never highlight a specific stage (no user context)
+            const isCurrent = !previewOnly && s === stage && showUnlocked
             return (
               <div key={s} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div style={{
@@ -294,8 +307,8 @@ export default function PixieDetailModal({
                         alt={`Stage ${s}`}
                         style={{
                           width: '100%', height: '100%', objectFit: 'contain',
-                          filter: !isUnlocked ? 'grayscale(1)' : undefined,
-                          opacity: !isUnlocked ? 0.35 : 1,
+                          filter: !showUnlocked ? 'grayscale(1)' : undefined,
+                          opacity: !showUnlocked ? 0.35 : 1,
                         }}
                         onError={() => setImgErrors(prev => ({ ...prev, [s]: true }))}
                       />
@@ -344,7 +357,22 @@ export default function PixieDetailModal({
 
         {/* ── CTA buttons ── */}
         <div style={{ display: 'flex', gap: '8px' }}>
-          {isCurrentSpecies ? (
+          {previewOnly ? (
+            /* Preview-only mode (explainer page) — close only */
+            <button
+              type="button"
+              onClick={onClose}
+              style={{
+                flex: 1, height: '46px', borderRadius: '13px',
+                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'transparent',
+                color: 'rgba(255,255,255,0.55)',
+                fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+              }}
+            >
+              {IT ? 'Chiudi' : 'Close'}
+            </button>
+          ) : isCurrentSpecies ? (
             /* Currently equipped — show disabled badge + close */
             <>
               <button
