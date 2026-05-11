@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom'
 import {
   Menu, X, TrendingUp, Scale, Cpu, Users, Heart, Zap,
   HelpCircle, Compass, UserPlus, Home, BookOpen,
-  LayoutDashboard, LogOut, Mail, Sparkles, Star,
+  LayoutDashboard, LogOut, Mail, Sparkles, Star, ShoppingBag,
 } from 'lucide-react'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
@@ -154,6 +154,13 @@ export default function MobileMenu() {
             onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
             <Star size={15} className="text-yellow-400 flex-shrink-0" />
             <span style={LABEL}>{isIT ? 'Pixie' : 'Pixies'}</span>
+          </Link>
+
+          <Link href={isIT ? '/it/store' : '/store'} onClick={close} role="menuitem" style={ITEM}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
+            <ShoppingBag size={15} className="text-fuchsia-400 flex-shrink-0" />
+            <span style={LABEL}>Store</span>
           </Link>
 
           <div style={DIVIDER} />

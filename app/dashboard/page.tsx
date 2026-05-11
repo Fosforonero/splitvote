@@ -292,6 +292,25 @@ export default async function DashboardPage() {
         ownedMarketItems={ownedMarketItems}
       />
 
+      {/* ── Store CTA ── */}
+      <Link
+        href={locale === 'it' ? '/it/store' : '/store'}
+        className="group mb-8 flex items-center justify-between gap-3 rounded-2xl border border-fuchsia-500/30 bg-gradient-to-r from-fuchsia-500/10 via-purple-500/10 to-blue-500/10 px-5 py-4 transition-all hover:border-fuchsia-500/50 hover:from-fuchsia-500/15 hover:via-purple-500/15 hover:to-blue-500/15"
+      >
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-fuchsia-500/20 text-xl">🛒</div>
+          <div className="min-w-0">
+            <p className="text-sm font-black text-white">
+              {locale === 'it' ? 'Visita lo Store SplitVote' : 'Visit the SplitVote Store'}
+            </p>
+            <p className="text-xs text-[var(--muted)] truncate">
+              {locale === 'it' ? 'Pixie leggendari, Premium e cosmetici esclusivi' : 'Legendary Pixies, Premium and exclusive cosmetics'}
+            </p>
+          </div>
+        </div>
+        <span className="text-fuchsia-300 font-bold text-sm transition-transform group-hover:translate-x-1">→</span>
+      </Link>
+
       {/* ── Daily Missions ── */}
       <DailyMissions
         userId={user.id}

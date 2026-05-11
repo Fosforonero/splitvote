@@ -160,6 +160,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 0.65,
     },
+    {
+      url: `${BASE}/store`,
+      lastModified: now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    },
     // Italian locale hub pages
     {
       url: `${BASE}/it`,
@@ -184,6 +190,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.6,
+    },
+    {
+      url: `${BASE}/it/store`,
+      lastModified: now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.55,
     },
     {
       url: `${BASE}/about`,
