@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
   RARITY_STYLES,
@@ -130,14 +131,21 @@ export default function PixieSelector({
   return (
     <div className="rounded-2xl border border-[var(--border)] bg-[#0d0d1a]/60 p-5 mb-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between gap-3 mb-4">
         <h2 className="text-sm font-black uppercase tracking-widest text-[var(--muted)]">
           {IT ? 'Scegli il tuo Pixie' : 'Choose your Pixie'}
         </h2>
-        {saving && (
+        {saving ? (
           <span className="text-xs text-[var(--muted)] animate-pulse">
             {IT ? 'Salvataggio…' : 'Saving…'}
           </span>
+        ) : (
+          <Link
+            href={IT ? '/it/pixie' : '/pixie'}
+            className="text-[11px] font-bold text-blue-400/80 hover:text-blue-300 transition-colors whitespace-nowrap"
+          >
+            {IT ? 'Scopri i Pixie →' : 'Learn more →'}
+          </Link>
         )}
       </div>
 
