@@ -79,10 +79,24 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.date,
     url: canonical,
     inLanguage: 'en',
+    author: {
+      '@type': 'Organization',
+      name: 'SplitVote',
+      url: BASE,
+    },
+    image: [`${BASE}/og-default.png`],
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonical,
+    },
     publisher: {
       '@type': 'Organization',
       name: 'SplitVote',
       url: BASE,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE}/icon.png`,
+      },
     },
   }
 
