@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: ds?.seoTitle ?? scenario.question,
       description,
-      images: [`/api/og?id=${params.id}`],
+      images: [`${BASE_URL}/api/dilemma-result-card?id=${params.id}`],
       url: `${BASE_URL}/play/${params.id}`,
       siteName: 'SplitVote',
       type: 'website',
@@ -61,6 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: ds?.seoTitle ?? scenario.question,
       description,
+      images: [`${BASE_URL}/api/dilemma-result-card?id=${params.id}`],
     },
   }
 }

@@ -81,9 +81,10 @@ const EN_COPY = {
   graceUndo:           'Undo',
   graceConfirm:        'Confirm now',
   shareQuestion:       'Share question',
-  shareQuestionCopied: 'Link copied',
+  shareQuestionCopied: 'Link copied!',
   revealHint:          'Vote to reveal how the world splits.',
   changeVote:          'Switch to this',
+  challengeFriend:     'Challenge a friend →',
 }
 
 const IT_COPY = {
@@ -111,9 +112,10 @@ const IT_COPY = {
   graceUndo:           'Annulla',
   graceConfirm:        'Conferma subito',
   shareQuestion:       'Condividi domanda',
-  shareQuestionCopied: 'Link copiato',
+  shareQuestionCopied: 'Link copiato!',
   revealHint:          'Vota per scoprire come si divide il mondo.',
   changeVote:          'Cambia con questa',
+  challengeFriend:     'Sfida un amico →',
 }
 
 export default function VoteClientPage({
@@ -673,10 +675,10 @@ export default function VoteClientPage({
                 <button
                   onClick={handleShareQuestion}
                   aria-label={copy.shareQuestion}
-                  className="text-xs text-[var(--muted)] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[var(--border)] hover:border-blue-400/40 text-sm font-semibold text-[var(--muted)] hover:text-white transition-all"
                 >
-                  <Share2 size={12} aria-hidden />
-                  {questionLinkCopied ? copy.shareQuestionCopied : copy.shareQuestion}
+                  <Share2 size={14} aria-hidden />
+                  {questionLinkCopied ? copy.shareQuestionCopied : copy.challengeFriend}
                 </button>
               </div>
             )}
