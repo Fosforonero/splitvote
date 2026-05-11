@@ -3,12 +3,9 @@ import { createClient } from '@/lib/supabase/server'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import CompanionDisplay from '@/components/CompanionDisplay'
-import { getCompanionStage, getSpeciesVotes, getSpeciesStage, type CompanionSpecies, type PixieXpMap } from '@/lib/companion'
-import { getPixieImagePath } from '@/lib/pixie'
-import ProfileShareButton from '@/components/ProfileShareButton'
-import CosmeticAvatar from '@/components/CosmeticAvatar'
-import CosmeticName from '@/components/CosmeticName'
-import { getEquippedCosmetics } from '@/lib/cosmetics'
+import type { CompanionSpecies } from '@/lib/companion'
+import { PIXIE_ITEM_MAP } from '@/lib/pixie-store'
+import type { PixieItemId } from '@/lib/pixie-store'
 
 const BASE = 'https://splitvote.io'
 
@@ -25,50 +22,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const admin = await createClient()
   const { data } = await admin
     .from('profiles')
-    .select('display_name, votes_count, avatar_emoji, companion_species, pixie_xp, equipped_frame, name_color, is_premium')
+    .select('display_name, votes_count, avatar_emoji')
     .eq('id', params.id)
     .single()
 
   if (!data) return {}
   const name = data.display_name ?? 'A SplitVote member'
   const avatar = data.avatar_emoji ?? '🌍'
-  const votesCount = data.votes_count ?? 0
-
-  // Build pixie-card OG image URL — includes cosmetics so the share preview
-  // matches what visitors see on the public profile (frame, name color, VIP).
-  const species = ((data as Record<string, unknown>).companion_species as CompanionSpecies | null) ?? 'spark'
-  const pixieXp = ((data as Record<string, unknown>).pixie_xp as PixieXpMap | null) ?? {}
-  const speciesVotes = getSpeciesVotes(pixieXp, species)
-  const stage = getCompanionStage(speciesVotes > 0 ? speciesVotes : votesCount)
-
-  const params2 = new URLSearchParams({
-    species,
-    stage: String(stage),
-    name: name.slice(0, 22),
-    locale: 'en',
-  })
-  const equippedFrame = (data as Record<string, unknown>).equipped_frame as string | null
-  const nameColor    = (data as Record<string, unknown>).name_color    as string | null
-  const isPremium    = Boolean((data as Record<string, unknown>).is_premium)
-  if (equippedFrame) params2.set('frame', equippedFrame)
-  if (nameColor)     params2.set('color', nameColor)
-  if (isPremium)     params2.set('premium', '1')
-  const cardUrl = `${BASE}/api/pixie-card?${params2.toString()}`
-
   return {
     title: `${avatar} ${name} on SplitVote`,
-    description: `${name} has voted on ${votesCount} dilemmas worldwide. See their Pixie companion and trophy case on SplitVote.`,
+    description: `${name} has voted on ${data.votes_count ?? 0} dilemmas worldwide. See their trophy case on SplitVote.`,
     openGraph: {
       title: `${avatar} ${name} — SplitVote Profile`,
-      description: `${votesCount} votes cast. Check out their Pixie companion and badges.`,
-      images: [
-        {
-          url: cardUrl,
-          width: 1200,
-          height: 630,
-          alt: `${name}'s Pixie companion on SplitVote`,
-        },
-      ],
+      description: `${data.votes_count ?? 0} votes cast. Check out their badges and dilemma history.`,
     },
   }
 }
@@ -83,7 +49,7 @@ export default async function PublicProfilePage({ params }: Props) {
   const [profileRes, badgesRes] = await Promise.all([
     admin
       .from('profiles')
-      .select('display_name, votes_count, avatar_emoji, is_premium, country_code, created_at, companion_species, xp, streak_days, equipped_frame, equipped_glow, name_color, use_pixie_avatar, pixie_xp')
+      .select('display_name, votes_count, avatar_emoji, is_premium, country_code, created_at, companion_species, xp, streak_days, pixie_xp, use_pixie_avatar')
       .eq('id', params.id)
       .single(),
     admin
@@ -96,34 +62,29 @@ export default async function PublicProfilePage({ params }: Props) {
   if (!profileRes.data) notFound()
 
   const profile = profileRes.data
-
-  type RawBadgeRow = {
+  const badges = ((badgesRes.data ?? []) as unknown as {
     badge_id: string
     earned_at: string
     is_equipped: boolean
-    badges: { name: string; emoji: string; rarity: string; description: string } | null
-  }
-  // Filter out rows where the badges join is null (orphaned user_badges rows)
-  const badges = ((badgesRes.data ?? []) as unknown as RawBadgeRow[])
-    .filter((b): b is RawBadgeRow & { badges: NonNullable<RawBadgeRow['badges']> } => b.badges != null)
+    badges: { name: string; emoji: string; rarity: string; description: string }
+  }[])
 
-  const displayName = profile.display_name ?? 'Anonymous Voter'
-  const avatar = profile.avatar_emoji ?? '🌍'
-  const joinDate = new Date(profile.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
-  const votesCount = profile.votes_count ?? 0
-  const equippedCosmetics = getEquippedCosmetics(profile as {
-    equipped_frame?: string | null
-    equipped_glow?: string | null
-    name_color?: string | null
-  })
+  const displayName    = profile.display_name ?? 'Anonymous Voter'
+  const avatarEmoji    = profile.avatar_emoji ?? '🌍'
+  const joinDate       = new Date(profile.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
+  const votesCount     = profile.votes_count ?? 0
   const companionSpecies = ((profile as Record<string, unknown>).companion_species as CompanionSpecies | null) ?? 'spark'
-  const xp = ((profile as Record<string, unknown>).xp as number | null) ?? 0
+  const xp             = ((profile as Record<string, unknown>).xp as number | null) ?? 0
 
-  // Pixie avatar
+  // Pixie avatar logic
   const usePixieAvatar = ((profile as Record<string, unknown>).use_pixie_avatar as boolean | null) ?? false
-  const pixieXpMap = ((profile as Record<string, unknown>).pixie_xp as PixieXpMap | null) ?? {}
-  const pixieStage = getSpeciesStage(pixieXpMap, companionSpecies)
-  const pixieSrc = usePixieAvatar ? getPixieImagePath(companionSpecies, pixieStage) : null
+  const pixieXp        = ((profile as Record<string, unknown>).pixie_xp as Record<string, unknown> | null) ?? {}
+  const activePixieId  = typeof pixieXp.active === 'string' ? pixieXp.active as PixieItemId : null
+  const activePixieItem = activePixieId ? PIXIE_ITEM_MAP[activePixieId] : null
+
+  // Avatar shown in profile hero: Pixie skin if opted-in, else emoji
+  const heroAvatar  = usePixieAvatar && activePixieItem ? activePixieItem.emoji : avatarEmoji
+  const heroIsPixie = usePixieAvatar && !!activePixieItem
 
   // Rarity order for sorting
   const RARITY_ORDER = { legendary: 0, epic: 1, rare: 2, common: 3 }
@@ -141,34 +102,26 @@ export default async function PublicProfilePage({ params }: Props) {
 
       {/* ── Profile hero ── */}
       <div className="rounded-3xl border border-[var(--border)] bg-[#0d0d1a]/60 p-8 mb-8 text-center">
-        <div className="mx-auto mb-4 w-24 h-24 flex items-center justify-center">
-          <CosmeticAvatar
-            emoji={avatar}
-            pixieSrc={pixieSrc}
-            frame={equippedCosmetics.frame}
-            size="xl"
-            ariaLabel={`${displayName} avatar`}
-          />
+        {/* Avatar: Pixie skin or emoji */}
+        <div className={`mb-4 inline-flex items-center justify-center ${
+          heroIsPixie
+            ? 'w-24 h-24 rounded-2xl border-2 border-blue-500/40 bg-blue-500/10 text-6xl'
+            : 'text-7xl'
+        }`}>
+          {heroAvatar}
         </div>
-        <h1 className="text-3xl font-black text-white mb-2">
-          <CosmeticName
-            name={displayName}
-            glow={equippedCosmetics.glow}
-            nameColor={equippedCosmetics.nameColor}
-            className="text-3xl font-black"
-          />
-        </h1>
-        <div className="flex items-center justify-center gap-2 flex-wrap mb-2">
-          <span className="text-xs text-[var(--muted)] border border-white/10 px-2.5 py-0.5 rounded-full">
-            👁 Public Profile
+        {heroIsPixie && activePixieItem && (
+          <p className="text-xs text-blue-400 font-semibold -mt-2 mb-3">
+            {activePixieItem.name} skin
+          </p>
+        )}
+        <h1 className="text-3xl font-black text-white mb-1">{displayName}</h1>
+        {profile.is_premium && (
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-yellow-400 border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full mb-3">
+            ⭐ Premium
           </span>
-          {profile.is_premium && (
-            <span className="text-xs font-bold uppercase tracking-widest text-yellow-400 border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full">
-              ⭐ Premium
-            </span>
-          )}
-        </div>
-        <p className="text-[var(--muted)] text-sm mt-1">Member since {joinDate}</p>
+        )}
+        <p className="text-[var(--muted)] text-sm mt-2">Member since {joinDate}</p>
         {profile.country_code && (
           <p className="text-[var(--muted)] text-sm mt-1">📍 {profile.country_code}</p>
         )}
@@ -230,14 +183,6 @@ export default async function PublicProfilePage({ params }: Props) {
           </p>
         </div>
       )}
-
-      {/* ── Share profile ── */}
-      <div className="mb-8">
-        <ProfileShareButton
-          profileUrl={`${BASE}/u/${params.id}`}
-          displayName={displayName}
-        />
-      </div>
 
       {/* ── CTA ── */}
       <div className="text-center">

@@ -2,329 +2,380 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import {
-  RARITY_STYLES,
-  STAGE_LABELS,
-  isSpeciesUnlocked,
-  getSpeciesStage,
-  getSpeciesVotes,
-  getVisibleSpecies,
-  type CompanionSpecies,
-  type PixieXpMap,
-} from '@/lib/companion'
-import { getPixieImagePath } from '@/lib/pixie'
-import PixieDetailModal from './PixieDetailModal'
+  PIXIE_ITEMS, COSMETICS_BY_CATEGORY, COSMETIC_MAP,
+  RARITY_STYLES, NAME_COLORS,
+  type CosmeticItemId,
+} from '@/lib/cosmetics-store'
+import { type PixieItemId } from '@/lib/pixie-store'
 
 interface Props {
-  currentSpecies: CompanionSpecies
-  /** Global votes — used only for unlock condition checks */
-  votesCount: number
-  streakDays: number
-  /** Per-species accumulated votes. Falls back to stage 1 if absent. */
-  pixieXp: PixieXpMap
-  locale?: string
-  isPremium?: boolean
-  isAdmin?: boolean
-  /** Market-tier species the user has purchased one-off (from user_purchases). */
-  ownedMarketItems?: CompanionSpecies[]
-}
-
-const IT_UNLOCK: Record<CompanionSpecies, string> = {
-  // Free — sbloccate con attività
-  spark:     'Sempre disponibile',
-  blip:      'Sempre disponibile',
-  momo:      'Sblocca con 50 voti',
-  shade:     'Sblocca con 7 giorni di streak',
-  banana:    'Sblocca con 100 voti',
-  leaf:      'Sblocca con 200 voti',
-  orbit:     'Sblocca con 300 voti',
-  ice:       'Sblocca con 500 voti',
-  // Premium — incluse con abbonamento
-  heart:     '💎 Incluso con Premium',
-  robot:     '💎 Incluso con Premium',
-  fuoco:     '💎 Incluso con Premium',
-  caffe:     '💎 Incluso con Premium',
-  hologram:  '💎 Incluso con Premium',
-  moonlight: '💎 Incluso con Premium',
-  triste:    '💎 Incluso con Premium',
-  // Market — acquisto individuale
-  crown:     '🛒 Acquista al Pixie Market — €3,99',
-  diamond:   '🛒 Acquista al Pixie Market — €3,99',
-  galaxy:    '🛒 Acquista al Pixie Market — €3,99',
-  angel:     '🛒 Acquista al Pixie Market — €3,99',
-  devil:     '🛒 Acquista al Pixie Market — €3,99',
-  scintille: '🛒 Acquista al Pixie Market — €4,99',
-  // Admin
-  overseer:  '🔒 Solo admin',
-  void:      '🔒 Solo admin',
-  voidcore:  '🔒 Solo admin',
-}
-
-const EN_UNLOCK: Record<CompanionSpecies, string> = {
-  // Free — earned via activity
-  spark:     'Always available',
-  blip:      'Always available',
-  momo:      'Unlock at 50 votes',
-  shade:     'Unlock at 7-day streak',
-  banana:    'Unlock at 100 votes',
-  leaf:      'Unlock at 200 votes',
-  orbit:     'Unlock at 300 votes',
-  ice:       'Unlock at 500 votes',
-  // Premium — included with subscription
-  heart:     '💎 Included with Premium',
-  robot:     '💎 Included with Premium',
-  fuoco:     '💎 Included with Premium',
-  caffe:     '💎 Included with Premium',
-  hologram:  '💎 Included with Premium',
-  moonlight: '💎 Included with Premium',
-  triste:    '💎 Included with Premium',
-  // Market — one-time purchase
-  crown:     '🛒 Buy in Pixie Market — €3.99',
-  diamond:   '🛒 Buy in Pixie Market — €3.99',
-  galaxy:    '🛒 Buy in Pixie Market — €3.99',
-  angel:     '🛒 Buy in Pixie Market — €3.99',
-  devil:     '🛒 Buy in Pixie Market — €3.99',
-  scintille: '🛒 Buy in Pixie Market — €4.99',
-  // Admin
-  overseer:  '🔒 Admin only',
-  void:      '🔒 Admin only',
-  voidcore:  '🔒 Admin only',
-}
-
-const IT_STAGE_LABELS: Record<number, string> = {
-  1: 'Cucciolo',
-  2: 'Apprendista',
-  3: 'Esploratore',
-  4: 'Campione',
-  5: 'Leggendario',
-  6: 'Ultra Leggendario',
-}
-
-const IT_RARITY: Record<string, string> = {
-  common: 'comune',
-  rare: 'raro',
-  epic: 'epico',
-  legendary: 'leggendario',
+  ownedIds: string[]              // all purchased cosmetic IDs
+  activePixieId: string | null
+  equippedFrame?: string | null
+  equippedGlow?: string | null
+  nameColor?: string | null       // current name_color value in profile
+  usePixieAvatar?: boolean
+  onEquip?: (itemId: PixieItemId) => void
 }
 
 export default function PixieSelector({
-  currentSpecies,
-  votesCount,
-  streakDays,
-  pixieXp,
-  locale = 'en',
-  isPremium = false,
-  isAdmin = false,
-  ownedMarketItems = [],
+  ownedIds,
+  activePixieId: initialActive,
+  equippedFrame: initialFrame = null,
+  equippedGlow: initialGlow   = null,
+  nameColor: initialNameColor = null,
+  usePixieAvatar: initialUsePixie = false,
+  onEquip,
 }: Props) {
-  const IT = locale === 'it'
-  const router = useRouter()
+  const [activeId, setActiveId]           = useState<string | null>(initialActive)
+  const [equippedFrame, setEquippedFrame] = useState<string | null>(initialFrame)
+  const [equippedGlow, setEquippedGlow]   = useState<string | null>(initialGlow)
+  const [nameColor, setNameColor]         = useState<string | null>(initialNameColor)
+  const [equipping, setEquipping]         = useState<string | null>(null)
+  const [message, setMessage]             = useState<string | null>(null)
+  const [usePixieAvatar, setUsePixie]     = useState(initialUsePixie)
+  const [togglingAvatar, setToggling]     = useState(false)
 
-  const visibleSpecies = getVisibleSpecies(isAdmin)
+  const hasAnyPixie      = ownedIds.some(id => PIXIE_ITEMS.some(i => i.id === id))
+  const ownedFrames      = (COSMETICS_BY_CATEGORY.frame ?? []).filter(i => ownedIds.includes(i.id))
+  const ownedGlows       = (COSMETICS_BY_CATEGORY.glow  ?? []).filter(i => ownedIds.includes(i.id))
+  const hasNameBundle    = ownedIds.includes('name_color_bundle')
 
-  const [selected, setSelected] = useState<CompanionSpecies>(currentSpecies)
-  const [saving, setSaving] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [imgErrors, setImgErrors] = useState<Partial<Record<CompanionSpecies, boolean>>>({})
-  /** Species whose detail modal is currently open (null = closed). */
-  const [modalSpecies, setModalSpecies] = useState<CompanionSpecies | null>(null)
-
-  /**
-   * Called from PixieDetailModal when the user confirms "Equip this Pixie".
-   * On success, closes the modal and refreshes server data.
-   */
-  async function handleEquip(species: CompanionSpecies) {
-    if (species === selected || saving) return
-
-    setSaving(true)
-    setError(null)
-
+  async function handleEquipPixie(itemId: PixieItemId) {
+    setEquipping(itemId)
+    setMessage(null)
     try {
-      const res = await fetch('/api/profile/update', {
+      const res = await fetch('/api/profile/equip-pixie', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ companionSpecies: species }),
+        body: JSON.stringify({ itemId }),
       })
-
-      if (res.ok) {
-        setSelected(species)
-        setModalSpecies(null) // close modal on success
-        router.refresh()
-      } else {
-        const data = await res.json().catch(() => ({}))
-        setError(data.error ?? (IT ? 'Errore nel salvataggio' : 'Save failed'))
-      }
+      const data = await res.json()
+      if (!res.ok) { setMessage(`Error: ${data.error}`); return }
+      setActiveId(itemId)
+      setMessage(`✅ ${COSMETIC_MAP[itemId]?.name ?? itemId} equipped!`)
+      onEquip?.(itemId)
     } catch {
-      setError(IT ? 'Errore di rete' : 'Network error')
+      setMessage('Network error — try again.')
     } finally {
-      setSaving(false)
+      setEquipping(null)
     }
   }
 
-  const modalCompanion = modalSpecies
-    ? visibleSpecies.find(c => c.id === modalSpecies) ?? null
-    : null
+  async function handleEquipCosmetic(itemId: CosmeticItemId) {
+    setEquipping(itemId)
+    setMessage(null)
+    try {
+      const res = await fetch('/api/profile/equip-cosmetic', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId }),
+      })
+      const data = await res.json()
+      if (!res.ok) { setMessage(`Error: ${data.error}`); return }
+      const item = COSMETIC_MAP[itemId]
+      if (item.category === 'frame') setEquippedFrame(itemId)
+      if (item.category === 'glow')  setEquippedGlow(itemId)
+      setMessage(`✅ ${item.name} equipped!`)
+    } catch {
+      setMessage('Network error — try again.')
+    } finally {
+      setEquipping(null)
+    }
+  }
+
+  async function handleEquipNameColor(colorValue: string) {
+    setEquipping('name_color_' + colorValue)
+    setMessage(null)
+    try {
+      const res = await fetch('/api/profile/equip-cosmetic', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nameColor: colorValue }),
+      })
+      const data = await res.json()
+      if (!res.ok) { setMessage(`Error: ${data.error}`); return }
+      setNameColor(colorValue)
+      setMessage(`✅ Name color updated!`)
+    } catch {
+      setMessage('Network error — try again.')
+    } finally {
+      setEquipping(null)
+    }
+  }
+
+  async function handleToggleAvatar(enabled: boolean) {
+    setToggling(true)
+    try {
+      const res = await fetch('/api/profile/toggle-pixie-avatar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ enabled }),
+      })
+      const data = await res.json()
+      if (!res.ok) { setMessage(`Error: ${data.error}`); return }
+      setUsePixie(enabled)
+    } catch {
+      setMessage('Network error — try again.')
+    } finally {
+      setToggling(false)
+    }
+  }
 
   return (
     <div className="rounded-2xl border border-[var(--border)] bg-[#0d0d1a]/60 p-5 mb-8">
-      {/* Header */}
-      <div className="flex items-center justify-between gap-3 mb-4">
+
+      {/* ── Header ── */}
+      <div className="flex items-center justify-between mb-4">
         <h2 className="text-sm font-black uppercase tracking-widest text-[var(--muted)]">
-          {IT ? 'Scegli il tuo Pixie' : 'Choose your Pixie'}
+          Cosmetici
         </h2>
-        {saving ? (
-          <span className="text-xs text-[var(--muted)] animate-pulse">
-            {IT ? 'Salvataggio…' : 'Saving…'}
-          </span>
-        ) : (
-          <Link
-            href={IT ? '/it/pixie' : '/pixie'}
-            className="text-[11px] font-bold text-blue-400/80 hover:text-blue-300 transition-colors whitespace-nowrap"
-          >
-            {IT ? 'Scopri i Pixie →' : 'Learn more →'}
-          </Link>
-        )}
+        <Link
+          href="/store"
+          className="text-xs text-purple-400 hover:text-purple-300 font-semibold transition-colors"
+        >
+          + Sblocca cosmetic →
+        </Link>
       </div>
 
-      {/* Sub-label */}
-      <p className="text-xs text-[var(--muted)] mb-4">
-        {IT
-          ? 'Tocca un Pixie per vederlo nel dettaglio e scegliere se equipaggiarlo.'
-          : 'Tap a Pixie to preview it and choose whether to equip it.'}
-      </p>
+      {/* Flash message */}
+      {message && (
+        <p className="text-xs text-green-400 mb-3">{message}</p>
+      )}
 
-      {/* Species grid — clicking opens the detail modal for any card */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-        {visibleSpecies.map(c => {
-          const unlocked = isSpeciesUnlocked(c.id, votesCount, streakDays, isPremium, isAdmin, ownedMarketItems)
-          const isPremiumSpecies = c.access === 'premium'
-          const isMarketSpecies = c.access === 'market'
-          const isActive = selected === c.id
-          const stage = getSpeciesStage(pixieXp, c.id)
-          const stageLabel = IT ? (IT_STAGE_LABELS[stage] ?? STAGE_LABELS[stage]) : STAGE_LABELS[stage]
-          const hasImgError = imgErrors[c.id]
-          const rarityBadge = RARITY_STYLES[c.rarity] ?? RARITY_STYLES.common
-          // Per-species vote count — shown on unlocked cards so each Pixie's own XP is visible at a glance.
-          const speciesVoteCount = getSpeciesVotes(pixieXp, c.id)
+      {/* ── Pixie skin grid ── */}
+      <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Pixie skin</p>
+      <div className="grid grid-cols-3 gap-2 mb-5">
+        {PIXIE_ITEMS.map(item => {
+          const owned       = ownedIds.includes(item.id)
+          const isActive    = activeId === item.id
+          const isEquipping = equipping === item.id
+          const rarityStyle = RARITY_STYLES[item.rarity]
 
           return (
-            <button
-              key={c.id}
-              type="button"
-              onClick={() => setModalSpecies(c.id)}
-              aria-label={`${c.name} — ${unlocked ? (IT ? 'Vedi dettagli' : 'View details') : (IT ? 'Bloccato' : 'Locked')}`}
-              aria-pressed={isActive}
-              className={[
-                'flex flex-col items-center gap-1.5 p-3 rounded-xl border transition-all text-center min-h-[44px] cursor-pointer',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60',
-                isActive
-                  ? 'border-blue-500/60 bg-blue-500/10 shadow-[0_0_16px_rgba(77,159,255,0.2)]'
-                  : unlocked
-                    ? 'border-[var(--border)] bg-[#0a0a1a]/40 hover:border-blue-500/30 hover:bg-blue-500/5'
-                    : 'border-white/5 bg-white/2 opacity-40 hover:opacity-60',
-              ].join(' ')}
+            <div
+              key={item.id}
+              className={`
+                relative rounded-xl border p-3 flex flex-col items-center gap-1.5 text-center
+                transition-all duration-200
+                ${owned
+                  ? isActive
+                    ? 'border-blue-500/60 bg-blue-500/10 text-blue-300 ring-2 ring-offset-1 ring-offset-[#0d0d1a] ring-blue-500'
+                    : rarityStyle
+                  : 'border-slate-800 bg-slate-900/40 opacity-40 grayscale'
+                }
+              `}
             >
-              {/* Image — fills the card width so the Pixie dominates the card */}
-              <div className="relative w-full aspect-square flex items-center justify-center">
-                {!hasImgError ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={getPixieImagePath(c.id, stage)}
-                    alt=""
-                    className={`w-full h-full object-contain ${!unlocked ? 'grayscale' : ''}`}
-                    onError={() => setImgErrors(prev => ({ ...prev, [c.id]: true }))}
-                  />
+              <span className="text-3xl">{item.emoji}</span>
+              <p className="text-[11px] font-bold text-white leading-tight">{item.name}</p>
+
+              {owned ? (
+                isActive ? (
+                  <span className="text-[10px] text-blue-400 font-semibold">✓ Equipped</span>
                 ) : (
-                  <span className="text-5xl">{c.stageEmoji[stage - 1]}</span>
-                )}
-
-                {/* Lock overlay */}
-                {!unlocked && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-base">🔒</span>
-                  </div>
-                )}
-
-                {/* Selected ✓ */}
-                {isActive && (
-                  <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                    <span className="text-[9px] text-white font-black leading-none">✓</span>
-                  </div>
-                )}
-
-                {/* Stage badge (bottom-left) — only for unlocked */}
-                {unlocked && (
-                  <div className="absolute -bottom-1 -left-1 px-1 min-w-[18px] h-[18px] rounded-full bg-[#0d0d1a] border border-[var(--border)] flex items-center justify-center">
-                    <span className="text-[9px] font-black text-white leading-none">{stage}</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Species name (without "Pixie " prefix) */}
-              <p className={`text-[11px] font-bold leading-tight ${isActive ? 'text-white' : 'text-white/70'}`}>
-                {c.name.replace('Pixie ', '')}
-              </p>
-
-              {/* Rarity / access badge */}
-              {isPremiumSpecies && !unlocked ? (
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md border border-yellow-500/40 bg-yellow-500/10 text-yellow-300">
-                  💎 premium
-                </span>
-              ) : isMarketSpecies && !unlocked ? (
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md border border-fuchsia-500/40 bg-fuchsia-500/10 text-fuchsia-300">
-                  🛒 market
-                </span>
+                  <button
+                    onClick={() => handleEquipPixie(item.id as PixieItemId)}
+                    disabled={isEquipping}
+                    className="text-[10px] font-semibold text-white bg-blue-600 hover:bg-blue-500 px-2.5 py-0.5 rounded-md disabled:opacity-50 transition-colors"
+                  >
+                    {isEquipping ? '…' : 'Equip'}
+                  </button>
+                )
               ) : (
-                <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md border ${rarityBadge}`}>
-                  {IT ? (IT_RARITY[c.rarity] ?? c.rarity) : c.rarity}
-                </span>
+                <span className="text-[10px] text-slate-600">🔒 Locked</span>
               )}
-
-              {/* Stage label for unlocked / unlock hint for locked */}
-              {unlocked ? (
-                <>
-                  <p className={`text-[9px] leading-tight ${isActive ? 'text-blue-300/80' : 'text-white/40'}`}>
-                    {stageLabel}
-                  </p>
-                  {/* Per-species vote count — each Pixie's own XP, independent of other species */}
-                  <p className={`text-[8px] leading-tight tabular-nums ${isActive ? 'text-blue-200/50' : 'text-white/25'}`}>
-                    {speciesVoteCount.toLocaleString()} {IT ? 'voti' : 'votes'}
-                  </p>
-                </>
-              ) : (
-                <p className="text-[9px] text-white/30 leading-tight">
-                  {IT ? IT_UNLOCK[c.id] : EN_UNLOCK[c.id]}
-                </p>
-              )}
-            </button>
+            </div>
           )
         })}
       </div>
 
-      <p className="text-xs text-[var(--muted)] mt-3 text-center">
-        {IT
-          ? 'Vota con un Pixie equipaggiato per farlo crescere.'
-          : 'Vote with a Pixie equipped to grow it.'}
-      </p>
+      {/* ── Frames section ── */}
+      {(COSMETICS_BY_CATEGORY.frame ?? []).length > 0 && (
+        <div className="mb-5">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Frame profilo</p>
+          <div className="grid grid-cols-2 gap-2">
+            {(COSMETICS_BY_CATEGORY.frame ?? []).map(item => {
+              const owned      = ownedIds.includes(item.id)
+              const isActive   = equippedFrame === item.id
+              const isEquip    = equipping === item.id
+              const rarityStyle = RARITY_STYLES[item.rarity]
 
-      {/* Detail modal */}
-      {modalCompanion && (
-        <PixieDetailModal
-          companion={modalCompanion}
-          stage={getSpeciesStage(pixieXp, modalCompanion.id)}
-          isCurrentSpecies={selected === modalCompanion.id}
-          isUnlocked={isSpeciesUnlocked(modalCompanion.id, votesCount, streakDays, isPremium, isAdmin, ownedMarketItems)}
-          unlockHint={IT ? IT_UNLOCK[modalCompanion.id] : EN_UNLOCK[modalCompanion.id]}
-          pixieXp={pixieXp}
-          votesCount={votesCount}
-          locale={locale}
-          saving={saving}
-          error={error}
-          onEquip={() => handleEquip(modalCompanion.id)}
-          onClose={() => { setModalSpecies(null); setError(null) }}
-        />
+              return (
+                <div
+                  key={item.id}
+                  className={`
+                    rounded-xl border p-3 flex items-center gap-3 transition-all duration-200
+                    ${owned
+                      ? isActive
+                        ? 'border-blue-500/60 bg-blue-500/10 ring-2 ring-offset-1 ring-offset-[#0d0d1a] ring-blue-500'
+                        : rarityStyle
+                      : 'border-slate-800 bg-slate-900/40 opacity-40 grayscale'
+                    }
+                  `}
+                >
+                  <span className="text-2xl flex-shrink-0">{item.emoji}</span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-bold text-white truncate">{item.name}</p>
+                    {owned ? (
+                      isActive ? (
+                        <span className="text-[10px] text-blue-400 font-semibold">✓ Equipped</span>
+                      ) : (
+                        <button
+                          onClick={() => handleEquipCosmetic(item.id as CosmeticItemId)}
+                          disabled={isEquip}
+                          className="text-[10px] font-semibold text-white bg-blue-600 hover:bg-blue-500 px-2 py-0.5 rounded disabled:opacity-50 transition-colors"
+                        >
+                          {isEquip ? '…' : 'Equip'}
+                        </button>
+                      )
+                    ) : (
+                      <span className="text-[10px] text-slate-600">🔒 Locked</span>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       )}
+
+      {/* ── Glows section ── */}
+      {(COSMETICS_BY_CATEGORY.glow ?? []).length > 0 && (
+        <div className="mb-5">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Glow</p>
+          <div className="grid grid-cols-3 gap-2">
+            {(COSMETICS_BY_CATEGORY.glow ?? []).map(item => {
+              const owned      = ownedIds.includes(item.id)
+              const isActive   = equippedGlow === item.id
+              const isEquip    = equipping === item.id
+              const rarityStyle = RARITY_STYLES[item.rarity]
+
+              return (
+                <div
+                  key={item.id}
+                  className={`
+                    rounded-xl border p-3 flex flex-col items-center gap-1.5 text-center
+                    transition-all duration-200
+                    ${owned
+                      ? isActive
+                        ? 'border-blue-500/60 bg-blue-500/10 ring-2 ring-offset-1 ring-offset-[#0d0d1a] ring-blue-500'
+                        : rarityStyle
+                      : 'border-slate-800 bg-slate-900/40 opacity-40 grayscale'
+                    }
+                  `}
+                >
+                  <span className="text-2xl">{item.emoji}</span>
+                  <p className="text-[11px] font-bold text-white leading-tight">{item.name}</p>
+
+                  {owned ? (
+                    isActive ? (
+                      <span className="text-[10px] text-blue-400 font-semibold">✓ Equipped</span>
+                    ) : (
+                      <button
+                        onClick={() => handleEquipCosmetic(item.id as CosmeticItemId)}
+                        disabled={isEquip}
+                        className="text-[10px] font-semibold text-white bg-blue-600 hover:bg-blue-500 px-2.5 py-0.5 rounded-md disabled:opacity-50 transition-colors"
+                      >
+                        {isEquip ? '…' : 'Equip'}
+                      </button>
+                    )
+                  ) : (
+                    <span className="text-[10px] text-slate-600">🔒 Locked</span>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* ── Name color section ── */}
+      <div className="mb-5">
+        <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Colore nome</p>
+        {hasNameBundle ? (
+          <div className="flex flex-wrap gap-2">
+            {NAME_COLORS.map(color => {
+              const isActive   = nameColor === color.value
+              const isEquipping_ = equipping === ('name_color_' + color.value)
+              return (
+                <button
+                  key={color.value}
+                  onClick={() => handleEquipNameColor(color.value)}
+                  disabled={isEquipping_ || isActive}
+                  className={`
+                    px-3 py-1.5 rounded-lg border text-xs font-bold transition-all duration-150
+                    ${isActive
+                      ? 'border-blue-500/60 bg-blue-500/10 ring-1 ring-blue-500'
+                      : 'border-white/10 bg-white/5 hover:border-white/20'
+                    }
+                    disabled:cursor-not-allowed
+                  `}
+                >
+                  <span className={color.class}>{color.label}</span>
+                  {isActive && <span className="ml-1 text-blue-400">✓</span>}
+                </button>
+              )
+            })}
+          </div>
+        ) : (
+          <div className="flex items-center gap-2.5 opacity-50">
+            <span className="text-xl">🎨</span>
+            <p className="text-[11px] text-slate-500">
+              <Link href="/store" className="underline hover:text-slate-300">Acquista il Name Color Bundle</Link> per sbloccare tutti i colori
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* ── Foto profilo section ── */}
+      <div className="border-t border-white/5 pt-4">
+        <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-3">Foto profilo</p>
+
+        {hasAnyPixie ? (
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-10 h-10 rounded-xl border border-blue-500/30 bg-blue-500/10 flex items-center justify-center text-2xl">
+                {activeId ? COSMETIC_MAP[activeId as CosmeticItemId]?.emoji ?? '✨' : '✨'}
+              </div>
+              <div>
+                <p className="text-xs text-white font-semibold leading-none">Il mio Pixie</p>
+                <p className="text-[10px] text-slate-500 mt-0.5">Usa la skin come avatar pubblico</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => handleToggleAvatar(!usePixieAvatar)}
+              disabled={togglingAvatar || !activeId}
+              className={`
+                relative flex-shrink-0 w-11 h-6 rounded-full transition-all duration-200
+                ${usePixieAvatar ? 'bg-blue-600' : 'bg-slate-700'}
+                disabled:opacity-40 disabled:cursor-not-allowed
+              `}
+              title={!activeId ? 'Equip a skin first' : undefined}
+            >
+              <span
+                className={`
+                  absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-all duration-200
+                  ${usePixieAvatar ? 'left-[22px]' : 'left-0.5'}
+                `}
+              />
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2.5 opacity-50">
+            <div className="w-10 h-10 rounded-xl border border-slate-700 bg-slate-800 flex items-center justify-center text-xl">
+              🔒
+            </div>
+            <div>
+              <p className="text-xs text-slate-400 font-semibold leading-none">Il mio Pixie</p>
+              <p className="text-[10px] text-slate-600 mt-0.5">
+                <Link href="/store" className="underline hover:text-slate-400">Acquista una skin</Link> per abilitare
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

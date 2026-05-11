@@ -1,135 +1,91 @@
-/**
- * POST /api/profile/equip-cosmetic
- *
- * Equips (or unequips) a cosmetic item — frame, glow, or name color slug.
- * Validates ownership server-side: rejects if the user does not own the
- * underlying product in user_purchases (status = 'completed').
- *
- * Body schema:
- *   { kind: 'frame', productId: 'frame_gold' | null }    // null = unequip
- *   { kind: 'glow',  productId: 'glow_fire'  | null }
- *   { kind: 'name_color', slug: 'aurora' | null }        // requires name_color_bundle owned
- *   { kind: 'pixie_avatar', enabled: boolean }            // true = use Pixie as avatar
- *
- * Returns:
- *   200 { ok: true, equipped: { ... } }
- *   401 unauthorized
- *   400 bad request (unknown kind/value)
- *   403 not-owned (user does not own the underlying product)
- *   500 server error
- */
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import { isFrameId, isGlowId, isNameColorSlug } from '@/lib/cosmetics'
-import { type ProductId } from '@/lib/purchases'
+import { createAdminClient } from '@/lib/supabase/admin'
+import { COSMETIC_MAP, isCosmeticItemId } from '@/lib/cosmetics-store'
 
 export const dynamic = 'force-dynamic'
 
-type Body =
-  | { kind: 'frame';        productId: string | null }
-  | { kind: 'glow';         productId: string | null }
-  | { kind: 'name_color';   slug:      string | null }
-  | { kind: 'pixie_avatar'; enabled:   boolean }
-
-function isBody(value: unknown): value is Body {
-  if (typeof value !== 'object' || value === null) return false
-  const v = value as { kind?: unknown }
-  return (
-    v.kind === 'frame' ||
-    v.kind === 'glow' ||
-    v.kind === 'name_color' ||
-    v.kind === 'pixie_avatar'
-  )
-}
-
 export async function POST(req: NextRequest) {
-  // ── Auth ──────────────────────────────────────────────────────────────
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
+
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  // ── Body validation ───────────────────────────────────────────────────
-  let body: unknown
+  const body = await req.json()
+  const { itemId, nameColor } = body as { itemId?: string; nameColor?: string }
+
+  let admin: ReturnType<typeof createAdminClient>
   try {
-    body = await req.json()
+    admin = createAdminClient()
   } catch {
-    return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
-  }
-  if (!isBody(body)) {
-    return NextResponse.json({ error: 'Invalid body' }, { status: 400 })
+    return NextResponse.json({ error: 'Server config error' }, { status: 500 })
   }
 
-  // ── Fetch ownership ──────────────────────────────────────────────────
-  // We pull the entire owned set once, then check the relevant product(s)
-  // synchronously. Cheap (a few rows) and avoids race conditions.
-  const { data: purchases, error: purchasesErr } = await supabase
+  // ── name_color selection (uses owned bundle, picks a specific color) ─────────
+  if (nameColor !== undefined) {
+    const { data: bundle } = await admin
+      .from('user_purchases')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('product_id', 'name_color_bundle')
+      .eq('status', 'purchased')
+      .maybeSingle()
+
+    if (!bundle) {
+      return NextResponse.json({ error: 'Name Color Bundle not owned' }, { status: 403 })
+    }
+
+    const { error } = await admin
+      .from('profiles')
+      .update({ name_color: nameColor })
+      .eq('id', user.id)
+
+    if (error) {
+      console.error('[equip-cosmetic] name_color update failed:', error)
+      return NextResponse.json({ error: 'DB update failed' }, { status: 500 })
+    }
+
+    return NextResponse.json({ success: true, nameColor })
+  }
+
+  // ── frame / glow equip ───────────────────────────────────────────────────────
+  if (!itemId || !isCosmeticItemId(itemId)) {
+    return NextResponse.json({ error: 'Invalid item ID' }, { status: 400 })
+  }
+
+  const item = COSMETIC_MAP[itemId]
+
+  if (item.category !== 'frame' && item.category !== 'glow') {
+    return NextResponse.json({ error: 'Use equip-pixie for pixie skins' }, { status: 400 })
+  }
+
+  // Verify ownership
+  const { data: purchase } = await admin
     .from('user_purchases')
-    .select('product_id')
+    .select('id')
     .eq('user_id', user.id)
-    .eq('status', 'completed')
+    .eq('product_id', itemId)
+    .eq('status', 'purchased')
+    .maybeSingle()
 
-  if (purchasesErr) {
-    console.error('[equip-cosmetic] user_purchases fetch failed:', purchasesErr.code)
-    return NextResponse.json({ error: 'Server error' }, { status: 500 })
-  }
-  const owned = new Set<ProductId>((purchases ?? []).map(p => p.product_id as ProductId))
-
-  // ── Per-kind validation + update payload ─────────────────────────────
-  const updatePayload: Record<string, string | boolean | null> = {}
-
-  if (body.kind === 'frame') {
-    if (body.productId === null) {
-      updatePayload.equipped_frame = null
-    } else if (!isFrameId(body.productId)) {
-      return NextResponse.json({ error: 'Unknown frame' }, { status: 400 })
-    } else if (!owned.has(body.productId)) {
-      return NextResponse.json({ error: 'You do not own this frame' }, { status: 403 })
-    } else {
-      updatePayload.equipped_frame = body.productId
-    }
+  if (!purchase) {
+    return NextResponse.json({ error: 'Item not owned' }, { status: 403 })
   }
 
-  if (body.kind === 'glow') {
-    if (body.productId === null) {
-      updatePayload.equipped_glow = null
-    } else if (!isGlowId(body.productId)) {
-      return NextResponse.json({ error: 'Unknown glow' }, { status: 400 })
-    } else if (!owned.has(body.productId)) {
-      return NextResponse.json({ error: 'You do not own this glow' }, { status: 403 })
-    } else {
-      updatePayload.equipped_glow = body.productId
-    }
-  }
+  const column = item.category === 'frame' ? 'equipped_frame' : 'equipped_glow'
 
-  if (body.kind === 'name_color') {
-    if (body.slug === null) {
-      updatePayload.name_color = null
-    } else if (!isNameColorSlug(body.slug)) {
-      return NextResponse.json({ error: 'Unknown color' }, { status: 400 })
-    } else if (!owned.has('name_color_bundle')) {
-      return NextResponse.json({ error: 'Name color bundle required' }, { status: 403 })
-    } else {
-      updatePayload.name_color = body.slug
-    }
-  }
-
-  if (body.kind === 'pixie_avatar') {
-    // No purchase required — anyone can use their equipped Pixie as avatar.
-    updatePayload.use_pixie_avatar = Boolean(body.enabled)
-  }
-
-  // ── Persist ──────────────────────────────────────────────────────────
-  const { error: updateErr } = await supabase
+  const { error } = await admin
     .from('profiles')
-    .update(updatePayload)
+    .update({ [column]: itemId })
     .eq('id', user.id)
 
-  if (updateErr) {
-    console.error('[equip-cosmetic] update failed:', updateErr.code)
-    return NextResponse.json({ error: 'Update failed' }, { status: 500 })
+  if (error) {
+    console.error('[equip-cosmetic] DB update failed:', error)
+    return NextResponse.json({ error: 'DB update failed' }, { status: 500 })
   }
 
-  return NextResponse.json({ ok: true, equipped: updatePayload })
+  console.log(`✅ Equip [${item.category}]: user=${user.id.slice(0, 8)} → "${itemId}"`)
+  return NextResponse.json({ success: true, equipped: itemId, category: item.category })
 }
