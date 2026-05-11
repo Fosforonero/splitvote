@@ -26,6 +26,8 @@ interface Props {
   locale?: string
   isPremium?: boolean
   isAdmin?: boolean
+  /** Market-tier species the user has purchased one-off (from user_purchases). */
+  ownedMarketItems?: CompanionSpecies[]
 }
 
 const IT_UNLOCK: Record<CompanionSpecies, string> = {
@@ -107,6 +109,7 @@ export default function PixieSelector({
   locale = 'en',
   isPremium = false,
   isAdmin = false,
+  ownedMarketItems = [],
 }: Props) {
   const IT = locale === 'it'
   const router = useRouter()
@@ -187,7 +190,7 @@ export default function PixieSelector({
       {/* Species grid — clicking opens the detail modal for any card */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
         {visibleSpecies.map(c => {
-          const unlocked = isSpeciesUnlocked(c.id, votesCount, streakDays, isPremium, isAdmin)
+          const unlocked = isSpeciesUnlocked(c.id, votesCount, streakDays, isPremium, isAdmin, ownedMarketItems)
           const isPremiumSpecies = c.access === 'premium'
           const isMarketSpecies = c.access === 'market'
           const isActive = selected === c.id
@@ -304,7 +307,7 @@ export default function PixieSelector({
           companion={modalCompanion}
           stage={getSpeciesStage(pixieXp, modalCompanion.id)}
           isCurrentSpecies={selected === modalCompanion.id}
-          isUnlocked={isSpeciesUnlocked(modalCompanion.id, votesCount, streakDays, isPremium, isAdmin)}
+          isUnlocked={isSpeciesUnlocked(modalCompanion.id, votesCount, streakDays, isPremium, isAdmin, ownedMarketItems)}
           unlockHint={IT ? IT_UNLOCK[modalCompanion.id] : EN_UNLOCK[modalCompanion.id]}
           pixieXp={pixieXp}
           votesCount={votesCount}

@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { getUserEntitlements } from '@/lib/entitlements'
 import type { UserRole } from '@/lib/admin-auth'
 import { COMPANIONS, isSpeciesUnlocked, type CompanionSpecies } from '@/lib/companion'
+import { ownedMarketSpeciesFromPurchases, type PurchaseRow } from '@/lib/purchases'
 
 // All known species IDs — validated at runtime, entitlement checked below
 const VALID_SPECIES = new Set<string>(COMPANIONS.map(c => c.id))
@@ -106,7 +107,25 @@ export async function POST(req: NextRequest) {
     const streak = currentProfile?.streak_days ?? 0
     const isPremiumUser = ents.effectivePremium ?? false
     const isAdminUser   = ents.isAdmin ?? false
-    if (!isSpeciesUnlocked(species, votes, streak, isPremiumUser, isAdminUser)) {
+
+    // Fetch user's one-time purchases to authorize market-tier species.
+    // Graceful: if the table doesn't exist yet (pre-v16 migration), we treat
+    // ownedMarketItems as empty — market species simply remain locked.
+    let ownedMarketItems: CompanionSpecies[] = []
+    try {
+      const { data: purchases } = await supabase
+        .from('user_purchases')
+        .select('product_id, product_type, status, purchased_at')
+        .eq('user_id', user.id)
+        .eq('status', 'completed')
+      if (purchases) {
+        ownedMarketItems = ownedMarketSpeciesFromPurchases(purchases as unknown as PurchaseRow[])
+      }
+    } catch {
+      // Table missing or RLS denied — fall through with empty owned list
+    }
+
+    if (!isSpeciesUnlocked(species, votes, streak, isPremiumUser, isAdminUser, ownedMarketItems)) {
       return NextResponse.json({ error: 'Species not yet unlocked' }, { status: 403 })
     }
     updatePayload.companion_species = species

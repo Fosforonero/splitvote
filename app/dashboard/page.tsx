@@ -15,6 +15,7 @@ import ProfileShareButton from '@/components/ProfileShareButton'
 import MobileStickyHUD from '@/components/MobileStickyHUD'
 import MobileFloatingVoteCTA from '@/components/MobileFloatingVoteCTA'
 import type { CompanionSpecies, PixieXpMap } from '@/lib/companion'
+import { ownedMarketSpeciesFromPurchases, type PurchaseRow } from '@/lib/purchases'
 import { STREAK_MILESTONES, getStreakProgress } from '@/lib/badges'
 import { getLevelInfo } from '@/lib/missions'
 
@@ -94,7 +95,7 @@ export default async function DashboardPage() {
   const sevenDaysAgoIso = sevenDaysAgo.toISOString()
 
   // Fetch all data in parallel
-  const [profileRes, pollsRes, dilemmaVotesRes, badgesRes, referralWeekRes, referralAllRes] = await Promise.all([
+  const [profileRes, pollsRes, dilemmaVotesRes, badgesRes, referralWeekRes, referralAllRes, purchasesRes] = await Promise.all([
     supabase
       .from('profiles')
       .select('display_name, email, is_premium, role, votes_count, equipped_frame, equipped_badge, onboarding_done, xp, streak_days, companion_species, pixie_xp')
@@ -130,6 +131,12 @@ export default async function DashboardPage() {
       .select('id', { count: 'exact', head: true })
       .eq('user_id', user.id)
       .eq('event_type', 'referral_visit'),
+    // One-time purchases (Pixie Market). Graceful: table may not exist pre-v16.
+    supabase
+      .from('user_purchases')
+      .select('product_id, product_type, status, purchased_at')
+      .eq('user_id', user.id)
+      .eq('status', 'completed'),
   ])
 
   const profile = profileRes.data
@@ -144,6 +151,12 @@ export default async function DashboardPage() {
     is_premium: profile?.is_premium ?? false,
     role: (profile?.role ?? 'user') as UserRole,
   })
+
+  // Derive owned market-tier Pixies from completed one-time purchases.
+  // purchasesRes.error is non-fatal — if table doesn't exist (pre-v16), the list stays empty.
+  const ownedMarketItems = purchasesRes.error
+    ? []
+    : ownedMarketSpeciesFromPurchases((purchasesRes.data ?? []) as unknown as PurchaseRow[])
 
   const votesCount = profile?.votes_count ?? 0
   const xp = profile?.xp ?? 0
@@ -274,6 +287,9 @@ export default async function DashboardPage() {
         streakDays={streakDays}
         pixieXp={pixieXp}
         locale={locale}
+        isPremium={ents.effectivePremium}
+        isAdmin={ents.isAdmin}
+        ownedMarketItems={ownedMarketItems}
       />
 
       {/* ── Daily Missions ── */}
