@@ -98,50 +98,10 @@ export default async function HomePage() {
     })),
   }
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'What is SplitVote?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'SplitVote is a platform where people worldwide vote on impossible moral dilemmas in real time. Questions cover ethics, survival, loyalty, justice, and more.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How does the trolley problem vote work?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'On SplitVote, you vote anonymously on classic dilemmas like the trolley problem and instantly see how your answer compares to thousands of other voters worldwide.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Are the votes on SplitVote real?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. Every vote is cast in real time by real users. Results update live and are stored securely — one vote per user per dilemma.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Is SplitVote free?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Voting on all dilemmas is completely free. A Premium membership unlocks advanced features like custom poll creation and no ads.',
-        },
-      },
-    ],
-  }
-
   return (
     <>
       <JsonLd data={websiteSchema} />
       <JsonLd data={itemListSchema} />
-      <JsonLd data={faqSchema} />
 
       <div className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
 

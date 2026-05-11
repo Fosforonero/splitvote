@@ -74,44 +74,6 @@ const FEATURED_DILEMMA_IDS = [
   'privacy-terror',
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Cos\'è un dilemma morale?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Un dilemma morale è una situazione ipotetica in cui non esiste una risposta chiaramente giusta o sbagliata. Entrambe le scelte implicano conseguenze significative, mettendo alla prova i tuoi valori etici e morali.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Come funziona SplitVote?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'SplitVote presenta dilemmi etici impossibili. Voti la tua risposta e subito dopo vedi come ha risposto il resto del mondo in tempo reale. Puoi confrontarti per categoria demografica, paese, età.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Cos\'è il Trolley Problem?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Il Trolley Problem (problema del tram) è un celebre dilemma etico: un tram fuori controllo sta per investire 5 persone. Puoi deviarlo su un binario secondario dove c\'è 1 sola persona. Tiri la leva o no? Non esiste una risposta giusta: è uno strumento per esplorare la morale.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'I dilemmi morali hanno una risposta giusta?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. I dilemmi morali sono progettati per non avere una risposta universalmente corretta. Servono a esplorare differenti sistemi etici (utilitarismo, deontologia, etica della virtù) e a capire cosa davvero valorizza una persona o una società.',
-      },
-    },
-  ],
-}
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -187,7 +149,6 @@ export default async function ItPage() {
 
   return (
     <>
-      <JsonLd data={faqSchema} />
       <JsonLd data={websiteSchema} />
 
       <div className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
