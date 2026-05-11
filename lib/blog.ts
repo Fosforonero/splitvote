@@ -3531,6 +3531,164 @@ const EN_POSTS: BlogPost[] = [
       },
     ],
   },
+  // G17
+  {
+    slug: 'bystander-effect-and-moral-responsibility',
+    locale: 'en',
+    title: 'The Bystander Effect: Why More Witnesses Means Less Help',
+    seoTitle: 'The Bystander Effect and Moral Responsibility — Why Groups Fail to Act',
+    description:
+      'The more people witness an emergency, the less likely any of them is to help. This is not callousness — it is a predictable failure of moral responsibility that psychologists have been studying since 1968.',
+    seoDescription:
+      'Learn how the bystander effect and diffusion of responsibility cause groups to fail in emergencies. Based on Darley and Latané\'s research. With real moral dilemmas to test your own response.',
+    date: '2026-05-11',
+    readingTime: 6,
+    tags: ['bystander effect', 'moral psychology', 'diffusion of responsibility', 'Darley Latané', 'ethics'],
+    relatedDilemmaIds: ['trolley', 'lifeboat', 'innocent-juror', 'why-not-intervene'],
+    alternateSlug: 'effetto-spettatore-e-responsabilita-morale',
+    content: [
+      {
+        type: 'p',
+        text: 'In March 1964, Kitty Genovese was attacked near her home in Queens, New York. The assault lasted over half an hour. Reports at the time claimed that 38 neighbours witnessed the attack — and that none of them called the police until it was too late.',
+      },
+      {
+        type: 'p',
+        text: 'The story as originally told was later shown to be partly inaccurate. But the incident triggered one of the most important research programmes in the history of social psychology — and the phenomenon it revealed is very real.',
+      },
+      {
+        type: 'h2',
+        text: 'The experiment that proved the effect',
+      },
+      {
+        type: 'p',
+        text: 'In 1968, social psychologists John Darley and Bibb Latané ran a series of experiments designed to test whether the presence of other people reduces the likelihood of intervention in an emergency.',
+      },
+      {
+        type: 'p',
+        text: 'In one version, participants in a waiting room noticed smoke beginning to fill the room through a vent. When alone, 75% of participants reported the smoke within two minutes. When seated with two other people who acted unconcerned — actually confederates of the experiment — only 10% reported it. Most sat there, occasionally glancing at the smoke, doing nothing.',
+      },
+      {
+        type: 'p',
+        text: 'In another experiment, participants heard what sounded like a fellow participant having an epileptic seizure through an intercom. When they believed they were the only witness, 85% intervened within 60 seconds. When they believed four others could also hear, only 31% intervened — and many never did at all.',
+      },
+      {
+        type: 'h2',
+        text: 'Three mechanisms behind the effect',
+      },
+      {
+        type: 'p',
+        text: '**Diffusion of responsibility.** When only you can help, the full moral weight of failing to help falls on you. When others are present, that weight is shared — divided among everyone watching. The result is that each individual feels less personally responsible. Everyone assumes someone else will step in.',
+      },
+      {
+        type: 'p',
+        text: '**Pluralistic ignorance.** In ambiguous situations, people look to others to read the situation. If no one else appears alarmed, the implicit social signal is: this must not be an emergency. Each person privately suspects something is wrong but publicly acts calm because everyone else is acting calm — a collective fiction that reinforces itself.',
+      },
+      {
+        type: 'p',
+        text: '**Evaluation apprehension.** Intervening in public carries social risk. What if you misread the situation? What if you intervene clumsily and it goes wrong? The presence of other observers raises the stakes of looking incompetent or overreacting — and this fear holds people back even when they suspect action is needed.',
+      },
+      {
+        type: 'h2',
+        text: 'The counterintuitive math',
+      },
+      {
+        type: 'p',
+        text: 'Our intuition says: more witnesses means more help. More people seeing an emergency surely means more chance of a good outcome.',
+      },
+      {
+        type: 'p',
+        text: 'Darley and Latané showed the opposite. The relationship is not additive — it is dilutive. Adding witnesses does not increase the probability of intervention; it reduces the probability that any single individual will intervene. At some point the group becomes paralysed not despite its size but because of it.',
+      },
+      {
+        type: 'p',
+        text: 'This is not a feature of callous or selfish people. It was observed with ordinary university students who, in one-on-one situations, nearly always helped. The failure is situational, not characterological. Given the right (or wrong) group size and social cues, almost anyone will fail to act.',
+      },
+      {
+        type: 'cta',
+        label: 'Vote: would you pull the lever when everyone else hesitates? →',
+        href: '/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'The online bystander',
+      },
+      {
+        type: 'p',
+        text: 'Social media has created a new context for bystander dynamics. A video of harassment or cruelty can be watched by millions. The response is often to screenshot, share, comment — but rarely to directly intervene in any form that would actually help the target.',
+      },
+      {
+        type: 'p',
+        text: 'Researchers studying online bystander behaviour have found similar patterns to Darley and Latané\'s original work. The larger the audience for a post, the lower the probability that any individual commenter will do something active. The like button and the share function may actually reinforce passive spectatorship, giving people the feeling of participating without requiring genuine action.',
+      },
+      {
+        type: 'p',
+        text: 'The bystander effect in digital spaces is arguably more powerful because it strips away even the physical awkwardness of a real emergency. There is no visible victim in front of you, no smoke in the room. The moral cost of not acting feels lower — and so the inertia is higher.',
+      },
+      {
+        type: 'h2',
+        text: 'What this means for moral responsibility',
+      },
+      {
+        type: 'p',
+        text: 'The bystander effect sits at the intersection of two deep questions in ethics: when are you responsible for harm you did not cause? And how much does the presence of others change that responsibility?',
+      },
+      {
+        type: 'p',
+        text: 'Traditional moral frameworks disagree sharply. Consequentialists tend to hold that failing to prevent harm you could have prevented is morally equivalent to causing it — the bystander who does nothing while five people drown when they could have thrown a rope bears real moral responsibility. Deontologists often distinguish between positive duties (to help) and negative duties (not to harm), with the latter being stronger — which can soften the bystander\'s culpability.',
+      },
+      {
+        type: 'p',
+        text: 'Strawson\'s reactive attitudes framework offers a third lens: we do feel resentment and indignation toward bystanders who could have helped and did not. Those feelings are not irrational. They reflect a genuine moral expectation that people who are present bear some responsibility for outcomes they could have influenced — regardless of how many others were also present.',
+      },
+      {
+        type: 'h2',
+        text: 'How to break the effect',
+      },
+      {
+        type: 'p',
+        text: 'Awareness of the bystander effect does not automatically dissolve it — but it helps. The most effective interventions are structural:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Assign responsibility explicitly: name a specific person ("you, in the red jacket — call an ambulance"). Diffusion of responsibility cannot survive direct designation.',
+          'Acknowledge the situation publicly: say out loud "something is wrong here." This breaks pluralistic ignorance — you force the group to stop pretending everything is normal.',
+          'Act first, even imperfectly: someone taking any action — even the wrong one — dramatically increases the likelihood that others join in. The first mover absorbs the evaluation risk for everyone else.',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Where your instinct actually sits',
+      },
+      {
+        type: 'p',
+        text: 'Moral dilemmas on SplitVote strip away the social context that enables bystander inaction. You are alone with the question. There are no confederates acting unconcerned. There is no crowd to dissolve your sense of responsibility.',
+      },
+      {
+        type: 'p',
+        text: 'That is part of what makes the vote interesting: it is a purer read on your values than the one your actual behaviour in a group situation would give. It measures what you think should happen — not what social pressure allows you to do. The gap between those two is where the bystander effect lives.',
+      },
+      {
+        type: 'cta',
+        label: 'Discover your moral personality type →',
+        href: '/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Why good people do nothing: moral disengagement →',
+        href: '/blog/why-good-people-do-nothing',
+      },
+      {
+        type: 'cta',
+        label: 'Free will and moral responsibility: are you really to blame? →',
+        href: '/blog/free-will-and-moral-responsibility',
+      },
+      {
+        type: 'disclaimer',
+        text: 'References to Darley and Latané\'s bystander research (1968) and the Kitty Genovese case are for educational and contextual purposes. The original 38-witness narrative has been partially revised by subsequent journalism and historical research; the psychological research it inspired remains foundational. SplitVote is an entertainment and reflection platform, not a scientific study. Voting data described is illustrative.',
+      },
+    ],
+  },
 ]
 
 const IT_POSTS: BlogPost[] = [
@@ -7032,6 +7190,164 @@ const IT_POSTS: BlogPost[] = [
       {
         type: 'disclaimer',
         text: 'I riferimenti a "Freedom and Resentment" di P.F. Strawson (1962), al compatibilismo filosofico e al dibattito sul libero arbitrio sono a scopo educativo e contestuale. Le posizioni filosofiche descritte rappresentano le principali correnti di pensiero; l\'attribuzione è ai rispettivi autori. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico né un\'autorità filosofica. I dati di voto descritti sono indicativi.',
+      },
+    ],
+  },
+  // G17
+  {
+    slug: 'effetto-spettatore-e-responsabilita-morale',
+    locale: 'it',
+    title: "L'effetto spettatore: perché più testimoni significa meno aiuto",
+    seoTitle: "Effetto Spettatore e Responsabilità Morale — Perché i Gruppi Non Agiscono",
+    description:
+      "Più persone assistono a un'emergenza, meno è probabile che qualcuna di loro intervenga. Non è indifferenza — è un prevedibile fallimento della responsabilità morale studiato dai psicologi dal 1968.",
+    seoDescription:
+      "Scopri come l'effetto spettatore e la diffusione di responsabilità paralizzano i gruppi di fronte alle emergenze. Basato sulla ricerca di Darley e Latané. Con dilemmi morali reali.",
+    date: '2026-05-11',
+    readingTime: 6,
+    tags: ['effetto spettatore', 'psicologia morale', 'diffusione di responsabilità', 'Darley Latané', 'etica'],
+    relatedDilemmaIds: ['trolley', 'lifeboat', 'innocent-juror', 'why-not-intervene'],
+    alternateSlug: 'bystander-effect-and-moral-responsibility',
+    content: [
+      {
+        type: 'p',
+        text: 'Nel marzo 1964, Kitty Genovese fu aggredita vicino a casa sua nel Queens, New York. L\'aggressione durò oltre mezz\'ora. I resoconti dell\'epoca affermavano che 38 vicini avevano assistito all\'attacco — e che nessuno di loro aveva chiamato la polizia finché non era troppo tardi.',
+      },
+      {
+        type: 'p',
+        text: 'La storia così raccontata si è poi rivelata in parte inesatta. Ma l\'incidente diede il via a uno dei programmi di ricerca più importanti nella storia della psicologia sociale — e il fenomeno che rivelò è molto reale.',
+      },
+      {
+        type: 'h2',
+        text: "L'esperimento che ha dimostrato l'effetto",
+      },
+      {
+        type: 'p',
+        text: 'Nel 1968, gli psicologi sociali John Darley e Bibb Latané condussero una serie di esperimenti per verificare se la presenza di altre persone riduca la probabilità di intervenire in un\'emergenza.',
+      },
+      {
+        type: 'p',
+        text: 'In una versione, i partecipanti in una sala d\'attesa notavano del fumo che entrava dalla ventola. Quando erano soli, il 75% lo segnalava entro due minuti. Quando erano seduti con altre due persone che si comportavano con indifferenza — in realtà complici dello sperimentatore — solo il 10% lo segnalava. La maggior parte restava ferma, lanciando di tanto in tanto un\'occhiata al fumo, senza fare niente.',
+      },
+      {
+        type: 'p',
+        text: 'In un altro esperimento, i partecipanti sentivano attraverso un interfono quello che sembrava un altro partecipante colpito da una crisi epilettica. Quando credevano di essere gli unici testimoni, l\'85% interveniva entro 60 secondi. Quando credevano che altri quattro potessero sentire, solo il 31% interveniva — e molti non lo facevano affatto.',
+      },
+      {
+        type: 'h2',
+        text: 'Tre meccanismi alla base dell\'effetto',
+      },
+      {
+        type: 'p',
+        text: '**Diffusione di responsabilità.** Quando sei l\'unico a poter aiutare, tutto il peso morale del non agire ricade su di te. Quando ci sono altri presenti, quel peso si distribuisce — diviso tra tutti gli spettatori. Il risultato è che ciascuno si sente meno personalmente responsabile. Ognuno assume che qualcun altro interverrà.',
+      },
+      {
+        type: 'p',
+        text: '**Ignoranza pluralistica.** In situazioni ambigue, le persone osservano gli altri per capire la situazione. Se nessun altro sembra allarmato, il segnale sociale implicito è: questa non deve essere un\'emergenza. Ciascuno sospetta privatamente che ci sia qualcosa che non va, ma in pubblico si comporta con calma perché tutti gli altri fanno lo stesso — una finzione collettiva che si autoalimenta.',
+      },
+      {
+        type: 'p',
+        text: '**Paura del giudizio.** Intervenire in pubblico comporta un rischio sociale. E se si fraintende la situazione? E se si interviene in modo maldestro e le cose vanno peggio? La presenza di altri osservatori alza la posta in gioco del sembrare incompetenti o esagerati — e questa paura trattiene le persone anche quando sospettano che sia necessario agire.',
+      },
+      {
+        type: 'h2',
+        text: 'La matematica controintuitiva',
+      },
+      {
+        type: 'p',
+        text: 'La nostra intuizione dice: più testimoni significa più aiuto. Più persone che vedono un\'emergenza vuol dire più possibilità di un buon esito.',
+      },
+      {
+        type: 'p',
+        text: 'Darley e Latané hanno dimostrato il contrario. La relazione non è additiva — è diluitiva. Aggiungere testimoni non aumenta la probabilità di intervento: riduce la probabilità che un singolo individuo agisca. A un certo punto il gruppo rimane paralizzato non nonostante le sue dimensioni, ma a causa di esse.',
+      },
+      {
+        type: 'p',
+        text: 'Questo non è un tratto di persone indifferenti o egoiste. È stato osservato con studenti universitari comuni che, in situazioni uno a uno, aiutavano quasi sempre. Il fallimento è situazionale, non caratteriale. Date le giuste (o sbagliate) dimensioni del gruppo e i giusti segnali sociali, quasi chiunque finirà per non agire.',
+      },
+      {
+        type: 'cta',
+        label: 'Vota: tireresti la leva quando tutti gli altri esitano? →',
+        href: '/it/play/trolley',
+      },
+      {
+        type: 'h2',
+        text: 'Lo spettatore online',
+      },
+      {
+        type: 'p',
+        text: 'I social media hanno creato un nuovo contesto per le dinamiche dello spettatore. Un video di molestie o crudeltà può essere visto da milioni di persone. La risposta è spesso fare screenshot, condividere, commentare — ma raramente intervenire in modo diretto e concreto a favore della persona colpita.',
+      },
+      {
+        type: 'p',
+        text: 'I ricercatori che studiano il comportamento degli spettatori online hanno trovato dinamiche simili a quelle descritte da Darley e Latané. Più grande è il pubblico di un post, minore è la probabilità che un singolo commentatore faccia qualcosa di attivo. Il pulsante "mi piace" e la funzione di condivisione potrebbero addirittura rafforzare la spettatorialità passiva, dando alle persone la sensazione di partecipare senza richiedere un\'azione reale.',
+      },
+      {
+        type: 'p',
+        text: "L'effetto spettatore negli spazi digitali è forse ancora più potente perché elimina persino l'imbarazzo fisico di una vera emergenza. Non c'è una vittima visibile di fronte a te, non c'è fumo nella stanza. Il costo morale del non agire sembra più basso — e quindi l'inerzia è più alta.",
+      },
+      {
+        type: 'h2',
+        text: 'Cosa significa per la responsabilità morale',
+      },
+      {
+        type: 'p',
+        text: "L'effetto spettatore si trova all'incrocio di due domande fondamentali dell'etica: quando sei responsabile di un danno che non hai causato? E quanto la presenza di altri modifica quella responsabilità?",
+      },
+      {
+        type: 'p',
+        text: 'Le tradizioni morali non sono d\'accordo. I consequenzialisti tendono a ritenere che non prevenire un danno che si poteva prevenire sia moralmente equivalente a causarlo — lo spettatore che non fa niente mentre cinque persone annegano quando avrebbe potuto lanciare una corda porta una responsabilità morale reale. I deontologi distinguono spesso tra doveri positivi (aiutare) e doveri negativi (non nuocere), con i secondi più forti — il che può attenuare la colpevolezza dello spettatore.',
+      },
+      {
+        type: 'p',
+        text: 'Il quadro degli atteggiamenti reattivi di Strawson offre una terza prospettiva: proviamo davvero risentimento e indignazione verso gli spettatori che avrebbero potuto aiutare e non lo hanno fatto. Questi sentimenti non sono irrazionali. Riflettono un\'aspettativa morale genuina: le persone presenti portano una certa responsabilità per gli esiti che avrebbero potuto influenzare — indipendentemente da quante altre fossero presenti.',
+      },
+      {
+        type: 'h2',
+        text: "Come spezzare l'effetto",
+      },
+      {
+        type: 'p',
+        text: "La consapevolezza dell'effetto spettatore non lo dissolve automaticamente — ma aiuta. Gli interventi più efficaci sono strutturali:",
+      },
+      {
+        type: 'list',
+        items: [
+          'Assegna la responsabilità esplicitamente: nomina una persona specifica ("tu, con la giacca rossa — chiama un\'ambulanza"). La diffusione di responsabilità non sopravvive alla designazione diretta.',
+          'Riconosci la situazione pubblicamente: dì ad alta voce "c\'è qualcosa che non va". Questo rompe l\'ignoranza pluralistica — costringi il gruppo a smettere di fingere che tutto sia normale.',
+          'Agisci per primo, anche in modo imperfetto: qualcuno che compie qualsiasi azione — anche sbagliata — aumenta drasticamente la probabilità che altri si uniscano. Chi agisce per primo assorbe il rischio del giudizio per tutti gli altri.',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Dove si trova davvero il tuo istinto',
+      },
+      {
+        type: 'p',
+        text: 'I dilemmi morali su SplitVote eliminano il contesto sociale che permette l\'inazione degli spettatori. Sei solo con la domanda. Non ci sono complici che si comportano con indifferenza. Non c\'è una folla che diluisce il tuo senso di responsabilità.',
+      },
+      {
+        type: 'p',
+        text: "Questo è in parte ciò che rende il voto interessante: è una lettura più pura dei tuoi valori rispetto a quella che il tuo comportamento reale in una situazione di gruppo ti darebbe. Misura ciò che pensi dovrebbe succedere — non ciò che la pressione sociale ti consente di fare. Il divario tra queste due cose è dove vive l'effetto spettatore.",
+      },
+      {
+        type: 'cta',
+        label: 'Scopri il tuo tipo di personalità morale →',
+        href: '/it/personality',
+      },
+      {
+        type: 'cta',
+        label: 'Perché le persone buone non fanno nulla: il disimpegno morale →',
+        href: '/it/blog/perche-le-persone-buone-non-fanno-nulla',
+      },
+      {
+        type: 'cta',
+        label: 'Libero arbitrio e responsabilità morale: sei davvero colpevole? →',
+        href: '/it/blog/libero-arbitrio-e-responsabilita-morale',
+      },
+      {
+        type: 'disclaimer',
+        text: 'I riferimenti alla ricerca di Darley e Latané sullo spettatore (1968) e al caso Kitty Genovese sono a scopo educativo e contestuale. La narrativa originale dei 38 testimoni è stata parzialmente rivista da giornalismo d\'inchiesta e ricerche storiche successive; la ricerca psicologica che ha ispirato rimane fondamentale nel campo. SplitVote è una piattaforma di intrattenimento e riflessione, non uno studio scientifico. I dati di voto descritti sono indicativi.',
       },
     ],
   },
