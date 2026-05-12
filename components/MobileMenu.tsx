@@ -149,6 +149,13 @@ export default function MobileMenu() {
             <span style={LABEL}>Blog</span>
           </Link>
 
+          <Link href={isIT ? '/it/leaderboard' : '/leaderboard'} onClick={close} role="menuitem" style={ITEM}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
+            <Users size={15} className="text-yellow-400 flex-shrink-0" />
+            <span style={LABEL}>{isIT ? 'Classifica' : 'Leaderboard'}</span>
+          </Link>
+
           <Link href={isIT ? '/it/pixie' : '/pixie'} onClick={close} role="menuitem" style={ITEM}
             onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
             onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>

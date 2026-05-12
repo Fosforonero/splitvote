@@ -6,6 +6,7 @@ import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { safeRedirect } from '@/lib/safe-redirect'
+import { track } from '@/lib/gtag'
 import { Loader2, Mail, Lock, Vote, Trophy, Heart } from 'lucide-react'
 
 const EN_COPY = {
@@ -102,6 +103,7 @@ function LoginForm() {
   async function handleOAuth(provider: 'google' | 'discord') {
     setLoading(true)
     setMessage(null)
+    track('login_started', { method: provider, locale: locale ?? 'en' })
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
@@ -146,6 +148,7 @@ function LoginForm() {
         setMessage({ type: 'success', text: copy.confirmEmail })
         setLoading(false)
       } else {
+        track('login_completed', { method: 'email', locale: locale ?? 'en' })
         window.location.href = redirect
       }
     } else {
@@ -157,8 +160,11 @@ function LoginForm() {
         setMessage({ type: 'error', text: error.message })
         setLoading(false)
       } else if (signUpData.session) {
+        track('signup_completed', { method: 'email', locale: locale ?? 'en' })
         window.location.href = redirect
       } else {
+        // Email confirmation required — fire signup_initiated instead
+        track('signup_initiated', { method: 'email', locale: locale ?? 'en' })
         setMessage({ type: 'success', text: copy.confirmEmail })
         setLoading(false)
       }

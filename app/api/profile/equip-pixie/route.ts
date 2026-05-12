@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { isPixieItemId } from '@/lib/pixie-store'
+import { isPixieItemId } from '@/lib/cosmetics-store'
 
 export const dynamic = 'force-dynamic'
 

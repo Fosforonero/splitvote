@@ -184,10 +184,16 @@ export async function POST(req: NextRequest) {
       if (item.category === 'pixie') {
         const currentPixieXp = (profile?.pixie_xp ?? {}) as Record<string, unknown>
         const ownedItems     = Array.isArray(currentPixieXp.owned) ? currentPixieXp.owned as string[] : []
+        const newOwned       = ownedItems.filter(i => i !== purchase.product_id)
+        // Also clear the active pixie if the refunded skin was equipped
+        const activePixie    = typeof currentPixieXp.active === 'string' ? currentPixieXp.active : null
         profileUpdate.pixie_xp = {
           ...currentPixieXp,
-          owned: ownedItems.filter(i => i !== purchase.product_id),
+          owned:  newOwned,
+          active: activePixie === purchase.product_id ? null : activePixie,
         }
+        // Also clear the use_pixie_avatar flag if no skins remain
+        if (newOwned.length === 0) profileUpdate.use_pixie_avatar = false
       } else if (item.category === 'frame') {
         profileUpdate.equipped_frame = null
       } else if (item.category === 'glow') {
