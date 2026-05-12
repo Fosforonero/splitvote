@@ -217,6 +217,7 @@ export default async function DashboardPage() {
         equippedGlow={profile?.equipped_glow ?? null}
         nameColor={profile?.name_color ?? null}
         usePixieAvatar={profile?.use_pixie_avatar ?? false}
+        locale={locale}
       />
 
       {/* ── Daily Missions ── */}
