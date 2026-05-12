@@ -4,5 +4,13 @@
       "path": "/api/cron/generate-dilemmas",
       "schedule": "0 6 * * *"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.splitvote.io" }],
+      "destination": "https://splitvote.io/:path*",
+      "permanent": true
+    }
   ]
 }

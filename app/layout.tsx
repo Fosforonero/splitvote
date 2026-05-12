@@ -103,8 +103,15 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-5MPQ8PW0CE'
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Set html[lang] to 'it' on all /it/* routes without calling headers()
+            (calling headers() in root layout would break ISR for blog/profile/results).
+            Script runs synchronously before first paint — no flash, SEO-safe for crawlers. */}
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: `try{if(location.pathname.startsWith('/it'))document.documentElement.lang='it'}catch(e){}` }}
+        />
         <Script id="consent-mode" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
