@@ -6,17 +6,11 @@ import CompanionDisplay from '@/components/CompanionDisplay'
 import type { CompanionSpecies } from '@/lib/companion'
 import { PIXIE_ITEM_MAP } from '@/lib/pixie-store'
 import type { PixieItemId } from '@/lib/pixie-store'
+import { RARITY_STYLES, RARITY_ORDER } from '@/lib/rarity'
 
 const BASE = 'https://splitvote.io'
 
 interface Props { params: { id: string } }
-
-const RARITY_STYLES: Record<string, string> = {
-  common:    'border-slate-500/40 bg-slate-500/10 text-slate-300',
-  rare:      'border-blue-500/40  bg-blue-500/10  text-blue-300',
-  epic:      'border-purple-500/40 bg-purple-500/10 text-purple-300',
-  legendary: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-300',
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const admin = createPublicClient()
@@ -87,11 +81,9 @@ export default async function PublicProfilePage({ params }: Props) {
   const heroAvatar  = usePixieAvatar && activePixieItem ? activePixieItem.emoji : avatarEmoji
   const heroIsPixie = usePixieAvatar && !!activePixieItem
 
-  // Rarity order for sorting
-  const RARITY_ORDER = { legendary: 0, epic: 1, rare: 2, common: 3 }
+  // Rarity order from lib/rarity.ts — legendary first
   const sortedBadges = [...badges].sort((a, b) =>
-    (RARITY_ORDER[a.badges.rarity as keyof typeof RARITY_ORDER] ?? 4) -
-    (RARITY_ORDER[b.badges.rarity as keyof typeof RARITY_ORDER] ?? 4)
+    (RARITY_ORDER[a.badges.rarity] ?? 4) - (RARITY_ORDER[b.badges.rarity] ?? 4)
   )
 
   return (

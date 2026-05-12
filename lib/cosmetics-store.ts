@@ -145,19 +145,8 @@ export const COSMETICS_BY_CATEGORY = COSMETIC_ITEMS.reduce<Record<CosmeticCatego
   {} as Record<CosmeticCategory, CosmeticItem[]>
 )
 
-export const RARITY_STYLES: Record<string, string> = {
-  common:    'border-slate-500/40 bg-slate-500/10 text-slate-300',
-  rare:      'border-blue-500/40  bg-blue-500/10  text-blue-300',
-  epic:      'border-purple-500/40 bg-purple-500/10 text-purple-300',
-  legendary: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-300',
-}
-
-export const RARITY_GLOW: Record<string, string> = {
-  common:    'hover:shadow-slate-500/10',
-  rare:      'hover:shadow-blue-500/20',
-  epic:      'hover:shadow-purple-500/30',
-  legendary: 'hover:shadow-yellow-500/40',
-}
+// Rarity styles are now defined once in lib/rarity.ts
+export { RARITY_STYLES, RARITY_GLOW } from '@/lib/rarity'
 
 export const NAME_COLORS: { label: string; class: string; value: string }[] = [
   { label: 'White',    class: 'text-white',       value: 'white'    },

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { CreditCard, Loader2, Check, Star, ExternalLink, ChevronRight } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { RARITY_STYLES } from '@/lib/rarity'
 
 const AVATARS = ['🌍', '🔥', '⚡', '🧠', '🎭', '👾', '🦁', '🐺', '🦊', '🐉', '🌙', '☀️', '🎯', '🏆', '💎', '🌊', '🎪', '🚀', '🎲', '🧩']
 
@@ -46,13 +47,6 @@ interface Props {
   streakDays: number
   joinedAt: string
   locale?: string
-}
-
-const RARITY_STYLES: Record<string, string> = {
-  common:    'border-slate-500/40 bg-slate-500/10 text-slate-300',
-  rare:      'border-blue-500/40  bg-blue-500/10  text-blue-300',
-  epic:      'border-purple-500/40 bg-purple-500/10 text-purple-300',
-  legendary: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-300',
 }
 
 export default function ProfileClient({
