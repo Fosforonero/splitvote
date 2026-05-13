@@ -345,6 +345,22 @@ export default function VoteClientPage({
   const votedOptionText = existingVote?.choice === 'A' ? scenario.optionA : scenario.optionB
   const canStillChange = existingVote ? new Date(existingVote.canChangeUntil) > new Date() : false
 
+  // Precompute seeResultsHref so it can be used in both inline CTA and sticky bar
+  const seeResultsHref = existingVote
+    ? (pathCategory && pathStep && pathTarget
+        ? `${localePrefix}/results/${scenario.id}?voted=${existingVote.choice.toLowerCase()}&path=${pathCategory}&step=${pathStep}&target=${pathTarget}`
+        : `${localePrefix}/results/${scenario.id}?voted=${existingVote.choice.toLowerCase()}`)
+    : null
+
+  const [stickyVisible, setStickyVisible] = useState(false)
+  useEffect(() => {
+    if (!existingVote) return
+    const reducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reducedMotion) { setStickyVisible(true); return }
+    const t = setTimeout(() => setStickyVisible(true), 250)
+    return () => clearTimeout(t)
+  }, [existingVote])
+
   return (
     <>
       <Script
@@ -563,16 +579,13 @@ export default function VoteClientPage({
 
             {/* CTA to results / next */}
             {(() => {
-              const seeResultsHref = pathCategory && pathStep && pathTarget
-                ? `${localePrefix}/results/${scenario.id}?voted=${existingVote.choice.toLowerCase()}&path=${pathCategory}&step=${pathStep}&target=${pathTarget}`
-                : `${localePrefix}/results/${scenario.id}?voted=${existingVote.choice.toLowerCase()}`
               const pathNextHref = (nextPathId && pathCategory && pathStep !== undefined && pathTarget)
                 ? `${localePrefix}/play/${nextPathId}?path=${pathCategory}&step=${pathStep + 1}&target=${pathTarget}`
                 : localePrefix || '/'
               return (
                 <div className="flex gap-3 mt-6">
                   <Link
-                    href={seeResultsHref}
+                    href={seeResultsHref!}
                     className="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-sm text-center transition-colors"
                   >
                     {copy.seeResults}
@@ -709,6 +722,24 @@ export default function VoteClientPage({
           </>
         )}
       </div>
+
+      {/* Sticky "See Results" bar — only when user already voted, slides up after mount */}
+      {existingVote && seeResultsHref && (
+        <div
+          className={`fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-[var(--bg)]/90 backdrop-blur-md transition-transform duration-300 ease-out ${stickyVisible ? 'translate-y-0' : 'translate-y-full'}`}
+          style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+        >
+          <div className="max-w-2xl mx-auto px-4 py-3">
+            <Link
+              href={seeResultsHref}
+              onClick={() => track('see_results_clicked', { scenario_id: scenario.id, locale, source: 'play_sticky' })}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm px-6 py-3.5 transition-colors"
+            >
+              {copy.seeResults}
+            </Link>
+          </div>
+        </div>
+      )}
     </>
   )
 }
