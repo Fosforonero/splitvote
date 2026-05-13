@@ -1,6 +1,6 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 13 May 2026 (post Sprint E — ISR performance fix)
+Last updated: 13 May 2026 (post Sprints E / F-B / G / SEO / I / H)
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 
@@ -10,25 +10,46 @@ Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 
 - **Branch:** `main`
 - **Local vs remote:** **in sync** — all commits pushed
-- **Last pushed:** `7f7cbf8` (Sprint E commit pending push — await explicit GO)
+- **Last pushed:** `8198753` — all commits pushed, main in sync
 
 ### Recent commits
 | Hash | Description |
 |---|---|
-| Sprint E | perf(Sprint E): restore ISR on homepage, /it, /trending, category pages |
+| `8198753` | feat(sprint-h): elevate streak to first-class dashboard retention signal |
+| `433ec8c` | perf(sprint-i): swap getDynamicScenarios → getCachedDynamicScenarios in IT results page |
+| `3051718` | feat(Sprint G): sticky "Next dilemma" — all screen sizes + slide-up after reveal |
+| `f09b5b6` | refactor(Sprint F-B): centralize locale detection in useLocale() hook |
+| `2e2e667` | fix(seo): fix Dataset structured data — license, creator, hasPart → variableMeasured |
+| `113f43b` | perf(Sprint E): restore ISR on homepage, /it, /trending, and category pages |
+| `99cb198` | docs: update CURRENT_HANDOFF — Sprint D, leaderboard, GA4, Vercel deploy fix |
 | `7f7cbf8` | fix(config): correct www redirect source pattern for Vercel (`/:path*`) |
-| `f96a8df` | ci: verify webhook after reconnect (empty) |
-| `2fbf23c` | feat(launch): Sprint D — sitemap leaderboard, OG metadata, GA4 funnel completion |
-| `d02db4d` | chore: test webhook |
-| `e694635` | ci: trigger Vercel build (empty) |
-| `f3413e1` | feat: leaderboard EN/IT, GA4 login events, Stripe refund fix, import cleanup |
-| `96aafa8` | docs: update HANDOFF + LAUNCH_AUDIT — Sprint A/B/C + launch fixes |
-| `2de5d1a` | fix(launch): html[lang] on IT routes, www redirect, focus rings verified |
-| `0ad65f0` | ui(Sprint C): consolidate rarity tokens, A/B color consistency, dashboard i18n |
 
 ---
 
 ## 2. What changed today (13 May 2026)
+
+### Sprint H — Dashboard Streak Retention UI
+- `components/DailyMissions.tsx`: replaced small inline streak text with a prominent orange banner card (fire icon, day count, "keep streak alive" copy, EN/IT)
+- `app/dashboard/page.tsx`:
+  - Moved `<DailyMissions>` above `<CompanionDisplay>` — first thing returning users see
+  - Replaced "Polls submitted" stat with **streak counter**; highlights in orange with 🔥 emoji when `streakDays > 0`
+  - Added `statsStreak` key to EN/IT COPY object
+
+### Sprint I — IT Results Page Cache Parity
+- `app/it/results/[id]/page.tsx`: swapped `getDynamicScenarios()` → `getCachedDynamicScenarios()` (import from `@/lib/cached-data`)
+- IT results page was the only remaining route calling the uncached version; now matches EN behavior (1-hour `unstable_cache`)
+
+### Sprint G — Sticky "Next Dilemma" CTA
+- `app/results/[id]/ResultsClientPage.tsx`:
+  - Sticky bar now shows on all screen sizes (was mobile-only with `sm:hidden`)
+  - Slides up 200 ms after `revealed` state fires (`translate-y-full` → `translate-y-0`)
+  - Respects `prefers-reduced-motion` (appears instantly with no animation)
+  - `env(safe-area-inset-bottom)` padding for iPhone notch
+  - Fixed forward-reference bug: `showStickyNext` moved before all effects
+
+### Sprint F-B — useLocale() Hook
+- NEW `hooks/useLocale.ts`: centralizes `usePathname()` + `/it` prefix detection
+- Updated: `AuthButton`, `NavLinks`, `Footer`, `CookieConsent`, `AdBlockBanner`, `MobileMenu`, `LocaleAwareLogo`
 
 ### Sprint E — ISR Performance Fix
 - **Root cause**: `getFreshDynamicScenarios()` calls `unstable_noStore()` inside — any page that called it was forced into dynamic server-rendering on every request (no ISR), even though `getCachedDynamicScenarios()` with `unstable_cache` + `revalidate:3600` already existed in `lib/cached-data.ts`.
@@ -110,6 +131,12 @@ Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 | GA4 signup_cta_clicked | ✅ on anon results CTA |
 | Stripe refund handler | ✅ revokes active pixie + use_pixie_avatar on refund |
 | Vercel auto-deploy | ✅ restored — was blocked by wrong git author email + vercel.json |
+| ISR performance (6 EN pages) | ✅ getCachedDynamicScenarios + revalidate:3600 (Sprint E) |
+| ISR parity IT results page | ✅ getCachedDynamicScenarios (Sprint I) |
+| Dataset SEO structured data | ✅ license + creator + variableMeasured (EN+IT) |
+| useLocale() hook | ✅ centralized locale detection across 7 components (Sprint F-B) |
+| Sticky next-dilemma CTA | ✅ all screen sizes, slide-up animation (Sprint G) |
+| Dashboard streak UI | ✅ prominent banner + orange stat card (Sprint H) |
 | AdSense slots | ⚠️ slot IDs not set — needs real IDs from Matteo |
 | Stripe Premium live QA | ⚠️ Preview OK; live checkout with real card pending |
 | AdSense account approval | ⚠️ check status in Google AdSense dashboard |
@@ -164,24 +191,31 @@ Note: `migration_v18` (use_pixie_avatar column) was already run on production pe
 ## 7. Next Session Prompt
 
 ```
-Ripartenza sessione SplitVote — post 12 Maggio 2026 (serata).
+Ripartenza sessione SplitVote — post 13 Maggio 2026 (pomeriggio/sera).
 
 Leggi prima:
 - CLAUDE.md
 - CURRENT_HANDOFF.md
-- git log --oneline -8
+- git log --oneline -10
 - git status --short
 
 State:
-- main in sync con origin — tutto pushato (last: 7f7cbf8)
-- Sprint A/B/C/D completati + Vercel deploy fix
-- Build Vercel in corso al momento della chiusura sessione: 2RGD1GonJ (7f7cbf8)
-- Auto-deploy ripristinato (era bloccato da git author email errata + vercel.json source pattern)
+- main in sync con origin — tutto pushato (last: 8198753)
+- Sprint E / F-B / G / SEO / I / H tutti completati e pushati
+- Build Vercel dovrebbe essere avviato automaticamente su 8198753
 
-Priorità domani:
-1. Stripe live QA — splitvote.io/profile → checkout reale → verifica is_premium + webhook
-2. Verifica che auto-deploy funzioni (controlla Vercel deployments per conferma build 2RGD1GonJ → Ready)
-3. Eventuali fix post-launch o nuovi sprint da ROADMAP
+Sprint completati oggi:
+- Sprint E: ISR ripristinato su 6 pagine EN (getCachedDynamicScenarios + revalidate:3600)
+- SEO fix: Dataset structured data corretto EN+IT (variableMeasured + license + creator)
+- Sprint F-B: hook useLocale() centralizzato in 7 componenti
+- Sprint G: sticky "Next dilemma" CTA — tutte le dimensioni + slide-up animation
+- Sprint I: IT results page — parity fix getCachedDynamicScenarios
+- Sprint H: dashboard streak — banner prominente + stat card arancione
+
+Priorità sessione prossima:
+1. Stripe live QA — splitvote.io/profile → checkout reale → verifica is_premium + webhook (HUMAN_ONLY)
+2. AdSense slot IDs e approvazione account (HUMAN_ONLY)
+3. Nuovi sprint da ROADMAP (pm-orchestrator per suggerimento)
 
 HUMAN_ONLY:
 - Stripe live checkout QA (carta reale)
