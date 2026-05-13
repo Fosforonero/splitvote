@@ -147,6 +147,7 @@ export default function VoteClientPage({
   const [voteError, setVoteError] = useState(false)
   const [timeRemaining, setTimeRemaining] = useState<string>('')
   const [questionLinkCopied, setQuestionLinkCopied] = useState(false)
+  const [streakSaved, setStreakSaved] = useState(false)
   const router = useRouter()
 
   // Grace UX — refs prevent stale closures in timers
@@ -287,7 +288,13 @@ export default function VoteClientPage({
       if (pathCategory && pathStep && pathTarget) {
         resultsUrl += `&path=${pathCategory}&step=${pathStep}&target=${pathTarget}`
       }
-      router.push(resultsUrl)
+      // Show "Streak saved!" flash before redirect when user votes with an at-risk streak
+      if (streakAtRisk && streakDays > 0) {
+        setStreakSaved(true)
+        setTimeout(() => router.push(resultsUrl), 1200)
+      } else {
+        router.push(resultsUrl)
+      }
     } catch {
       setLoading(false)
       setSubmittedOption(null)
@@ -368,6 +375,27 @@ export default function VoteClientPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026') }}
       />
+
+      {/* Streak saved toast — briefly overlays the page before redirect */}
+      {streakSaved && (
+        <div
+          aria-live="assertive"
+          aria-atomic="true"
+          className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+        >
+          <div className="flex flex-col items-center gap-2 rounded-2xl border border-orange-500/40 bg-[#0d0d1a]/95 px-8 py-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+            <span className="text-5xl">🔥</span>
+            <p className="text-xl font-black text-orange-400">
+              {localePrefix === '/it' ? 'Streak salvato!' : 'Streak saved!'}
+            </p>
+            <p className="text-sm text-orange-300/70">
+              {localePrefix === '/it'
+                ? `🔥 ${streakDays + 1} giorni consecutivi!`
+                : `🔥 ${streakDays + 1} days in a row!`}
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className="max-w-2xl mx-auto px-4 py-16">
         {/* Back */}
