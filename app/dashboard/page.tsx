@@ -79,7 +79,7 @@ const COPY = {
     freePlan:         'Free Plan',
     freePlanDesc:     'Premium features coming soon — stay tuned!',
     statsVoted:       'Dilemmas voted',
-    statsSubmitted:   'Polls submitted',
+    statsStreak:      'Day streak',
     statsLive:        'Polls live',
     statsBadges:      'Badges earned',
     voteHistory:      '🗳️ Your Vote History',
@@ -98,7 +98,7 @@ const COPY = {
     freePlan:         'Piano Free',
     freePlanDesc:     'Funzioni premium in arrivo — resta sintonizzato!',
     statsVoted:       'Dilemmi votati',
-    statsSubmitted:   'Sondaggi inviati',
+    statsStreak:      'Giorni streak',
     statsLive:        'Sondaggi attivi',
     statsBadges:      'Trofei ottenuti',
     voteHistory:      '🗳️ Cronologia voti',
@@ -237,6 +237,14 @@ export default async function DashboardPage() {
         )}
       </div>
 
+      {/* ── Daily Missions — first thing returning users see ── */}
+      <DailyMissions
+        userId={user.id}
+        xp={xp}
+        streakDays={streakDays}
+        locale={locale}
+      />
+
       {/* ── Companion ── */}
       <CompanionDisplay
         species={companionSpecies}
@@ -253,14 +261,6 @@ export default async function DashboardPage() {
         equippedGlow={profile?.equipped_glow ?? null}
         nameColor={profile?.name_color ?? null}
         usePixieAvatar={profile?.use_pixie_avatar ?? false}
-        locale={locale}
-      />
-
-      {/* ── Daily Missions ── */}
-      <DailyMissions
-        userId={user.id}
-        xp={xp}
-        streakDays={streakDays}
         locale={locale}
       />
 
@@ -283,13 +283,15 @@ export default async function DashboardPage() {
       {/* ── Stats ── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
         {[
-          { label: t.statsVoted,     value: votesCount },
-          { label: t.statsSubmitted, value: typedPolls.length },
-          { label: t.statsLive,      value: approvedCount },
-          { label: t.statsBadges,    value: userBadges.length },
+          { label: t.statsVoted,  value: votesCount },
+          { label: t.statsStreak, value: streakDays, highlight: streakDays > 0 },
+          { label: t.statsLive,   value: approvedCount },
+          { label: t.statsBadges, value: userBadges.length },
         ].map(stat => (
-          <div key={stat.label} className="rounded-2xl border border-[var(--border)] bg-[#0d0d1a]/60 p-4 text-center">
-            <p className="text-2xl font-black text-white">{stat.value}</p>
+          <div key={stat.label} className={`rounded-2xl border p-4 text-center ${(stat as { highlight?: boolean }).highlight ? 'border-orange-500/30 bg-orange-500/5' : 'border-[var(--border)] bg-[#0d0d1a]/60'}`}>
+            <p className={`text-2xl font-black ${(stat as { highlight?: boolean }).highlight ? 'text-orange-400' : 'text-white'}`}>
+              {(stat as { highlight?: boolean }).highlight ? `🔥 ${stat.value}` : stat.value}
+            </p>
             <p className="text-[var(--muted)] text-xs mt-1">{stat.label}</p>
           </div>
         ))}

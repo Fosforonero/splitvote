@@ -186,15 +186,20 @@ export default function DailyMissions({ userId, xp, streakDays, locale = 'en' }:
         </div>
       </div>
 
-      {/* Streak */}
+      {/* Streak banner — prominent when active */}
       {streakDays > 0 && (
-        <div className="flex items-center gap-2 mb-4 text-sm">
-          <span className="text-orange-400">🔥</span>
-          <span className="font-bold text-orange-400">
-            {streakDays}{IT ? ' giorni di streak' : '-day streak'}
-          </span>
-          <span className="text-[var(--muted)] text-xs">
-            {IT ? '— vota ogni giorno!' : '— keep voting daily!'}
+        <div className="flex items-center gap-3 mb-4 rounded-xl border border-orange-500/30 bg-orange-500/10 px-3 py-2.5">
+          <span className="text-2xl leading-none flex-shrink-0">🔥</span>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-black text-orange-400 leading-tight">
+              {streakDays}{IT ? ' giorni di streak!' : '-day streak!'}
+            </p>
+            <p className="text-[11px] text-orange-300/70 leading-tight mt-0.5">
+              {IT ? 'Vota oggi per non interrompere la serie' : 'Vote today to keep the streak alive'}
+            </p>
+          </div>
+          <span className="text-2xl font-black text-orange-300/50 flex-shrink-0 tabular-nums">
+            {streakDays}
           </span>
         </div>
       )}
