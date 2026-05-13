@@ -4,14 +4,14 @@ import { createPublicClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
   title: 'Classifica | SplitVote',
-  description: 'I votatori più attivi su SplitVote — classificati per dilemmi votati, streak e badge ottenuti.',
+  description: 'I votatori più attivi su SplitVote — classificati per dilemmi votati, XP guadagnati e streak attive.',
   alternates: {
     canonical: 'https://splitvote.io/it/leaderboard',
     languages: { 'en': 'https://splitvote.io/leaderboard' },
   },
   openGraph: {
     title: 'Classifica | SplitVote',
-    description: 'I pensatori morali più attivi su SplitVote — classificati per dilemmi votati, streak e badge.',
+    description: 'I pensatori morali più attivi su SplitVote — classificati per dilemmi votati, XP e streak.',
     url: 'https://splitvote.io/it/leaderboard',
     siteName: 'SplitVote',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'Classifica | SplitVote',
-    description: 'I pensatori morali più attivi su SplitVote — classificati per dilemmi votati, streak e badge.',
+    description: 'I pensatori morali più attivi su SplitVote — classificati per dilemmi votati, XP e streak.',
   },
 }
 

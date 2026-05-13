@@ -4,14 +4,14 @@ import { createPublicClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
   title: 'Leaderboard | SplitVote',
-  description: 'The top voters on SplitVote — ranked by dilemmas voted, streaks, and badges earned.',
+  description: 'The top voters on SplitVote — ranked by dilemmas voted, XP earned, and active streaks.',
   alternates: {
     canonical: 'https://splitvote.io/leaderboard',
     languages: { 'it-IT': 'https://splitvote.io/it/leaderboard' },
   },
   openGraph: {
     title: 'Leaderboard | SplitVote',
-    description: 'The most dedicated moral thinkers on SplitVote — ranked by votes, streaks, and badges.',
+    description: 'The most dedicated moral thinkers on SplitVote — ranked by votes, XP, and streaks.',
     url: 'https://splitvote.io/leaderboard',
     siteName: 'SplitVote',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'Leaderboard | SplitVote',
-    description: 'The most dedicated moral thinkers on SplitVote — ranked by votes, streaks, and badges.',
+    description: 'The most dedicated moral thinkers on SplitVote — ranked by votes, XP, and streaks.',
   },
 }
 

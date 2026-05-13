@@ -7,6 +7,7 @@ import type { CompanionSpecies } from '@/lib/companion'
 import { PIXIE_ITEM_MAP } from '@/lib/pixie-store'
 import type { PixieItemId } from '@/lib/pixie-store'
 import { RARITY_STYLES, RARITY_ORDER } from '@/lib/rarity'
+import { getLevelInfo } from '@/lib/missions'
 
 const BASE = 'https://splitvote.io'
 
@@ -70,6 +71,8 @@ export default async function PublicProfilePage({ params }: Props) {
   const votesCount     = profile.votes_count ?? 0
   const companionSpecies = ((profile as Record<string, unknown>).companion_species as CompanionSpecies | null) ?? 'spark'
   const xp             = ((profile as Record<string, unknown>).xp as number | null) ?? 0
+  const streakDays     = ((profile as Record<string, unknown>).streak_days as number | null) ?? 0
+  const levelInfo      = getLevelInfo(xp)
 
   // Pixie avatar logic
   const usePixieAvatar = ((profile as Record<string, unknown>).use_pixie_avatar as boolean | null) ?? false
@@ -120,7 +123,7 @@ export default async function PublicProfilePage({ params }: Props) {
         )}
 
         {/* Stats */}
-        <div className="grid grid-cols-2 gap-4 mt-6 max-w-xs mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 max-w-sm mx-auto">
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
             <p className="text-2xl font-black text-blue-400">{votesCount.toLocaleString()}</p>
             <p className="text-xs text-[var(--muted)] mt-1">Dilemmas voted</p>
@@ -129,6 +132,24 @@ export default async function PublicProfilePage({ params }: Props) {
             <p className="text-2xl font-black text-yellow-400">{badges.length}</p>
             <p className="text-xs text-[var(--muted)] mt-1">Trophies earned</p>
           </div>
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
+            <p className={`text-2xl font-black ${levelInfo.color}`}>
+              Lv.{levelInfo.level}
+            </p>
+            <p className="text-xs text-[var(--muted)] mt-1">{xp.toLocaleString()} XP</p>
+          </div>
+          {streakDays > 0 && (
+            <div className="rounded-2xl border border-orange-500/30 bg-orange-500/5 p-4">
+              <p className="text-2xl font-black text-orange-400">🔥 {streakDays}</p>
+              <p className="text-xs text-[var(--muted)] mt-1">Day streak</p>
+            </div>
+          )}
+          {streakDays === 0 && (
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
+              <p className="text-2xl font-black text-[var(--muted)]">—</p>
+              <p className="text-xs text-[var(--muted)] mt-1">No streak yet</p>
+            </div>
+          )}
         </div>
       </div>
 
