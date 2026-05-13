@@ -3,7 +3,8 @@
  * Share URLs automatically use /it/play prefix.
  */
 import { notFound } from 'next/navigation'
-import { getDynamicScenario, getDynamicScenarios } from '@/lib/dynamic-scenarios'
+import { getDynamicScenario } from '@/lib/dynamic-scenarios'
+import { getCachedDynamicScenarios } from '@/lib/cached-data'
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
 import { getFreshNextScenarioId, getFreshNextScenarioIdByCategory, CATEGORIES } from '@/lib/scenarios'
 import type { Category } from '@/lib/scenarios'
@@ -83,7 +84,7 @@ export default async function ItResultsPage({ params, searchParams }: Props) {
     : null
 
   let dynamicScenarios: DynamicScenario[] = []
-  try { dynamicScenarios = await getDynamicScenarios() } catch { /* non-blocking */ }
+  try { dynamicScenarios = await getCachedDynamicScenarios() } catch { /* non-blocking */ }
   const itPool = dynamicScenarios.filter((s) => s.locale === 'it')
 
   let votedIds = new Set<string>()
