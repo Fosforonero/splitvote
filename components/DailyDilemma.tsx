@@ -118,6 +118,12 @@ export default function DailyDilemma({ scenario, totalVotes, locale = 'en' }: Pr
           <span className="text-yellow-400 text-xs sm:text-sm font-black uppercase tracking-widest neon-text-yellow">
             {copy.label}
           </span>
+          {/* XP reward pill — visible before voting to motivate daily engagement */}
+          {mounted && !isVoted && (
+            <span className="text-[10px] font-black text-yellow-300 bg-yellow-500/15 border border-yellow-500/30 rounded-full px-2 py-0.5 leading-none">
+              +50 XP
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-1.5 text-xs text-[var(--muted)]">
           {mounted && isVoted ? (
