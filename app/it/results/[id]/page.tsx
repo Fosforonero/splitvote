@@ -141,9 +141,11 @@ export default async function ItResultsPage({ params, searchParams }: Props) {
     description: `Distribuzione dei voti globali sul dilemma morale: "${scenario.optionA}" contro "${scenario.optionB}".`,
     url: `${BASE_URL}/it/results/${params.id}`,
     dateModified: new Date().toISOString().split('T')[0],
-    hasPart: [
-      { '@type': 'DataDownload', name: scenario.optionA, description: `${votes.a} voti (${pctA}%)` },
-      { '@type': 'DataDownload', name: scenario.optionB, description: `${votes.b} voti (${pctB}%)` },
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    creator: { '@type': 'Organization', name: 'SplitVote', url: BASE_URL },
+    variableMeasured: [
+      { '@type': 'PropertyValue', name: scenario.optionA, value: `${votes.a} voti (${pctA}%)` },
+      { '@type': 'PropertyValue', name: scenario.optionB, value: `${votes.b} voti (${pctB}%)` },
     ],
   }
 
