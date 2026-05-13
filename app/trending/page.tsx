@@ -1,10 +1,12 @@
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
-import { getFreshDynamicScenarios, getCachedVotesBatchDetail } from '@/lib/cached-data'
+import { getCachedDynamicScenarios, getCachedVotesBatchDetail } from '@/lib/cached-data'
 import { scenarios, CATEGORIES } from '@/lib/scenarios'
 import type { Scenario, Category } from '@/lib/scenarios'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import VotedDilemmaCard from '@/components/VotedDilemmaCard'
+
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Top Dilemmas & Trending | SplitVote',
@@ -28,7 +30,7 @@ export default async function TrendingPage() {
   // ── All scenarios (static + dynamic approved) ─────────────────
   let dynamicScenarios: DynamicScenario[] = []
   try {
-    const all = await getFreshDynamicScenarios()
+    const all = await getCachedDynamicScenarios()
     const staticIds = new Set(scenarios.map((s) => s.id))
     dynamicScenarios = all
       .filter((d) => !staticIds.has(d.id) && d.locale === 'en')

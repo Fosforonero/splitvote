@@ -2,7 +2,7 @@ import Link from 'next/link'
 import PersonalityTeaser from '@/components/PersonalityTeaser'
 import { scenarios } from '@/lib/scenarios'
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
-import { getFreshDynamicScenarios, getCachedVotesBatch, getCachedTrendingIds } from '@/lib/cached-data'
+import { getCachedDynamicScenarios, getCachedVotesBatch, getCachedTrendingIds } from '@/lib/cached-data'
 import DilemmaCard from '@/components/DilemmaCard'
 import VotedDilemmaCard from '@/components/VotedDilemmaCard'
 import DilemmaGrid from '@/components/DilemmaGrid'
@@ -20,6 +20,8 @@ function getDailyScenario(all: Scenario[]): Scenario {
 }
 
 const BASE_URL = 'https://splitvote.io'
+
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Dilemmi Morali — Vota e Confrontati con il Mondo',
@@ -135,7 +137,7 @@ export default async function ItPage() {
   const staticIds = new Set(scenarios.map((s) => s.id))
   let dynamicIT: DynamicScenario[] = []
   try {
-    const allDynamic = await getFreshDynamicScenarios()
+    const allDynamic = await getCachedDynamicScenarios()
     dynamicIT = allDynamic
       .filter((d) => !staticIds.has(d.id) && d.locale === 'it')
       .sort((a, b) => {

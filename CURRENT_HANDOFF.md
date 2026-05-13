@@ -1,6 +1,6 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 12 May 2026 (post Sprint A/B/C/D + Vercel deploy fix)
+Last updated: 13 May 2026 (post Sprint E — ISR performance fix)
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 
@@ -10,12 +10,12 @@ Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 
 - **Branch:** `main`
 - **Local vs remote:** **in sync** — all commits pushed
-- **Last pushed:** `7f7cbf8`
-- **Vercel build:** `2RGD1GonJ` — Building (`7f7cbf8`) — started ~21:30 12 May 2026
+- **Last pushed:** `7f7cbf8` (Sprint E commit pending push — await explicit GO)
 
-### Recent commits (today)
+### Recent commits
 | Hash | Description |
 |---|---|
+| Sprint E | perf(Sprint E): restore ISR on homepage, /it, /trending, category pages |
 | `7f7cbf8` | fix(config): correct www redirect source pattern for Vercel (`/:path*`) |
 | `f96a8df` | ci: verify webhook after reconnect (empty) |
 | `2fbf23c` | feat(launch): Sprint D — sitemap leaderboard, OG metadata, GA4 funnel completion |
@@ -25,12 +25,21 @@ Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 | `96aafa8` | docs: update HANDOFF + LAUNCH_AUDIT — Sprint A/B/C + launch fixes |
 | `2de5d1a` | fix(launch): html[lang] on IT routes, www redirect, focus rings verified |
 | `0ad65f0` | ui(Sprint C): consolidate rarity tokens, A/B color consistency, dashboard i18n |
-| `1927b8a` | feat(Sprint B): redesign PixieSelector — Currently Equipped, filter tabs, full i18n |
-| `6ef5316` | perf(Sprint A): ISR for public profiles + blog, locale in dashboard, lazy-load modals |
 
 ---
 
-## 2. What changed today (12 May 2026)
+## 2. What changed today (13 May 2026)
+
+### Sprint E — ISR Performance Fix
+- **Root cause**: `getFreshDynamicScenarios()` calls `unstable_noStore()` inside — any page that called it was forced into dynamic server-rendering on every request (no ISR), even though `getCachedDynamicScenarios()` with `unstable_cache` + `revalidate:3600` already existed in `lib/cached-data.ts`.
+- **Fix**: Swapped `getFreshDynamicScenarios` → `getCachedDynamicScenarios` in 6 pages + added `export const revalidate = 3600` to the 4 that had no revalidate directive + replaced `export const dynamic = 'force-dynamic'` with `export const revalidate = 3600` in the 2 category pages.
+- **Pages fixed**: `app/page.tsx`, `app/it/page.tsx`, `app/trending/page.tsx`, `app/it/trending/page.tsx`, `app/category/[category]/page.tsx`, `app/it/category/[category]/page.tsx`
+- **Verified**: Build output confirms `/` `○`, `/it` `○`, `/trending` `○`, `/it/trending` `○` (all Static/ISR); `/category/*` and `/it/category/*` `●` (SSG). Previously all were `ƒ` (Dynamic, per-request).
+- **On-demand invalidation**: Already wired — `revalidateTag('dynamic-scenarios')` in admin approve routes fires immediately when a new dilemma is approved, so cache is always fresh.
+
+---
+
+## 3. What changed 12 May 2026
 
 ### Sprint A — Performance Pass
 - `/u/[id]/page.tsx`: `force-dynamic` removed → `revalidate:3600`; uses `createPublicClient()` (no cookies → ISR-safe)

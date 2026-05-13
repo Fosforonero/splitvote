@@ -2,7 +2,7 @@
  * /it/trending — Classifiche aggregate e dilemmi di tendenza italiani.
  */
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
-import { getFreshDynamicScenarios, getCachedVotesBatchDetail } from '@/lib/cached-data'
+import { getCachedDynamicScenarios, getCachedVotesBatchDetail } from '@/lib/cached-data'
 import { scenarios, CATEGORIES } from '@/lib/scenarios'
 import type { Scenario } from '@/lib/scenarios'
 import Link from 'next/link'
@@ -11,6 +11,8 @@ import VotedDilemmaCard from '@/components/VotedDilemmaCard'
 import { translateScenarioToItalian } from '@/lib/scenarios-it'
 
 const BASE_URL = 'https://splitvote.io'
+
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Classifiche & Tendenze | SplitVote',
@@ -42,7 +44,7 @@ export default async function ItTrendingPage() {
   // ── IT-only scenarios (static + dynamic approved, IT locale only) ─
   let itDynamic: DynamicScenario[] = []
   try {
-    const all = await getFreshDynamicScenarios()
+    const all = await getCachedDynamicScenarios()
     const staticIds = new Set(scenarios.map((s) => s.id))
     itDynamic = all
       .filter((d) => !staticIds.has(d.id) && d.locale === 'it')
