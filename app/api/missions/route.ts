@@ -20,6 +20,7 @@ const MISSION_REQUIRED: Record<MissionId, number> = {
 const COMING_SOON = new Set<MissionId>([])
 
 const SHARE_EVENT_TYPES = ['share_result', 'copy_result_link', 'story_card_share', 'story_card_download']
+const CHALLENGE_EVENT_TYPES = ['challenge_link_copied']
 
 async function getVotedDilemmaIdsToday(
   supabase: Awaited<ReturnType<typeof createClient>>,
@@ -74,6 +75,25 @@ async function countShareEventsToday(
   }
 }
 
+async function countChallengeEventsToday(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  userId: string,
+): Promise<number> {
+  const todayStart = new Date()
+  todayStart.setHours(0, 0, 0, 0)
+  try {
+    const { count } = await supabase
+      .from('user_events')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', userId)
+      .in('event_type', CHALLENGE_EVENT_TYPES)
+      .gte('created_at', todayStart.toISOString())
+    return count ?? 0
+  } catch {
+    return 0
+  }
+}
+
 /** GET /api/missions — returns today's rotating daily missions + special for the logged-in user */
 export async function GET() {
   try {
@@ -98,7 +118,7 @@ export async function GET() {
 
     const today = new Date().toISOString().split('T')[0]
 
-    const [completedData, votedIds, dynamicScenarios, shareEventsCount, referralVisitsCount] = await Promise.all([
+    const [completedData, votedIds, dynamicScenarios, shareEventsCount, referralVisitsCount, challengeEventsCount] = await Promise.all([
       supabase
         .from('mission_completions')
         .select('mission_id')
@@ -109,6 +129,7 @@ export async function GET() {
       getDynamicScenarios().catch(() => []),
       countShareEventsToday(supabase, user.id),
       countReferralVisitsToday(supabase, user.id),
+      countChallengeEventsToday(supabase, user.id),
     ])
 
     const completedSet = new Set(
@@ -141,10 +162,11 @@ export async function GET() {
           case 'vote_2_categories': progress = Math.min(categoriesVoted.size, 2); break
           case 'vote_3_categories': progress = Math.min(categoriesVoted.size, 3); break
           case 'share_result':      progress = Math.min(shareEventsCount, 1); break
-          case 'challenge_friend':  progress = Math.min(referralVisitsCount, 1); break
-          // share_and_challenge: 1 share + 1 referral = max 2
+          // challenge_friend: copy the challenge link (user-controlled action)
+          case 'challenge_friend':  progress = Math.min(challengeEventsCount, 1); break
+          // share_and_challenge: 1 share + 1 challenge copy = max 2
           case 'share_and_challenge':
-            progress = Math.min(shareEventsCount, 1) + Math.min(referralVisitsCount, 1); break
+            progress = Math.min(shareEventsCount, 1) + Math.min(challengeEventsCount, 1); break
           default:                  progress = 0
         }
       }

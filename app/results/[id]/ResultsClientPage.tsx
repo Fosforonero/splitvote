@@ -412,6 +412,8 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
     navigator.clipboard.writeText(challengeUrl)
     setChallengeCopied(true)
     track('share_clicked', { target: 'challenge', scenario_id: scenario.id, locale })
+    // Server-side event for mission verification (challenge_friend + share_and_challenge)
+    trackServerEvent('challenge_link_copied')
     setTimeout(() => setChallengeCopied(false), 2000)
   }
 

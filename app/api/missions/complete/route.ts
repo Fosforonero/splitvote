@@ -143,10 +143,11 @@ async function verifyMission(
     }
 
     case 'share_and_challenge': {
+      // 1 share event + 1 challenge_link_copied event both required
       const todayStartSac = new Date()
       todayStartSac.setHours(0, 0, 0, 0)
       try {
-        const [shareRes, refRes] = await Promise.all([
+        const [shareRes, challengeRes] = await Promise.all([
           supabase
             .from('user_events')
             .select('id', { count: 'exact', head: true })
@@ -157,24 +158,25 @@ async function verifyMission(
             .from('user_events')
             .select('id', { count: 'exact', head: true })
             .eq('user_id', userId)
-            .eq('event_type', 'referral_visit')
+            .eq('event_type', 'challenge_link_copied')
             .gte('created_at', todayStartSac.toISOString()),
         ])
-        const shareCount = shareRes.count ?? 0
-        const refCount   = refRes.count ?? 0
-        if (shareCount < 1 || refCount < 1) {
+        const shareCount     = shareRes.count ?? 0
+        const challengeCount = challengeRes.count ?? 0
+        if (shareCount < 1 || challengeCount < 1) {
           const missing = []
           if (shareCount < 1) missing.push('share a result')
-          if (refCount < 1) missing.push('send a challenge link')
+          if (challengeCount < 1) missing.push('copy a challenge link')
           return { eligible: false, reason: `Still needed: ${missing.join(' and ')}` }
         }
         return { eligible: true }
       } catch {
-        return { eligible: false, reason: 'Event tracking unavailable — apply migration_v8 and v9 first' }
+        return { eligible: false, reason: 'Event tracking unavailable — apply migration_v8_user_events.sql first' }
       }
     }
 
     case 'challenge_friend': {
+      // Completes when user copies the challenge link (user-controlled action)
       const todayStart4 = new Date()
       todayStart4.setHours(0, 0, 0, 0)
       try {
@@ -182,14 +184,14 @@ async function verifyMission(
           .from('user_events')
           .select('id', { count: 'exact', head: true })
           .eq('user_id', userId)
-          .eq('event_type', 'referral_visit')
+          .eq('event_type', 'challenge_link_copied')
           .gte('created_at', todayStart4.toISOString())
         if ((count ?? 0) < 1) {
-          return { eligible: false, reason: 'No referral visits today — share your challenge link first' }
+          return { eligible: false, reason: 'Copy a challenge link first — use the "Challenge a friend" button on any result page' }
         }
         return { eligible: true }
       } catch {
-        return { eligible: false, reason: 'Referral tracking unavailable — apply migration_v9_referral_codes.sql first' }
+        return { eligible: false, reason: 'Challenge tracking unavailable — apply migration_v8_user_events.sql first' }
       }
     }
 
