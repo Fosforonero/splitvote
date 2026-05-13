@@ -200,10 +200,14 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   const [isAnon, setIsAnon] = useState(false)
   const [referralCode, setReferralCode] = useState<string | null>(null)
   const [showPersonalityTeaser, setShowPersonalityTeaser] = useState(false)
+  const [stickyVisible, setStickyVisible] = useState(false)
 
   const isIT = sharePrefix === '/it'
   const copy = isIT ? IT_COPY : EN_COPY
   const locale = isIT ? 'it' : 'en'
+
+  // Computed early so effects can reference it in their dependency arrays
+  const showStickyNext = !pathCategory && !!nextId
   const baseInsight = getExpertInsight(scenario.category, locale)
   const dynamicOverride: DynamicExpertInsight | undefined = locale === 'it'
     ? (scenario as Partial<DynamicScenario>).expertInsightIt
@@ -273,6 +277,19 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
     const t = setTimeout(() => setRevealed(true), 500)
     return () => clearTimeout(t)
   }, [voted, total])
+
+  // Slide sticky bar in after results are revealed — gives a natural sequence:
+  // bars animate → results appear → sticky slides up.
+  // Instant for reduced-motion; 200ms delay otherwise.
+  useEffect(() => {
+    if (!showStickyNext || !revealed) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setStickyVisible(true)
+      return
+    }
+    const t = setTimeout(() => setStickyVisible(true), 200)
+    return () => clearTimeout(t)
+  }, [showStickyNext, revealed])
 
   const shareUrl = `${BASE_URL}${sharePrefix}/play/${scenario.id}`
   const challengeUrl = referralCode
@@ -480,12 +497,9 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
     }
   }
 
-  // S5c — show sticky bar only on standard CTA (no path flow, nextId available)
-  const showStickyNext = !pathCategory && !!nextId
-
   return (
     <>
-    <div className={`max-w-2xl mx-auto px-4 pt-16 ${showStickyNext ? 'pb-28 sm:pb-16' : 'pb-16'}`}>
+    <div className={`max-w-2xl mx-auto px-4 pt-16 ${showStickyNext ? 'pb-28' : 'pb-16'}`}>
       <Link href={sharePrefix || '/'} className="text-sm text-[var(--muted)] hover:text-white transition-colors mb-8 inline-block">
         {copy.back}
       </Link>
@@ -1082,19 +1096,21 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
       )}
     </div>
 
-    {/* S5c — Sticky "Next dilemma" CTA: mobile-only fixed bottom bar */}
+    {/* Sticky "Next dilemma" CTA — all screen sizes, slides up after reveal */}
     {showStickyNext && (
       <div
-        className="sm:hidden fixed bottom-0 left-0 right-0 z-40 px-4 py-3 border-t border-white/10 bg-[var(--bg)]/90 backdrop-blur-md"
-        style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
+        className={`fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-[var(--bg)]/90 backdrop-blur-md transition-transform duration-300 ease-out ${stickyVisible ? 'translate-y-0' : 'translate-y-full'}`}
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
-        <Link
-          href={`${sharePrefix ?? ''}/play/${nextId}`}
-          onClick={() => track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_sticky' })}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm px-6 py-3.5 transition-colors"
-        >
-          {copy.nextDilemma}
-        </Link>
+        <div className="max-w-2xl mx-auto px-4 py-3">
+          <Link
+            href={`${sharePrefix ?? ''}/play/${nextId}`}
+            onClick={() => track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_sticky' })}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm px-6 py-3.5 transition-colors"
+          >
+            {copy.nextDilemma}
+          </Link>
+        </div>
       </div>
     )}
     </>
