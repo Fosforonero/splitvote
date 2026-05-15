@@ -15,6 +15,21 @@ const MAX_DRAFTS       = 120
 const APPROVE_LOCK_KEY = 'dynamic:approve-lock'
 const LOCK_TTL_MS      = 5000
 
+function parseScenarioList(raw: unknown): DynamicScenario[] {
+  if (Array.isArray(raw)) return raw as DynamicScenario[]
+
+  if (typeof raw === 'string') {
+    try {
+      const parsed = JSON.parse(raw)
+      return Array.isArray(parsed) ? parsed as DynamicScenario[] : []
+    } catch {
+      return []
+    }
+  }
+
+  return []
+}
+
 export class ApproveLockError extends Error {
   constructor() {
     super('Another approval is in progress')
@@ -42,8 +57,8 @@ async function releaseApproveLock(token: string): Promise<void> {
 // Strict read: does not swallow errors. Callers inside the approve lock
 // need real failures to propagate rather than silently returning [].
 async function getApprovedScenariosStrict(): Promise<DynamicScenario[]> {
-  const raw = await redis.get<DynamicScenario[]>(DYNAMIC_KEY)
-  return Array.isArray(raw) ? raw.map(s => ({ ...s, status: s.status ?? 'approved' })) : []
+  const raw = await redis.get<DynamicScenario[] | string>(DYNAMIC_KEY)
+  return parseScenarioList(raw).map(s => ({ ...s, status: s.status ?? 'approved' }))
 }
 
 export type DilemmaStatus = 'draft' | 'approved' | 'rejected'
@@ -92,9 +107,8 @@ export interface DynamicScenario extends Scenario {
 
 export async function getDynamicScenarios(): Promise<DynamicScenario[]> {
   try {
-    const raw = await redis.get<DynamicScenario[]>(DYNAMIC_KEY)
-    if (!Array.isArray(raw)) return []
-    return raw.map(s => ({ ...s, status: s.status ?? 'approved' }))
+    const raw = await redis.get<DynamicScenario[] | string>(DYNAMIC_KEY)
+    return parseScenarioList(raw).map(s => ({ ...s, status: s.status ?? 'approved' }))
   } catch {
     return []
   }
@@ -126,8 +140,8 @@ export async function saveDynamicScenarios(newOnes: DynamicScenario[]): Promise<
 
 export async function getDraftScenarios(): Promise<DynamicScenario[]> {
   try {
-    const raw = await redis.get<DynamicScenario[]>(DRAFTS_KEY)
-    return Array.isArray(raw) ? raw : []
+    const raw = await redis.get<DynamicScenario[] | string>(DRAFTS_KEY)
+    return parseScenarioList(raw)
   } catch {
     return []
   }

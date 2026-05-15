@@ -670,10 +670,7 @@ export default async function AdminPage({ searchParams }: AdminProps) {
       ══════════════════════════════════════════════ */}
       {activeTab === 'ai-drafts' && (
         <div className="space-y-6">
-          {/* Seed batch — includes manual seed for controlled dilemma generation */}
-          <SeedBatchPanel />
-
-          {/* Cron debug / dilemma list */}
+          {/* Draft queue / approved dynamic dilemma list */}
           <div id="dynamic-dilemmas">
             <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
               <div className="flex items-center gap-2">
@@ -696,6 +693,9 @@ export default async function AdminPage({ searchParams }: AdminProps) {
               <CronDebug />
             </div>
           </div>
+
+          {/* Seed batch — includes manual seed for controlled dilemma generation */}
+          <SeedBatchPanel />
         </div>
       )}
 
