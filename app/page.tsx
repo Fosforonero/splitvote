@@ -1,6 +1,6 @@
 import { scenarios } from '@/lib/scenarios'
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
-import { getCachedDynamicScenarios, getCachedVotesBatch, getCachedTrendingIds } from '@/lib/cached-data'
+import { getFreshDynamicScenarios, getCachedVotesBatch, getCachedTrendingIds } from '@/lib/cached-data'
 import DilemmaGrid from '@/components/DilemmaGrid'
 import DilemmaCard from '@/components/DilemmaCard'
 import VotedDilemmaCard from '@/components/VotedDilemmaCard'
@@ -9,12 +9,29 @@ import DailyDilemma from '@/components/DailyDilemma'
 import PersonalityTeaser from '@/components/PersonalityTeaser'
 import JsonLd from '@/components/JsonLd'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import type { Scenario } from '@/lib/scenarios'
 
 const SLOT_HOME = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME ?? 'TODO'
 const BASE_URL = 'https://splitvote.io'
 
-export const revalidate = 3600
+// Reciprocal hreflang to /it so Google can discover the Italian alternate.
+// Mirrors the alternates declared on app/it/page.tsx.
+export const metadata: Metadata = {
+  alternates: {
+    canonical: BASE_URL,
+    languages: {
+      en:          BASE_URL,
+      'it-IT':     `${BASE_URL}/it`,
+      'x-default': BASE_URL,
+    },
+  },
+}
+
+// Bypasses Next.js Data Cache to avoid stale dynamic discovery state
+// (same pattern as commit 76ad684 — extended here to EN home).
+// getFreshDynamicScenarios calls noStore() + reads Redis directly.
+export const dynamic = 'force-dynamic'
 
 function getDailyScenario(all: Scenario[]): Scenario {
   if (all.length === 0) return scenarios[0]
@@ -25,7 +42,7 @@ function getDailyScenario(all: Scenario[]): Scenario {
 export default async function HomePage() {
   let dynamicScenarios: DynamicScenario[] = []
   try {
-    dynamicScenarios = (await getCachedDynamicScenarios()).filter(s => s.locale === 'en')
+    dynamicScenarios = (await getFreshDynamicScenarios()).filter(s => s.locale === 'en')
   } catch {
     // Redis unavailable
   }
@@ -289,6 +306,19 @@ export default async function HomePage() {
         <div className="mt-12">
           <AdSlot slot={SLOT_HOME} className="rounded-2xl" />
         </div>
+
+        {/* Crawlable link to Italian site — server-rendered so Googlebot can follow it.
+            Paired with the hreflang declared in metadata above. */}
+        <p className="mt-10 text-center text-xs text-[var(--muted)]">
+          🇮🇹 Italiano?{' '}
+          <Link
+            href="/it"
+            hrefLang="it"
+            className="underline underline-offset-2 hover:text-white transition-colors"
+          >
+            Vai alla versione italiana →
+          </Link>
+        </p>
       </div>
     </>
   )
