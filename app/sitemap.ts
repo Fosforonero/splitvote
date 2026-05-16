@@ -62,7 +62,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // AI-generated scenario pages — locale-aware URLs, approvedAt timestamp
   const dynamicRoutes = dynamicScenarios.flatMap(({ id, lastModified, locale }) => {
-    const lastMod = lastModified ?? now
+    const lastMod = lastModified ?? STATIC_LAST_MOD
     const isIT = locale === 'it'
     const playUrl    = isIT ? `${BASE}/it/play/${id}`    : `${BASE}/play/${id}`
     const resultsUrl = isIT ? `${BASE}/it/results/${id}` : `${BASE}/results/${id}`
@@ -87,7 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const published = await getPublishedBlogDrafts()
     for (const draft of published) {
-      const lastMod = draft.publishedAt ? new Date(draft.publishedAt) : now
+      const lastMod = draft.publishedAt ? new Date(draft.publishedAt) : STATIC_LAST_MOD
       publishedBlogRoutes.push({
         url: draft.source.locale === 'it'
           ? `${BASE}/it/blog/${draft.source.slug}`
