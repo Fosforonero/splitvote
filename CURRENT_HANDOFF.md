@@ -1,6 +1,6 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 15 May 2026 (post SEO discovery + dashboard recovery + Pixie polish — end of day)
+Last updated: 16 May 2026 (post dashboard FK fix + build break + Supabase RLS root cause analysis)
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 
@@ -10,7 +10,15 @@ Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 
 - **Branch:** `main`
 - **Local vs remote:** **in sync** — all commits below pushed
-- **Last pushed:** `29430a9` — all commits pushed, main in sync
+- **Last pushed:** `4c61022` — all commits pushed, main in sync
+
+### Recent commits — session 16 May 2026 (4 commits)
+| Hash | Description |
+|---|---|
+| `4c61022` | fix(types): accept optional votesToday prop in DailyMissions (unblocked Vercel build) |
+| `504b3b8` | fix(dashboard): null guard on b.badges in BadgeSection + page (digest 1932806716) |
+| `7a55801` | fix(dashboard): null guard on b.badges before .map() (digest 2512231454) |
+| _v19 migration_ | **Not committed/applied yet — PM action in Supabase SQL Editor** |
 
 ### Recent commits — session 15 May 2026 (10 commits)
 | Hash | Description |
@@ -39,6 +47,41 @@ Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 | `2ea200a` | fix(sprint-m): challenge_friend mission via challenge_link_copied event |
 | `8198753` | feat(sprint-h): elevate streak to first-class dashboard retention signal |
 | `433ec8c` | perf(sprint-i): swap getDynamicScenarios → getCachedDynamicScenarios in IT results page |
+
+---
+
+## 1a. What changed today (16 May 2026) — Dashboard FK + build break + DB root cause
+
+### Dashboard FK orfana — sintomo (PM-driven, commits 7a55801 + 504b3b8)
+- Digest `2512231454`: `userBadges.map` accedeva a `b.badges.name/.emoji` quando il join `badges(...)` ritornava `null`. Fix: `.filter(b => b.badges != null)` prima del `.slice(0,5).map(...)` nell'header del dashboard.
+- Digest `1932806716`: stesso pattern propagato a `<BadgeSection>` (e all'`equippedBadge.badges.name` nel titolo). Fix: filter sui props passati al component + null guard sul title.
+
+### Build break post-fix — `4c61022` (Claude)
+- Il fix `504b3b8` aggiungeva `<DailyMissions votesToday={...} />` sul dashboard ma il component `Props` non dichiarava `votesToday`. Vercel build TypeScript falliva.
+- Fix: aggiunto `votesToday?: number` (opzionale) su [components/DailyMissions.tsx](components/DailyMissions.tsx). Tutti gli altri caller continuano a compilare; quando vuoi renderizzare la prop nella UI dimmelo (5 min di refactor del component body).
+
+### VERA root cause — analisi Supabase MCP
+- `badges` table aveva **RLS enabled** ma **0 policies** (confermato da Supabase security advisor + query a `pg_policy`).
+- Conseguenza: ogni query authenticated col join `badges(...)` riceveva `badges: null` per ogni riga. Il fix difensivo del PM (filter null) elimina il crash, ma il **side effect è che la badge collection del dashboard è VUOTA per tutti gli utenti** finché non si aggiunge una RLS policy SELECT.
+- Verificato anche: **zero FK orfane** in `user_badges` (11 righe totali, tutte con badge valido). Quindi non era un problema di FK orfana — era un problema di permessi RLS.
+
+### Migration v19 proposta (NON APPLICATA — PM action)
+- File: [supabase/migration_v19_badges_rls_and_fk_hardening.sql](supabase/migration_v19_badges_rls_and_fk_hardening.sql)
+- Contenuto:
+  1. `CREATE POLICY "Anyone can read badge definitions" ON public.badges FOR SELECT TO anon, authenticated USING (true)` — chiude il root cause
+  2. `user_badges.badge_id` FK da `NO ACTION` → `ON DELETE CASCADE` — preventivo (idempotenza: 0 orphan attuali)
+  3. Cleanup query commentata per orphan futuri
+  4. 3 query di verifica post-apply
+- **Da eseguire da te in Supabase SQL Editor** (HUMAN_ONLY per regola CLAUDE.md su database migrations). Effetto atteso: dashboard ricomincia a mostrare i badge utente correttamente.
+
+### Altri security advisor (medio-bassa priorità)
+| Level | Item | Note |
+|---|---|---|
+| ERROR | `dilemma_feedback_stats` view is SECURITY DEFINER | Verifica intent — la view può bypassare RLS della tabella sottostante |
+| WARN | 7 functions con `search_path` mutable | Minor SQL injection vector — hardening cosmetico |
+| WARN | `poll_votes` RLS policy "Anyone can insert votes" `WITH CHECK = true` | Voluto? Verifica intent |
+| WARN | 9 `SECURITY DEFINER` functions callable da anon/authenticated | Audit per ognuna se intent corretto |
+| WARN | `auth_leaked_password_protection` disabilitato | Best practice Supabase — abilitare in Auth → Password protection |
 
 ---
 
