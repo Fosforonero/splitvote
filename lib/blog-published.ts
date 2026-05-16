@@ -1,18 +1,37 @@
-import { redis } from './redis'
 import type { BlogDraft } from './blog-drafts'
 import type { BlogPost, SectionType } from './blog'
 
 const BLOG_PUBLISHED_KEY = 'blog:published'
+const BLOG_REVALIDATE_SECONDS = 3600
 
-// NOTE: previously wrapped with React cache() for intra-request dedup.
-// Removed 16 May 2026 — the wrap correlated with a 500 on Redis-published
-// articles in production that persisted even after defensive coercion of
-// every malformable field. Reverting to the pre-sprint shape pending
-// offline reproduction with the actual prod Redis blob.
+// Public read path for published blog posts.
+//
+// Do not use the shared Upstash Redis client here: its default fetch mode is
+// `no-store`, which makes on-demand Redis blog slugs trip Next's
+// static-to-dynamic guard when /blog/[slug] is configured for SSG + ISR.
+// A plain REST GET with `next.revalidate` keeps the fetch cacheable and lets
+// Redis-published slugs render through the ISR fallback without forcing the
+// whole route dynamic.
 export async function getPublishedBlogDrafts(): Promise<BlogDraft[]> {
   try {
-    const raw = await redis.get<BlogDraft[]>(BLOG_PUBLISHED_KEY)
-    return Array.isArray(raw) ? raw : []
+    const url = process.env.KV_REST_API_URL
+    const token = process.env.KV_REST_API_TOKEN
+    if (!url || !token) return []
+
+    const response = await fetch(
+      `${url.replace(/\/$/, '')}/get/${encodeURIComponent(BLOG_PUBLISHED_KEY)}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        next: { revalidate: BLOG_REVALIDATE_SECONDS },
+      },
+    )
+    if (!response.ok) return []
+
+    const payload = await response.json() as { result?: unknown }
+    const raw = typeof payload.result === 'string'
+      ? JSON.parse(payload.result) as unknown
+      : payload.result
+    return Array.isArray(raw) ? raw as BlogDraft[] : []
   } catch {
     return []
   }

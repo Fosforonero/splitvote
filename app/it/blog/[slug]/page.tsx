@@ -11,9 +11,9 @@ interface Props {
   params: { slug: string }
 }
 
-// TEMPORARY: force-dynamic restored as a safety net (matches /blog/[slug]).
-// See app/blog/[slug]/page.tsx for the same comment block + reasoning.
-export const dynamic = 'force-dynamic'
+// Blog articles don't contain per-user content. Static slugs from lib/blog.ts
+// are pre-rendered at build time via generateStaticParams; Redis-published
+// slugs resolve on demand and are cached for `revalidate` seconds.
 export const revalidate = 3600
 
 export function generateStaticParams() {

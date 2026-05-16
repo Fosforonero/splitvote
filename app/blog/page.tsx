@@ -6,8 +6,8 @@ import { getPublishedBlogDrafts, getPublishedPostsForLocale } from '@/lib/blog-p
 import BlogGrid from '@/components/BlogGrid'
 
 // ISR 1 hour — index merges static lib/blog.ts posts with Redis-published
-// drafts. getPublishedBlogDrafts() is wrapped in React cache() so multiple
-// callers in the same request hit Redis only once.
+// drafts. React cache() is intentionally not used here; see
+// scripts/debug-blog-published-cache.mjs for the production incident guard.
 export const revalidate = 3600
 
 const BASE = 'https://splitvote.io'
