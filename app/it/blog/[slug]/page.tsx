@@ -130,9 +130,22 @@ export default async function ITBlogPostPage({ params }: Props) {
     keywords: post.tags.join(', '),
   }
 
+  const faqPageSchema = post.faq && post.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type':    'FAQPage',
+        mainEntity: post.faq.map(({ q, a }) => ({
+          '@type': 'Question',
+          name:    q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      }
+    : null
+
   return (
     <>
       <JsonLd data={blogPostingSchema} />
+      {faqPageSchema && <JsonLd data={faqPageSchema} />}
       <BlogArticle post={post} localePrefix="/it" />
     </>
   )

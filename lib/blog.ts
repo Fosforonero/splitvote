@@ -56,6 +56,8 @@ export interface BlogPost {
   alternateSlug?: string
   /** Optional hero/social image with license attribution. Falls back to /og-default.png. */
   image?: BlogImage
+  /** Structured FAQ pairs used to emit FAQPage JSON-LD. Static posts encode their FAQ inline in `content`; only set this when Q/A pairs are available as structured data. */
+  faq?: { q: string; a: string }[]
   content: SectionType[]
 }
 

@@ -125,6 +125,7 @@ export function publishedDraftToPost(draft: BlogDraft, locale: 'en' | 'it'): Blo
     tags: Array.isArray(article.keywords) ? article.keywords : [],
     relatedDilemmaIds: Array.isArray(article.relatedDilemmaIds) ? article.relatedDilemmaIds : [],
     alternateSlug,
+    faq: Array.isArray(article.faq) && article.faq.length > 0 ? article.faq : undefined,
     content: sections,
   }
 }
