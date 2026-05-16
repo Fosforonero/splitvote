@@ -97,7 +97,23 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
+  // Opt-in matcher: only routes that need the IT-redirect or Supabase auth gate.
+  // Public/SEO routes (/blog, /play, /results, /sitemap.xml, etc.) skip the
+  // middleware entirely so Vercel can serve them from pure edge cache. Each
+  // protected route below already runs its own server-side auth check at the
+  // page/handler level — middleware is defense-in-depth, not the only gate.
   matcher: [
-    '/((?!_next/static|_next/image|favicon\\.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|webmanifest)$).*)',
+    '/',
+    '/dashboard/:path*',
+    '/profile/:path*',
+    '/admin/:path*',
+    '/submit-poll/:path*',
+    '/api/admin/:path*',
+    '/api/missions/:path*',
+    '/api/events/:path*',
+    '/api/email/:path*',
+    '/api/stripe/portal/:path*',
+    '/api/stripe/subscription/:path*',
+    '/api/me/:path*',
   ],
 }
