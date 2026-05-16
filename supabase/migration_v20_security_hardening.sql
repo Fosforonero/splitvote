@@ -1,149 +1,205 @@
 -- migration_v20_security_hardening.sql
 --
--- ⚠️  PROPOSAL — NOT YET REVIEWED OR APPLIED ⚠️
+-- ⚠️  PROPOSAL — REVIEW & APPLY SECTION-BY-SECTION ⚠️
 --
--- Addresses residual findings from Supabase security advisor as of 16 May 2026
--- (see CURRENT_HANDOFF.md §1a → "Altri security advisor"):
+-- Addresses Supabase security advisor findings as of 16 May 2026, populated
+-- with the actual function/view/policy names from a live advisor query.
+-- See CURRENT_HANDOFF.md §1a + the audit report for context.
 --
---   1. `dilemma_feedback_stats` view is SECURITY DEFINER (ERROR)
---   2. 7 functions have a mutable `search_path` (WARN)
---   3. `poll_votes` policy "Anyone can insert votes" with `WITH CHECK = true` (WARN)
---   4. 9 SECURITY DEFINER functions callable from anon/authenticated (WARN — needs audit)
---   5. `auth.leaked_password_protection` disabled (WARN — toggle in Supabase Auth UI, not SQL)
---
--- This file is intentionally split into independent sections that can be
--- applied separately. Review each block, fill in the TODO function names from
--- the live security advisor output, and run sections one at a time so each
--- can be rolled back independently if something misbehaves.
---
--- Run with service_role access (Supabase SQL Editor with admin privileges).
--- Verify each section with the SELECT queries embedded after every step.
+-- Sections are independent. Apply in numbered order; each is reversible.
+-- Section 1 was already shipped in the manual apply bundle
+-- (supabase/session-2026-05-16-apply-bundle.sql) — leaving it here for
+-- completeness so anyone reading v20 alone sees the full picture.
 
 -- ═════════════════════════════════════════════════════════════════════════════
--- ── 1. dilemma_feedback_stats view: SECURITY DEFINER → security_invoker
+-- ── 1. ALREADY APPLIED (session 16 May) — dilemma_feedback_stats security_invoker
 -- ═════════════════════════════════════════════════════════════════════════════
--- A SECURITY DEFINER view runs with the owner's privileges, bypassing the
--- caller's RLS. For a stats view exposed to admin pages, security_invoker is
--- safer: the view obeys the caller's RLS on the underlying tables.
+-- ALTER VIEW public.dilemma_feedback_stats SET (security_invoker = true);
 --
--- Postgres 15+ syntax. If on PG 14 or older, recreate the view without the
--- option (default in older versions runs as invoker anyway).
+-- Status: applied via session-2026-05-16-apply-bundle.sql. Listed here for
+-- audit completeness. Re-running is a no-op (already set).
 
-ALTER VIEW public.dilemma_feedback_stats
-  SET (security_invoker = true);
+-- ═════════════════════════════════════════════════════════════════════════════
+-- ── 2. Functions with mutable search_path (7) — pin to (public, pg_temp)
+-- ═════════════════════════════════════════════════════════════════════════════
+-- All 7 confirmed names from advisor 16 May 2026. Pinning the search_path
+-- closes the shadow-schema attack vector for SECURITY DEFINER functions.
+-- Zero behavioural cost when function bodies are correct.
+
+ALTER FUNCTION public.award_mission_xp(p_user_id uuid, p_mission_id text)
+  SET search_path = public, pg_temp;
+
+ALTER FUNCTION public.enforce_role_immutability_fn()
+  SET search_path = public, pg_temp;
+
+ALTER FUNCTION public.set_updated_at()
+  SET search_path = public, pg_temp;
+
+ALTER FUNCTION public.increment_poll_vote(p_poll_id uuid, p_option character)
+  SET search_path = public, pg_temp;
+
+ALTER FUNCTION public.increment_user_vote_count(p_user_id uuid)
+  SET search_path = public, pg_temp;
+
+ALTER FUNCTION public.check_and_award_badges(p_user_id uuid)
+  SET search_path = public, pg_temp;
+
+ALTER FUNCTION public.update_stripe_webhook_events_updated_at()
+  SET search_path = public, pg_temp;
 
 -- Verify:
---   SELECT relname,
---          (SELECT option_value FROM pg_options_to_table(c.reloptions)
---           WHERE option_name = 'security_invoker') AS security_invoker
---   FROM pg_class c WHERE relname = 'dilemma_feedback_stats';
---   -- Expected: security_invoker = 'true'
-
--- ═════════════════════════════════════════════════════════════════════════════
--- ── 2. Functions with mutable search_path: pin to (public, pg_temp)
--- ═════════════════════════════════════════════════════════════════════════════
--- A mutable search_path on SECURITY DEFINER functions allows shadow-schema
--- attacks (a malicious user redefines a table/function in their schema to
--- intercept the SECURITY DEFINER call). Pinning the search_path closes this
--- vector at zero behavioural cost.
---
--- TODO before applying — get exact list from advisor:
---   Supabase dashboard → Database → Linter → "function_search_path_mutable"
---   Paste the names below, drop the comment markers, then run.
-
--- Known functions (from CURRENT_HANDOFF references — verify completeness):
--- ALTER FUNCTION public.award_mission_xp(...)            SET search_path = public, pg_temp;
--- ALTER FUNCTION public.increment_user_vote_count(...)   SET search_path = public, pg_temp;
--- ALTER FUNCTION public.claim_user_badge(...)            SET search_path = public, pg_temp;
--- ALTER FUNCTION public.<NAME_FROM_ADVISOR_4>(...)       SET search_path = public, pg_temp;
--- ALTER FUNCTION public.<NAME_FROM_ADVISOR_5>(...)       SET search_path = public, pg_temp;
--- ALTER FUNCTION public.<NAME_FROM_ADVISOR_6>(...)       SET search_path = public, pg_temp;
--- ALTER FUNCTION public.<NAME_FROM_ADVISOR_7>(...)       SET search_path = public, pg_temp;
-
--- Verify after applying:
---   SELECT proname, proconfig
---   FROM pg_proc
---   WHERE pronamespace = 'public'::regnamespace
---     AND prosecdef = true;
+--   SELECT proname, proconfig FROM pg_proc
+--   WHERE pronamespace = 'public'::regnamespace AND prosecdef = true
+--     AND proname IN (
+--       'award_mission_xp','enforce_role_immutability_fn','set_updated_at',
+--       'increment_poll_vote','increment_user_vote_count',
+--       'check_and_award_badges','update_stripe_webhook_events_updated_at');
 --   -- Expected: every row has proconfig containing 'search_path=public, pg_temp'
 
 -- ═════════════════════════════════════════════════════════════════════════════
--- ── 3. poll_votes "Anyone can insert votes" policy: review or restrict
+-- ── 3. Trigger functions exposed as RPC — REVOKE EXECUTE
 -- ═════════════════════════════════════════════════════════════════════════════
--- The policy "Anyone can insert votes" with `WITH CHECK = true` lets anonymous
--- clients write directly to poll_votes. If poll voting is intentionally open
--- (mirror of dilemma_votes anonymous flow), leave as-is and document below.
--- If poll voting should go through the server API, drop the policy.
+-- Two SECURITY DEFINER functions are wired as triggers (not meant as RPC) but
+-- are still callable via /rest/v1/rpc/<name>. PostgREST auto-exposes any
+-- function in the public schema unless EXECUTE is revoked. We revoke from
+-- both anon and authenticated.
 --
--- DECISION TODO — pick ONE:
---
--- Option A (leave open — only if poll voting must work anonymously without API):
---   No SQL change. Add a comment justifying it:
---     COMMENT ON POLICY "Anyone can insert votes" ON public.poll_votes IS
---       'Intentional: poll voting is anonymous. Rate limiting + dedup happens at
---        the API edge via Redis. RLS only enforces structure, not access.';
---
--- Option B (lock down — requires server route to mediate inserts):
---   DROP POLICY "Anyone can insert votes" ON public.poll_votes;
---   -- Then write `app/api/polls/[id]/vote/route.ts` that uses the admin
---   -- client (service role) to insert, with auth + rate limit checks.
---   -- Without this server route, poll voting breaks for all users.
+--   1. enforce_role_immutability_fn() — BEFORE UPDATE trigger on profiles
+--      (blocks client role escalation). Not a callable RPC.
+--   2. handle_new_user() — auth.users → profiles bootstrap trigger.
+--      Not a callable RPC; calling it directly would create a malformed row.
 
--- ═════════════════════════════════════════════════════════════════════════════
--- ── 4. SECURITY DEFINER functions callable from anon/authenticated: audit
--- ═════════════════════════════════════════════════════════════════════════════
--- 9 functions are flagged. SECURITY DEFINER + grant to anon/authenticated is
--- the intended pattern for server-mediated DB ops (award_mission_xp,
--- increment_user_vote_count, etc.) BUT each grant must be intentional and
--- documented.
+REVOKE EXECUTE ON FUNCTION public.enforce_role_immutability_fn() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.enforce_role_immutability_fn() FROM authenticated;
+
+REVOKE EXECUTE ON FUNCTION public.handle_new_user() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.handle_new_user() FROM authenticated;
+
+-- Note: revoking EXECUTE does NOT affect the trigger firing — triggers run
+-- with the function's privileges, not the caller's. This only prevents the
+-- function from being invoked as a REST RPC.
 --
--- AUDIT TODO — list each function and its purpose, then either:
---   (a) Confirm intent → add a SQL COMMENT to document why anon needs it.
---   (b) Revoke the grant if it's not needed.
---
--- List the current grants:
---   SELECT
---     p.proname,
---     p.prosecdef AS security_definer,
---     r.rolname   AS granted_to,
---     pg_get_function_identity_arguments(p.oid) AS signature
+-- Verify:
+--   SELECT proname, r.rolname AS granted_to
 --   FROM pg_proc p
---   JOIN pg_namespace n ON n.oid = p.pronamespace
 --   JOIN aclexplode(p.proacl) ax ON true
 --   JOIN pg_roles r ON r.oid = ax.grantee
---   WHERE n.nspname = 'public'
---     AND p.prosecdef = true
---     AND r.rolname IN ('anon', 'authenticated')
---   ORDER BY p.proname, r.rolname;
---
--- Example revoke (only if a function should NOT be anon-callable):
---   REVOKE EXECUTE ON FUNCTION public.<NAME>(<SIG>) FROM anon;
---   REVOKE EXECUTE ON FUNCTION public.<NAME>(<SIG>) FROM authenticated;
---
--- Example documentation (preferred when intent is correct):
---   COMMENT ON FUNCTION public.award_mission_xp(...) IS
---     'Server-mediated XP award. SECURITY DEFINER required so the function can
---      bypass profiles RLS to update xp. Anon grant rejected via uid()/role
---      check inside the function body.';
+--   WHERE p.proname IN ('enforce_role_immutability_fn','handle_new_user')
+--     AND r.rolname IN ('anon','authenticated');
+--   -- Expected: 0 rows (no anon/authenticated EXECUTE grant remaining)
 
 -- ═════════════════════════════════════════════════════════════════════════════
--- ── 5. auth.leaked_password_protection — NOT a SQL migration
+-- ── 4. RPC-intended SECURITY DEFINER functions — document intent
 -- ═════════════════════════════════════════════════════════════════════════════
--- This setting lives in the Supabase dashboard, not in SQL.
---   Supabase dashboard → Authentication → Settings → Password protection
---   → Enable "Leaked password protection"
---
--- Effect: signups/password changes are checked against the HIBP breached
--- password list. No code change required; works transparently with existing
--- supabase-js auth methods.
+-- These functions are intentionally callable from authenticated clients (or
+-- server-side via admin client) to mediate writes that bypass RLS. Adding
+-- a SQL COMMENT documents the intent so future auditors don't second-guess.
+
+COMMENT ON FUNCTION public.award_mission_xp(uuid, text) IS
+  'Server-mediated mission XP award. SECURITY DEFINER required to update '
+  'profiles.xp regardless of caller RLS. Caller identity validated by the '
+  'API route (app/api/missions/complete) before this function is invoked.';
+
+COMMENT ON FUNCTION public.check_and_award_badges(uuid) IS
+  'Server-mediated badge award. SECURITY DEFINER required to read profile '
+  'stats and INSERT into user_badges regardless of caller RLS. Caller '
+  'identity validated upstream.';
+
+COMMENT ON FUNCTION public.increment_user_vote_count(uuid) IS
+  'Server-mediated vote count + streak update. SECURITY DEFINER required '
+  'to bypass profiles RLS. Also awards streak milestone badges in the same '
+  'transaction. Called only from app/api/vote after vote success.';
+
+COMMENT ON FUNCTION public.increment_poll_vote(uuid, character) IS
+  'Anonymous-callable poll vote increment. SECURITY DEFINER to bypass '
+  'poll_votes RLS. Rate limiting + dedup happens at the API edge via Redis.';
+
+COMMENT ON FUNCTION public.upsert_vote_daily_stat(date, text, character, boolean) IS
+  'Server-mediated daily vote stats upsert. SECURITY DEFINER to write '
+  'vote_daily_stats regardless of caller. Called from app/api/vote.';
 
 -- ═════════════════════════════════════════════════════════════════════════════
--- Apply order recommended
+-- ── 5. poll_votes "Anyone can insert votes" — DECISION
 -- ═════════════════════════════════════════════════════════════════════════════
--- 1. Section 1 (view) — zero risk, instantly reversible.
--- 2. Section 2 (search_path) — zero behavioural change if function logic is
---    correct; tighten in a single batch once advisor list is filled in.
--- 3. Section 4 (audit) — pure documentation step; no DB state change unless
---    you choose to revoke.
--- 4. Section 3 (poll_votes) — decision pending; do not apply blindly.
--- 5. Section 5 (HIBP) — dashboard toggle, no SQL.
+-- DECISION REQUIRED before applying ONE of these blocks.
+--
+-- Background: poll voting today is anonymous (mirrors the dilemma vote
+-- flow). The RLS policy lets any client INSERT directly into poll_votes.
+-- If poll voting must remain anonymous WITHOUT writing a server API route,
+-- this policy is necessary — choose Option A.
+-- If poll voting should go through a server API (like dilemma voting now
+-- does), choose Option B and write app/api/polls/[id]/vote/route.ts.
+--
+-- Option A — keep open, document intent (NO CODE CHANGE NEEDED):
+--   COMMENT ON POLICY "Anyone can insert votes" ON public.poll_votes IS
+--     'Intentional: anonymous poll voting mirrors the dilemma flow. '
+--     'Rate limiting + dedup enforced at the API edge via Redis. RLS is '
+--     'structural only here, not the security boundary.';
+--
+-- Option B — lock down (REQUIRES new server route first):
+--   -- 1. Write app/api/polls/[id]/vote/route.ts that uses admin client
+--   --    to insert with auth + rate limit. Deploy that route.
+--   -- 2. THEN drop the open policy:
+--   DROP POLICY "Anyone can insert votes" ON public.poll_votes;
+--   -- Without step 1, all anonymous poll voting breaks immediately.
+
+-- ═════════════════════════════════════════════════════════════════════════════
+-- ── 6. RLS-enabled-no-policy tables — likely intentional, document
+-- ═════════════════════════════════════════════════════════════════════════════
+-- Two tables have RLS enabled with zero policies, BY DESIGN — they are
+-- written only via server admin client (service_role bypasses RLS):
+--
+--   - public.role_audit_log    (migration_v15) — admin role assignments
+--   - public.stripe_webhook_events (migration_v11) — Stripe idempotency
+--
+-- Adding documentation comments so the advisor noise is contextualised
+-- rather than chased.
+
+COMMENT ON TABLE public.role_audit_log IS
+  'Admin role assignment audit trail. RLS enabled with NO policies '
+  'intentionally — written only via service_role from /api/admin/roles. '
+  'Anon/authenticated reads/writes are correctly blocked by zero policies.';
+
+COMMENT ON TABLE public.stripe_webhook_events IS
+  'Stripe webhook idempotency guard. RLS enabled with NO policies '
+  'intentionally — written only via service_role from /api/stripe/webhook. '
+  'Anon/authenticated reads/writes are correctly blocked by zero policies.';
+
+-- ═════════════════════════════════════════════════════════════════════════════
+-- ── 7. profiles "Only super_admin can update role" — FALSE POSITIVE
+-- ═════════════════════════════════════════════════════════════════════════════
+-- The advisor flags this policy because USING (true) is permissive — but the
+-- WITH CHECK clause enforces:
+--   (role = current row's role) OR (caller is service_role)
+-- which means a non-service-role caller can run the UPDATE but cannot
+-- actually change role. The trigger enforce_role_immutability_fn provides
+-- a second layer of defence. No fix needed; treating as documented.
+
+COMMENT ON POLICY "Only super_admin can update role" ON public.profiles IS
+  'USING (true) is intentional — the role-change guard lives in the '
+  'WITH CHECK clause and is reinforced by trigger '
+  'enforce_role_immutability_fn. Together they prevent any non-service-role '
+  'client from escalating their role.';
+
+-- ═════════════════════════════════════════════════════════════════════════════
+-- ── 8. auth.leaked_password_protection — DASHBOARD TOGGLE (no SQL)
+-- ═════════════════════════════════════════════════════════════════════════════
+-- Supabase dashboard → Authentication → Settings → Password protection
+-- → Enable "Leaked password protection"
+--
+-- Effect: signup + password change checked against HIBP. No code change.
+
+-- ═════════════════════════════════════════════════════════════════════════════
+-- APPLY ORDER & ROLLBACK
+-- ═════════════════════════════════════════════════════════════════════════════
+-- 1. Section 1 — done.
+-- 2. Sections 2 + 3 — apply together in one transaction (zero risk).
+-- 3. Section 4 — pure documentation (idempotent, instantly reversible with
+--    COMMENT ... IS NULL).
+-- 4. Section 5 — pick Option A or B with PM. Don't apply blindly.
+-- 5. Sections 6 + 7 — pure documentation (same as section 4).
+-- 6. Section 8 — dashboard toggle, not SQL.
+--
+-- Rollback for section 2:  ALTER FUNCTION ... RESET search_path;
+-- Rollback for section 3:  GRANT EXECUTE ON FUNCTION ... TO anon, authenticated;
+-- Rollback for sections 4/6/7: COMMENT ON ... IS NULL;
