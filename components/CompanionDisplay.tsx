@@ -14,7 +14,10 @@ import {
   type PixieXpMap,
 } from '@/lib/companion'
 import { getPixieImagePath } from '@/lib/pixie'
-import PixieLevelUpModal from './PixieLevelUpModal'
+import dynamic from 'next/dynamic'
+
+// Code-split: ~17KB modal only loads when level-up actually fires
+const PixieLevelUpModal = dynamic(() => import('./PixieLevelUpModal'), { ssr: false })
 
 interface Props {
   species: CompanionSpecies
@@ -124,7 +127,7 @@ export default function CompanionDisplay({
           <img
             src={getPixieImagePath(species, stage)}
             alt=""
-            className="w-8 h-8 object-contain flex-shrink-0"
+            className="w-8 h-8 object-contain flex-shrink-0 p-0.5"
             onError={() => setImgError(true)}
           />
         ) : (
@@ -166,7 +169,7 @@ export default function CompanionDisplay({
             type="button"
             aria-label={IT ? 'Vedi il tuo Pixie ingrandito' : 'View your Pixie enlarged'}
             onClick={() => setShowLightbox(true)}
-            className="w-20 h-20 rounded-2xl flex items-center justify-center text-5xl overflow-hidden cursor-pointer hover:ring-2 hover:ring-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
+            className="w-20 h-20 rounded-2xl flex items-center justify-center text-5xl overflow-hidden cursor-pointer p-1.5 hover:ring-2 hover:ring-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
             style={{
               background: 'rgba(255,255,255,0.03)',
               border: '1px solid rgba(255,255,255,0.06)',

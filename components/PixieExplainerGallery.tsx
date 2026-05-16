@@ -3,7 +3,10 @@
 import { useState } from 'react'
 import { COMPANIONS, RARITY_STYLES, type CompanionDef } from '@/lib/companion'
 import { getPixieImagePath } from '@/lib/pixie'
-import PixieDetailModal from './PixieDetailModal'
+import dynamic from 'next/dynamic'
+
+// Code-split: ~28KB modal only loads when the user taps a card
+const PixieDetailModal = dynamic(() => import('./PixieDetailModal'), { ssr: false })
 
 interface Props {
   locale?: 'en' | 'it'

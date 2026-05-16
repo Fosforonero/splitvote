@@ -121,7 +121,7 @@ export default function MobileStickyHUD({
             <Link
               href={IT ? '/it/pixie' : '/pixie'}
               aria-label={IT ? 'Vai al tuo Pixie' : 'Go to your Pixie'}
-              className="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center flex-shrink-0 hover:ring-2 hover:ring-white/20 transition-shadow"
+              className="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center flex-shrink-0 p-0.5 hover:ring-2 hover:ring-white/20 transition-shadow"
               style={{
                 background: 'rgba(255,255,255,0.04)',
                 border: '1px solid rgba(255,255,255,0.08)',
