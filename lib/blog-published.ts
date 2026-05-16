@@ -26,7 +26,8 @@ function stripInlineBold(text: string): string {
   return text.replace(/\*\*(.+?)\*\*/g, '$1')
 }
 
-function bodyToSections(body: string): SectionType[] {
+function bodyToSections(body: string | undefined | null): SectionType[] {
+  if (!body || typeof body !== 'string') return []
   const lines = body.split('\n')
   const result: SectionType[] = []
   let listItems: string[] = []
@@ -78,9 +79,12 @@ export function publishedDraftToPost(draft: BlogDraft, locale: 'en' | 'it'): Blo
       : draft.source.slug
   }
 
-  const sections = bodyToSections(article.body)
+  // Tolerate Redis drafts with missing/malformed body — return [] sections
+  // rather than crash on body.split() / undefined.
+  const safeBody = typeof article.body === 'string' ? article.body : ''
+  const sections = bodyToSections(safeBody)
 
-  if (article.faq && article.faq.length > 0) {
+  if (Array.isArray(article.faq) && article.faq.length > 0) {
     sections.push({ type: 'h2', text: locale === 'it' ? 'Domande frequenti' : 'Frequently Asked Questions' })
     for (const { q, a } of article.faq) {
       sections.push({ type: 'h3', text: q })
@@ -88,7 +92,7 @@ export function publishedDraftToPost(draft: BlogDraft, locale: 'en' | 'it'): Blo
     }
   }
 
-  const words = article.body.split(/\s+/).filter(Boolean).length
+  const words = safeBody.split(/\s+/).filter(Boolean).length
 
   return {
     slug: article.slug,
