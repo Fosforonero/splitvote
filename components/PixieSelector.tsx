@@ -7,6 +7,16 @@ import {
   RARITY_STYLES, NAME_COLORS,
   type CosmeticItemId,
 } from '@/lib/cosmetics-store'
+
+// Every ownable cosmetic id (skins + frames + glows + name color bundle).
+// Used to render admins as "owning everything" without touching their
+// real user_purchases / pixie_xp rows.
+const ALL_OWNABLE_IDS: string[] = [
+  ...PIXIE_ITEMS.map(i => i.id),
+  ...(COSMETICS_BY_CATEGORY.frame ?? []).map(i => i.id),
+  ...(COSMETICS_BY_CATEGORY.glow ?? []).map(i => i.id),
+  'name_color_bundle',
+]
 import { type PixieItemId } from '@/lib/pixie-store'
 
 // ── i18n copy ────────────────────────────────────────────────────────────────
@@ -67,6 +77,12 @@ interface Props {
   nameColor?:      string | null
   usePixieAvatar?: boolean
   locale?:         string
+  /**
+   * When true, every cosmetic (skin / frame / glow / name color bundle) is
+   * treated as owned. Mirrors the admin bypass on /store + equip APIs so
+   * admins can preview and QA the full cosmetic surface.
+   */
+  isAdmin?:        boolean
   onEquip?:        (itemId: PixieItemId) => void
 }
 
@@ -80,6 +96,7 @@ export default function PixieSelector({
   nameColor:       initialNameColor = null,
   usePixieAvatar:  initialUsePixie  = false,
   locale           = 'en',
+  isAdmin          = false,
   onEquip,
 }: Props) {
   const t = COPY[(locale === 'it' ? 'it' : 'en') as Locale]
@@ -94,15 +111,18 @@ export default function PixieSelector({
   const [togglingAvatar, setToggling]     = useState(false)
   const [skinTab,        setSkinTab]      = useState<FilterTab>('all')
 
+  // Admin sees everything as owned (UI bypass; equip APIs already accept admin bypass).
+  const effectiveOwnedIds = isAdmin ? ALL_OWNABLE_IDS : ownedIds
+
   // Derived
   const activePixieItem  = activeId ? COSMETIC_MAP[activeId as CosmeticItemId] : null
-  const ownedPixieIds    = PIXIE_ITEMS.filter(i => ownedIds.includes(i.id)).map(i => i.id)
+  const ownedPixieIds    = PIXIE_ITEMS.filter(i => effectiveOwnedIds.includes(i.id)).map(i => i.id)
   const hasAnyPixie      = ownedPixieIds.length > 0
-  const hasNameBundle    = ownedIds.includes('name_color_bundle')
+  const hasNameBundle    = effectiveOwnedIds.includes('name_color_bundle')
 
   const filteredSkins = PIXIE_ITEMS.filter(item => {
-    if (skinTab === 'owned') return ownedIds.includes(item.id)
-    if (skinTab === 'store') return !ownedIds.includes(item.id)
+    if (skinTab === 'owned') return effectiveOwnedIds.includes(item.id)
+    if (skinTab === 'store') return !effectiveOwnedIds.includes(item.id)
     return true
   })
 
@@ -284,7 +304,7 @@ export default function PixieSelector({
         ) : (
           <div className="grid grid-cols-3 gap-2">
             {filteredSkins.map(item => {
-              const owned       = ownedIds.includes(item.id)
+              const owned       = effectiveOwnedIds.includes(item.id)
               const isActive    = activeId === item.id
               const isEquipping = equipping === item.id
 
@@ -344,7 +364,7 @@ export default function PixieSelector({
           </p>
           <div className="grid grid-cols-2 gap-2">
             {(COSMETICS_BY_CATEGORY.frame ?? []).map(item => {
-              const owned    = ownedIds.includes(item.id)
+              const owned    = effectiveOwnedIds.includes(item.id)
               const isActive = equippedFrame === item.id
               const isEquip  = equipping === item.id
 
@@ -404,7 +424,7 @@ export default function PixieSelector({
           </p>
           <div className="grid grid-cols-3 gap-2">
             {(COSMETICS_BY_CATEGORY.glow ?? []).map(item => {
-              const owned    = ownedIds.includes(item.id)
+              const owned    = effectiveOwnedIds.includes(item.id)
               const isActive = equippedGlow === item.id
               const isEquip  = equipping === item.id
 

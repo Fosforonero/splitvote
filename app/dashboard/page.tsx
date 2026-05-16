@@ -9,6 +9,8 @@ import CompanionDisplay from '@/components/CompanionDisplay'
 import DailyMissions from '@/components/DailyMissions'
 import PixieSelector from '@/components/PixieSelector'
 import type { CompanionSpecies } from '@/lib/companion'
+import { getUserEntitlements } from '@/lib/entitlements'
+import type { UserRole } from '@/lib/admin-auth'
 
 export const metadata = { title: 'Dashboard | SplitVote' }
 
@@ -57,6 +59,7 @@ interface Profile {
   pixie_xp: Record<string, unknown> | null
   use_pixie_avatar: boolean | null
   name_color: string | null
+  role: UserRole | null
 }
 
 const STATUS_BADGE: Record<PollStatus, { label: string; classes: string }> = {
@@ -83,7 +86,7 @@ export default async function DashboardPage() {
   const [profileRes, pollsRes, dilemmaVotesRes, badgesRes] = await Promise.all([
     supabase
       .from('profiles')
-      .select('display_name, email, is_premium, votes_count, equipped_frame, equipped_glow, equipped_badge, onboarding_done, xp, streak_days, companion_species, pixie_xp, use_pixie_avatar, name_color')
+      .select('display_name, email, is_premium, votes_count, equipped_frame, equipped_glow, equipped_badge, onboarding_done, xp, streak_days, companion_species, pixie_xp, use_pixie_avatar, name_color, role')
       .eq('id', user.id)
       .single<Profile>(),
     supabase
@@ -114,6 +117,14 @@ export default async function DashboardPage() {
   const xp = profile?.xp ?? 0
   const streakDays = profile?.streak_days ?? 0
   const companionSpecies = (profile?.companion_species ?? 'spark') as CompanionSpecies
+
+  // Entitlements — admin/premium derivation. Mirrors the bypass on /store so
+  // PixieSelector renders every cosmetic as owned for admin/super_admin users.
+  const entitlements = getUserEntitlements({
+    email: user.email,
+    is_premium: profile?.is_premium ?? false,
+    role: (profile?.role ?? 'user') as UserRole,
+  })
 
   // Pixie Store data
   const pixieXp        = (profile?.pixie_xp ?? {}) as Record<string, unknown>
@@ -208,6 +219,7 @@ export default async function DashboardPage() {
         equippedGlow={profile?.equipped_glow ?? null}
         nameColor={profile?.name_color ?? null}
         usePixieAvatar={profile?.use_pixie_avatar ?? false}
+        isAdmin={entitlements.isAdmin}
       />
 
       {/* ── Daily Missions ── */}
