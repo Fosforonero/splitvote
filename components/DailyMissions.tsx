@@ -11,6 +11,10 @@ interface Props {
   xp: number
   streakDays: number
   locale?: string
+  /** Number of dilemmas voted today — surfaced by the dashboard. Optional for
+   *  callers that don't track today's progress separately from server-validated
+   *  mission state. */
+  votesToday?: number
 }
 
 type LocaleTargets = { en: string; it: string }
