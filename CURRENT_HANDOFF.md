@@ -9,6 +9,57 @@ Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
 Two sprints shipped end-to-end. Blog Redis articles now render correctly
 under ISR; public/SEO routes now hit Vercel edge cache. Both verified live.
 
+### 🐛 PM-reported bug (carryover for next session) — equip cosmetics not applying
+
+**Repro path:** Profile → Cosmetics → click Equip on any Pixie skin,
+Profile Frame, Glow, Name Color, or toggle PFP → **"nothing happens
+visually; the purchased cosmetic doesn't actually apply"** (PM's words).
+
+**Screenshot context (16 May late):** Pixie Galaxy marked Equipped (Epic),
+Pulse Frame Equipped, Fire Glow Equipped, Name Color Gold selected,
+"Use skin as public avatar" toggle OFF. PM is super_admin so all
+cosmetics show as ownable via the `cc45743` admin-bypass.
+
+**First-step diagnostics tomorrow (NOT done tonight):**
+1. **DevTools → Network tab while clicking Equip** — does the request to
+   `/api/profile/equip-pixie` or `/api/profile/equip-cosmetic` fire?
+   What's the response code + payload?
+2. **Supabase profiles row inspection** — after a 200 response, does the
+   `equipped_*` column actually update for the PM's user_id? If yes,
+   the API works and the bug is downstream.
+3. **Consumer-side staleness** — does CompanionDisplay / navbar avatar /
+   public profile read the equipped value live, or from a stale cached
+   render? Possible missing `router.refresh()` / `revalidatePath` after
+   equip mutation.
+4. **PFP toggle context** — toggle "Use skin as public avatar" is OFF in
+   the screenshot. Some surfaces (public `/u/[id]`, leaderboard avatar)
+   may intentionally NOT apply the skin when the toggle is off. Check if
+   the bug is specific to a single surface or universal.
+5. **Service worker / browser cache** — hard reload (Cmd+Shift+R) to rule
+   out PWA caching.
+
+**Likely-culprit files:** [components/PixieSelector.tsx](components/PixieSelector.tsx),
+[app/api/profile/equip-pixie/route.ts](app/api/profile/equip-pixie/route.ts),
+[app/api/profile/equip-cosmetic/route.ts](app/api/profile/equip-cosmetic/route.ts),
+[app/api/profile/toggle-pixie-avatar/route.ts](app/api/profile/toggle-pixie-avatar/route.ts),
+CompanionDisplay component (consumer).
+
+**Recent context that may be related:** commit `cc45743` (16 May) added
+admin-bypass to PixieSelector so super_admin SEES all cosmetics as
+ownable, but the actual APPLY/equip mutation flow was untouched. The
+bypass may have inadvertently exposed an existing apply bug that only
+manifests when items appear "owned" without a real purchase row in
+`user_purchases`.
+
+**Priority:** 🔴 **HIGH** if reproducible for non-admin paying users.
+Cosmetics are a Stripe-paid feature. If equip works for the API but the
+UI doesn't show the change, it's UX-only but still bad. If equip
+silently fails for users who actually bought items, it's revenue-impacting
+and refund-territory.
+
+**First action tomorrow:** PM repro'es with DevTools open, shares the
+Network/Console output. From there: 5 min triage, then targeted sprint.
+
 ### Shipped commits
 
 | Hash | Sprint | Description |
