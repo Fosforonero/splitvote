@@ -5,7 +5,6 @@ import type { BlogPost } from '@/lib/blog'
 import { getPublishedBlogDrafts, getPublishedPostsForLocale } from '@/lib/blog-published'
 import BlogGrid from '@/components/BlogGrid'
 
-// ISR 1 hour — same caching strategy as /blog.
 export const revalidate = 3600
 
 const BASE = 'https://splitvote.io'

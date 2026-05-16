@@ -1,26 +1,17 @@
-import { cache } from 'react'
 import { redis } from './redis'
 import type { BlogDraft } from './blog-drafts'
 import type { BlogPost, SectionType } from './blog'
 
 const BLOG_PUBLISHED_KEY = 'blog:published'
 
-/**
- * Fetch the Redis-published blog drafts list.
- *
- * Wrapped in React `cache()` so multiple callers in the same server request
- * (e.g. `generateMetadata` + page body, or sitemap building several locale
- * slices) hit Redis only once per request. The ISR `revalidate` window on
- * the page handles cross-request caching; this dedup handles intra-request.
- */
-export const getPublishedBlogDrafts = cache(async (): Promise<BlogDraft[]> => {
+export async function getPublishedBlogDrafts(): Promise<BlogDraft[]> {
   try {
     const raw = await redis.get<BlogDraft[]>(BLOG_PUBLISHED_KEY)
     return Array.isArray(raw) ? raw : []
   } catch {
     return []
   }
-})
+}
 
 function stripInlineBold(text: string): string {
   return text.replace(/\*\*(.+?)\*\*/g, '$1')
