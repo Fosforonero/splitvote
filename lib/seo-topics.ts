@@ -53,6 +53,7 @@ export const RESERVED_SLUGS = new Set([
   'personality', 'moral-dilemmas', 'would-you-rather-questions',
   'submit-poll', 'reset-password', 'auth', 'business', 'offline', 'u',
   'sitemap', 'robots', 'favicon', 'icon', 'not-found',
+  'topics', 'leaderboard', 'store',
 ])
 
 // ─── Collision guard — IT sub-route ─────────────────────────────────────────
@@ -61,6 +62,7 @@ export const RESERVED_SLUGS = new Set([
 export const RESERVED_IT_SLUGS = new Set([
   'about', 'blog', 'category', 'dilemmi-morali', 'domande-would-you-rather',
   'faq', 'personality', 'play', 'privacy', 'results', 'terms', 'trending',
+  'temi', 'leaderboard',
 ])
 
 // ─── Landing page QA checklist (verify before setting status='published') ───
@@ -161,6 +163,36 @@ export const SEO_TOPICS: SeoTopic[] = [
         title: 'Moral Dilemmas',
         institution: 'Stanford Encyclopedia of Philosophy',
         url: 'https://plato.stanford.edu/entries/moral-dilemmas/',
+      },
+    ],
+    status: 'published',
+    noindexUntilReady: false,
+  },
+  {
+    slug: 'ai-art-ethics',
+    locale: 'en',
+    alternateSlug: 'etica-arte-ai',
+    topic: 'AI Art Ethics',
+    searchIntent: 'ai art ethics, generative ai authorship, ai art copyright dilemma, ethical questions ai generated art',
+    tension: 'training data sourced without consent vs the artistic legitimacy of work no human authored',
+    headline: 'AI Art Ethics — Who Owns Work the Machine Made?',
+    intro:
+      'Generative models can produce paintings, music and prose at near-zero cost. The training data, in many cases, was scraped from artists who never consented and were never paid. The legal answer is unsettled across jurisdictions, but the ethical question is sharper: if the model learned a living artist\'s style and a stranger now sells outputs in that style, what does authorship even mean? And when the output is technically new but recognisably derivative, who bears the moral cost — the user, the model maker, or the platform that hosts it?',
+    primaryScenarioId: 'ai-art-copyright',
+    relatedScenarioIds: ['deepfake-expose', 'ai-replaces-jobs', 'self-driving-crash'],
+    relatedTopicSlugs: ['ai-ethics-dilemmas', 'privacy-ethics', 'consequentialism'],
+    researchNote:
+      'Ongoing court cases in the US and EU are testing whether training a model on copyrighted work counts as fair use or as infringement. The Stanford CRFM and the EU AI Act both treat training-data provenance as a first-class concern; the moral question of stylistic imitation runs ahead of the legal one.',
+    researchSources: [
+      {
+        title: 'Generative AI and the Future of Copyright',
+        institution: 'Stanford Center for Research on Foundation Models',
+        url: 'https://crfm.stanford.edu/',
+      },
+      {
+        title: 'Privacy',
+        institution: 'Stanford Encyclopedia of Philosophy',
+        url: 'https://plato.stanford.edu/entries/privacy/',
       },
     ],
     status: 'published',
@@ -676,6 +708,36 @@ export const SEO_TOPICS: SeoTopic[] = [
         title: 'Moral Cognition Research',
         institution: 'Harvard University (Joshua Greene)',
         url: 'https://www.joshua-greene.net/research/moral-cognition',
+      },
+    ],
+    status: 'published',
+    noindexUntilReady: false,
+  },
+  {
+    slug: 'etica-arte-ai',
+    locale: 'it',
+    alternateSlug: 'ai-art-ethics',
+    topic: 'Etica dell\'Arte AI',
+    searchIntent: 'etica arte ai, ai generativa autore, copyright arte ai, dilemmi morali arte generata da ai',
+    tension: 'dati di addestramento raccolti senza consenso vs la legittimità artistica di un\'opera che nessuno ha scritto',
+    headline: 'Etica dell\'Arte AI — A chi appartiene l\'opera fatta dalla macchina?',
+    intro:
+      'I modelli generativi producono dipinti, musica e prosa a costo quasi zero. I dati di addestramento, in molti casi, sono stati raccolti da artisti che non hanno mai dato il consenso e non sono mai stati pagati. La risposta legale è incerta tra giurisdizioni, ma la domanda etica è più tagliente: se il modello ha imparato lo stile di un artista vivente e ora qualcuno vende output in quello stile, cosa significa "autore"? E quando il risultato è tecnicamente nuovo ma riconoscibilmente derivativo, chi paga il costo morale — l\'utente, chi ha costruito il modello, o la piattaforma che lo ospita?',
+    primaryScenarioId: 'ai-art-copyright',
+    relatedScenarioIds: ['deepfake-expose', 'ai-replaces-jobs', 'self-driving-crash'],
+    relatedTopicSlugs: ['dilemmi-etici-intelligenza-artificiale', 'etica-della-privacy', 'consequenzialismo'],
+    researchNote:
+      'Cause legali in corso negli Stati Uniti e nell\'UE stanno verificando se addestrare un modello su opere protette da copyright sia "fair use" o violazione. Stanford CRFM e l\'EU AI Act trattano entrambi la provenienza dei dati di addestramento come questione di primo piano; la domanda morale sull\'imitazione stilistica corre avanti a quella legale.',
+    researchSources: [
+      {
+        title: 'Generative AI and the Future of Copyright',
+        institution: 'Stanford Center for Research on Foundation Models',
+        url: 'https://crfm.stanford.edu/',
+      },
+      {
+        title: 'Privacy',
+        institution: 'Stanford Encyclopedia of Philosophy',
+        url: 'https://plato.stanford.edu/entries/privacy/',
       },
     ],
     status: 'published',

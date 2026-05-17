@@ -222,6 +222,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.72,
       },
     ]),
+    // Topics hub — index of every indexable SEO topic landing page,
+    // grouped by cluster. Static EN + IT pair.
+    {
+      url: `${BASE}/topics`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'weekly' as const,
+      priority: 0.78,
+    },
+    {
+      url: `${BASE}/it/temi`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    },
     // Static dilemmas (durable surface — AI dilemmas intentionally excluded;
     // discovered via internal links instead)
     ...scenarioRoutes,
