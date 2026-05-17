@@ -4,6 +4,11 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    // Includes className strings stored in lib/ data tables — e.g. the
+    // premium gradient stops in lib/cosmetics-store.ts NAME_COLORS.
+    // Without this, JIT silently drops `from-yellow-200`, `via-amber-400`
+    // etc., and `text-transparent` makes the picker swatches invisible.
+    './lib/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { createPublicClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import CompanionDisplay from '@/components/CompanionDisplay'
@@ -21,7 +21,7 @@ const BASE = 'https://splitvote.io'
 interface Props { params: { id: string }; searchParams?: { from?: string } }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const admin = createPublicClient()
+  const admin = createAdminClient()
   const { data } = await admin
     .from('profiles')
     .select('display_name, votes_count, avatar_emoji')
@@ -45,9 +45,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const revalidate = 3600
 
 export default async function PublicProfilePage({ params, searchParams }: Props) {
-  // Public profile — uses anon client (no cookies, ISR-safe)
-  // RLS must allow SELECT on profiles/user_badges for anon role.
-  const admin = createPublicClient()
+  // Public profile — uses the service-role admin client because (a) the
+  // page is server-rendered, never exposed to the browser, and (b) the
+  // anon client was returning empty rows on profiles whose RLS policy
+  // did not whitelist anon role for every column we need. SELECT below
+  // is restricted to public-safe columns only: NO email, NO subscription
+  // fields, NO admin role — only display name, vote/XP totals, country,
+  // cosmetic ids, and Pixie state. Same restriction applies to the
+  // user_badges join (badge metadata only).
+  const admin = createAdminClient()
 
   const [profileRes, badgesRes] = await Promise.all([
     admin

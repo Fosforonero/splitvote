@@ -70,6 +70,8 @@ interface Profile {
   name_color: string | null
   role: UserRole | null
   avatar_emoji: string | null
+  country_code: string | null
+  created_at: string | null
 }
 
 
@@ -91,7 +93,7 @@ export default async function DashboardPage() {
   const [profileRes, pollsRes, dilemmaVotesRes, badgesRes] = await Promise.all([
     supabase
       .from('profiles')
-      .select('display_name, email, is_premium, votes_count, equipped_frame, equipped_glow, equipped_badge, onboarding_done, xp, streak_days, companion_species, pixie_xp, use_pixie_avatar, name_color, role, avatar_emoji')
+      .select('display_name, email, is_premium, votes_count, equipped_frame, equipped_glow, equipped_badge, onboarding_done, xp, streak_days, companion_species, pixie_xp, use_pixie_avatar, name_color, role, avatar_emoji, country_code, created_at')
       .eq('id', user.id)
       .single<Profile>(),
     supabase
@@ -208,10 +210,16 @@ export default async function DashboardPage() {
           ? COSMETIC_MAP[activePixieId]?.emoji ?? profile?.avatar_emoji ?? '🌍'
           : profile?.avatar_emoji ?? '🌍'
         const levelInfo = getLevelInfo(profile?.xp ?? 0)
+        const memberSince = profile?.created_at
+          ? new Date(profile.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
+          : ''
         const statsItems: StatsLineItem[] = [
           { icon: '🗳', value: (profile?.votes_count ?? 0).toLocaleString(), label: 'votes' },
           { icon: '⚡', value: `Lv.${levelInfo.level}` },
           { icon: '🔥', value: profile?.streak_days ?? 0, label: 'day streak', show: (profile?.streak_days ?? 0) > 0 },
+          { icon: '🏆', value: userBadges.length, label: 'badges', show: userBadges.length > 0 },
+          { icon: '📍', value: profile?.country_code ?? '', show: !!profile?.country_code },
+          { icon: '📅', value: memberSince, label: 'Member since', prefix: true, show: !!memberSince },
         ]
         return (
           <div className="mb-10 flex items-start justify-between gap-4">
