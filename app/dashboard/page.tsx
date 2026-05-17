@@ -281,7 +281,7 @@ export default async function DashboardPage() {
         nameColor={profile?.name_color ?? null}
         usePixieAvatar={profile?.use_pixie_avatar ?? false}
         isAdmin={entitlements.isAdmin}
-        pixiePreviewSrc={dashboardPixieSrc}
+        pixieXp={pixieXp}
       />
 
       {/* ── Daily Missions ── */}

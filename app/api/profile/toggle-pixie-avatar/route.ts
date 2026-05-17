@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { getUserEntitlements } from '@/lib/entitlements'
@@ -63,5 +64,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'DB update failed' }, { status: 500 })
   }
 
+  revalidatePath('/dashboard')
+  revalidatePath('/profile')
+  revalidatePath(`/u/${user.id}`)
   return NextResponse.json({ success: true, use_pixie_avatar: enabled })
 }

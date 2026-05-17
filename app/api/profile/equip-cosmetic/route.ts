@@ -1,9 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { COSMETIC_MAP, isCosmeticItemId } from '@/lib/cosmetics-store'
 import { getUserEntitlements } from '@/lib/entitlements'
 import type { UserRole } from '@/lib/admin-auth'
+
+/** Re-validate every server-rendered surface that reads cosmetic state. */
+function invalidateCosmeticSurfaces(userId: string): void {
+  revalidatePath('/dashboard')
+  revalidatePath('/profile')
+  revalidatePath(`/u/${userId}`)
+}
 
 export const dynamic = 'force-dynamic'
 
@@ -65,6 +73,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'DB update failed' }, { status: 500 })
     }
 
+    invalidateCosmeticSurfaces(user.id)
     return NextResponse.json({ success: true, nameColor })
   }
 
@@ -108,5 +117,6 @@ export async function POST(req: NextRequest) {
   }
 
   console.log(`✅ Equip [${item.category}]: user=${user.id.slice(0, 8)} → "${itemId}"`)
+  invalidateCosmeticSurfaces(user.id)
   return NextResponse.json({ success: true, equipped: itemId, category: item.category })
 }

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { isPixieItemId } from '@/lib/cosmetics-store'
@@ -73,6 +74,13 @@ export async function POST(req: NextRequest) {
     console.error('[equip-pixie] DB update failed:', error)
     return NextResponse.json({ error: 'DB update failed' }, { status: 500 })
   }
+
+  // Invalidate the surfaces that read pixie state directly. router.refresh()
+  // alone wasn't reliably re-fetching the profile row on every browser —
+  // explicit path invalidation forces it.
+  revalidatePath('/dashboard')
+  revalidatePath('/profile')
+  revalidatePath(`/u/${user.id}`)
 
   return NextResponse.json({ success: true, active: itemId })
 }

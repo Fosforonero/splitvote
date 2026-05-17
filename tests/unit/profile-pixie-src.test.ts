@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { getProfilePixieSrc } from '@/lib/pixie'
+import { getProfilePixieSrc, getEffectiveSpecies } from '@/lib/pixie'
 
 describe('getProfilePixieSrc', () => {
   it('returns null when use_pixie_avatar is false', () => {
@@ -77,5 +77,46 @@ describe('getProfilePixieSrc', () => {
 
   it('ignoreToggle still returns null for null profile', () => {
     expect(getProfilePixieSrc(null, { ignoreToggle: true })).toBeNull()
+  })
+
+  it('prefers active Pixie skin species over companion_species', () => {
+    // User picked spark in onboarding but equipped Pixie Devil from store.
+    // Helper resolves to devil — what the user actually wants to see.
+    expect(getProfilePixieSrc({
+      use_pixie_avatar: true,
+      companion_species: 'spark',
+      pixie_xp: { active: 'pixie_devil', devil: 10 },
+      votes_count: 0,
+    })).toBe('/pixie/devil/pixie-devil-stage-2.png')
+  })
+
+  it('falls back to companion_species when no pixie skin is active', () => {
+    expect(getProfilePixieSrc({
+      use_pixie_avatar: true,
+      companion_species: 'banana',
+      pixie_xp: { banana: 50 },
+      votes_count: 0,
+    })).toBe('/pixie/banana/pixie-banana-stage-3.png')
+  })
+})
+
+describe('getEffectiveSpecies', () => {
+  it('returns active skin species when set', () => {
+    expect(getEffectiveSpecies({
+      companion_species: 'spark',
+      pixie_xp: { active: 'pixie_devil' },
+    })).toBe('devil')
+  })
+
+  it('falls back to companion_species when no active skin', () => {
+    expect(getEffectiveSpecies({
+      companion_species: 'banana',
+      pixie_xp: {},
+    })).toBe('banana')
+  })
+
+  it('defaults to spark when nothing is set', () => {
+    expect(getEffectiveSpecies(null)).toBe('spark')
+    expect(getEffectiveSpecies({ companion_species: null })).toBe('spark')
   })
 })

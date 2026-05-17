@@ -33,7 +33,7 @@ export function getProfilePixieSrc(
   if (!profile) return null
   if (!options.ignoreToggle && !profile.use_pixie_avatar) return null
 
-  const species = (profile.companion_species as CompanionSpecies | null) ?? 'spark'
+  const species = getEffectiveSpecies(profile)
   const pixieXp = profile.pixie_xp ?? {}
   const hasPixieXp = Object.keys(pixieXp).length > 0
   const speciesVotes = hasPixieXp
@@ -42,4 +42,26 @@ export function getProfilePixieSrc(
   const effectiveVotes = hasPixieXp ? speciesVotes : (profile.votes_count ?? 0)
   const stage = getCompanionStage(effectiveVotes)
   return getPixieImagePath(species, stage)
+}
+
+/**
+ * Resolve the species the user is "actively" inhabiting. When the user
+ * has equipped a purchasable Pixie skin (pixie_xp.active = 'pixie_devil'),
+ * the species is derived from the skin id (devil). Otherwise we fall back
+ * to the permanent companion_species set during onboarding, or finally to
+ * 'spark' (the default starter).
+ *
+ * Exported so dashboard surfaces (CompanionDisplay, picker preview) can
+ * agree on the same species without re-implementing the precedence rule.
+ */
+export function getEffectiveSpecies(profile: {
+  companion_species?: string | null
+  pixie_xp?: Record<string, unknown> | null
+} | null | undefined): CompanionSpecies {
+  if (!profile) return 'spark'
+  const active = typeof profile.pixie_xp?.active === 'string' ? profile.pixie_xp.active : null
+  if (active?.startsWith('pixie_')) {
+    return active.slice('pixie_'.length) as CompanionSpecies
+  }
+  return (profile.companion_species as CompanionSpecies | null) ?? 'spark'
 }

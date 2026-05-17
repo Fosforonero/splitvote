@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getPixieImagePath } from '@/lib/pixie'
+import { getCompanionStage, getSpeciesVotes, type CompanionSpecies, type PixieXpMap } from '@/lib/companion'
 import {
   PIXIE_ITEMS, COSMETICS_BY_CATEGORY, COSMETIC_MAP,
   RARITY_STYLES, NAME_COLORS,
@@ -20,6 +22,21 @@ const ALL_OWNABLE_IDS: string[] = [
   'name_color_bundle',
 ]
 import { type PixieItemId } from '@/lib/pixie-store'
+
+// Species names with shipped sprite folders in /public/pixie/. Used by
+// the skin tile preview to skip Image render for species that don't have
+// art yet (avoids 404 on next/image). Update when new sprite sets ship.
+const DEFAULT_SPECIES_WITH_SPRITES: ReadonlySet<string> = new Set([
+  'angel', 'banana', 'caffe', 'crown', 'devil', 'diamond', 'fuoco',
+  'galaxy', 'heart', 'hologram', 'ice', 'leaf', 'momo', 'moonlight',
+  'orbit', 'overseer', 'robot', 'scintille', 'shade', 'spark', 'triste',
+  'void', 'voidcore', 'blip',
+])
+
+/** Map a PIXIE_ITEM id ("pixie_devil") to its species folder name ("devil"). */
+function speciesOf(itemId: string): string {
+  return itemId.startsWith('pixie_') ? itemId.slice('pixie_'.length) : itemId
+}
 
 // ── i18n copy ────────────────────────────────────────────────────────────────
 
@@ -88,12 +105,19 @@ interface Props {
    */
   isAdmin?:        boolean
   /**
-   * Resolved Pixie sprite URL for the user's current species + stage.
-   * Used as the background visual in every skin tile so the picker shows
-   * "your Pixie + this skin" rather than just the skin emoji alone.
-   * When null, tiles fall back to rendering the skin emoji.
+   * Full pixie_xp record from the profile — used to derive the per-species
+   * stage in each skin tile. PIXIE_ITEMS are species variants (pixie_devil
+   * → /pixie/devil/...), so every tile previews ITS own species sprite at
+   * the user's current stage in that species.
    */
-  pixiePreviewSrc?: string | null
+  pixieXp?:        Record<string, unknown> | null
+  /**
+   * Set of species that have a corresponding sprite folder in
+   * /public/pixie/. Tiles for species NOT in this set fall back to the
+   * bare skin emoji — guards against 404 when a PIXIE_ITEM was authored
+   * before its sprite assets shipped (e.g. nova).
+   */
+  speciesWithSprites?: ReadonlySet<string>
   onEquip?:        (itemId: PixieItemId) => void
 }
 
@@ -107,8 +131,9 @@ export default function PixieSelector({
   nameColor:       initialNameColor = null,
   usePixieAvatar:  initialUsePixie  = false,
   locale           = 'en',
-  isAdmin          = false,
-  pixiePreviewSrc  = null,
+  isAdmin            = false,
+  pixieXp            = null,
+  speciesWithSprites = DEFAULT_SPECIES_WITH_SPRITES,
   onEquip,
 }: Props) {
   const t = COPY[(locale === 'it' ? 'it' : 'en') as Locale]
@@ -346,31 +371,34 @@ export default function PixieSelector({
                     }
                   `}
                 >
-                  {/* Preview: pixie sprite (your current species/stage) with
-                      the skin's identifying emoji as a corner badge.
-                      Fallback to the bare emoji when no sprite source. */}
-                  <div className={`relative w-16 h-16 flex items-center justify-center ${!owned ? 'grayscale opacity-40' : ''}`}>
-                    {pixiePreviewSrc ? (
-                      <Image
-                        src={pixiePreviewSrc}
-                        alt={item.name}
-                        width={128}
-                        height={128}
-                        className="w-full h-full object-contain"
-                        draggable={false}
-                      />
-                    ) : (
-                      <span className="text-3xl" aria-hidden="true">{item.emoji}</span>
-                    )}
-                    {pixiePreviewSrc && (
-                      <span
-                        className="absolute -top-1 -right-1 text-base bg-[#0d0d1a] border border-white/10 rounded-full w-6 h-6 flex items-center justify-center shadow-sm"
-                        aria-hidden="true"
-                      >
-                        {item.emoji}
-                      </span>
-                    )}
-                  </div>
+                  {/* Preview: every tile previews ITS OWN species sprite —
+                      PIXIE_ITEMS are species variants (pixie_devil → the
+                      devil sprite family). Stage is the user's current
+                      stage in that species. When the species has no
+                      shipped sprite yet, fall back to the bare emoji. */}
+                  {(() => {
+                    const species = speciesOf(item.id)
+                    const hasSprite = speciesWithSprites.has(species)
+                    const stage = pixieXp
+                      ? getCompanionStage(getSpeciesVotes(pixieXp as PixieXpMap, species as CompanionSpecies))
+                      : 1
+                    return (
+                      <div className={`relative w-16 h-16 flex items-center justify-center ${!owned ? 'grayscale opacity-40' : ''}`}>
+                        {hasSprite ? (
+                          <Image
+                            src={getPixieImagePath(species, stage)}
+                            alt={item.name}
+                            width={128}
+                            height={128}
+                            className="w-full h-full object-contain"
+                            draggable={false}
+                          />
+                        ) : (
+                          <span className="text-3xl" aria-hidden="true">{item.emoji}</span>
+                        )}
+                      </div>
+                    )
+                  })()}
                   <p className={`text-[11px] font-bold leading-tight ${owned ? 'text-white' : 'text-slate-600'}`}>
                     {item.name}
                   </p>
