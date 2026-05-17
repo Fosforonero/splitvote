@@ -53,10 +53,13 @@ export const RARITY_GLOW_SHADOW: Record<Rarity, string> = {
 /**
  * Animation / interaction class layered on top of the chip. Epic gets a
  * hover scale; legendary gets a slow pulse so they stand out on long lists.
+ *
+ * Motion-conditional via `motion-safe:` so users who opt into reduced
+ * motion (system setting or prefers-reduced-motion) see no scale/pulse.
  */
 export const RARITY_ANIMATION: Record<Rarity, string> = {
   common:    '',
   rare:      '',
-  epic:      'hover:scale-110 transition-transform',
-  legendary: 'animate-pulse',
+  epic:      'motion-safe:hover:scale-110 motion-safe:transition-transform',
+  legendary: 'motion-safe:animate-pulse',
 }

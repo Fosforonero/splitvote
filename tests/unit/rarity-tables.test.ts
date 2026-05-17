@@ -29,4 +29,14 @@ describe('rarity lookup tables', () => {
   it('legendary rarity has an animation class', () => {
     expect(RARITY_ANIMATION.legendary.length).toBeGreaterThan(0)
   })
+
+  it('animations are gated by motion-safe: so reduced-motion users opt out', () => {
+    // Any animation/hover-scale we ship MUST be motion-safe-prefixed,
+    // otherwise users with prefers-reduced-motion still see it.
+    for (const r of ALL_RARITIES) {
+      const anim = RARITY_ANIMATION[r]
+      if (anim === '') continue
+      expect(anim, `RARITY_ANIMATION.${r} must use motion-safe: prefix`).toMatch(/motion-safe:/)
+    }
+  })
 })

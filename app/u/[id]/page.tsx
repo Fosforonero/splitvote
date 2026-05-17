@@ -12,8 +12,7 @@ import { RARITY_ORDER } from '@/lib/rarity'
 import type { Rarity } from '@/lib/rarity'
 import { getLevelInfo } from '@/lib/missions'
 import { getEquippedCosmetics } from '@/lib/cosmetics'
-import { getPixieImagePath } from '@/lib/pixie'
-import { getCompanionStage, getSpeciesVotes, type PixieXpMap } from '@/lib/companion'
+import { getProfilePixieSrc } from '@/lib/pixie'
 import ProfileStatsLine, { type StatsLineItem } from '@/components/ProfileStatsLine'
 import BadgeChip from '@/components/BadgeChip'
 
@@ -103,14 +102,12 @@ export default async function PublicProfilePage({ params, searchParams }: Props)
   // The skin emoji (👑, 💎, 🌌...) is fallback if the sprite image fails.
   const heroAvatar  = usePixieAvatar && activePixieItem ? activePixieItem.emoji : avatarEmoji
   const heroIsPixie = usePixieAvatar && !!activePixieItem
-  const speciesVotes   = pixieXp && Object.keys(pixieXp).length > 0
-    ? getSpeciesVotes(pixieXp as PixieXpMap, companionSpecies)
-    : 0
-  const effectiveVotes = pixieXp && Object.keys(pixieXp).length > 0 ? speciesVotes : votesCount
-  const companionStage = getCompanionStage(effectiveVotes)
-  const heroPixieSrc   = usePixieAvatar
-    ? getPixieImagePath(companionSpecies, companionStage)
-    : null
+  const heroPixieSrc = getProfilePixieSrc({
+    companion_species: companionSpecies,
+    use_pixie_avatar:  usePixieAvatar,
+    pixie_xp:          pixieXp,
+    votes_count:       votesCount,
+  })
 
   // Rarity order from lib/rarity.ts — legendary first
   const sortedBadges = [...badges].sort((a, b) =>
@@ -149,6 +146,7 @@ export default async function PublicProfilePage({ params, searchParams }: Props)
                 frame={cosmetics.frame}
                 size="xl"
                 ariaLabel={`${displayName} avatar`}
+                priority
               />
             </div>
             {heroIsPixie && activePixieItem && (

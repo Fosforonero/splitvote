@@ -34,6 +34,12 @@ interface Props {
   /** Extra classes on the outer wrapper. */
   className?: string
   ariaLabel?: string
+  /**
+   * Prioritise the underlying next/image (LCP hint). Pass true for the
+   * above-the-fold hero avatar; leave false on list/feed surfaces so the
+   * image stays lazy-loaded.
+   */
+  priority?: boolean
 }
 
 const SIZE_MAP: Record<Size, { outer: string; inner: string; emoji: string }> = {
@@ -49,11 +55,13 @@ function AvatarContent({
   emoji,
   emojiClass,
   ariaLabel,
+  priority,
 }: {
   pixieSrc?: string | null
   emoji?: string | null
   emojiClass: string
   ariaLabel?: string
+  priority?: boolean
 }) {
   if (pixieSrc) {
     // Inset the image slightly (~92%) so the Pixie head/body doesn't get
@@ -69,6 +77,7 @@ function AvatarContent({
         className="object-contain"
         style={{ width: '92%', height: '92%' }}
         draggable={false}
+        priority={priority}
       />
     )
   }
@@ -87,6 +96,7 @@ export default function CosmeticAvatar({
   innerBg = 'bg-[#0d0d1a]',
   className = '',
   ariaLabel,
+  priority,
 }: Props) {
   const sizing = SIZE_MAP[size]
 
@@ -103,6 +113,7 @@ export default function CosmeticAvatar({
           emoji={emoji}
           emojiClass={sizing.emoji}
           ariaLabel={ariaLabel}
+          priority={priority}
         />
       </div>
     )
@@ -122,6 +133,7 @@ export default function CosmeticAvatar({
           emoji={emoji}
           emojiClass={sizing.emoji}
           ariaLabel={ariaLabel}
+          priority={priority}
         />
       </div>
     </div>

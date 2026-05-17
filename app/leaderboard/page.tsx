@@ -4,6 +4,7 @@ import { createPublicClient } from '@/lib/supabase/server'
 import CosmeticName from '@/components/CosmeticName'
 import CosmeticAvatar from '@/components/CosmeticAvatar'
 import { getEquippedCosmetics } from '@/lib/cosmetics'
+import { getProfilePixieSrc } from '@/lib/pixie'
 
 export const metadata: Metadata = {
   title: 'Leaderboard | SplitVote',
@@ -41,9 +42,12 @@ type ProfileRow = {
   equipped_frame: string | null
   equipped_glow: string | null
   name_color: string | null
+  companion_species: string | null
+  use_pixie_avatar: boolean | null
+  pixie_xp: Record<string, unknown> | null
 }
 
-const COSMETIC_COLS = 'id, display_name, avatar_emoji, votes_count, streak_days, is_premium, xp, equipped_frame, equipped_glow, name_color'
+const COSMETIC_COLS = 'id, display_name, avatar_emoji, votes_count, streak_days, is_premium, xp, equipped_frame, equipped_glow, name_color, companion_species, use_pixie_avatar, pixie_xp'
 
 export default async function LeaderboardPage() {
   let voters:  ProfileRow[] = []
@@ -112,6 +116,7 @@ export default async function LeaderboardPage() {
               {/* Avatar with optional cosmetic frame */}
               <CosmeticAvatar
                 emoji={user.avatar_emoji ?? '🌍'}
+                pixieSrc={getProfilePixieSrc(user)}
                 frame={getEquippedCosmetics(user).frame}
                 size="md"
                 ariaLabel={user.display_name ?? 'Anonymous Voter'}
@@ -172,6 +177,7 @@ export default async function LeaderboardPage() {
               </span>
               <CosmeticAvatar
                 emoji={user.avatar_emoji ?? '🌍'}
+                pixieSrc={getProfilePixieSrc(user)}
                 frame={getEquippedCosmetics(user).frame}
                 size="md"
                 ariaLabel={user.display_name ?? 'Anonymous Voter'}

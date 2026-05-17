@@ -19,8 +19,8 @@ import { getUserEntitlements } from '@/lib/entitlements'
 import type { UserRole } from '@/lib/admin-auth'
 import { getEquippedCosmetics } from '@/lib/cosmetics'
 import { COSMETIC_MAP, type CosmeticItemId } from '@/lib/cosmetics-store'
-import { getPixieImagePath } from '@/lib/pixie'
-import { getCompanionStage, getSpeciesVotes, type CompanionSpecies as CompanionSpeciesType, type PixieXpMap } from '@/lib/companion'
+import { getProfilePixieSrc } from '@/lib/pixie'
+import type { CompanionSpecies as CompanionSpeciesType } from '@/lib/companion'
 
 export const metadata = { title: 'Dashboard | SplitVote' }
 
@@ -193,16 +193,16 @@ export default async function DashboardPage() {
         const pixieXpRecord  = profile?.pixie_xp as Record<string, unknown> | null
         const activePixieId  = typeof pixieXpRecord?.active === 'string' ? pixieXpRecord.active as CosmeticItemId : null
         // When use_pixie_avatar is on, render the actual Pixie sprite (PNG)
-        // from the companion species + stage, NOT the skin's flat emoji. The
-        // skin emoji (🌌, 👑, 💎...) is shown in the picker for identification
-        // but the avatar surface deserves the full sprite art.
+        // from the companion species + stage. Stage derivation lives inside
+        // getProfilePixieSrc so all surfaces (dashboard, /u/[id], leaderboard)
+        // resolve it identically.
         const companionSpecies = (profile?.companion_species ?? 'spark') as CompanionSpeciesType
-        const speciesVotes    = pixieXpRecord ? getSpeciesVotes(pixieXpRecord as PixieXpMap, companionSpecies) : 0
-        const effectiveVotes  = pixieXpRecord && Object.keys(pixieXpRecord).length > 0 ? speciesVotes : (profile?.votes_count ?? 0)
-        const companionStage  = getCompanionStage(effectiveVotes)
-        const pixieSrc        = profile?.use_pixie_avatar
-          ? getPixieImagePath(companionSpecies, companionStage)
-          : null
+        const pixieSrc        = getProfilePixieSrc({
+          companion_species: profile?.companion_species,
+          use_pixie_avatar:  profile?.use_pixie_avatar,
+          pixie_xp:          pixieXpRecord,
+          votes_count:       profile?.votes_count,
+        })
         // Emoji fallback: skin emoji if use_pixie_avatar on but image fails,
         // otherwise user's chosen avatar_emoji.
         const headerEmoji    = profile?.use_pixie_avatar && activePixieId
@@ -223,6 +223,7 @@ export default async function DashboardPage() {
                 frame={cosmetics.frame}
                 size="lg"
                 ariaLabel={profile?.display_name ?? 'You'}
+                priority
               />
               <div className="min-w-0">
                 <h1 className="text-3xl font-black text-white mb-1">
