@@ -12,6 +12,9 @@ export default defineConfig({
       exclude: ['lib/**/*.test.ts', 'lib/**/index.ts'],
     },
   },
+  oxc: {
+    jsx: { runtime: 'automatic' },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),

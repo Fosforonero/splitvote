@@ -8,11 +8,14 @@ import CosmeticName from '@/components/CosmeticName'
 import type { CompanionSpecies } from '@/lib/companion'
 import { PIXIE_ITEM_MAP } from '@/lib/pixie-store'
 import type { PixieItemId } from '@/lib/pixie-store'
-import { RARITY_STYLES, RARITY_ORDER } from '@/lib/rarity'
+import { RARITY_ORDER } from '@/lib/rarity'
+import type { Rarity } from '@/lib/rarity'
 import { getLevelInfo } from '@/lib/missions'
 import { getEquippedCosmetics } from '@/lib/cosmetics'
 import { getPixieImagePath } from '@/lib/pixie'
 import { getCompanionStage, getSpeciesVotes, type PixieXpMap } from '@/lib/companion'
+import ProfileStatsLine, { type StatsLineItem } from '@/components/ProfileStatsLine'
+import BadgeChip from '@/components/BadgeChip'
 
 const BASE = 'https://splitvote.io'
 
@@ -81,7 +84,6 @@ export default async function PublicProfilePage({ params, searchParams }: Props)
 
   const displayName    = profile.display_name ?? 'Anonymous Voter'
   const avatarEmoji    = profile.avatar_emoji ?? '🌍'
-  const joinDate       = new Date(profile.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
   const votesCount     = profile.votes_count ?? 0
   const companionSpecies = ((profile as Record<string, unknown>).companion_species as CompanionSpecies | null) ?? 'spark'
   const xp             = ((profile as Record<string, unknown>).xp as number | null) ?? 0
@@ -125,6 +127,18 @@ export default async function PublicProfilePage({ params, searchParams }: Props)
       {/* ── Profile hero ── */}
       {(() => {
         const cosmetics = getEquippedCosmetics(profile as unknown as { equipped_frame?: string | null; equipped_glow?: string | null; name_color?: string | null })
+        const memberSince = new Date(profile.created_at).toLocaleDateString('en-GB', {
+          month: 'long',
+          year:  'numeric',
+        })
+        const statsItems: StatsLineItem[] = [
+          { icon: '🗳', value: votesCount.toLocaleString(), label: 'votes' },
+          { icon: '⚡', value: `Lv.${levelInfo.level}` },
+          { icon: '🔥', value: streakDays, label: 'day streak', show: streakDays > 0 },
+          { icon: '🏆', value: badges.length, label: 'badges', show: badges.length > 0 },
+          { icon: '📍', value: profile.country_code ?? '', show: !!profile.country_code },
+          { icon: '📅', value: memberSince, label: 'Member since', prefix: true },
+        ]
         return (
           <div className="rounded-3xl border border-[var(--border)] bg-[#0d0d1a]/60 p-8 mb-8 text-center">
             {/* Avatar: Pixie sprite when use_pixie_avatar is on, else emoji — wrapped with optional cosmetic frame */}
@@ -154,40 +168,8 @@ export default async function PublicProfilePage({ params, searchParams }: Props)
             ⭐ Premium
           </span>
         )}
-        <p className="text-[var(--muted)] text-sm mt-2">Member since {joinDate}</p>
-        {profile.country_code && (
-          <p className="text-[var(--muted)] text-sm mt-1">📍 {profile.country_code}</p>
-        )}
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 max-w-sm mx-auto">
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
-            <p className="text-2xl font-black text-blue-400">{votesCount.toLocaleString()}</p>
-            <p className="text-xs text-[var(--muted)] mt-1">Dilemmas voted</p>
-          </div>
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
-            <p className="text-2xl font-black text-yellow-400">{badges.length}</p>
-            <p className="text-xs text-[var(--muted)] mt-1">Trophies earned</p>
-          </div>
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
-            <p className={`text-2xl font-black ${levelInfo.color}`}>
-              Lv.{levelInfo.level}
-            </p>
-            <p className="text-xs text-[var(--muted)] mt-1">{xp.toLocaleString()} XP</p>
-          </div>
-          {streakDays > 0 && (
-            <div className="rounded-2xl border border-orange-500/30 bg-orange-500/5 p-4">
-              <p className="text-2xl font-black text-orange-400">🔥 {streakDays}</p>
-              <p className="text-xs text-[var(--muted)] mt-1">Day streak</p>
-            </div>
-          )}
-          {streakDays === 0 && (
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
-              <p className="text-2xl font-black text-[var(--muted)]">—</p>
-              <p className="text-xs text-[var(--muted)] mt-1">No streak yet</p>
-            </div>
-          )}
-        </div>
+        <ProfileStatsLine align="center" items={statsItems} className="mt-4" />
           </div>
         )
       })()}
@@ -208,11 +190,16 @@ export default async function PublicProfilePage({ params, searchParams }: Props)
               <div
                 key={b.badge_id}
                 title={b.badges.description}
-                className={`rounded-xl border p-3 text-center ${RARITY_STYLES[b.badges.rarity] ?? RARITY_STYLES.common}`}
+                className="rounded-xl p-3 text-center flex flex-col items-center gap-1.5"
               >
-                <p className="text-3xl mb-1.5">{b.badges.emoji}</p>
-                <p className="text-xs font-semibold leading-tight">{b.badges.name}</p>
-                <p className="text-xs opacity-60 mt-0.5 capitalize">{b.badges.rarity}</p>
+                <BadgeChip
+                  emoji={b.badges.emoji}
+                  rarity={b.badges.rarity as Rarity}
+                  title={b.badges.name}
+                  size="lg"
+                />
+                <p className="text-xs font-semibold leading-tight text-white">{b.badges.name}</p>
+                <p className="text-xs opacity-60 capitalize">{b.badges.rarity}</p>
               </div>
             ))}
           </div>

@@ -99,8 +99,10 @@ export function isGlowId(value: string | null | undefined): value is GlowId {
 // — see tests/unit/cosmetics-catalog.test.ts.
 
 export type NameColorSlug =
-  | 'white'  | 'blue'   | 'purple' | 'green'
-  | 'gold'   | 'pink'   | 'red'    | 'gradient'
+  | 'white'    | 'blue'    | 'purple' | 'green'
+  | 'pink'     | 'red'     | 'gradient'
+  | 'gold'     | 'steel'   | 'silver' | 'platinum'
+  | 'diamond'  | 'rose_gold'
 
 export interface NameColorDef {
   slug: NameColorSlug
@@ -111,14 +113,24 @@ export interface NameColorDef {
 }
 
 export const NAME_COLORS: Record<NameColorSlug, NameColorDef> = {
+  // ── Basic colors (flat Tailwind) ───────────────────────────────────────
   white:    { slug: 'white',    className: 'text-white',       label: 'White' },
   blue:     { slug: 'blue',     className: 'text-blue-400',    label: 'Blue' },
   purple:   { slug: 'purple',   className: 'text-purple-400',  label: 'Purple' },
   green:    { slug: 'green',    className: 'text-emerald-400', label: 'Green' },
-  gold:     { slug: 'gold',     className: 'text-yellow-400',  label: 'Gold' },
   pink:     { slug: 'pink',     className: 'text-pink-400',    label: 'Pink' },
   red:      { slug: 'red',      className: 'text-red-400',     label: 'Red' },
   gradient: { slug: 'gradient', className: 'bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent', label: 'Gradient' },
+
+  // ── Premium colors (metallic / gemstone gradients) ─────────────────────
+  // gold upgraded from text-yellow-400 (solid) to a 3-stop metallic gradient.
+  // Existing users with name_color='gold' see the upgrade automatically.
+  gold:      { slug: 'gold',      className: 'bg-gradient-to-r from-yellow-200 via-amber-400 to-orange-500 bg-clip-text text-transparent', label: 'Gold' },
+  steel:     { slug: 'steel',     className: 'bg-gradient-to-r from-slate-300 via-zinc-200 to-slate-400 bg-clip-text text-transparent',    label: 'Steel' },
+  silver:    { slug: 'silver',    className: 'bg-gradient-to-r from-gray-300 via-white to-gray-400 bg-clip-text text-transparent',          label: 'Silver' },
+  platinum:  { slug: 'platinum',  className: 'bg-gradient-to-r from-slate-200 via-blue-50 to-slate-300 bg-clip-text text-transparent',       label: 'Platinum' },
+  diamond:   { slug: 'diamond',   className: 'bg-gradient-to-r from-cyan-200 via-pink-200 to-purple-300 bg-clip-text text-transparent',     label: 'Diamond' },
+  rose_gold: { slug: 'rose_gold', className: 'bg-gradient-to-r from-pink-300 via-amber-200 to-pink-400 bg-clip-text text-transparent',      label: 'Rose Gold' },
 }
 
 export function isNameColorSlug(value: string | null | undefined): value is NameColorSlug {

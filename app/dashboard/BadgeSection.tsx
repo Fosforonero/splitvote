@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import BadgeChip from '@/components/BadgeChip'
+import type { Rarity } from '@/lib/rarity'
 
 interface Badge {
   badge_id: string
@@ -85,7 +87,13 @@ export default function BadgeSection({ initialBadges }: { initialBadges: Badge[]
                 ${isEquipped ? `ring-2 ${ringStyle}` : ''}
               `}
             >
-              <span className="text-3xl flex-shrink-0">{b.badges.emoji}</span>
+              <BadgeChip
+                emoji={b.badges.emoji}
+                rarity={b.badges.rarity as Rarity}
+                title={b.badges.name}
+                size="lg"
+                className="flex-shrink-0"
+              />
               <div className="flex-1 min-w-0">
                 <p className="font-bold text-sm text-white">{b.badges.name}</p>
                 <p className="text-xs opacity-70 truncate">{b.badges.description}</p>

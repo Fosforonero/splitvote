@@ -10,6 +10,10 @@ import DailyMissions from '@/components/DailyMissions'
 import PixieSelector from '@/components/PixieSelector'
 import CosmeticName from '@/components/CosmeticName'
 import CosmeticAvatar from '@/components/CosmeticAvatar'
+import ProfileStatsLine, { type StatsLineItem } from '@/components/ProfileStatsLine'
+import BadgeChip from '@/components/BadgeChip'
+import type { Rarity } from '@/lib/rarity'
+import { getLevelInfo } from '@/lib/missions'
 import type { CompanionSpecies } from '@/lib/companion'
 import { getUserEntitlements } from '@/lib/entitlements'
 import type { UserRole } from '@/lib/admin-auth'
@@ -76,13 +80,6 @@ const STATUS_BADGE: Record<PollStatus, { label: string; classes: string }> = {
   approved: { label: '✅ Live',             classes: 'text-green-400  bg-green-500/10  border-green-500/30'  },
   rejected: { label: '❌ Rejected',         classes: 'text-red-400    bg-red-500/10    border-red-500/30'    },
   flagged:  { label: '🚩 Flagged',          classes: 'text-orange-400 bg-orange-500/10 border-orange-500/30' },
-}
-
-const RARITY_STYLES: Record<string, string> = {
-  common:    'border-slate-500/40 bg-slate-500/10 text-slate-300',
-  rare:      'border-blue-500/40  bg-blue-500/10  text-blue-300',
-  epic:      'border-purple-500/40 bg-purple-500/10 text-purple-300',
-  legendary: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-300',
 }
 
 export default async function DashboardPage() {
@@ -211,6 +208,12 @@ export default async function DashboardPage() {
         const headerEmoji    = profile?.use_pixie_avatar && activePixieId
           ? COSMETIC_MAP[activePixieId]?.emoji ?? profile?.avatar_emoji ?? '🌍'
           : profile?.avatar_emoji ?? '🌍'
+        const levelInfo = getLevelInfo(profile?.xp ?? 0)
+        const statsItems: StatsLineItem[] = [
+          { icon: '🗳', value: (profile?.votes_count ?? 0).toLocaleString(), label: 'votes' },
+          { icon: '⚡', value: `Lv.${levelInfo.level}` },
+          { icon: '🔥', value: profile?.streak_days ?? 0, label: 'day streak', show: (profile?.streak_days ?? 0) > 0 },
+        ]
         return (
           <div className="mb-10 flex items-start justify-between gap-4">
             <div className="flex items-center gap-4 min-w-0">
@@ -232,18 +235,19 @@ export default async function DashboardPage() {
                   👋
                 </h1>
                 <p className="text-[var(--muted)] text-sm truncate">{profile?.email ?? user.email}</p>
+                <ProfileStatsLine align="left" items={statsItems} className="mt-2" />
               </div>
             </div>
             {userBadges.length > 0 && (
               <div className="flex gap-1.5 flex-wrap justify-end mt-1">
                 {userBadges.filter(b => b.badges != null).slice(0, 5).map(b => (
-                  <span
+                  <BadgeChip
                     key={b.badge_id}
+                    emoji={b.badges.emoji}
+                    rarity={b.badges.rarity as Rarity}
                     title={b.badges.name}
-                    className={`text-xl px-2.5 py-1 rounded-xl border ${RARITY_STYLES[b.badges.rarity] ?? RARITY_STYLES.common}`}
-                  >
-                    {b.badges.emoji}
-                  </span>
+                    size="md"
+                  />
                 ))}
               </div>
             )}

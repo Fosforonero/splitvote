@@ -493,27 +493,43 @@ export default function PixieSelector({
           {t.nameColorSection}
         </p>
         {hasNameBundle ? (
-          <div className="flex flex-wrap gap-2">
-            {NAME_COLORS.map(color => {
-              const isActive    = nameColor === color.value
-              const isEquipping_ = equipping === ('name_color_' + color.value)
+          <div className="space-y-3">
+            {(['basic', 'premium'] as const).map((group) => {
+              const groupColors = NAME_COLORS.filter((c) => c.group === group)
+              if (groupColors.length === 0) return null
+              const groupLabel = locale === 'it'
+                ? (group === 'basic' ? 'Base' : 'Premium')
+                : (group === 'basic' ? 'Basic' : 'Premium')
               return (
-                <button
-                  key={color.value}
-                  onClick={() => handleEquipNameColor(color.value)}
-                  disabled={isEquipping_ || isActive}
-                  className={`
-                    px-3 py-1.5 rounded-lg border text-xs font-bold transition-all duration-150
-                    ${isActive
-                      ? 'border-blue-500/60 bg-blue-500/10 ring-1 ring-blue-500'
-                      : 'border-white/10 bg-white/5 hover:border-white/20'
-                    }
-                    disabled:cursor-not-allowed
-                  `}
-                >
-                  <span className={color.class}>{color.label}</span>
-                  {isActive && <span className="ml-1 text-blue-400">✓</span>}
-                </button>
+                <div key={group}>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1.5">
+                    {groupLabel}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {groupColors.map((color) => {
+                      const isActive     = nameColor === color.value
+                      const isEquipping_ = equipping === ('name_color_' + color.value)
+                      return (
+                        <button
+                          key={color.value}
+                          onClick={() => handleEquipNameColor(color.value)}
+                          disabled={isEquipping_ || isActive}
+                          className={`
+                            px-3 py-1.5 rounded-lg border text-xs font-bold transition-all duration-150
+                            ${isActive
+                              ? 'border-blue-500/60 bg-blue-500/10 ring-1 ring-blue-500'
+                              : 'border-white/10 bg-white/5 hover:border-white/20'
+                            }
+                            disabled:cursor-not-allowed
+                          `}
+                        >
+                          <span className={color.class}>{color.label}</span>
+                          {isActive && <span className="ml-1 text-blue-400">✓</span>}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
               )
             })}
           </div>

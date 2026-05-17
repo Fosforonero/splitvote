@@ -148,15 +148,27 @@ export const COSMETICS_BY_CATEGORY = COSMETIC_ITEMS.reduce<Record<CosmeticCatego
 // Rarity styles are now defined once in lib/rarity.ts
 export { RARITY_STYLES, RARITY_GLOW } from '@/lib/rarity'
 
-export const NAME_COLORS: { label: string; class: string; value: string }[] = [
-  { label: 'White',    class: 'text-white',       value: 'white'    },
-  { label: 'Blue',     class: 'text-blue-400',    value: 'blue'     },
-  { label: 'Purple',   class: 'text-purple-400',  value: 'purple'   },
-  { label: 'Green',    class: 'text-emerald-400', value: 'green'    },
-  { label: 'Gold',     class: 'text-yellow-400',  value: 'gold'     },
-  { label: 'Pink',     class: 'text-pink-400',    value: 'pink'     },
-  { label: 'Red',      class: 'text-red-400',     value: 'red'      },
-  { label: 'Gradient', class: 'bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent', value: 'gradient' },
+export type NameColorGroup = 'basic' | 'premium'
+
+export const NAME_COLORS: { label: string; class: string; value: string; group: NameColorGroup }[] = [
+  // ── Basic group ────────────────────────────────────────────────────────
+  { label: 'White',    class: 'text-white',       value: 'white',    group: 'basic'   },
+  { label: 'Blue',     class: 'text-blue-400',    value: 'blue',     group: 'basic'   },
+  { label: 'Purple',   class: 'text-purple-400',  value: 'purple',   group: 'basic'   },
+  { label: 'Green',    class: 'text-emerald-400', value: 'green',    group: 'basic'   },
+  { label: 'Pink',     class: 'text-pink-400',    value: 'pink',     group: 'basic'   },
+  { label: 'Red',      class: 'text-red-400',     value: 'red',      group: 'basic'   },
+  { label: 'Gradient', class: 'bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent', value: 'gradient', group: 'basic' },
+
+  // ── Premium group ──────────────────────────────────────────────────────
+  // Match the className verbatim with lib/cosmetics.ts NAME_COLORS so the
+  // picker preview swatch and the rendered display name look identical.
+  { label: 'Gold',      class: 'bg-gradient-to-r from-yellow-200 via-amber-400 to-orange-500 bg-clip-text text-transparent', value: 'gold',      group: 'premium' },
+  { label: 'Steel',     class: 'bg-gradient-to-r from-slate-300 via-zinc-200 to-slate-400 bg-clip-text text-transparent',    value: 'steel',     group: 'premium' },
+  { label: 'Silver',    class: 'bg-gradient-to-r from-gray-300 via-white to-gray-400 bg-clip-text text-transparent',          value: 'silver',    group: 'premium' },
+  { label: 'Platinum',  class: 'bg-gradient-to-r from-slate-200 via-blue-50 to-slate-300 bg-clip-text text-transparent',       value: 'platinum',  group: 'premium' },
+  { label: 'Diamond',   class: 'bg-gradient-to-r from-cyan-200 via-pink-200 to-purple-300 bg-clip-text text-transparent',     value: 'diamond',   group: 'premium' },
+  { label: 'Rose Gold', class: 'bg-gradient-to-r from-pink-300 via-amber-200 to-pink-400 bg-clip-text text-transparent',      value: 'rose_gold', group: 'premium' },
 ]
 
 export function isCosmeticItemId(s: string): s is CosmeticItemId {
