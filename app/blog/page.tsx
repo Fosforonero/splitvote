@@ -4,6 +4,7 @@ import { getPostsByLocale } from '@/lib/blog'
 import type { BlogPost } from '@/lib/blog'
 import { getPublishedBlogDrafts, getPublishedPostsForLocale } from '@/lib/blog-published'
 import BlogGrid from '@/components/BlogGrid'
+import { CLUSTERS } from '@/lib/blog-clusters'
 
 // ISR 1 hour — index merges static lib/blog.ts posts with Redis-published
 // drafts. React cache() is intentionally not used here; see
@@ -62,6 +63,24 @@ export default async function BlogIndexPage() {
       </div>
 
       <div className="neon-divider mb-10 max-w-xs" />
+
+      {/* Topic hubs — curated entry points, also help crawlers find the cluster pages */}
+      <nav className="mb-10" aria-label="Blog topic hubs">
+        <h2 className="text-xs font-black uppercase tracking-widest text-[var(--muted)] mb-4">
+          <span aria-hidden="true">📚</span> Browse by topic
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          {CLUSTERS.map((c) => (
+            <Link
+              key={c.id}
+              href={`/blog/topics/${c.slug.en}`}
+              className="inline-flex items-center min-h-[44px] text-sm font-bold px-4 py-2.5 rounded-full border border-[var(--border)] bg-[#0d0d1a]/60 text-[var(--muted)] hover:text-white hover:border-violet-500/40 transition-colors"
+            >
+              {c.title.en}
+            </Link>
+          ))}
+        </div>
+      </nav>
 
       <BlogGrid posts={posts} locale="en" />
 

@@ -3,6 +3,7 @@ import { scenarios, CATEGORIES } from '@/lib/scenarios'
 import { getPostsByLocale } from '@/lib/blog'
 import { getPublishedBlogDrafts, getPublishedPostsForLocale } from '@/lib/blog-published'
 import { getIndexableITTopics, getIndexableTopics } from '@/lib/seo-topics'
+import { CLUSTERS } from '@/lib/blog-clusters'
 
 const BASE = 'https://splitvote.io'
 
@@ -204,6 +205,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.68,
     },
     ...blogPostRoutes,
+    // Blog cluster hub pages — curated SEO entry points that link to the
+    // articles + live dilemmas inside each topic. Static (4 hubs × 2 locales
+    // = 8 URLs) so they can ship with the rest of the sitemap.
+    ...CLUSTERS.flatMap((c) => [
+      {
+        url: `${BASE}/blog/topics/${c.slug.en}`,
+        lastModified: STATIC_LAST_MOD,
+        changeFrequency: 'weekly' as const,
+        priority: 0.75,
+      },
+      {
+        url: `${BASE}/it/blog/temi/${c.slug.it}`,
+        lastModified: STATIC_LAST_MOD,
+        changeFrequency: 'weekly' as const,
+        priority: 0.72,
+      },
+    ]),
     // Static dilemmas (durable surface — AI dilemmas intentionally excluded;
     // discovered via internal links instead)
     ...scenarioRoutes,

@@ -70,12 +70,35 @@ const EN_POSTS: BlogPost[] = [
     description:
       'A moral dilemma is a situation where every choice has a cost. No option is clean. Understanding them reveals what you actually value.',
     seoDescription:
-      'Learn what a moral dilemma is, why they have no right answer, and why facing them reveals your true values. With real examples and interactive dilemmas to try.',
+      'Learn what a moral dilemma is, why they have no clean answer, the difference from a hard choice, and what philosophers and psychologists actually say. With real examples you can vote on.',
     date: '2026-04-27',
-    readingTime: 3,
+    dateModified: '2026-05-17',
+    readingTime: 5,
     tags: ['ethics', 'philosophy', 'moral psychology'],
     relatedDilemmaIds: ['trolley', 'cure-secret', 'memory-erase'],
     alternateSlug: 'cos-e-un-dilemma-morale',
+    faq: [
+      {
+        q: "What's the difference between a moral dilemma and an ethical dilemma?",
+        a: 'In everyday use the two are interchangeable. Some philosophers reserve "ethical dilemma" for conflicts inside a single professional code (a doctor weighing patient confidentiality against family disclosure) and "moral dilemma" for broader conflicts between personal values. Both describe situations where every option breaks something.',
+      },
+      {
+        q: 'Do moral dilemmas have right answers?',
+        a: 'Genuine moral dilemmas are the ones where reasonable people disagree even after looking at every fact. There may be defensible answers — answers you can argue for — but no answer that does not leave a moral remainder. Hard choices are different: they look like dilemmas but a clearer option exists once you reason carefully.',
+      },
+      {
+        q: "What's the most famous moral dilemma?",
+        a: 'The trolley problem, introduced by philosopher Philippa Foot in 1967. It asks whether you should divert a runaway trolley to kill one person instead of five. It became famous because almost everyone says yes — and then refuses the "footbridge" variant where you have to push someone instead. The asymmetry is the interesting part.',
+      },
+      {
+        q: 'How do philosophers actually try to solve them?',
+        a: 'Three traditions dominate. Consequentialists pick whichever option produces the best outcome. Deontologists check the action against absolute rules (do not kill, do not lie). Virtue ethicists ask what a person of good character would do. They often arrive at different verdicts — which is part of why the dilemmas keep mattering.',
+      },
+      {
+        q: 'Can a moral dilemma have only one option?',
+        a: 'Yes — these are called "single-option dilemmas." You have only one course of action, but taking it still violates something you value (a doctor forced to triage in a mass casualty event, for example). The dilemma is in the moral cost, not in the choice between two alternatives.',
+      },
+    ],
     content: [
       {
         type: 'p',
@@ -83,7 +106,7 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'p',
-        text: "That's what makes them so uncomfortable. And so revealing.",
+        text: "That's what makes them so uncomfortable. And so revealing. Philosophers have argued about how to define them for fifty years, and the [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/moral-dilemmas/) still treats whether they really exist as an open question. What is not in doubt is that ordinary people meet them constantly — in hospitals, in families, in voting booths.",
       },
       {
         type: 'h2',
@@ -91,11 +114,44 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'p',
-        text: 'A hard choice might have a clearly better option that is simply difficult to take. A true moral dilemma has competing values in direct conflict: loyalty vs. honesty, saving lives vs. respecting autonomy, the individual vs. the collective.',
+        text: 'A hard choice has a clearly better option that is simply difficult to take. A true moral dilemma has competing values in direct conflict: loyalty vs. honesty, saving lives vs. respecting autonomy, the individual vs. the collective. After you decide, you still owe something to the option you abandoned. Philosophers call this leftover obligation a **moral remainder** — guilt, regret, or the duty to make amends — and they treat it as the signature of a genuine dilemma.',
       },
       {
         type: 'p',
-        text: 'Classic examples include the trolley problem (save five by sacrificing one?), whistleblowing scenarios (loyalty to employer vs. public interest), or end-of-life care decisions where multiple ethical principles pull in opposite directions.',
+        text: 'Classic examples include the [trolley problem](/blog/trolley-problem-explained) (save five by sacrificing one?), whistleblowing scenarios ([loyalty to employer vs. public interest](/blog/loyalty-vs-honesty-when-they-collide)), and the gap between [actively doing harm and merely allowing it](/blog/doing-vs-allowing-harm).',
+      },
+      {
+        type: 'h2',
+        text: 'A short taxonomy',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Pure conflict dilemma** — two duties point in opposite directions and you can only honour one (the parent who must choose between two children at risk).',
+          '**Single-option dilemma** — only one course of action is possible, but it still violates something you value (battlefield triage, COVID ICU rationing).',
+          '**Tragic dilemma** — both options cause grave harm, and the harm cannot be unwound by later action.',
+          '**Self-imposed dilemma** — a result of earlier choices the agent made (the executive who promised both investors and employees outcomes that cannot coexist).',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Why philosophers cannot agree on a verdict',
+      },
+      {
+        type: 'p',
+        text: 'Three traditions dominate the conversation. [Consequentialism](/blog/consequentialism-the-greatest-good) tells you to pick whichever option produces the best overall outcome — usually the most well-being for the most people. [Deontology](/blog/deontology-some-things-are-always-wrong) tells you to check the action against absolute rules (do not kill, do not lie) regardless of what comes after. [Virtue ethics](/blog/virtue-ethics-what-would-a-good-person-do) asks not "what should I do?" but "what would a person of good character do?" Each gives a serious answer to most dilemmas — but the answers disagree, and that is exactly why the dilemmas keep mattering.',
+      },
+      {
+        type: 'h2',
+        text: 'How researchers actually study them',
+      },
+      {
+        type: 'p',
+        text: 'Moral philosophy traditionally relied on intuition and argument. Over the last twenty years, psychologists and neuroscientists started studying real human responses — using fMRI to watch which brain regions fire when subjects face the [trolley vs. footbridge contrast](/blog/trolley-problem-explained), and running cross-cultural surveys to see whether moral intuitions are universal or culturally local.',
+      },
+      {
+        type: 'p',
+        text: 'The largest such experiment, MIT\'s [Moral Machine](https://www.moralmachine.net/), collected roughly 40 million decisions about who an autonomous car should sacrifice. The dataset revealed clear cross-cultural variation in how people weigh age, social status, and species — patterns that have since shaped real autonomous-vehicle policy debates. The data behind SplitVote works on the same principle, at smaller scale: every vote contributes to an aggregate picture of where humans actually land when they have to choose.',
       },
       {
         type: 'h2',
@@ -107,6 +163,7 @@ const EN_POSTS: BlogPost[] = [
           'They expose your actual values — not the ones you think you have',
           'They show where two reasonable people can disagree without either being wrong',
           'They are the foundation of serious ethical reasoning in law, medicine, and politics',
+          'They are the unit currency of moral psychology research',
         ],
       },
       {
@@ -115,7 +172,7 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'p',
-        text: 'The best way to understand a moral dilemma is to face one. See how your gut reacts before your reasoning catches up — then compare your answer with people from around the world.',
+        text: 'The best way to understand a moral dilemma is to face one. See how your gut reacts before your reasoning catches up — then compare your answer with people from around the world. For more on the canonical thought experiments and the research behind them, the [Moral Dilemmas hub](/blog/topics/moral-dilemmas) collects every article on the topic.',
       },
       {
         type: 'cta',
@@ -142,12 +199,35 @@ const EN_POSTS: BlogPost[] = [
     description:
       'The trolley problem is the most famous thought experiment in moral philosophy. Here is where it came from, what the variants reveal, and what people actually choose.',
     seoDescription:
-      'Understand the trolley problem: its origin with Philippa Foot, the footbridge variant, and what global surveys reveal about how people reason about life and death.',
+      'The trolley problem in 800 words: Foot 1967, Thomson\'s footbridge, the loop case, what fMRI studies showed, and what 40M autonomous-vehicle votes revealed about cross-cultural difference.',
     date: '2026-04-27',
-    readingTime: 4,
-    tags: ['trolley problem', 'ethics', 'philosophy', 'classic dilemmas'],
+    dateModified: '2026-05-17',
+    readingTime: 6,
+    tags: ['trolley problem', 'ethics', 'philosophy', 'classic dilemmas', 'moral psychology'],
     relatedDilemmaIds: ['trolley', 'organ-harvest'],
     alternateSlug: 'problema-del-carrello-spiegato',
+    faq: [
+      {
+        q: 'Who invented the trolley problem?',
+        a: 'Philosopher Philippa Foot, in a 1967 paper called "The Problem of Abortion and the Doctrine of the Double Effect." She used a runaway tram, not a trolley, and her real target was not driving ethics but the philosophical doctrine that distinguishes intended consequences from foreseen-but-unintended ones.',
+      },
+      {
+        q: 'What is the difference between the lever and the footbridge versions?',
+        a: 'The body count is identical — one death prevents five. The mechanism differs. In the lever case the death is a side effect of diverting the threat. In the footbridge case you use a person as an object to stop it. Most people accept the first and refuse the second, which is the asymmetry that made the puzzle famous.',
+      },
+      {
+        q: 'What do most people actually choose?',
+        a: 'In large international surveys, roughly 80-90% of respondents pull the lever and only about 30% push the man off the footbridge. The gap is robust across age, education and most cultures, though the exact numbers shift.',
+      },
+      {
+        q: 'Has the trolley problem ever affected the real world?',
+        a: 'Yes. When Mercedes-Benz had to decide how its autonomous cars should prioritise lives in unavoidable collisions, the conversation explicitly invoked the trolley problem. MIT\'s Moral Machine experiment collected ~40 million votes on autonomous-vehicle dilemmas; the results have been cited in policy debates from the EU to Singapore.',
+      },
+      {
+        q: 'Is the trolley problem a useful philosophy tool or a "philosophy meme"?',
+        a: 'Both. Many ethicists argue the original framing is artificial and that real moral life rarely allows clean utilitarian arithmetic. Others say that is precisely why it is useful: it isolates a single conflict — consequences vs. constraints — and lets researchers measure how people reason when nothing else is in the way.',
+      },
+    ],
     content: [
       {
         type: 'p',
@@ -155,7 +235,7 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'p',
-        text: "This thought experiment was introduced by philosopher Philippa Foot in 1967. It became one of the most studied cases in moral philosophy — and one of the most argued about at dinner tables.",
+        text: "This thought experiment was introduced by philosopher Philippa Foot in 1967. It became one of the most studied cases in moral philosophy — and one of the most argued about at dinner tables. The [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/double-effect/) treats it as the textbook example of the doctrine of double effect.",
       },
       {
         type: 'h2',
@@ -179,15 +259,28 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'h2',
+        text: 'The loop case and other variants',
+      },
+      {
+        type: 'p',
+        text: 'Thomson and her successors built dozens of variants to isolate what exactly people are tracking. In the **loop case** the side track curves back to the main track, so the one person on the loop is the only thing stopping the trolley from continuing on and killing the five — meaning their death is required, not merely foreseen. People hesitate more here than in the original lever case, which suggests the moral weight depends on whether the death is used as a means or simply happens alongside the rescue. The [doing vs. allowing harm](/blog/doing-vs-allowing-harm) distinction, the [doctrine of double effect](https://plato.stanford.edu/entries/double-effect/), and the **agent-relative** vs. **agent-neutral** debate all live inside these variants.',
+      },
+      {
+        type: 'h2',
         text: 'What the research shows',
       },
       {
         type: 'list',
         items: [
-          'In large surveys, roughly 85% of people pull the lever — but only ~30% push the man',
-          'The difference maps onto deontological thinking (do not use a person as a means) vs. consequentialist thinking (minimize harm)',
+          'In large surveys, roughly 80-90% of people pull the lever — but only ~30% push the man',
+          'The split maps onto deontological thinking (do not use a person as a means) vs. consequentialist thinking (minimize harm)',
+          'Joshua Greene\'s fMRI work (Princeton, 2001) showed the footbridge case activates emotional brain regions; the lever case activates regions associated with cool cost-benefit reasoning',
           'Culture, age, and framing all shift the numbers',
         ],
+      },
+      {
+        type: 'p',
+        text: 'At population scale, MIT\'s [Moral Machine](https://www.moralmachine.net/) collected roughly 40 million decisions on trolley-like dilemmas adapted for autonomous vehicles. The dataset showed clear cross-cultural differences in how people weigh age, social status, and pedestrians vs. passengers — variation the researchers grouped into three rough "moral clusters" (Western, Eastern, Southern). The results have been cited in real autonomous-vehicle policy discussions across the EU, Singapore, and the US.',
       },
       {
         type: 'h2',
@@ -204,26 +297,15 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'h2',
-        text: 'The two ways of thinking that the trolley problem reveals',
+        text: 'The two ways of thinking it reveals',
       },
       {
         type: 'p',
-        text: 'The split between pulling the lever and pushing the man tracks a real divide in moral philosophy. People who pull but refuse to push tend to reason consequentially in some situations and deontologically in others — and the trolley problem is precisely the test case that reveals where their line sits.',
+        text: 'The split between pulling the lever and pushing the man tracks a real divide in moral philosophy. People who pull but refuse to push are usually mixing [consequentialism](/blog/consequentialism-the-greatest-good) and [deontology](/blog/deontology-some-things-are-always-wrong) — minimising harm when they can stay at arm\'s length, but refusing to use a person as a tool when the harm becomes personal. [Virtue ethics](/blog/virtue-ethics-what-would-a-good-person-do) offers a third angle: ask not "which rule wins" but "what would a person of good character do?"',
       },
       {
-        type: 'cta',
-        label: 'Consequentialism: the math behind pulling the lever →',
-        href: '/blog/consequentialism-the-greatest-good',
-      },
-      {
-        type: 'cta',
-        label: 'Deontology: why pushing the man feels different →',
-        href: '/blog/deontology-some-things-are-always-wrong',
-      },
-      {
-        type: 'cta',
-        label: 'Doing vs allowing harm: why the distinction matters →',
-        href: '/blog/doing-vs-allowing-harm',
+        type: 'p',
+        text: 'For more on the canonical thought experiments and the research behind them, the [Moral Dilemmas hub](/blog/topics/moral-dilemmas) collects everything in one place. The [statistical breakdown](/blog/trolley-problem-statistics) covers what real vote data has shown across thousands of respondents.',
       },
       {
         type: 'disclaimer',
@@ -3926,20 +4008,43 @@ const EN_POSTS: BlogPost[] = [
     description:
       'Moral injury happens when a person acts, witnesses, or fails to prevent something that violates deeply held values. It is one of the most powerful frames for modern ethical dilemmas.',
     seoDescription:
-      'Learn what moral injury is, how it differs from ordinary guilt, and why it creates powerful ethical dilemmas about work, family, loyalty and self-forgiveness.',
+      'What moral injury is, how it differs from PTSD and ordinary guilt, the Litz 2009 research that named it, and why it produces the most charged ethical dilemmas in modern work and family life.',
     date: '2026-05-15',
-    readingTime: 6,
-    tags: ['moral injury', 'psychology', 'guilt', 'ethics'],
+    dateModified: '2026-05-17',
+    readingTime: 7,
+    tags: ['moral injury', 'psychology', 'guilt', 'ethics', 'moral psychology'],
     relatedDilemmaIds: ['whistleblower', 'cover-accident', 'report-friend', 'innocent-juror'],
     alternateSlug: 'ferita-morale-quando-i-valori-si-spezzano',
+    faq: [
+      {
+        q: 'Is moral injury the same as PTSD?',
+        a: 'No. PTSD is a clinical diagnosis tied to a fear-based response to a life-threatening event. Moral injury is a distinct construct — defined in the foundational [Litz et al. 2009 paper](https://www.sciencedirect.com/science/article/abs/pii/S0272735809001135) — focused on guilt, shame, and existential conflict after acts or omissions that violated deeply held values. They can co-occur. They can also occur independently, and they respond to different therapeutic frames.',
+      },
+      {
+        q: 'Who studies moral injury today?',
+        a: 'The US Department of Veterans Affairs (VA), via the [National Center for PTSD](https://www.ptsd.va.gov/professional/treat/cooccurring/moral_injury.asp), maintains active research and clinician training. The concept is increasingly applied to healthcare workers (especially post-COVID triage), aid workers, judges, and people in family caregiving roles.',
+      },
+      {
+        q: 'Can moral injury happen outside war or medicine?',
+        a: 'Yes. The structural conditions — being forced into an action that betrays a value you hold, with no clean alternative — appear in many ordinary contexts: corporate layoffs you have to deliver, custody disputes you mediate, content moderation work, even staying silent in a family during cruelty. The pain pattern is the same; only the stage changes.',
+      },
+      {
+        q: 'How do clinicians treat moral injury?',
+        a: 'There is no single approved protocol. Approaches with the most research base include Adaptive Disclosure (Litz), Cognitive Processing Therapy adapted for moral injury, and group-based work that pairs ethical reasoning with grief processing. Faith-based and secular variants both exist. Generic talk therapy alone is often considered insufficient.',
+      },
+      {
+        q: 'How is moral injury different from "moral distress"?',
+        a: 'Moral distress (Andrew Jameton, nursing ethics, 1984) describes the felt experience of knowing what is right but being prevented from doing it. Moral injury is what can follow when distress is chronic, when an act is actually carried out, or when no morally acceptable option ever existed. Distress is the warning sign; injury is the wound.',
+      },
+    ],
     content: [
       {
         type: 'p',
-        text: 'Some choices do not only create consequences. They change how a person sees themselves. Moral injury is the psychological and social pain that can follow when someone does, witnesses, or fails to prevent something that violates deeply held values.',
+        text: 'Some choices do not only create consequences. They change how a person sees themselves. **Moral injury** is the psychological and social pain that can follow when someone does, witnesses, or fails to prevent something that violates deeply held values. The term was formalised by clinical psychologist Brett Litz and colleagues in a [widely cited 2009 paper](https://www.sciencedirect.com/science/article/abs/pii/S0272735809001135) that argued some combat trauma did not fit existing PTSD categories — the wound was not fear, it was conflict with the self.',
       },
       {
         type: 'p',
-        text: 'The concept is often discussed in military, health-care and first-responder contexts, but the structure appears in ordinary life too: lying to protect a job, staying silent during cruelty, enforcing a rule you believe is wrong, or choosing survival over a value you thought was non-negotiable.',
+        text: 'The concept is most often discussed in military, health-care and first-responder contexts (the [VA National Center for PTSD](https://www.ptsd.va.gov/professional/treat/cooccurring/moral_injury.asp) maintains clinician training on it), but the structure appears in ordinary life too: lying to protect a job, staying silent during cruelty, enforcing a rule you believe is wrong, or choosing survival over a value you thought was non-negotiable.',
       },
       {
         type: 'h2',
@@ -3947,11 +4052,36 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'p',
-        text: 'Guilt says: I did something wrong. Shame says: I am wrong because of what I did. Moral injury often contains both, plus anger, betrayal, disgust, spiritual doubt or the feeling that self-forgiveness is no longer available.',
+        text: 'Guilt says: I did something wrong. Shame says: I am wrong because of what I did. Moral injury often contains both, plus anger, betrayal, disgust, spiritual doubt or the feeling that self-forgiveness is no longer available. Litz and colleagues describe it as a wound to the **moral identity** rather than to the threat-response system.',
       },
       {
         type: 'p',
-        text: 'That is what makes it such strong material for moral dilemmas. The question is not simply "what produces the best outcome?" It is also "what kind of person will I be after I choose this?"',
+        text: 'That is what makes it such strong material for moral dilemmas. The question is not simply "what produces the best outcome?" It is also "what kind of person will I be after I choose this?" The cost of [actively doing harm vs. merely allowing it](/blog/doing-vs-allowing-harm) is not just a philosophical puzzle here — it is the difference between two long-term self-stories.',
+      },
+      {
+        type: 'h2',
+        text: 'How researchers separate it from other trauma',
+      },
+      {
+        type: 'p',
+        text: 'PTSD is a fear-based response: the threat-detection system stays primed long after the danger passed. Moral injury is value-based: the brain keeps replaying the action, not the threat. fMRI work has begun to map the difference — moral-injury cases show stronger activation in regions tied to self-referential processing and shame, where PTSD shows more amygdala-driven reactivity. The two can co-occur; treatment teams increasingly screen for both.',
+      },
+      {
+        type: 'h2',
+        text: 'The structural ingredients',
+      },
+      {
+        type: 'list',
+        items: [
+          'A value the person genuinely held (not one imposed externally)',
+          'An action, omission, or witnessing that violates it',
+          'A felt sense that no morally clean alternative existed at the time',
+          'Insufficient repair afterwards — either by the institution or by the person\'s own moral framework',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'When all four are present the injury tends to persist for years. When the fourth — repair — is available, the same event can be processed into [post-traumatic growth](/blog/why-people-love-impossible-choices) instead.',
       },
       {
         type: 'h2',
@@ -3960,13 +4090,17 @@ const EN_POSTS: BlogPost[] = [
       {
         type: 'list',
         items: [
-          'Your boss asks you to deceive a client to save everyone’s jobs. Do you do it?',
+          'Your boss asks you to deceive a client to save everyone\'s jobs. Do you do it?',
           'A hospital protocol forces you to deny care to someone who will suffer. Do you break it?',
           'You stayed silent while a friend was publicly humiliated. Do you confess later?',
           'A family member asks you to hide a crime because exposing it would destroy the family.',
           'You followed an order that harmed someone. Do you blame yourself or the system?',
           'You can repair the damage only by admitting what you did. Do you accept the consequences?',
         ],
+      },
+      {
+        type: 'p',
+        text: 'Each of these is the same shape as the canonical clinical literature: irreversible action, identity at stake, no clean exit. For more on the psychology behind them, the [Moral Psychology hub](/blog/topics/moral-psychology) collects the related research; for the social-trust angle (why decent people stay silent under institutional pressure), see [why good people do nothing](/blog/why-good-people-do-nothing).',
       },
       {
         type: 'cta',
@@ -3980,7 +4114,7 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'disclaimer',
-        text: 'Educational and reflective content, not mental-health advice or diagnosis. Context informed by the National Center for PTSD materials on moral injury.',
+        text: 'Educational and reflective content, not mental-health advice or diagnosis. If you recognise these patterns in your own life and they are causing distress, the US Veterans Crisis Line (988, press 1) and equivalent national services can route you to clinicians trained in moral-injury-aware care.',
       },
     ],
   },
@@ -3992,20 +4126,43 @@ const EN_POSTS: BlogPost[] = [
     description:
       'Limerence is intense romantic fixation under uncertainty. For SplitVote, it creates hard dilemmas about honesty, commitment, boundaries and emotional responsibility.',
     seoDescription:
-      'Explore limerence through ethical dilemmas: romantic obsession, ambiguity, emotional dependency, confession, commitment and boundaries.',
+      'What limerence is (Tennov 1979), why uncertainty fuels it, how it differs from love, attachment, and addiction — and the moral dilemmas it creates around commitment, honesty and boundaries.',
     date: '2026-05-15',
-    readingTime: 6,
-    tags: ['limerence', 'relationships', 'psychology', 'romantic obsession'],
+    dateModified: '2026-05-17',
+    readingTime: 7,
+    tags: ['limerence', 'relationships', 'psychology', 'romantic obsession', 'moral psychology'],
     relatedDilemmaIds: ['love-or-career', 'truth-friend', 'sibling-secret', 'memory-erase'],
     alternateSlug: 'limerence-amore-ossessione-dilemmi',
+    faq: [
+      {
+        q: 'Who coined the term "limerence"?',
+        a: 'Psychologist Dorothy Tennov, in her 1979 book *Love and Limerence: The Experience of Being in Love*. She built the construct from hundreds of interviews and used it specifically to name the involuntary, intrusive, hope-driven state that did not match the existing concepts of "love" or "infatuation."',
+      },
+      {
+        q: 'Is limerence the same as being in love?',
+        a: 'No. Tennov\'s distinction: love can survive certainty about the other person; limerence often collapses without ambiguity. Limerence is characterised by intrusive thoughts about a "limerent object," extreme emotional swings tied to perceived signals, and a hope of reciprocation that the mind keeps replenishing. Stable mutual love does not need this churn.',
+      },
+      {
+        q: 'Is limerence a mental health diagnosis?',
+        a: 'No. It is not listed in the DSM-5 or ICD-11. Some clinicians treat severe cases as a form of [obsessive-compulsive spectrum behaviour](https://www.psychologytoday.com/us/basics/limerence), and the concept has had a research resurgence since 2020, but there is no agreed clinical definition or treatment protocol. Use the term descriptively, not diagnostically.',
+      },
+      {
+        q: 'How is limerence different from a crush?',
+        a: 'Crushes are usually shorter, lower-intensity, and the person can still focus on other parts of their life. Limerence is consuming: people report it interferes with work, sleep, eating, and their existing relationships. Tennov\'s interview subjects described episodes lasting anywhere from 18 months to several years.',
+      },
+      {
+        q: 'Why does uncertainty intensify it?',
+        a: 'Intermittent reinforcement — the same principle behind slot machines — produces the strongest behavioural conditioning. A delayed reply, an ambiguous gesture, or a half-open door keeps the mind generating hope and replaying micro-signals. A clear yes (or a clear no) usually breaks the loop. The dilemma is that this means honesty can be the most loving response.',
+      },
+    ],
     content: [
       {
         type: 'p',
-        text: 'Limerence is a word for the obsessive, hope-driven form of romantic fixation that can appear when attraction is intense and reciprocation is uncertain. Dorothy Tennov popularized the term in 1979 to describe a state that can feel involuntary, consuming and painfully dependent on signs from another person.',
+        text: 'Limerence is a word for the obsessive, hope-driven form of romantic fixation that can appear when attraction is intense and reciprocation is uncertain. Psychologist Dorothy Tennov coined the term in her 1979 book *Love and Limerence* to describe a state that can feel involuntary, consuming and painfully dependent on signs from another person. Her interview subjects reported episodes lasting from 18 months to several years, with intrusive thoughts that interfered with sleep, work, and existing relationships.',
       },
       {
         type: 'p',
-        text: 'It is not a diagnosis on SplitVote. It is a useful frame for a familiar moral problem: what do you owe yourself, your partner, and the person you are fixated on when your feelings become larger than your actual relationship?',
+        text: 'It is not a diagnosis on SplitVote (and not in the DSM-5). It is a useful frame for a familiar moral problem: what do you owe yourself, your partner, and the person you are fixated on when your feelings become larger than your actual relationship?',
       },
       {
         type: 'h2',
@@ -4013,7 +4170,19 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'p',
-        text: 'A clear yes or no can be painful, but ambiguity is often more addictive. A delayed reply, a warm smile, a vague promise or a half-open door can keep the mind searching for evidence. The dilemma is that hope can feel morally innocent while quietly becoming harmful.',
+        text: 'A clear yes or no can be painful, but ambiguity is often more addictive. The same principle underlies behavioural conditioning more broadly — psychologists call it **intermittent reinforcement**, and it is the reason slot machines are stickier than guaranteed-payout games. A delayed reply, a warm smile, a vague promise or a half-open door can keep the mind searching for evidence. The dilemma is that hope can feel morally innocent while quietly becoming harmful.',
+      },
+      {
+        type: 'h2',
+        text: 'How it differs from love, attachment, and addiction',
+      },
+      {
+        type: 'p',
+        text: 'Tennov drew a sharp line between limerence and **love**: love can survive certainty about the other person, limerence often collapses without ambiguity. It is also distinct from **secure attachment** in the Bowlby sense — attachment seeks proximity and comfort, limerence seeks signs and validation. And while some researchers frame intense cases on an [OCD spectrum](https://www.psychologytoday.com/us/basics/limerence), it is not an addiction in the substance-dependence sense; the reward loop is social, not chemical.',
+      },
+      {
+        type: 'p',
+        text: 'The state has had a research resurgence since 2020, partly because dating apps amplify the conditions that produce it: low-signal, high-frequency, asynchronous communication. Most existing studies are descriptive rather than clinical — there is no agreed treatment protocol.',
       },
       {
         type: 'h2',
@@ -4021,7 +4190,7 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'p',
-        text: 'The ethical question is not whether the feeling is real. It is what you do with it. Do you confess and risk burdening someone? Do you hide it from a partner? Do you cut contact even if that seems cold? Do you keep accepting attention from someone you know is emotionally dependent on you?',
+        text: 'The ethical question is not whether the feeling is real. It is what you do with it. Do you confess and risk burdening someone? Do you hide it from a partner? Do you cut contact even if that seems cold? Do you keep accepting attention from someone you know is emotionally dependent on you? Each of those is a dilemma in the strict sense — every option has a real cost. The structure is the same shape as [loyalty vs. honesty](/blog/loyalty-vs-honesty-when-they-collide) and [moral injury](/blog/moral-injury-when-values-break) cases: identity is on the line, and there is no clean exit.',
       },
       {
         type: 'h2',
@@ -4039,6 +4208,10 @@ const EN_POSTS: BlogPost[] = [
         ],
       },
       {
+        type: 'p',
+        text: 'For more on the psychology behind these conflicts, the [Moral Psychology hub](/blog/topics/moral-psychology) collects related reads. If the uncertainty side resonates more than the obsession side, [ambiguous loss](/blog/ambiguous-loss-grief-without-closure) is the companion piece on the grief that follows an unresolved exit.',
+      },
+      {
         type: 'cta',
         label: 'Explore relationship dilemmas →',
         href: '/category/relationships',
@@ -4050,7 +4223,7 @@ const EN_POSTS: BlogPost[] = [
       },
       {
         type: 'disclaimer',
-        text: 'Educational and reflective content, not relationship or mental-health advice. Context informed by Dorothy Tennov’s concept of limerence and later psychology literature.',
+        text: 'Educational and reflective content, not relationship or mental-health advice. If limerence is interfering with daily functioning, sleep, or your existing commitments, a licensed therapist familiar with attachment work is the right resource.',
       },
     ],
   },

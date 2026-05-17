@@ -4,6 +4,7 @@ import { getPostsByLocale } from '@/lib/blog'
 import type { BlogPost } from '@/lib/blog'
 import { getPublishedBlogDrafts, getPublishedPostsForLocale } from '@/lib/blog-published'
 import BlogGrid from '@/components/BlogGrid'
+import { CLUSTERS } from '@/lib/blog-clusters'
 
 // ISR 1 hour — same caching strategy as /blog.
 export const revalidate = 3600
@@ -61,6 +62,24 @@ export default async function ITBlogIndexPage() {
       </div>
 
       <div className="neon-divider mb-10 max-w-xs" />
+
+      {/* Hub tematici — punti di ingresso curati, aiutano anche i crawler a trovare le pagine cluster */}
+      <nav className="mb-10" aria-label="Hub tematici del blog">
+        <h2 className="text-xs font-black uppercase tracking-widest text-[var(--muted)] mb-4">
+          <span aria-hidden="true">📚</span> Esplora per tema
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          {CLUSTERS.map((c) => (
+            <Link
+              key={c.id}
+              href={`/it/blog/temi/${c.slug.it}`}
+              className="inline-flex items-center min-h-[44px] text-sm font-bold px-4 py-2.5 rounded-full border border-[var(--border)] bg-[#0d0d1a]/60 text-[var(--muted)] hover:text-white hover:border-violet-500/40 transition-colors"
+            >
+              {c.title.it}
+            </Link>
+          ))}
+        </div>
+      </nav>
 
       <BlogGrid posts={posts} locale="it" />
 
