@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     technology: 'Tech and AI ethical dilemmas — the future is already complicated. Vote now.',
     society: 'Big society questions — inequality, borders, policy. Where does the world stand?',
     relationships: 'Love, loyalty, and impossible choices. Relationship dilemmas voted by the world.',
+    lifestyle: 'Lifestyle dilemmas — daily habits, identity, and the small choices that define you.',
   }
 
   const title = `${cat.emoji} ${cat.label} Dilemmas — Real-time Global Votes | SplitVote`
@@ -108,6 +109,7 @@ export default async function CategoryPage({ params }: Props) {
     technology: 'The future is already complicated.',
     society: 'Big questions. No easy answers.',
     relationships: 'Love, loyalty, and impossible choices.',
+    lifestyle: 'Daily habits. Identity. The small choices that define you.',
   }
 
   // JSON-LD: BreadcrumbList

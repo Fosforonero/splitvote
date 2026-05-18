@@ -32,6 +32,7 @@ const CAT_IT: Record<string, { label: string; description: string }> = {
   technology:    { label: 'Tecnologia',     description: 'Il futuro è già complicato.' },
   society:       { label: 'Società',        description: 'Grandi domande. Nessuna risposta facile.' },
   relationships: { label: 'Relazioni',      description: 'Amore, lealtà e scelte impossibili.' },
+  lifestyle:     { label: 'Stile di vita',  description: 'Abitudini, identità e le piccole scelte che ti definiscono.' },
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -374,6 +374,7 @@ export const CATEGORIES: { value: Category | 'all'; label: string; emoji: string
   { value: 'technology', label: 'Technology', emoji: '🤖' },
   { value: 'society', label: 'Society', emoji: '🌍' },
   { value: 'relationships', label: 'Love', emoji: '❤️' },
+  { value: 'lifestyle', label: 'Lifestyle', emoji: '🎭' },
 ]
 
 export function getScenario(id: string): Scenario | undefined {
