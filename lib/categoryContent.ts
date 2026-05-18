@@ -10,7 +10,7 @@ export interface CategoryEditorial {
 }
 
 type Locale = 'en' | 'it'
-type CategoryKey = 'morality' | 'survival' | 'loyalty' | 'justice' | 'freedom' | 'technology' | 'society' | 'relationships'
+type CategoryKey = 'morality' | 'survival' | 'loyalty' | 'justice' | 'freedom' | 'technology' | 'society' | 'relationships' | 'lifestyle'
 
 const CONTENT: Record<Locale, Record<CategoryKey, CategoryEditorial>> = {
   en: {
@@ -166,6 +166,25 @@ const CONTENT: Record<Locale, Record<CategoryKey, CategoryEditorial>> = {
         },
       ],
     },
+    lifestyle: {
+      editorial:
+        'Lifestyle dilemmas are the small daily choices that quietly build the person you become — habits, identity, how you spend a Saturday. None of them are make-or-break, which is precisely why they\'re revealing: when nothing forces your hand, the tradeoffs you actually pick say more about your priorities than any high-stakes test could.',
+      faqHeading: 'About lifestyle dilemmas',
+      faq: [
+        {
+          q: 'Are lifestyle dilemmas moral dilemmas?',
+          a: "Mostly not. Most lifestyle questions are about preferences and tradeoffs, not right vs wrong. The interesting signal is that even low-stakes choices reveal what you actually value when nothing forces your hand.",
+        },
+        {
+          q: 'Why do small preferences matter?',
+          a: "Small choices compound. How you spend a Saturday, what you skip to make time for something else, what you tolerate vs trade away — these add up to a life shape that high-stakes decisions just confirm. Identity is built downstream of the small things.",
+        },
+        {
+          q: 'Are these questions meant to be serious?',
+          a: "Lighter than the others, on purpose. Lifestyle dilemmas work best as conversation prompts and self-mirrors, not as ethical tests. If a question makes you pause and rethink a routine you\'d never questioned, it\'s done its job.",
+        },
+      ],
+    },
   },
 
   it: {
@@ -318,6 +337,25 @@ const CONTENT: Record<Locale, Record<CategoryKey, CategoryEditorial>> = {
         {
           q: "Le persone rispondono ai dilemmi relazionali in modo diverso quando sono in una relazione?",
           a: "Il contesto situazionale modella la risposta morale. Inquadrare lo stesso dilemma dall'interno di una relazione piuttosto che dall'esterno cambia la percezione delle conseguenze — ed è per questo che queste domande raramente hanno risposte universali.",
+        },
+      ],
+    },
+    lifestyle: {
+      editorial:
+        'I dilemmi sullo stile di vita sono le piccole scelte quotidiane che costruiscono in silenzio la persona che diventi — abitudini, identità, come passi un sabato. Nessuna è decisiva, e proprio per questo dicono molto di te: quando nulla ti obbliga, i compromessi che scegli rivelano più delle tue priorità di qualsiasi prova ad alta posta.',
+      faqHeading: 'Sui dilemmi di stile di vita',
+      faq: [
+        {
+          q: 'I dilemmi sullo stile di vita sono dilemmi morali?',
+          a: "In gran parte no. La maggior parte delle domande sullo stile di vita riguarda preferenze e compromessi, non giusto contro sbagliato. Il segnale interessante è che anche le scelte a bassa posta rivelano cosa apprezzi davvero quando nulla ti obbliga.",
+        },
+        {
+          q: 'Perché contano le piccole preferenze?',
+          a: "Le piccole scelte si sommano. Come passi un sabato, cosa rinunci per fare spazio a qualcos'altro, cosa tolleri rispetto a cosa scambi via — tutto si compone in una forma di vita che le decisioni ad alta posta non fanno che confermare. L'identità si costruisce a valle delle cose piccole.",
+        },
+        {
+          q: 'Queste domande sono pensate per essere serie?',
+          a: "Più leggere delle altre, di proposito. I dilemmi lifestyle funzionano meglio come spunti di conversazione e specchi di sé, non come prove etiche. Se una domanda ti fa fermare e ripensare a un'abitudine che davi per scontata, ha fatto il suo lavoro.",
         },
       ],
     },
