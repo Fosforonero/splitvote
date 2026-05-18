@@ -13,8 +13,7 @@ import {
   type CompanionSpecies,
   type PixieXpMap,
 } from '@/lib/companion'
-import { getPixieImagePath } from '@/lib/pixie'
-import Image from 'next/image'
+import PixieSprite from './PixieSprite'
 import dynamic from 'next/dynamic'
 
 // Code-split: ~17KB modal only loads when level-up actually fires
@@ -59,15 +58,12 @@ export default function CompanionDisplay({
   const effectiveVotes = hasPerSpeciesTracking ? speciesVotes : votesCount
   const stage = getCompanionStage(effectiveVotes)
 
-  const [imgError, setImgError] = useState(false)
   const [xpPulse, setXpPulse] = useState(false)
   const [showLevelUp, setShowLevelUp] = useState(false)
   const [showLightbox, setShowLightbox] = useState(false)
   const prefersReducedMotion = useRef(false)
 
   const closeLightbox = useCallback(() => setShowLightbox(false), [])
-
-  useEffect(() => { setImgError(false) }, [species, stage])
 
   useEffect(() => {
     prefersReducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -123,20 +119,14 @@ export default function CompanionDisplay({
   if (compact) {
     return (
       <div className={`flex items-center gap-2 px-3 py-2 rounded-xl border ${rarityStyle}`}>
-        {!imgError ? (
-          <span className="inline-block w-8 h-8 flex-shrink-0 overflow-hidden">
-            <Image
-              src={getPixieImagePath(species, stage)}
-              alt=""
-              width={256}
-              height={256}
-              className="w-full h-full object-contain scale-[1.7]"
-              onError={() => setImgError(true)}
-            />
-          </span>
-        ) : (
-          <span className="text-2xl">{emoji}</span>
-        )}
+        <PixieSprite
+          species={species}
+          stage={stage}
+          fallbackEmoji={emoji}
+          className="w-8 h-8 flex-shrink-0 rounded-md"
+          pixelSize={128}
+          showFrame={false}
+        />
         <div>
           <p className="text-xs font-bold leading-none">{companion.name}</p>
           <p className="text-xs opacity-70 mt-0.5">
@@ -182,19 +172,15 @@ export default function CompanionDisplay({
               transition: xpPulse ? undefined : 'box-shadow 0.3s ease, outline 0.15s',
             }}
           >
-            {!imgError ? (
-              <Image
-                src={getPixieImagePath(species, stage)}
-                alt=""
-                width={384}
-                height={384}
-                className="w-full h-full object-contain scale-[1.9]"
-                onError={() => setImgError(true)}
-                priority
-              />
-            ) : (
-              emoji
-            )}
+            <PixieSprite
+              species={species}
+              stage={stage}
+              fallbackEmoji={emoji}
+              className="w-full h-full"
+              pixelSize={384}
+              priority
+              showFrame={false}
+            />
           </button>
           {/* Stage badge */}
           <div className="absolute -bottom-1.5 -right-1.5 w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-xs font-black text-white border-2 border-[#0d0d1a] pointer-events-none">
@@ -287,17 +273,15 @@ export default function CompanionDisplay({
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             overflow: 'hidden',
           }}>
-            {!imgError ? (
-              <Image
-                src={getPixieImagePath(species, stage)}
-                alt={companion.name}
-                width={512}
-                height={512}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.25)' }}
-              />
-            ) : (
-              <span style={{ fontSize: '96px' }}>{emoji}</span>
-            )}
+            <PixieSprite
+              species={species}
+              stage={stage}
+              alt={companion.name}
+              fallbackEmoji={emoji}
+              className="w-full h-full"
+              pixelSize={512}
+              showFrame={false}
+            />
           </div>
           {/* Species name + stage */}
           <div style={{ textAlign: 'center' }}>

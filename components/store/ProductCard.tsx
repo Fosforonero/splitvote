@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { COMPANION_MAP } from '@/lib/companion'
-import { getPixieImagePath } from '@/lib/pixie'
+import PixieSprite from '../PixieSprite'
 import type { ProductDef } from '@/lib/purchases'
 
 interface Props {
@@ -67,9 +67,6 @@ export default function ProductCard({
   const [showStub, setShowStub] = useState(false)
 
   const speciesDef = product.unlocksSpecies ? COMPANION_MAP[product.unlocksSpecies] : null
-  const previewImg = product.unlocksSpecies
-    ? getPixieImagePath(product.unlocksSpecies, 3)
-    : null
   const isPixie = product.type === 'pixie'
   const isComingSoon = !!product.comingSoon
 
@@ -125,12 +122,14 @@ export default function ProductCard({
 
       {/* Preview area */}
       <div className="relative mx-auto mb-4 flex h-32 w-32 items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-gradient-to-br from-[#0a0a1a] to-[#15151f]">
-        {previewImg ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={previewImg}
+        {product.unlocksSpecies ? (
+          <PixieSprite
+            species={product.unlocksSpecies}
+            stage={3}
             alt={product.name}
-            className={`h-full w-full object-contain transition-transform duration-300 scale-[1.6] ${owned ? '' : 'group-hover:scale-[1.75]'}`}
+            className="h-full w-full"
+            pixelSize={256}
+            showFrame={false}
           />
         ) : (
           <span className="text-5xl opacity-60">

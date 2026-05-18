@@ -2,8 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { getPixieImagePath } from '@/lib/pixie'
+import PixieSprite from './PixieSprite'
 import {
   getCompanionStage,
   getSpeciesVotes,
@@ -50,7 +49,6 @@ export default function MobileStickyHUD({
 }: Props) {
   const IT = locale === 'it'
   const [visible, setVisible] = useState(false)
-  const [imgError, setImgError] = useState(false)
   const ticking = useRef(false)
 
   // Per-species stage (Pixie tracks its own XP)
@@ -128,19 +126,15 @@ export default function MobileStickyHUD({
                 border: '1px solid rgba(255,255,255,0.08)',
               }}
             >
-              {!imgError ? (
-                <Image
-                  src={getPixieImagePath(species, stage)}
-                  alt=""
-                  width={256}
-                  height={256}
-                  className="w-full h-full object-contain scale-[1.7]"
-                  onError={() => setImgError(true)}
-                  priority
-                />
-              ) : (
-                <span className="text-lg" aria-hidden="true">⚡</span>
-              )}
+              <PixieSprite
+                species={species}
+                stage={stage}
+                fallbackEmoji="⚡"
+                className="w-full h-full"
+                pixelSize={128}
+                priority
+                showFrame={false}
+              />
             </Link>
 
             {/* Center: level + title (truncates), XP bar below */}

@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { normaliseSpecies } from '@/lib/pixie'
+import { getSpeciesScale } from '@/lib/pixie-rendering'
 
 /**
  * CosmeticAvatar — renders an avatar (emoji or Pixie illustration) wrapped in
@@ -64,13 +66,13 @@ function AvatarContent({
   priority?: boolean
 }) {
   if (pixieSrc) {
-    // Pixie PNGs ship with a substantial transparent border around the
-    // character — at native size the avatar reads as a tiny figurine
-    // floating in the middle of the disc. Render the image at the full
-    // disc size and scale UP by 1.8× (clipped by parent `overflow-hidden`)
-    // so the character fills the frame. Asymmetric sprites (wings, hats,
-    // tails) may clip at the edges; that's an explicit trade-off for a
-    // legible avatar over a microscopic centered figurine.
+    // Parse species from the URL ("/pixie/<species>/...") so we can apply
+    // the per-species scale from lib/pixie-rendering. PixieSprite would be
+    // cleaner here but CosmeticAvatar's API has settled on pixieSrc rather
+    // than species+stage; keep the contract, derive the scale instead.
+    const m = pixieSrc.match(/\/pixie\/([a-z]+)\//)
+    const species = m ? normaliseSpecies(m[1]) : null
+    const speciesScale = species ? getSpeciesScale(species) : 1.5
     return (
       <Image
         src={pixieSrc}
@@ -78,7 +80,7 @@ function AvatarContent({
         width={256}
         height={256}
         className="object-contain"
-        style={{ width: '100%', height: '100%', transform: 'scale(1.8)', transformOrigin: 'center' }}
+        style={{ width: '100%', height: '100%', transform: `scale(${speciesScale})`, transformOrigin: 'center' }}
         draggable={false}
         priority={priority}
       />

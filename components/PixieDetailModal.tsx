@@ -20,8 +20,7 @@ import {
   type CompanionSpecies,
   type PixieXpMap,
 } from '@/lib/companion'
-import { getPixieImagePath } from '@/lib/pixie'
-import Image from 'next/image'
+import PixieSprite from './PixieSprite'
 
 const IT_STAGE_LABELS: Record<number, string> = {
   1: 'Cucciolo', 2: 'Apprendista', 3: 'Esploratore',
@@ -67,7 +66,6 @@ export default function PixieDetailModal({
   const rarityBadge = RARITY_STYLES[companion.rarity] ?? RARITY_STYLES.common
   const stageLabel = IT ? (IT_STAGE_LABELS[stage] ?? STAGE_LABELS[stage]) : STAGE_LABELS[stage]
   const isPremium = companion.access === 'premium'
-  const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({})
 
   // In preview-only mode (explainer page) we always show stage 1 at full colour.
   const heroStage   = previewOnly ? 1 : stage
@@ -183,25 +181,23 @@ export default function PixieDetailModal({
             overflow: 'hidden',
             boxShadow: isCurrentSpecies ? '0 0 36px rgba(77,159,255,0.18)' : undefined,
           }}>
-            {!imgErrors[heroStage] ? (
-              <Image
-                src={getPixieImagePath(companion.id, heroStage)}
+            <div
+              className="w-full h-full"
+              style={{
+                filter: !showUnlocked ? 'grayscale(1)' : undefined,
+                opacity: !showUnlocked ? 0.45 : 1,
+              }}
+            >
+              <PixieSprite
+                species={companion.id as CompanionSpecies}
+                stage={heroStage}
                 alt={companion.name}
-                width={512}
-                height={512}
-                style={{
-                  width: '100%', height: '100%', objectFit: 'contain',
-                  transform: 'scale(1.65)',
-                  filter: !showUnlocked ? 'grayscale(1)' : undefined,
-                  opacity: !showUnlocked ? 0.45 : 1,
-                }}
-                onError={() => setImgErrors(prev => ({ ...prev, [heroStage]: true }))}
+                fallbackEmoji={companion.stageEmoji[heroStage - 1]}
+                className="w-full h-full"
+                pixelSize={384}
+                showFrame={false}
               />
-            ) : (
-              <span style={{ fontSize: '64px' }}>
-                {companion.stageEmoji[heroStage - 1]}
-              </span>
-            )}
+            </div>
           </div>
         </div>
 
@@ -307,25 +303,23 @@ export default function PixieDetailModal({
                   boxShadow: isCurrent ? '0 0 10px rgba(77,159,255,0.28)' : undefined,
                 }}>
                   {visible ? (
-                    !imgErrors[s] ? (
-                      <Image
-                        src={getPixieImagePath(companion.id, s)}
+                    <div
+                      className="w-full h-full"
+                      style={{
+                        filter: !showUnlocked ? 'grayscale(1)' : undefined,
+                        opacity: !showUnlocked ? 0.35 : 1,
+                      }}
+                    >
+                      <PixieSprite
+                        species={companion.id as CompanionSpecies}
+                        stage={s}
                         alt={`Stage ${s}`}
-                        width={256}
-                        height={256}
-                        style={{
-                          width: '100%', height: '100%', objectFit: 'contain',
-                          transform: 'scale(1.65)',
-                          filter: !showUnlocked ? 'grayscale(1)' : undefined,
-                          opacity: !showUnlocked ? 0.35 : 1,
-                        }}
-                        onError={() => setImgErrors(prev => ({ ...prev, [s]: true }))}
+                        fallbackEmoji={companion.stageEmoji[s - 1]}
+                        className="w-full h-full"
+                        pixelSize={128}
+                        showFrame={false}
                       />
-                    ) : (
-                      <span style={{ fontSize: '16px' }}>
-                        {companion.stageEmoji[s - 1]}
-                      </span>
-                    )
+                    </div>
                   ) : (
                     <span style={{
                       fontSize: '15px', fontWeight: 900,

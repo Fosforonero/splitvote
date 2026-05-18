@@ -3,9 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
+import PixieSprite from './PixieSprite'
 import {
-  getPixieImagePath,
   pixieItemToSpecies,
   getEffectiveSpecies,
 } from '@/lib/pixie'
@@ -148,10 +147,9 @@ interface Props {
 
 // ── Per-tile preview (isolated onError state) ────────────────────────────────
 
-/** Renders one species sprite tile preview with emoji fallback. Isolated so
- *  one broken sprite doesn't blank the whole picker. The 1.35× scale
- *  compensates for the transparent padding shipped inside every PNG — without
- *  it the character reads as a tiny figurine. */
+/** Renders one species sprite tile preview with emoji fallback. Wraps
+ *  PixieSprite for the per-species scale + bake-bg frame. Isolated so
+ *  one broken sprite doesn't blank the whole picker. */
 function SpeciesTilePreview({
   species,
   fallbackEmoji,
@@ -163,30 +161,24 @@ function SpeciesTilePreview({
   speciesVotes: number
   dimmed: boolean
 }) {
-  const [imgFailed, setImgFailed] = useState(false)
   const stage = getCompanionStage(speciesVotes)
-  const hasSprite = SPECIES_WITH_SPRITES.has(species) && !imgFailed
-
+  const hasSprite = SPECIES_WITH_SPRITES.has(species)
+  if (!hasSprite) {
+    return (
+      <div className={`relative w-20 h-20 flex items-center justify-center overflow-hidden rounded-lg ${dimmed ? 'grayscale opacity-40' : ''}`}>
+        <span className="text-4xl" aria-hidden="true">{fallbackEmoji}</span>
+      </div>
+    )
+  }
   return (
-    <div
-      className={`relative w-20 h-20 flex items-center justify-center overflow-hidden ${
-        dimmed ? 'grayscale opacity-40' : ''
-      }`}
-    >
-      {hasSprite ? (
-        <Image
-          src={getPixieImagePath(species, stage)}
-          alt=""
-          width={160}
-          height={160}
-          className="w-full h-full object-contain scale-[1.6]"
-          draggable={false}
-          onError={() => setImgFailed(true)}
-        />
-      ) : (
-        <span className="text-4xl scale-[1.6]" aria-hidden="true">{fallbackEmoji}</span>
-      )}
-    </div>
+    <PixieSprite
+      species={species}
+      stage={stage}
+      fallbackEmoji={fallbackEmoji}
+      className="w-20 h-20 rounded-lg"
+      pixelSize={160}
+      dimmed={dimmed}
+    />
   )
 }
 
@@ -429,22 +421,21 @@ export default function PixieSelector({
         flex items-center gap-3 sm:gap-4 rounded-xl border px-3 sm:px-4 py-3 mb-5 transition-all
         ${RARITY_STYLES[activeSpeciesDef.rarity]} border-opacity-60
       `}>
-        <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 overflow-hidden">
-          {SPECIES_WITH_SPRITES.has(activeSpecies) ? (
-            <Image
-              src={getPixieImagePath(activeSpecies, activeStage)}
-              alt=""
-              width={128}
-              height={128}
-              className="w-full h-full object-contain scale-[1.85]"
-              draggable={false}
-            />
-          ) : (
+        {SPECIES_WITH_SPRITES.has(activeSpecies) ? (
+          <PixieSprite
+            species={activeSpecies}
+            stage={activeStage}
+            fallbackEmoji={activeSpeciesDef.stageEmoji[activeStage - 1] ?? '✨'}
+            className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-lg"
+            pixelSize={160}
+          />
+        ) : (
+          <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 flex items-center justify-center">
             <span className="text-4xl" aria-hidden="true">
               {activeSpeciesDef.stageEmoji[activeStage - 1] ?? '✨'}
             </span>
-          )}
-        </div>
+          </div>
+        )}
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--muted)] leading-none mb-0.5">
             {t.currentlyEquipped}
@@ -860,22 +851,22 @@ export default function PixieSelector({
 
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl border border-blue-500/30 bg-blue-500/10 flex items-center justify-center overflow-hidden">
-              {SPECIES_WITH_SPRITES.has(activeSpecies) ? (
-                <Image
-                  src={getPixieImagePath(activeSpecies, activeStage)}
-                  alt=""
-                  width={80}
-                  height={80}
-                  className="w-full h-full object-contain scale-[1.6]"
-                  draggable={false}
-                />
-              ) : (
+            {SPECIES_WITH_SPRITES.has(activeSpecies) ? (
+              <PixieSprite
+                species={activeSpecies}
+                stage={activeStage}
+                fallbackEmoji={activeSpeciesDef.stageEmoji[activeStage - 1] ?? '✨'}
+                className="w-10 h-10 rounded-xl border border-blue-500/30 bg-blue-500/10"
+                pixelSize={96}
+                showFrame={false}
+              />
+            ) : (
+              <div className="w-10 h-10 rounded-xl border border-blue-500/30 bg-blue-500/10 flex items-center justify-center">
                 <span className="text-2xl">
                   {activeSpeciesDef.stageEmoji[activeStage - 1] ?? '✨'}
                 </span>
-              )}
-            </div>
+              </div>
+            )}
             <div>
               <p className="text-xs text-white font-semibold leading-none">
                 {activeSpeciesDef.name}

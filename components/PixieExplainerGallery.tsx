@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { COMPANIONS, RARITY_STYLES, type CompanionDef } from '@/lib/companion'
-import { getPixieImagePath } from '@/lib/pixie'
+import PixieSprite from './PixieSprite'
 import dynamic from 'next/dynamic'
 
 // Code-split: ~28KB modal only loads when the user taps a card
@@ -178,13 +177,14 @@ export default function PixieExplainerGallery({ locale = 'en' }: Props) {
                       }`}
                     >
                       {visible ? (
-                        <Image
-                          src={getPixieImagePath(c.id, stage)}
+                        <PixieSprite
+                          species={c.id}
+                          stage={stage}
                           alt={`${c.name} stage ${stage}`}
-                          width={256}
-                          height={256}
-                          className="w-full h-full object-contain scale-[1.6]"
-                          loading="lazy"
+                          fallbackEmoji={c.stageEmoji[stage - 1]}
+                          className="w-full h-full"
+                          pixelSize={256}
+                          showFrame={false}
                         />
                       ) : (
                         <span className="text-2xl sm:text-3xl text-white/30 font-black">?</span>
