@@ -5,6 +5,7 @@ import { getCachedDynamicScenarios, getCachedVotesBatch } from '@/lib/cached-dat
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
 import { translateScenarioToItalian } from '@/lib/scenarios-it'
 import { getCategoryContent } from '@/lib/categoryContent'
+import { getCategoryHubCopy, getCategoryLabel } from '@/lib/category-hub-copy'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/JsonLd'
@@ -39,9 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = CATEGORIES.find(c => c.value === params.category && c.value !== 'all')
   if (!cat) return {}
 
-  const itMeta = CAT_IT[cat.value as string]
-  const title = `${cat.emoji} Dilemmi di ${itMeta?.label ?? cat.label} — Vota in Tempo Reale | SplitVote`
-  const description = itMeta?.description ?? `Dilemmi di ${itMeta?.label ?? cat.label} — vota e scopri come si divide il mondo.`
+  const hub = getCategoryHubCopy(cat.value as Category, 'it')
+  const title = hub.metaTitle
+  const description = hub.metaDescription
 
   return {
     title,
@@ -74,6 +75,7 @@ export default async function ItCategoryPage({ params }: Props) {
   const category = cat.value as Category
   const itMeta = CAT_IT[category] ?? { label: cat.label, description: '' }
   const content = getCategoryContent(cat.value, 'it')
+  const hub = getCategoryHubCopy(category, 'it')
 
   const staticFiltered = scenarios
     .filter(s => s.category === category)
@@ -139,6 +141,39 @@ export default async function ItCategoryPage({ params }: Props) {
           <p className="text-sm text-[var(--muted)] mt-3 opacity-60">
             {allSorted.length} dilemm{allSorted.length === 1 ? 'a' : 'i'} · Voti globali in tempo reale
           </p>
+        </div>
+
+        {/* Hub: intro + tensioni comuni + categorie correlate */}
+        <div className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-5 sm:p-6">
+          <p className="text-sm sm:text-[15px] leading-relaxed text-white/90">
+            {hub.intro}
+          </p>
+
+          <p className="mt-5 text-[11px] font-bold uppercase tracking-widest text-[var(--muted)]">
+            Tensioni comuni in questa categoria
+          </p>
+          <ul className="mt-2 space-y-1.5 text-sm text-white/80 list-disc pl-5">
+            {hub.tensions.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+
+          {hub.related.length > 0 && (
+            <p className="mt-5 text-xs text-[var(--muted)]">
+              Vedi anche:{' '}
+              {hub.related.map((c, i) => (
+                <span key={c}>
+                  {i > 0 ? ', ' : ''}
+                  <Link
+                    href={`/it/category/${c}`}
+                    className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+                  >
+                    {getCategoryLabel(c, 'it')}
+                  </Link>
+                </span>
+              ))}
+            </p>
+          )}
         </div>
 
         {/* Start path CTA */}

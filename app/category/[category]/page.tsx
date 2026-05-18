@@ -4,6 +4,7 @@ import type { Category } from '@/lib/scenarios'
 import { getCachedDynamicScenarios, getCachedVotesBatch } from '@/lib/cached-data'
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
 import { getCategoryContent } from '@/lib/categoryContent'
+import { getCategoryHubCopy, getCategoryLabel } from '@/lib/category-hub-copy'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/JsonLd'
@@ -26,20 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = CATEGORIES.find((c) => c.value === params.category)
   if (!cat || cat.value === 'all') return {}
 
-  const descriptions: Record<string, string> = {
-    morality: 'Impossible moral dilemmas — right vs right. Vote and see how the world decides.',
-    survival: 'Life-or-death survival dilemmas. What would you do when every choice has a cost?',
-    loyalty: 'Loyalty dilemmas — when honesty and love collide. Vote and see the world split.',
-    justice: 'Justice dilemmas — law, fairness, and moral grey zones. Where does the world stand?',
-    freedom: 'Freedom vs safety dilemmas. Where do you draw the line?',
-    technology: 'Tech and AI ethical dilemmas — the future is already complicated. Vote now.',
-    society: 'Big society questions — inequality, borders, policy. Where does the world stand?',
-    relationships: 'Love, loyalty, and impossible choices. Relationship dilemmas voted by the world.',
-    lifestyle: 'Lifestyle dilemmas — daily habits, identity, and the small choices that define you.',
-  }
-
-  const title = `${cat.emoji} ${cat.label} Dilemmas — Real-time Global Votes | SplitVote`
-  const description = descriptions[cat.value as string] ?? `${cat.label} moral dilemmas — vote and see how the world decides.`
+  const hub = getCategoryHubCopy(cat.value as Category, 'en')
+  const title = hub.metaTitle
+  const description = hub.metaDescription
 
   return {
     title,
@@ -99,6 +89,7 @@ export default async function CategoryPage({ params }: Props) {
   })
 
   const content = getCategoryContent(cat.value, 'en')
+  const hub = getCategoryHubCopy(category, 'en')
 
   const descriptions: Record<string, string> = {
     morality: 'No right answers. Just honest ones.',
@@ -127,7 +118,7 @@ export default async function CategoryPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${cat.label} Moral Dilemmas — SplitVote`,
-    description: descriptions[cat.value as string],
+    description: hub.metaDescription,
     url: `${BASE_URL}/category/${cat.value}`,
     numberOfItems: allSorted.length,
     itemListElement: allSorted.slice(0, 20).map((s, i) => ({
@@ -166,6 +157,39 @@ export default async function CategoryPage({ params }: Props) {
           <p className="text-sm text-[var(--muted)] mt-3 opacity-60">
             {allSorted.length} dilemma{allSorted.length !== 1 ? 's' : ''} · Real-time global votes
           </p>
+        </div>
+
+        {/* Hub: intro + common tensions + related categories */}
+        <div className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-5 sm:p-6">
+          <p className="text-sm sm:text-[15px] leading-relaxed text-white/90">
+            {hub.intro}
+          </p>
+
+          <p className="mt-5 text-[11px] font-bold uppercase tracking-widest text-[var(--muted)]">
+            Common tensions in this category
+          </p>
+          <ul className="mt-2 space-y-1.5 text-sm text-white/80 list-disc pl-5">
+            {hub.tensions.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+
+          {hub.related.length > 0 && (
+            <p className="mt-5 text-xs text-[var(--muted)]">
+              See also:{' '}
+              {hub.related.map((c, i) => (
+                <span key={c}>
+                  {i > 0 ? ', ' : ''}
+                  <Link
+                    href={`/category/${c}`}
+                    className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+                  >
+                    {getCategoryLabel(c, 'en')}
+                  </Link>
+                </span>
+              ))}
+            </p>
+          )}
         </div>
 
         {/* Start path CTA */}
