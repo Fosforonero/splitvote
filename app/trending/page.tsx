@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Top Dilemmas & Trending — SplitVote',
-    description: 'All-time most voted moral dilemmas and today\'s fresh AI questions. See how the world votes.',
+    description: 'All-time most voted moral dilemmas and today\'s fresh AI questions. See how SplitVote voters split.',
     url: 'https://splitvote.io/trending',
   },
 }
@@ -187,7 +187,7 @@ export default async function TrendingPage() {
             <span>⚡</span> Most Divisive
           </h2>
           <p className="text-sm text-[var(--muted)] mb-5">
-            The world can&apos;t decide. These dilemmas split humanity almost perfectly in half.
+            SplitVote voters can&apos;t decide. These dilemmas split this community almost perfectly in half.
           </p>
           <div className="space-y-3">
             {mostDivisive.map((s) => {

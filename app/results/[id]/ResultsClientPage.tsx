@@ -37,20 +37,20 @@ const SLOT_RESULTS = process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULTS ?? 'TODO'
 const EN_COPY = {
   back:              '← All dilemmas',
   votesWorldwide:    (n: number) => `${n.toLocaleString()} votes worldwide`,
-  tieTitle:          '🤝 The world is perfectly split!',
-  tieDesc:           '50/50 — this dilemma divides humanity equally.',
+  tieTitle:          '🤝 SplitVote is perfectly split on this!',
+  tieDesc:           '50/50 — SplitVote voters are split right down the middle.',
   minorityTitle:     (pct: number) => `🔥 You're in the ${pct}% minority.`,
   minorityDesc:      'Most people see this differently. Are you an outsider — or ahead of the curve?',
-  majorityTitle:     (pct: number) => `🌍 ${pct}% of the world agrees with you.`,
+  majorityTitle:     (pct: number) => `🌍 ${pct}% of SplitVote voters agree with you.`,
   majorityDesc:      "You're with the majority — but plenty of people see it differently.",
   closeSplitTitle:   (pct: number) => `You're on the ${pct}% side — almost a coin flip.`,
-  closeSplitDesc:    'The world barely leans one way. A handful of votes could change it.',
-  landslideTitle:    (pct: number) => `🌊 ${pct}% of the world agrees with you.`,
+  closeSplitDesc:    'SplitVote barely leans one way. A handful of votes could change it.',
+  landslideTitle:    (pct: number) => `🌊 ${pct}% of SplitVote voters agree with you.`,
   landslideDesc:     'Almost everyone leans this way. But does the majority always make right?',
   youVoted:          'You voted:',
-  majority:          (pct: number, label: string) => `🌍 ${pct}% of the world chose: `,
+  majority:          (pct: number, label: string) => `🌍 ${pct}% of SplitVote voters chose: `,
   majorityLabel:     (label: string) => label,
-  tie:               '🤝 The world is perfectly split.',
+  tie:               '🤝 SplitVote is perfectly split.',
   feedbackQuestion:  'Was this dilemma interesting?',
   feedbackFire:      '🔥 Interesting',
   feedbackFireVoted: '🔥 Voted!',
@@ -105,27 +105,27 @@ const EN_COPY = {
   pathDoneDesc:      (label: string) => `You finished the ${label} path. Try another category.`,
   pathExhausted:     'No fresh dilemmas left in this path',
   pathOtherCats:     'Browse categories',
-  comparing:         'Comparing your answer with the world…',
+  comparing:         'Comparing your answer with SplitVote voters…',
   noVotesYet:        'Not enough votes yet to show a result.',
 }
 
 const IT_COPY = {
   back:              '← Tutti i dilemmi',
   votesWorldwide:    (n: number) => `${n.toLocaleString('it-IT')} voti nel mondo`,
-  tieTitle:          '🤝 Il mondo è perfettamente diviso!',
-  tieDesc:           '50/50 — questo dilemma divide l\'umanità equamente.',
+  tieTitle:          '🤝 SplitVote è perfettamente diviso su questo!',
+  tieDesc:           '50/50 — i votanti su SplitVote sono divisi a metà esatta.',
   minorityTitle:     (pct: number) => `🔥 Sei nel ${pct}% della minoranza.`,
   minorityDesc:      "La maggior parte delle persone la vede diversamente. Sei un outsider — o semplicemente in anticipo?",
-  majorityTitle:     (pct: number) => `🌍 Il ${pct}% del mondo è d'accordo con te.`,
+  majorityTitle:     (pct: number) => `🌍 Il ${pct}% dei votanti su SplitVote è d'accordo con te.`,
   majorityDesc:      'Sei con la maggioranza — ma molti la vedono diversamente.',
   closeSplitTitle:   (pct: number) => `Sei nel ${pct}% — quasi un tiro di moneta.`,
-  closeSplitDesc:    'Il mondo si inclina appena da una parte. Pochi voti potrebbero cambiare tutto.',
-  landslideTitle:    (pct: number) => `🌊 Il ${pct}% del mondo è d'accordo con te.`,
+  closeSplitDesc:    'SplitVote si inclina appena da una parte. Pochi voti potrebbero cambiare tutto.',
+  landslideTitle:    (pct: number) => `🌊 Il ${pct}% dei votanti su SplitVote è d'accordo con te.`,
   landslideDesc:     'Quasi tutti si inclinano in questa direzione. Ma la maggioranza ha sempre ragione?',
   youVoted:          'Hai votato:',
-  majority:          (pct: number, label: string) => `🌍 Il ${pct}% del mondo ha scelto: `,
+  majority:          (pct: number, label: string) => `🌍 Il ${pct}% dei votanti su SplitVote ha scelto: `,
   majorityLabel:     (label: string) => label,
-  tie:               '🤝 Il mondo è perfettamente diviso.',
+  tie:               '🤝 SplitVote è perfettamente diviso.',
   feedbackQuestion:  'Questo dilemma ti è piaciuto?',
   feedbackFire:      '🔥 Interessante',
   feedbackFireVoted: '🔥 Votato!',
@@ -180,7 +180,7 @@ const IT_COPY = {
   pathDoneDesc:      (label: string) => `Hai completato il percorso di ${label}. Prova un'altra categoria.`,
   pathExhausted:     'Non ci sono altri dilemmi nuovi in questo percorso',
   pathOtherCats:     'Sfoglia categorie',
-  comparing:         'Confrontiamo la tua risposta con il mondo…',
+  comparing:         'Confrontiamo la tua risposta con i votanti su SplitVote…',
   noVotesYet:        'Non ci sono ancora abbastanza voti per mostrare un risultato.',
 }
 
@@ -317,16 +317,16 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         : `What would you choose?\n"${scenario.question}"`)
     : isTie
     ? (isIT
-        ? `Questo divide il mondo esattamente 50/50. Tu cosa sceglieresti?\n"${scenario.question}"`
-        : `This one splits the world exactly 50/50. What would you choose?\n"${scenario.question}"`)
+        ? `Questo dilemma divide SplitVote esattamente 50/50. Tu cosa sceglieresti?\n"${scenario.question}"`
+        : `This one splits SplitVote exactly 50/50. What would you choose?\n"${scenario.question}"`)
     : isClose
     ? (isIT
-        ? `${pctA}% vs ${pctB}% — il mondo non riesce a decidere. Da che parte stai?\n"${scenario.question}"`
-        : `${pctA}% vs ${pctB}% — the world can barely decide. Which side are you on?\n"${scenario.question}"`)
+        ? `${pctA}% vs ${pctB}% — i votanti su SplitVote non riescono a decidere. Da che parte stai?\n"${scenario.question}"`
+        : `${pctA}% vs ${pctB}% — SplitVote voters can barely decide. Which side are you on?\n"${scenario.question}"`)
     : isAggregateLandslide
     ? (isIT
-        ? `Il ${majorityPct}% del mondo ha scelto la stessa cosa. Sei d'accordo?\n"${scenario.question}"`
-        : `${majorityPct}% of the world agrees on this one. Do you?\n"${scenario.question}"`)
+        ? `Il ${majorityPct}% dei votanti su SplitVote ha scelto la stessa cosa. Sei d'accordo?\n"${scenario.question}"`
+        : `${majorityPct}% of SplitVote voters agree on this one. Do you?\n"${scenario.question}"`)
     : (isIT
         ? `Il ${majorityPct}% ha scelto "${majorityLabel}". Tu cosa faresti?\n"${scenario.question}"`
         : `${majorityPct}% chose "${majorityLabel}". What would you do?\n"${scenario.question}"`)
@@ -338,16 +338,16 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         : `What would YOU choose? 🌍`)
     : isTie
     ? (isIT
-        ? `Questo divide il mondo 50/50 🤝 Tu da che parte stai?`
-        : `This one splits the world 50/50 🤝 Which side are you on?`)
+        ? `Questo divide SplitVote 50/50 🤝 Tu da che parte stai?`
+        : `This one splits SplitVote 50/50 🤝 Which side are you on?`)
     : isClose
     ? (isIT
-        ? `Il mondo è quasi diviso a metà. ${pctA}% vs ${pctB}% 🌍 Tu cosa faresti?`
-        : `The world is almost split on this. ${pctA}% vs ${pctB}% 🌍 What would YOU choose?`)
+        ? `SplitVote è quasi diviso a metà. ${pctA}% vs ${pctB}% 🌍 Tu cosa faresti?`
+        : `SplitVote voters are almost split on this. ${pctA}% vs ${pctB}% 🌍 What would YOU choose?`)
     : isAggregateLandslide
     ? (isIT
-        ? `Il ${majorityPct}% del mondo è d'accordo su questa. Sei tra loro? 🌊`
-        : `${majorityPct}% of the world agrees on this one. Are you? 🌊`)
+        ? `Il ${majorityPct}% dei votanti su SplitVote è d'accordo su questa. Sei tra loro? 🌊`
+        : `${majorityPct}% of SplitVote voters agree on this one. Are you? 🌊`)
     : (isIT
         ? `Il ${majorityPct}% ha scelto: "${majorityLabel}". Tu cosa sceglieresti? 🌍`
         : `${majorityPct}% chose: "${majorityLabel}". What would YOU choose? 🌍`)
@@ -357,7 +357,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         : `Il ${pctA}% lo farebbe davvero… e tu? 😱\n\n"${scenario.question}"\n\n🔗 Vota su splitvote.io\n${SOCIAL_LINKS.tiktokHandle}\n\n#wouldyourather #dilemmamorale #viral #splitvote #psicologia #dibattito`)
     : (total === 0
         ? `What would you do? 😱\n\n"${scenario.question}"\n\n🔗 Vote at splitvote.io\n${SOCIAL_LINKS.tiktokHandle}\n\n#wouldyourather #moraldilemma #viral #splitvote #psychology #debate`
-        : `${pctA}% of the world would do this… would you? 😱\n\n"${scenario.question}"\n\n🔗 Vote at splitvote.io\n${SOCIAL_LINKS.tiktokHandle}\n\n#wouldyourather #moraldilemma #viral #splitvote #psychology #debate`)
+        : `${pctA}% of SplitVote voters would do this… would you? 😱\n\n"${scenario.question}"\n\n🔗 Vote at splitvote.io\n${SOCIAL_LINKS.tiktokHandle}\n\n#wouldyourather #moraldilemma #viral #splitvote #psychology #debate`)
   const instagramCaption = isIT
     ? (total === 0
         ? `"${scenario.question}"\n\nTu cosa sceglieresti? 👇\n🔗 splitvote.io — ${SOCIAL_LINKS.instagramHandle}\n\n#dilemmamorale #wouldyourather #psicologia #viral #splitvote`
@@ -371,10 +371,10 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   const discordText = isIT
     ? (total === 0
         ? `${scenario.emoji} **"${scenario.question}"**\nNessun voto ancora — tu cosa sceglieresti?\n🔗 ${shareUrl}`
-        : `${scenario.emoji} **"${scenario.question}"**\nIl mondo è diviso **${pctA}%** vs **${pctB}%** — tu cosa sceglieresti?\n🔗 ${shareUrl}`)
+        : `${scenario.emoji} **"${scenario.question}"**\nSplitVote è diviso **${pctA}%** vs **${pctB}%** — tu cosa sceglieresti?\n🔗 ${shareUrl}`)
     : (total === 0
         ? `${scenario.emoji} **"${scenario.question}"**\nNo votes yet — what would YOU choose?\n🔗 ${shareUrl}`
-        : `${scenario.emoji} **"${scenario.question}"**\nThe world is split **${pctA}%** vs **${pctB}%** — what would YOU choose?\n🔗 ${shareUrl}`)
+        : `${scenario.emoji} **"${scenario.question}"**\nSplitVote is split **${pctA}%** vs **${pctB}%** — what would YOU choose?\n🔗 ${shareUrl}`)
 
   // Fire-and-forget server-side event tracking for mission verification.
   // Silently ignored if user is not authenticated (server returns 401).

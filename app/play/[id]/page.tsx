@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ds = staticScenario ? null : scenario as DynamicScenario
   const title = ds?.seoTitle ?? `${scenario.question.slice(0, 55)}…`
   const description = ds?.seoDescription
-    ?? `Global vote: "${scenario.optionA}" vs "${scenario.optionB}" — See how the world splits on this moral dilemma.`
+    ?? `Vote: "${scenario.optionA}" vs "${scenario.optionB}" — See how SplitVote voters split on this moral dilemma.`
   const keywords = ds?.keywords?.length ? ds.keywords.join(', ') : undefined
 
   return {

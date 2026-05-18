@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `Results: ${ds.seoTitle}`
     : `Results: ${scenario.question.slice(0, 50)}…`
   const description = ds?.seoDescription
-    ?? `See how the world voted on this moral dilemma. "${scenario.optionA}" vs "${scenario.optionB}".`
+    ?? `See how SplitVote voters split on this moral dilemma. "${scenario.optionA}" vs "${scenario.optionB}".`
   const keywords = ds?.keywords?.length ? ds.keywords.join(', ') : undefined
 
   return {

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Classifiche & Tendenze — SplitVote',
-    description: 'I dilemmi più votati di sempre e i nuovi AI di oggi. Scopri come si divide il mondo.',
+    description: 'I dilemmi più votati di sempre e i nuovi AI di oggi. Scopri come si dividono i votanti su SplitVote.',
     url: `${BASE_URL}/it/trending`,
     locale: 'it_IT',
   },
@@ -186,7 +186,7 @@ export default async function ItTrendingPage() {
             <span>⚡</span> Più Divisivi
           </h2>
           <p className="text-sm text-[var(--muted)] mb-5">
-            Il mondo non riesce a decidersi. Questi dilemmi dividono l&apos;umanità quasi perfettamente a metà.
+            I votanti su SplitVote non riescono a decidersi. Questi dilemmi dividono la community quasi perfettamente a metà.
           </p>
           <div className="space-y-3">
             {mostDivisive.map((s) => {
@@ -285,7 +285,7 @@ export default async function ItTrendingPage() {
         ) : (
           <>
             <p className="text-sm text-[var(--muted)] mb-5">
-              Inizia dai dilemmi più discussi di SplitVote e scopri come si divide il mondo.
+              Inizia dai dilemmi più discussi di SplitVote e scopri come si dividono i votanti.
             </p>
             <FreshFirstGrid
               className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
