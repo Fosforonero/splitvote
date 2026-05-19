@@ -7,6 +7,14 @@ import { CLUSTERS } from '@/lib/blog-clusters'
 
 const BASE = 'https://splitvote.io'
 
+// CDN-cache the generated sitemap for 1 hour. Crawlers (Googlebot, Bingbot,
+// GPTBot, ClaudeBot, etc.) fetch /sitemap.xml every few minutes; serving
+// from the Vercel edge cache instead of re-running this function each
+// time is the largest single Fluid Active CPU saving available without
+// changing route semantics. The URL set + per-entry lastModified are
+// unchanged; only the response cacheability is.
+export const revalidate = 3600
+
 // Stable date for evergreen / static surfaces. Bump only when sitemap
 // structure changes meaningfully (added/removed URL classes, hreflang
 // reshape, etc.). Avoid `new Date()` for evergreen URLs — Google
