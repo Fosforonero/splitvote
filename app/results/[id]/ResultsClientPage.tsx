@@ -7,6 +7,7 @@ import AdSlot from '@/components/AdSlot'
 import { createClient } from '@/lib/supabase/client'
 import { getExpertInsight } from '@/lib/expert-insights'
 import type { DynamicExpertInsight } from '@/lib/expert-insights'
+import { getStaticInsight } from '@/lib/static-insights'
 import type { DynamicScenario } from '@/lib/dynamic-scenarios'
 import { track } from '@/lib/gtag'
 import { SOCIAL_LINKS } from '@/lib/social-links'
@@ -209,9 +210,14 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   // Computed early so effects can reference it in their dependency arrays
   const showStickyNext = !pathCategory && !!nextId
   const baseInsight = getExpertInsight(scenario.category, locale)
-  const dynamicOverride: DynamicExpertInsight | undefined = locale === 'it'
+  // Override sources, in priority order:
+  // 1. Per-id override on a dynamic AI-generated scenario (DynamicScenario.expertInsight{En,It}).
+  // 2. Per-id override on a static scenario, from lib/static-insights.ts.
+  // 3. Fall through to the category-level fallback (baseInsight).
+  const dynamicOverride: DynamicExpertInsight | undefined = (locale === 'it'
     ? (scenario as Partial<DynamicScenario>).expertInsightIt
-    : (scenario as Partial<DynamicScenario>).expertInsightEn
+    : (scenario as Partial<DynamicScenario>).expertInsightEn)
+    ?? getStaticInsight(scenario.id, locale)
   const expertInsight = dynamicOverride
     ? {
         ...baseInsight,
