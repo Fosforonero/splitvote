@@ -190,7 +190,7 @@ export default async function HomePage() {
             </span>
           </h1>
           <p className="text-base sm:text-xl text-[var(--muted)] max-w-lg mx-auto leading-relaxed">
-            Pick a side. No sign-up. See how the world splits.
+            Vote anonymously. See how the world splits. Build your moral profile.
           </p>
           <div className="mt-6 flex items-center justify-center">
             <Link
@@ -213,7 +213,7 @@ export default async function HomePage() {
           </span>
           <span className="text-white/15 hidden sm:inline">→</span>
           <span className="flex items-center gap-1.5">
-            <span className="text-yellow-400 font-black neon-text-yellow">3.</span> Grow your Pixie
+            <span className="text-yellow-400 font-black neon-text-yellow">3.</span> Build your moral profile
           </span>
         </div>
 

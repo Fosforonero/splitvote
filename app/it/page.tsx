@@ -219,7 +219,7 @@ export default async function ItPage() {
             </span>
           </h1>
           <p className="text-base sm:text-xl text-[var(--muted)] max-w-lg mx-auto leading-relaxed">
-            Scegli da che parte stare. Nessuna registrazione. Risultati subito visibili.
+            Vota in anonimo. Scopri come si divide il mondo. Fai crescere il tuo profilo morale.
           </p>
           <div className="mt-6 flex items-center justify-center">
             <Link
@@ -242,7 +242,7 @@ export default async function ItPage() {
           </span>
           <span className="text-white/15 hidden sm:inline">→</span>
           <span className="flex items-center gap-1.5">
-            <span className="text-yellow-400 font-black neon-text-yellow">3.</span> Fai crescere il tuo Pixie
+            <span className="text-yellow-400 font-black neon-text-yellow">3.</span> Fai crescere il tuo profilo morale
           </span>
         </div>
 
