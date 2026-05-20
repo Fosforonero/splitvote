@@ -280,6 +280,8 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
       category: scenario.category,
       locale,
       voted: voted ?? 'none',
+      reveal_state: revealState,
+      ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}),
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scenario.id])
@@ -357,6 +359,27 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   const isClose              = total > 0 && !isTie && Math.abs(pctA - pctB) <= 10
   const isAggregateLandslide = total > 0 && !isTie && majorityPct >= 70
   const isUserOnLandslideSide = isAggregateLandslide && pctVoted === majorityPct
+
+  // Reveal emotional state for analytics enrichment
+  // (sprint REVEAL-STATE-INSTRUMENTATION-01). Derived purely from existing
+  // pctA/pctB/total/voted props — no new data collected, no new endpoint,
+  // no consent surface change. For unvoted views (voted === null) pctVoted
+  // is null so isMinority/isUserOnLandslideSide are false; the value falls
+  // through to 'majority' which describes the aggregate winning side.
+  // Analysts disambiguate by joining with the existing `voted` field
+  // (present on `result_viewed`) and by the presence of `reveal_pct_voted`.
+  const revealState: 'low_sample' | 'tie' | 'close' | 'minority' | 'landslide' | 'majority' =
+    total < 10
+      ? 'low_sample'
+      : isTie
+      ? 'tie'
+      : isClose
+      ? 'close'
+      : isMinority
+      ? 'minority'
+      : isUserOnLandslideSide
+      ? 'landslide'
+      : 'majority'
 
   // Aggregate share text — always uses majority stats, never reveals user's own vote
   const webShareText = total === 0
@@ -437,7 +460,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   const copyLink = () => {
     navigator.clipboard.writeText(shareUrl)
     setCopied(true)
-    track('share_clicked', { target: 'copy_link', scenario_id: scenario.id, locale })
+    track('share_clicked', { target: 'copy_link', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
     trackServerEvent('copy_result_link')
     setTimeout(() => setCopied(false), 2000)
   }
@@ -445,21 +468,21 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   const copyCaption = () => {
     navigator.clipboard.writeText(tiktokCaption)
     setCaptionCopied(true)
-    track('share_clicked', { target: 'tiktok_caption', scenario_id: scenario.id, locale })
+    track('share_clicked', { target: 'tiktok_caption', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
     setTimeout(() => setCaptionCopied(false), 2000)
   }
 
   const copyDiscord = () => {
     navigator.clipboard.writeText(discordText)
     setDiscordCopied(true)
-    track('share_clicked', { target: 'discord', scenario_id: scenario.id, locale })
+    track('share_clicked', { target: 'discord', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
     setTimeout(() => setDiscordCopied(false), 2000)
   }
 
   const copyChallenge = () => {
     navigator.clipboard.writeText(challengeUrl)
     setChallengeCopied(true)
-    track('share_clicked', { target: 'challenge', scenario_id: scenario.id, locale })
+    track('share_clicked', { target: 'challenge', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
     // Server-side event for mission verification (challenge_friend + share_and_challenge)
     trackServerEvent('challenge_link_copied')
     setTimeout(() => setChallengeCopied(false), 2000)
@@ -483,7 +506,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   const copyIgCaption = () => {
     navigator.clipboard.writeText(instagramCaption)
     setIgCaptionCopied(true)
-    track('share_clicked', { target: 'instagram_caption', scenario_id: scenario.id, locale })
+    track('share_clicked', { target: 'instagram_caption', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
     setTimeout(() => setIgCaptionCopied(false), 2000)
   }
 
@@ -491,12 +514,12 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
     if (typeof navigator !== 'undefined' && navigator.share) {
       try {
         await navigator.share({ title: scenario.question, text: webShareText, url: shareUrl })
-        track('share_clicked', { target: 'web_share', scenario_id: scenario.id, locale })
+        track('share_clicked', { target: 'web_share', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
         trackServerEvent('share_result')
       } catch { /* user cancelled — do not track */ }
     } else {
       await navigator.clipboard.writeText(`${webShareText}\n${shareUrl}`)
-      track('share_clicked', { target: 'copy_link', scenario_id: scenario.id, locale })
+      track('share_clicked', { target: 'copy_link', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
       setWebShareCopied(true)
       trackServerEvent('copy_result_link')
       setTimeout(() => setWebShareCopied(false), 2000)
@@ -777,7 +800,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
           >
             <Link
               href={nextId ? `${sharePrefix}/play/${nextId}` : sharePrefix || '/'}
-              onClick={() => nextId && track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_bottom' })}
+              onClick={() => nextId && track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_bottom', previous_reveal_state: revealState, ...(pctVoted !== null ? { previous_reveal_pct_voted: pctVoted } : {}) })}
               className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm px-6 py-3.5 transition-colors text-center"
             >
               {nextId ? copy.nextDilemma : copy.browsedAll}
@@ -974,7 +997,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
             <a
               href={storyCardUrl}
               download={`splitvote-${scenario.id}.png`}
-              onClick={() => track('share_clicked', { target: 'instagram_save', scenario_id: scenario.id, locale })}
+              onClick={() => track('share_clicked', { target: 'instagram_save', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })}
               className="flex flex-col items-center gap-1.5 bg-gradient-to-br from-purple-600/20 to-pink-600/20 hover:from-purple-600/30 hover:to-pink-600/30 border border-purple-500/30 text-purple-300 font-bold text-sm px-4 py-3.5 rounded-xl transition-all text-center"
             >
               <span className="text-xl">📸</span>
@@ -997,7 +1020,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
               href={twitterUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => track('share_clicked', { target: 'twitter', scenario_id: scenario.id, locale })}
+              onClick={() => track('share_clicked', { target: 'twitter', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })}
               className="flex-1 flex items-center justify-center gap-2 bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 border border-[#1DA1F2]/30 text-[#1DA1F2] font-bold text-sm px-4 py-2.5 rounded-xl transition-colors"
             >
               {copy.shareX}
@@ -1008,7 +1031,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => track('share_clicked', { target: 'whatsapp', scenario_id: scenario.id, locale })}
+              onClick={() => track('share_clicked', { target: 'whatsapp', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })}
               className="flex-1 flex items-center justify-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 text-green-400 font-bold text-sm px-4 py-2.5 rounded-xl transition-colors"
             >
               {copy.whatsapp}
@@ -1041,7 +1064,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
               href={telegramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => track('share_clicked', { target: 'telegram', scenario_id: scenario.id, locale })}
+              onClick={() => track('share_clicked', { target: 'telegram', scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })}
               className="flex-1 flex items-center justify-center gap-2 bg-[#0088cc]/10 hover:bg-[#0088cc]/20 border border-[#0088cc]/30 text-[#0088cc] font-bold text-sm px-4 py-2.5 rounded-xl transition-colors"
             >
               {copy.telegram}
@@ -1188,7 +1211,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
         <div className="max-w-2xl mx-auto px-4 py-3">
           <Link
             href={`${sharePrefix ?? ''}/play/${nextId}`}
-            onClick={() => track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_sticky' })}
+            onClick={() => track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_sticky', previous_reveal_state: revealState, ...(pctVoted !== null ? { previous_reveal_pct_voted: pctVoted } : {}) })}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm px-6 py-3.5 transition-colors"
           >
             {copy.nextDilemma}
