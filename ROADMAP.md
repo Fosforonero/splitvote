@@ -3,7 +3,40 @@
 > Piattaforma globale di behavioral data gamificata.
 > Dilemmi morali in tempo reale → profili morali → loop virali → insight aggregati.
 
-Ultimo aggiornamento: 19 Maggio 2026 (fine giornata) — AdSense low-value remediation (Phase 1 + Phase 2) deployed; results vote-CTA bugfix deployed; Stripe Premium checkout UI verified live; Vercel CPU mitigations live.
+Ultimo aggiornamento: 20 Maggio 2026 (fine giornata) — Emotional Recognition Loop (Phase 1 reveal + Phase 2 routing + sticky CTA refactor + home copy) + retention instrumentation shipped; GA4 proxy fix from 19 May pushed.
+
+---
+
+## 20 May 2026 — Emotional Recognition Loop + Retention Instrumentation ✅ DONE
+
+Six commits shipped today completing Phase 1 + Phase 2 of the emotional recognition loop and adding retention-driver instrumentation.
+
+**Deployed today:**
+
+- `e185caa fix(analytics): remove GA4 first-party proxy to restore visitor geo` — GA4 now loads direct from `googletagmanager.com` (proxy was collapsing all visitor geo to Vercel edge IP — IT was 0% in GA4 while Vercel showed 59%). Commit was made late 19 May locally; pushed as the first deploy of 20 May.
+- `8638c96 feat(results): sharpen post-vote reveal feedback` — Phase 1: shorter EN/IT reveal copy (tie/minority/majority/close/landslide), distinct TIE (symmetric red→purple→blue gradient) + LANDSLIDE (green→amber) visuals, bar fill animation 1000ms → 450ms, percentage opacity reveal 300ms, motion-reduce safe.
+- `8f93c13 feat(routing): prefer same-category next dilemmas` — Phase 2.1: soft same-category preference in `getFreshNextScenarioId` (threshold ≥ 3 fresh same-cat items; backward-compatible signature). New `tests/unit/next-dilemma-affinity.test.ts` with 7 deterministic cases.
+- `56dc73e fix(results): show sticky next after inline cta scrolls out` — `IntersectionObserver`-driven sticky bar: shows only when the inline Next CTA is off-screen. Graceful degradation when IO unavailable.
+- `6e03d14 copy(home): clarify anonymous vote loop` — Home EN/IT hero + game-loop step 3 now say "Build your moral profile" / "Fai crescere il tuo profilo morale".
+- `1384296 feat(analytics): add reveal state to results events` — Phase 2.5 instrumentation: enriched `result_viewed`, `next_dilemma_clicked`, `share_clicked` (results-page sites only) with `reveal_state` + conditional `reveal_pct_voted` (and `previous_*` on `next_dilemma_clicked`). **NO new event names.**
+
+**Production smoke** (post-push for each): all curl-based markup checks green on `/results/trolley?voted=a|b` + `/it/results/trolley?voted=a`. Sticky markup + Phase 1 animation classes + motion-reduce variants + AdSlot gate (0 on trolley total=12) all confirmed.
+
+**LEGAL.md**: trigger assessed for each commit — no new data processors, no new cookies, no new server-side persistence, no new consent surface, no new public-facing user-data categories. Privacy Policy and Terms unchanged. Internal LEGAL.md "Recent sprints" entry added for `REVEAL-STATE-INSTRUMENTATION-01`.
+
+**Vercel performance**: no CPU warning today. Six pushes batched across the day (PM approved each individually after diff review). Yesterday's mitigations (sitemap ISR + API edge cache) remain in effect.
+
+### Next candidates (tomorrow, priority order)
+
+| # | Sprint | Status | Notes |
+|---|---|---|---|
+| A | `WIP-TRIAGE-AND-BRANCH-HYGIENE-01` | Ready (top) | PM-led triage of 77 M + 14 ?? files still in working tree (PRODUCT_STRATEGY.md, content-generation-*, content-quality-gates, ~70 Pixie PNGs, scripts WIP, untracked reports). Decide which to ship, merge, split, or discard. Pre-requisite for several downstream sprints. |
+| B | `CONTENT-GENERATION-CLARITY-GUARD-SHIP-01` | Conditional on A | Ship the existing PM WIP on `lib/content-generation-*.ts` + `lib/content-quality-gates.ts` if it's complete and reviewed. Code-only, no DB / Redis. |
+| C | `DILEMMA-QUALITY-RUBRIC-01` | Ready, independent | Docs-only spec for the dilemma quality scoring rubric (divisiveness, identity_relevance, moral_tension, ambiguity, curiosity_potential, emotional_weight) — drafted in the Phase 2 audit, formalize and commit. ~1 h. No code. |
+| D | `PIXIE-ASSETS-WIP-AUDIT-01` | Ready, independent | Audit the ~70 PNG WIP in `public/pixie/**` — what's being updated, what's stale, what's intentional. Likely PM-led visual review; report-only. |
+| E | `GA4-RETENTION-DIMENSIONS-QA-01` | Conditional on Vercel live + GA4 custom dimensions registered | Verify `reveal_state` / `reveal_pct_voted` / `previous_reveal_state` / `previous_reveal_pct_voted` arrive correctly in GA4 DebugView; build a single Exploration in GA4 to visualize reveal_state distribution over a 7-day rolling window. PM-side; no code. |
+
+Removed from queue: `ADSENSE-REVIEW-READY-CHECKLIST-01` was already closed earlier; AdSense re-review submission remains HUMAN_ONLY pending PM action.
 
 ---
 

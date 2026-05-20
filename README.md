@@ -23,7 +23,7 @@ Product strategy and staged sprint planning live in **[PRODUCT_STRATEGY.md](./PR
 | Real-time votes | Upstash Redis (hash per dilemma) |
 | AI dilemmas | Anthropic Claude (daily Vercel cron → admin draft queue) |
 | Payments | Stripe (one-time name change, premium sub) |
-| Analytics | GA4 via first-party proxy |
+| Analytics | GA4 (gtag.js loaded directly from `googletagmanager.com`) |
 | Ads | Google AdSense (official script — `pagead2.googlesyndication.com`) |
 | Deploy | Vercel (auto-deploy on push to main) |
 
@@ -467,7 +467,7 @@ npm run build
 Results pages include a lightweight quality signal (`🔥 Interesting` / `👎 Not for me`). Feedback is deduplicated by user or anonymous cookie, stored in Supabase/Redis, and updates dynamic dilemma scoring.
 
 ### First-party proxies
-`app/api/ga/` proxies GA4 (analytics) to bypass ad blockers. This is a deliberate product choice — see Google's first-party proxy docs.
+GA4 is loaded directly from `googletagmanager.com` since `GA4-PROXY-GEO-FIX-01` (19 May 2026) — the first-party proxy under `/api/ga/script` and `/api/ga/g/collect` was removed because GA4 did not honor `X-Forwarded-For` from the proxy and collapsed all visitor geo to the Vercel edge IP. See the GA4 loading note in `Security Notes` below for the full rationale.
 
 AdSense loads directly from `pagead2.googlesyndication.com` (official script). The `/api/ga/ads` proxy route exists but is not used in production — policy-safe for AdSense review. Do not proxy adsbygoogle.js again without re-evaluating AdSense programme policies.
 

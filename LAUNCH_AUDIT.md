@@ -522,6 +522,7 @@ Script: `tests/load/splitvote-spike-load.js` (`npm run load:spike`). Usa `defaul
 - [ ] Google Search Console: monitorare impressioni/click dopo sitemap submission
 - [ ] Business dashboard v1: revenue MRR, premium churn, top converting dilemmi
 - [ ] Feedback quality signal: verificare che feedbackScore si aggiorni correttamente nei dynamic scenarios
+- [ ] **GA4 Custom Dimensions registration** (PM-side, ~5 min): register `reveal_state`, `reveal_pct_voted`, `previous_reveal_state`, `previous_reveal_pct_voted` as event-scoped Custom Dimensions in GA4 Admin → Custom definitions. These payload fields ship in `REVEAL-STATE-INSTRUMENTATION-01` (commit `1384296`, 20 May 2026) on `result_viewed`, `next_dilemma_clicked`, and `share_clicked` (results-page sites only). Until registered they're visible only in DebugView + Explorations. No new event names; no public legal page update required.
 
 ### AdSense
 

@@ -1,8 +1,65 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 19 May 2026 (late evening) — GA4 first-party proxy removed (`GA4-PROXY-GEO-FIX-01`); AdSense low-value remediation deployed earlier in the day.
+Last updated: 20 May 2026 (end of day) — Emotional Recognition Loop (Phase 1 + Phase 2) + retention instrumentation shipped; GA4 proxy fix from 19 May also pushed.
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
+
+## 0. Session 20 May 2026 — Emotional Recognition Loop + Retention Instrumentation — ✅ SHIPPED
+
+Six commits shipped to `origin/main` today, completing the Emotional Recognition Loop (Phase 1 reveal UX + Phase 2 routing + sticky CTA refactor + home copy alignment) and adding retention-driver instrumentation (Phase 2.5). The GA4 proxy fix from late 19 May (`e185caa`, local-only at that EOD) was the first push of the day.
+
+### Deployed commits on `origin/main` (oldest → newest)
+
+| Commit | Title | What it shipped |
+|---|---|---|
+| `e185caa` | fix(analytics): remove GA4 first-party proxy to restore visitor geo | GA4 proxy removed — gtag.js loads direct from `googletagmanager.com`. Restores correct geo (IT was 0% in GA4, Vercel showed 59%). Supersedes the "LOCAL COMMIT, NOT PUSHED" status of the 19 May entry below. |
+| `8638c96` | feat(results): sharpen post-vote reveal feedback | Phase 1 reveal: shorter EN/IT desc copy, distinct TIE (symmetric red→purple→blue gradient) + LANDSLIDE (green→amber) visuals, bar fill 1000ms → 450ms, percentage opacity reveal 300ms, motion-reduce safe across bars + percentages. |
+| `8f93c13` | feat(routing): prefer same-category next dilemmas | Phase 2.1 routing: `getFreshNextScenarioId` now applies soft same-category affinity (threshold ≥ 3 fresh same-cat items, else fallback). Backward-compatible signature; 7 new unit tests in `tests/unit/next-dilemma-affinity.test.ts`. |
+| `56dc73e` | fix(results): show sticky next after inline cta scrolls out | Sticky CTA refactor (was sitting as PM WIP for several days): `IntersectionObserver` replaces the timer-only slide-in; sticky bottom bar appears only when the inline Next CTA is off-screen, hides again when it returns. Graceful degradation when IO unavailable. |
+| `6e03d14` | copy(home): clarify anonymous vote loop | Home EN/IT hero subtitle + game-loop step 3 now say "Build your moral profile" / "Fai crescere il tuo profilo morale", aligning home framing with the results-page reveal language. |
+| `1384296` | feat(analytics): add reveal state to results events | Phase 2.5 instrumentation: enriched 14 existing `track()` sites in `ResultsClientPage.tsx` with `reveal_state` + conditional `reveal_pct_voted` (and `previous_*` variants on `next_dilemma_clicked`). **NO new event names.** NO new processor/cookie/server persistence/consent surface. |
+
+### Vercel deploy
+
+Each push triggered Vercel auto-deploy. Latest deploy `1384296` triggered post-push tonight; expect all six commits live in production within the standard Vercel build window. No deploy failures observed during the day.
+
+### Production smoke (curl-based, pre-push for each)
+
+For `1384296`:
+- `/results/trolley?voted=a` HTTP 200; SSR markup contains sticky bar (`fixed bottom-0` + `translate-y-full` initial hidden); Phase 1 markers intact (`duration-[450ms]` × 2, `motion-reduce:transition-none` × 4); AdSlot gate intact (0 `ins.adsbygoogle` on trolley total=12).
+- `/results/trolley?voted=b` HTTP 200; MINORITY `border-orange-500/30` class present.
+- `/it/results/trolley?voted=a` HTTP 200; IT layout renders.
+
+### Working tree state at EOD
+
+`main @ 1384296`, aligned with `origin/main`. Staged area: empty.
+
+**PM WIP still in working tree (untouched today):**
+- `PRODUCT_STRATEGY.md`
+- `lib/content-generation-prompts.ts`
+- `lib/content-generation-validate.ts`
+- `lib/content-quality-gates.ts`
+- ~70 Pixie PNGs under `public/pixie/**`
+- `scripts/generate-pixie-assets.mjs`
+
+**Untracked files (14):** `.claude/worktrees/`, `.idea/`, `.vercelignore`, `AGENTS.md`, `Pixie.tsx`, four dated `reports/*.md`, three `scripts/blog-drafts-input/` + `scripts/current-events-drafts-input/` JSON files, `scripts/generate-pixie-emoji-assets.py`, `scripts/generate-placeholders.js`, `scripts/insert-current-events-drafts.mjs`, `scripts/normalize-pixie-assets.py`, `scripts/slice-pixies.js`.
+
+### LEGAL.md trigger assessment (this session)
+
+Assessed per-commit. **No new data processors, no new cookies, no new server-side persistence, no new consent surface, no new public-facing user-data categories.** The `reveal_state` instrumentation enriches existing GA4 events with fields derived from aggregate data already shown on the page; no new event names introduced; same Consent Mode v2 gating. Privacy Policy and Terms unchanged. Internal `LEGAL.md` "Recent sprints" entry added for `REVEAL-STATE-INSTRUMENTATION-01` to track the trigger assessment.
+
+### GA4 custom dimensions — PM follow-up required
+
+The four new payload fields (`reveal_state`, `reveal_pct_voted`, `previous_reveal_state`, `previous_reveal_pct_voted`) are arriving in GA4 from `1384296` onward, but to be **filterable in standard reports** they must be registered as **event-scoped Custom Dimensions** in GA4 Admin → Custom definitions → Custom dimensions. Until registered, the params are visible only in DebugView + GA4 Explorations. Suggested dimension names = param names verbatim. Estimated PM time: ~5 minutes.
+
+### Recommended tomorrow order
+
+1. **Verify Vercel live + production smoke** (~10 min): curl `splitvote.io/results/trolley?voted=a` post-deploy, confirm the new payload fields surface in Network panel; manual vote on a real device to trigger GA4 DebugView and confirm `reveal_state` arrives.
+2. **GA4 custom dimensions setup** (~5 min, PM-side): register the four new params; optional 1-Exploration setup to monitor reveal_state distribution.
+3. **WIP triage** (~30-60 min, PM-led): decide merge/discard for the PM WIP files (PRODUCT_STRATEGY.md, content-generation pipeline, content-quality-gates, Pixie PNG, scripts WIP). Pre-requisite for several next-candidate sprints in ROADMAP.
+4. **Decide next ship candidate** from the ROADMAP "Next candidates" table (top: `WIP-TRIAGE-AND-BRANCH-HYGIENE-01`).
+
+---
 
 ## 0-pre. Session 19 May 2026 (late evening) — `GA4-PROXY-GEO-FIX-01` — ⚠️ LOCAL COMMIT, NOT PUSHED
 
