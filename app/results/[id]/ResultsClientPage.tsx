@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { Scenario } from '@/lib/scenarios'
 import Link from 'next/link'
 import AdSlot from '@/components/AdSlot'
@@ -212,7 +212,9 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   const [isAnon, setIsAnon] = useState(false)
   const [referralCode, setReferralCode] = useState<string | null>(null)
   const [showPersonalityTeaser, setShowPersonalityTeaser] = useState(false)
-  const [stickyVisible, setStickyVisible] = useState(false)
+  const inlineNextCtaRef = useRef<HTMLDivElement | null>(null)
+  const [stickyReady, setStickyReady] = useState(false)
+  const [inlineNextCtaVisible, setInlineNextCtaVisible] = useState(true)
 
   const isIT = sharePrefix === '/it'
   const copy = isIT ? IT_COPY : EN_COPY
@@ -220,6 +222,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
 
   // Computed early so effects can reference it in their dependency arrays
   const showStickyNext = !pathCategory && !!nextId
+  const stickyVisible = stickyReady && !inlineNextCtaVisible
   const baseInsight = getExpertInsight(scenario.category, locale)
   // Override sources, in priority order:
   // 1. Per-id override on a dynamic AI-generated scenario (DynamicScenario.expertInsight{En,It}).
@@ -295,16 +298,44 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
     return () => clearTimeout(t)
   }, [voted, total])
 
-  // Slide sticky bar in after results are revealed — gives a natural sequence:
-  // bars animate → results appear → sticky slides up.
-  // Instant for reduced-motion; 200ms delay otherwise.
+  // Keep the sticky CTA as a fallback: show it only while the inline CTA is off-screen.
   useEffect(() => {
-    if (!showStickyNext || !revealed) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setStickyVisible(true)
+    if (!showStickyNext) {
+      setInlineNextCtaVisible(true)
       return
     }
-    const t = setTimeout(() => setStickyVisible(true), 200)
+
+    const node = inlineNextCtaRef.current
+    if (!node || typeof IntersectionObserver === 'undefined') {
+      setInlineNextCtaVisible(false)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInlineNextCtaVisible(entry.isIntersecting && entry.intersectionRatio > 0)
+      },
+      { threshold: 0.01 }
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [showStickyNext])
+
+  // Arm the sticky bar after results are revealed — gives a natural sequence:
+  // bars animate → results appear → fallback CTA becomes available.
+  // Instant for reduced-motion; 200ms delay otherwise.
+  useEffect(() => {
+    if (!showStickyNext || !revealed) {
+      setStickyReady(false)
+      return
+    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setStickyReady(true)
+      return
+    }
+    setStickyReady(false)
+    const t = setTimeout(() => setStickyReady(true), 200)
     return () => clearTimeout(t)
   }, [showStickyNext, revealed])
 
@@ -740,7 +771,10 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
           </div>
         ) : (
           /* Standard CTA */
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div
+            ref={showStickyNext ? inlineNextCtaRef : undefined}
+            className="flex flex-col sm:flex-row gap-3 justify-center"
+          >
             <Link
               href={nextId ? `${sharePrefix}/play/${nextId}` : sharePrefix || '/'}
               onClick={() => nextId && track('next_dilemma_clicked', { scenario_id: scenario.id, locale, source: 'results_bottom' })}
