@@ -1647,43 +1647,81 @@ Direct product observations captured after soft launch. None of these are implem
 
 ---
 
-## Picoclaw Content Intelligence Direction
+## Picoclaw + SplitVote Content Intelligence Direction
 
-**Status: DEFERRED — Phase 0 only (docs). No runtime code.**
+**Status: DEFERRED — Phase 0/0.5 only (docs). No runtime code for Picoclaw bridge yet.**
 
-Last reviewed: 30 Apr 2026.
+Last reviewed: 6 May 2026.
 
 ### 1. Role Definition
 
 Picoclaw is an external trend-scouting and content-intelligence agent. SplitVote is the publishing, review, voting, and editorial platform.
 
-- **Picoclaw** — discovers topics, monitors trends, flags duplicates, proposes seeds.
-- **SplitVote** — generates drafts, runs quality gates, manages approval, controls publish status, enforces legal/editorial guardrails.
+- **Picoclaw** — external radar: discovers topics, monitors trends, finds social/news signals, proposes raw opportunities.
+- **SplitVote Content Intelligence Agent** — internal gatekeeper: reads SplitVote's real inventory, detects duplicate/saturated concepts, proposes seed cooldowns/exclusions, prepares reports, and scores Picoclaw opportunities against existing content.
+- **SplitVote** — authoritative system: generates drafts, runs quality gates, manages approval, controls publish status, enforces legal/editorial guardrails.
 
 Picoclaw must never bypass SplitVote's review pipeline. SplitVote is the single authoritative system for draft queue, quality gates, semantic review, admin approval, publish status, and legal guardrails.
 
+The intended separation is:
+
+```
+Picoclaw trend signal
+→ SplitVote Content Intelligence Agent
+→ novelty / semantic / seed-usage checks
+→ opportunity + cooldown report
+→ Matteo/PM GO
+→ Seed Draft Batch or manual seed generation
+→ admin review + manual approval
+→ public pages + social test
+```
+
+Picoclaw finds "what is happening." SplitVote decides "what is worth turning into a dilemma."
+
 ### 2. Candidate Capabilities
 
-- Scan trending news and topics every 2 hours.
+- Scan trending news and topics every 2-24 hours, depending on cost and editorial capacity.
 - Maintain regional buckets: World / Europe / USA / Italy.
 - Produce localized topic suggestions without naming private individuals.
 - Abstract current events into moral dilemma seeds (no direct news reproduction).
 - Suggest standard article topics.
 - Suggest cornerstone article topics.
-- Detect duplicate or semantically similar dilemmas against the published pool.
-- Flag stale, low-quality, or low-engagement dilemmas.
-- Propose replacement drafts for weak content.
+- Detect duplicate or semantically similar dilemmas against static, approved dynamic, and draft pools.
+- Flag stale, low-quality, low-engagement, overused, or semantically saturated dilemmas.
+- Propose seed cooldowns/exclusions when repeated generation attempts produce duplicates.
+- Propose replacement angles for weak or redundant content.
+- Suggest landing-page opportunities for strong trend clusters.
 - Feed structured seed payloads into SplitVote's existing batch generator (`manualSeed` API param).
+
+### 2.1 SplitVote Content Intelligence Agent v1 (Internal First)
+
+Before structured Picoclaw ingestion, build the internal agent as a read-only/dry-run loop:
+
+- Reads `static` scenarios, `dynamic:approved`, `dynamic:drafts`, seed usage, seed exclusions/cooldowns, and category coverage.
+- Produces a duplicate/saturation report: closest matches, repeated moral structures, low novelty clusters, weak categories, and seed burnout.
+- Recommends seed cooldown/exclusion changes, but does not mutate seed files automatically.
+- Recommends draft edits/replacements, but does not approve, reject, delete, or publish content.
+- Produces JSON/Markdown reports suitable for future admin UI ingestion.
+
+Preferred output surfaces:
+
+- local/operational report: `reports/content-intelligence-YYYY-MM-DD.md` (manual run only), or
+- admin-only Redis report key in a later sprint.
+
+Do **not** make the agent edit `lib/content-seed-packs.ts` on a schedule. The TypeScript seed file is the stable catalog. Operational state should live in admin-reviewed reports or runtime exclusion/cooldown storage.
 
 ### 3. Guardrails (Non-Negotiable)
 
 - No automatic publishing — all content enters draft/review queue.
 - No automatic deletion — all removal/replacement proposals go to admin review.
+- No automatic commits, pushes, deploys, or direct file mutations from scheduled content loops.
+- No automatic save mode; generation must remain dry-run/report-first unless Matteo gives explicit GO.
 - No real names of living private individuals unless explicitly approved by PM.
 - No city-specific or person-specific accusations.
 - No exploitation of tragedies, disasters, or deaths without principled framing.
 - No legal, medical, or financial advice framing.
 - No unverified claims about real events.
+- No scraping fragile social pages; use official APIs/providers or manual PM-provided inputs.
 - Human admin approval required before any content goes live.
 - Quality gates and semantic review remain mandatory — Picoclaw seeds are not exempt.
 
@@ -1692,7 +1730,9 @@ Picoclaw must never bypass SplitVote's review pipeline. SplitVote is the single 
 ```
 Picoclaw scans trends
 → creates topic candidates (region, freshness, riskLevel, sourceUrls)
-→ sends structured seed payload to SplitVote admin-only endpoint
+→ SplitVote Content Intelligence Agent evaluates against inventory + seed usage
+→ produces candidate / too_similar / needs_review / safe_to_draft decision
+→ optional admin-only import endpoint receives approved seed payload
 → SplitVote generates dilemma or article draft via existing pipeline
 → SplitVote runs novelty + preflight similarity + semantic review + safety checks
 → admin approves or rejects in admin panel
@@ -1718,6 +1758,14 @@ Example payload Picoclaw would send to a future SplitVote endpoint:
   "freshness": "breaking | recent | evergreen",
   "riskLevel": "low | medium | high",
   "sourceUrls": [],
+  "duplicateRisk": "low | medium | high",
+  "closestMatchIds": [],
+  "suggestedSeedPackId": "...",
+  "suggestedLandingPage": {
+    "title": "...",
+    "slug": "...",
+    "searchIntent": "..."
+  },
   "notes": "..."
 }
 ```
@@ -1748,11 +1796,13 @@ SplitVote must:
 | Phase | Scope | Status |
 |---|---|---|
 | **Phase 0** — Docs only | Document integration direction in PRODUCT_STRATEGY.md and ROADMAP.md | ✅ Done (30 Apr 2026) |
+| **Phase 0.5** — Internal Content Intelligence Agent | Read-only duplicate/seed burnout/category gap reports from SplitVote inventory | Not started — recommended next foundation |
 | **Phase 1** — Manual import | Admin copies Picoclaw topic into Seed Batch manual seed | Available now — no code needed |
+| **Phase 1.5** — Runtime seed exclusions/cooldowns | Admin-reviewed exclusion state informs Seed Pack selection | In progress conceptually via Seed Eligibility Guard |
 | **Phase 2** — Structured import endpoint | Picoclaw sends seed payloads to a new SplitVote admin-only endpoint | Not started — requires auth, API key, LEGAL.md review |
-| **Phase 3** — Content intelligence dashboard | Admin sees Picoclaw suggestions, duplicates, replacement proposals in admin panel | Not started — requires Phase 2 |
-| **Phase 4** — Scheduled assisted generation | Every 2 hours Picoclaw proposes candidates; SplitVote generates drafts with all gates active | Not started — requires Phase 3 |
-| **Phase 5** — Closed-loop optimization | SplitVote analytics feed Picoclaw: which topics/categories perform best | Not started — requires Phase 4 + analytics baseline |
+| **Phase 3** — Content intelligence dashboard | Admin sees Picoclaw suggestions, duplicates, replacement proposals, seed cooldowns, and landing-page opportunities | Not started — requires Phase 0.5/2 |
+| **Phase 4** — Scheduled assisted generation | 1-2 daily Picoclaw/Content Intelligence reports; draft generation remains dry-run first | Not started — requires Phase 3 |
+| **Phase 5** — Closed-loop optimization | SplitVote analytics feed opportunity ranking: which topics/categories perform best | Not started — requires Phase 4 + analytics baseline |
 
 ### 8. Legal and Safety Triggers
 
