@@ -1,0 +1,5998 @@
+{
+  "rows": [
+    {
+      "species": "angel",
+      "stage": 1,
+      "file": "public/pixie/angel/pixie-angel-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 92,
+        "top": 68,
+        "right": 162,
+        "bottom": 187,
+        "width": 71,
+        "height": 120
+      },
+      "padding": {
+        "left": 92,
+        "right": 93,
+        "top": 68,
+        "bottom": 68
+      },
+      "bbox_area_ratio": 0.1300048828125,
+      "visible_pixel_count": 4591,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "angel",
+      "stage": 2,
+      "file": "public/pixie/angel/pixie-angel-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 88,
+        "top": 55,
+        "right": 166,
+        "bottom": 199,
+        "width": 79,
+        "height": 145
+      },
+      "padding": {
+        "left": 88,
+        "right": 89,
+        "top": 55,
+        "bottom": 56
+      },
+      "bbox_area_ratio": 0.1747894287109375,
+      "visible_pixel_count": 6646,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "angel",
+      "stage": 3,
+      "file": "public/pixie/angel/pixie-angel-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 79,
+        "top": 37,
+        "right": 175,
+        "bottom": 218,
+        "width": 97,
+        "height": 182
+      },
+      "padding": {
+        "left": 79,
+        "right": 80,
+        "top": 37,
+        "bottom": 37
+      },
+      "bbox_area_ratio": 0.269378662109375,
+      "visible_pixel_count": 10577,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "angel",
+      "stage": 4,
+      "file": "public/pixie/angel/pixie-angel-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 76,
+        "top": 24,
+        "right": 178,
+        "bottom": 231,
+        "width": 103,
+        "height": 208
+      },
+      "padding": {
+        "left": 76,
+        "right": 77,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.326904296875,
+      "visible_pixel_count": 14734,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "angel",
+      "stage": 5,
+      "file": "public/pixie/angel/pixie-angel-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 76,
+        "top": 24,
+        "right": 178,
+        "bottom": 231,
+        "width": 103,
+        "height": 208
+      },
+      "padding": {
+        "left": 76,
+        "right": 77,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.326904296875,
+      "visible_pixel_count": 14734,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "angel",
+      "stage": 6,
+      "file": "public/pixie/angel/pixie-angel-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 76,
+        "top": 24,
+        "right": 178,
+        "bottom": 231,
+        "width": 103,
+        "height": 208
+      },
+      "padding": {
+        "left": 76,
+        "right": 77,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.326904296875,
+      "visible_pixel_count": 14734,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "banana",
+      "stage": 1,
+      "file": "public/pixie/banana/pixie-banana-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 94,
+        "top": 70,
+        "right": 161,
+        "bottom": 184,
+        "width": 68,
+        "height": 115
+      },
+      "padding": {
+        "left": 94,
+        "right": 94,
+        "top": 70,
+        "bottom": 71
+      },
+      "bbox_area_ratio": 0.11932373046875,
+      "visible_pixel_count": 2862,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=11.9% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "banana",
+      "stage": 2,
+      "file": "public/pixie/banana/pixie-banana-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 84,
+        "top": 55,
+        "right": 170,
+        "bottom": 199,
+        "width": 87,
+        "height": 145
+      },
+      "padding": {
+        "left": 84,
+        "right": 85,
+        "top": 55,
+        "bottom": 56
+      },
+      "bbox_area_ratio": 0.1924896240234375,
+      "visible_pixel_count": 5209,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "banana",
+      "stage": 3,
+      "file": "public/pixie/banana/pixie-banana-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 82,
+        "top": 41,
+        "right": 172,
+        "bottom": 213,
+        "width": 91,
+        "height": 173
+      },
+      "padding": {
+        "left": 82,
+        "right": 83,
+        "top": 41,
+        "bottom": 42
+      },
+      "bbox_area_ratio": 0.2402191162109375,
+      "visible_pixel_count": 6671,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "banana",
+      "stage": 4,
+      "file": "public/pixie/banana/pixie-banana-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 72,
+        "top": 33,
+        "right": 182,
+        "bottom": 221,
+        "width": 111,
+        "height": 189
+      },
+      "padding": {
+        "left": 72,
+        "right": 73,
+        "top": 33,
+        "bottom": 34
+      },
+      "bbox_area_ratio": 0.3201141357421875,
+      "visible_pixel_count": 9971,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "banana",
+      "stage": 5,
+      "file": "public/pixie/banana/pixie-banana-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 62,
+        "top": 24,
+        "right": 193,
+        "bottom": 231,
+        "width": 132,
+        "height": 208
+      },
+      "padding": {
+        "left": 62,
+        "right": 62,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.4189453125,
+      "visible_pixel_count": 13849,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "banana",
+      "stage": 6,
+      "file": "public/pixie/banana/pixie-banana-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 62,
+        "top": 24,
+        "right": 193,
+        "bottom": 231,
+        "width": 132,
+        "height": 208
+      },
+      "padding": {
+        "left": 62,
+        "right": 62,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.4189453125,
+      "visible_pixel_count": 13849,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "blip",
+      "stage": 1,
+      "file": "public/pixie/blip/pixie-blip-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 85,
+        "top": 89,
+        "right": 171,
+        "bottom": 185,
+        "width": 87,
+        "height": 97
+      },
+      "padding": {
+        "left": 85,
+        "right": 84,
+        "top": 89,
+        "bottom": 70
+      },
+      "bbox_area_ratio": 0.1287689208984375,
+      "visible_pixel_count": 5454,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 3,
+        "b": 28,
+        "a": 255,
+        "hex": "#00031c"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "blip",
+      "stage": 2,
+      "file": "public/pixie/blip/pixie-blip-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 84,
+        "top": 76,
+        "right": 175,
+        "bottom": 186,
+        "width": 92,
+        "height": 111
+      },
+      "padding": {
+        "left": 84,
+        "right": 80,
+        "top": 76,
+        "bottom": 69
+      },
+      "bbox_area_ratio": 0.15582275390625,
+      "visible_pixel_count": 6374,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 3,
+        "b": 28,
+        "a": 255,
+        "hex": "#00031c"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "blip",
+      "stage": 3,
+      "file": "public/pixie/blip/pixie-blip-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 74,
+        "top": 71,
+        "right": 183,
+        "bottom": 186,
+        "width": 110,
+        "height": 116
+      },
+      "padding": {
+        "left": 74,
+        "right": 72,
+        "top": 71,
+        "bottom": 69
+      },
+      "bbox_area_ratio": 0.1947021484375,
+      "visible_pixel_count": 8877,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 3,
+        "b": 28,
+        "a": 255,
+        "hex": "#00031c"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "blip",
+      "stage": 4,
+      "file": "public/pixie/blip/pixie-blip-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 73,
+        "top": 64,
+        "right": 182,
+        "bottom": 186,
+        "width": 110,
+        "height": 123
+      },
+      "padding": {
+        "left": 73,
+        "right": 73,
+        "top": 64,
+        "bottom": 69
+      },
+      "bbox_area_ratio": 0.206451416015625,
+      "visible_pixel_count": 8472,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 3,
+        "b": 28,
+        "a": 255,
+        "hex": "#00031c"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "blip",
+      "stage": 5,
+      "file": "public/pixie/blip/pixie-blip-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 72,
+        "top": 64,
+        "right": 187,
+        "bottom": 190,
+        "width": 116,
+        "height": 127
+      },
+      "padding": {
+        "left": 72,
+        "right": 68,
+        "top": 64,
+        "bottom": 65
+      },
+      "bbox_area_ratio": 0.22479248046875,
+      "visible_pixel_count": 11506,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 3,
+        "b": 28,
+        "a": 255,
+        "hex": "#00031c"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "blip",
+      "stage": 6,
+      "file": "public/pixie/blip/pixie-blip-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 55,
+        "top": 52,
+        "right": 195,
+        "bottom": 195,
+        "width": 141,
+        "height": 144
+      },
+      "padding": {
+        "left": 55,
+        "right": 60,
+        "top": 52,
+        "bottom": 60
+      },
+      "bbox_area_ratio": 0.309814453125,
+      "visible_pixel_count": 14963,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 3,
+        "b": 28,
+        "a": 255,
+        "hex": "#00031c"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "caffe",
+      "stage": 1,
+      "file": "public/pixie/caffe/pixie-caffe-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 94,
+        "top": 79,
+        "right": 160,
+        "bottom": 177,
+        "width": 67,
+        "height": 99
+      },
+      "padding": {
+        "left": 94,
+        "right": 95,
+        "top": 79,
+        "bottom": 78
+      },
+      "bbox_area_ratio": 0.1012115478515625,
+      "visible_pixel_count": 2686,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=10.1% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "caffe",
+      "stage": 2,
+      "file": "public/pixie/caffe/pixie-caffe-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 85,
+        "top": 64,
+        "right": 169,
+        "bottom": 192,
+        "width": 85,
+        "height": 129
+      },
+      "padding": {
+        "left": 85,
+        "right": 86,
+        "top": 64,
+        "bottom": 63
+      },
+      "bbox_area_ratio": 0.1673126220703125,
+      "visible_pixel_count": 5090,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "caffe",
+      "stage": 3,
+      "file": "public/pixie/caffe/pixie-caffe-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 81,
+        "top": 50,
+        "right": 173,
+        "bottom": 205,
+        "width": 93,
+        "height": 156
+      },
+      "padding": {
+        "left": 81,
+        "right": 82,
+        "top": 50,
+        "bottom": 50
+      },
+      "bbox_area_ratio": 0.22137451171875,
+      "visible_pixel_count": 6944,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "caffe",
+      "stage": 4,
+      "file": "public/pixie/caffe/pixie-caffe-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 78,
+        "top": 36,
+        "right": 176,
+        "bottom": 218,
+        "width": 99,
+        "height": 183
+      },
+      "padding": {
+        "left": 78,
+        "right": 79,
+        "top": 36,
+        "bottom": 37
+      },
+      "bbox_area_ratio": 0.2764434814453125,
+      "visible_pixel_count": 8352,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "caffe",
+      "stage": 5,
+      "file": "public/pixie/caffe/pixie-caffe-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 67,
+        "top": 24,
+        "right": 188,
+        "bottom": 231,
+        "width": 122,
+        "height": 208
+      },
+      "padding": {
+        "left": 67,
+        "right": 67,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.38720703125,
+      "visible_pixel_count": 12154,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "caffe",
+      "stage": 6,
+      "file": "public/pixie/caffe/pixie-caffe-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 67,
+        "top": 24,
+        "right": 188,
+        "bottom": 231,
+        "width": 122,
+        "height": 208
+      },
+      "padding": {
+        "left": 67,
+        "right": 67,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.38720703125,
+      "visible_pixel_count": 12154,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "crown",
+      "stage": 1,
+      "file": "public/pixie/crown/pixie-crown-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 96,
+        "top": 93,
+        "right": 163,
+        "bottom": 165,
+        "width": 68,
+        "height": 73
+      },
+      "padding": {
+        "left": 96,
+        "right": 92,
+        "top": 93,
+        "bottom": 90
+      },
+      "bbox_area_ratio": 0.07574462890625,
+      "visible_pixel_count": 2739,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 25,
+        "a": 255,
+        "hex": "#000119"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=7.6% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "crown",
+      "stage": 2,
+      "file": "public/pixie/crown/pixie-crown-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 97,
+        "top": 85,
+        "right": 162,
+        "bottom": 165,
+        "width": 66,
+        "height": 81
+      },
+      "padding": {
+        "left": 97,
+        "right": 93,
+        "top": 85,
+        "bottom": 90
+      },
+      "bbox_area_ratio": 0.081573486328125,
+      "visible_pixel_count": 3017,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 25,
+        "a": 255,
+        "hex": "#000119"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=8.2% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "crown",
+      "stage": 3,
+      "file": "public/pixie/crown/pixie-crown-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 90,
+        "top": 81,
+        "right": 169,
+        "bottom": 167,
+        "width": 80,
+        "height": 87
+      },
+      "padding": {
+        "left": 90,
+        "right": 86,
+        "top": 81,
+        "bottom": 88
+      },
+      "bbox_area_ratio": 0.106201171875,
+      "visible_pixel_count": 4202,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 25,
+        "a": 255,
+        "hex": "#000119"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=10.6% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "crown",
+      "stage": 4,
+      "file": "public/pixie/crown/pixie-crown-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 89,
+        "top": 74,
+        "right": 169,
+        "bottom": 168,
+        "width": 81,
+        "height": 95
+      },
+      "padding": {
+        "left": 89,
+        "right": 86,
+        "top": 74,
+        "bottom": 87
+      },
+      "bbox_area_ratio": 0.1174163818359375,
+      "visible_pixel_count": 5152,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 25,
+        "a": 255,
+        "hex": "#000119"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=11.7% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "crown",
+      "stage": 5,
+      "file": "public/pixie/crown/pixie-crown-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 83,
+        "top": 67,
+        "right": 174,
+        "bottom": 177,
+        "width": 92,
+        "height": 111
+      },
+      "padding": {
+        "left": 83,
+        "right": 81,
+        "top": 67,
+        "bottom": 78
+      },
+      "bbox_area_ratio": 0.15582275390625,
+      "visible_pixel_count": 7393,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 25,
+        "a": 255,
+        "hex": "#000119"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "crown",
+      "stage": 6,
+      "file": "public/pixie/crown/pixie-crown-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 71,
+        "top": 50,
+        "right": 181,
+        "bottom": 186,
+        "width": 111,
+        "height": 137
+      },
+      "padding": {
+        "left": 71,
+        "right": 74,
+        "top": 50,
+        "bottom": 69
+      },
+      "bbox_area_ratio": 0.2320404052734375,
+      "visible_pixel_count": 11273,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 25,
+        "a": 255,
+        "hex": "#000119"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "devil",
+      "stage": 1,
+      "file": "public/pixie/devil/pixie-devil-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 93,
+        "top": 70,
+        "right": 161,
+        "bottom": 184,
+        "width": 69,
+        "height": 115
+      },
+      "padding": {
+        "left": 93,
+        "right": 94,
+        "top": 70,
+        "bottom": 71
+      },
+      "bbox_area_ratio": 0.1210784912109375,
+      "visible_pixel_count": 3394,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "devil",
+      "stage": 2,
+      "file": "public/pixie/devil/pixie-devil-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 87,
+        "top": 58,
+        "right": 168,
+        "bottom": 196,
+        "width": 82,
+        "height": 139
+      },
+      "padding": {
+        "left": 87,
+        "right": 87,
+        "top": 58,
+        "bottom": 59
+      },
+      "bbox_area_ratio": 0.173919677734375,
+      "visible_pixel_count": 5993,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "devil",
+      "stage": 3,
+      "file": "public/pixie/devil/pixie-devil-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 83,
+        "top": 37,
+        "right": 172,
+        "bottom": 218,
+        "width": 90,
+        "height": 182
+      },
+      "padding": {
+        "left": 83,
+        "right": 83,
+        "top": 37,
+        "bottom": 37
+      },
+      "bbox_area_ratio": 0.24993896484375,
+      "visible_pixel_count": 8658,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "devil",
+      "stage": 4,
+      "file": "public/pixie/devil/pixie-devil-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 80,
+        "top": 23,
+        "right": 174,
+        "bottom": 232,
+        "width": 95,
+        "height": 210
+      },
+      "padding": {
+        "left": 80,
+        "right": 81,
+        "top": 23,
+        "bottom": 23
+      },
+      "bbox_area_ratio": 0.304412841796875,
+      "visible_pixel_count": 12272,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "devil",
+      "stage": 5,
+      "file": "public/pixie/devil/pixie-devil-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 80,
+        "top": 23,
+        "right": 174,
+        "bottom": 232,
+        "width": 95,
+        "height": 210
+      },
+      "padding": {
+        "left": 80,
+        "right": 81,
+        "top": 23,
+        "bottom": 23
+      },
+      "bbox_area_ratio": 0.304412841796875,
+      "visible_pixel_count": 12272,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "devil",
+      "stage": 6,
+      "file": "public/pixie/devil/pixie-devil-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 80,
+        "top": 23,
+        "right": 174,
+        "bottom": 232,
+        "width": 95,
+        "height": 210
+      },
+      "padding": {
+        "left": 80,
+        "right": 81,
+        "top": 23,
+        "bottom": 23
+      },
+      "bbox_area_ratio": 0.304412841796875,
+      "visible_pixel_count": 12272,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "diamond",
+      "stage": 1,
+      "file": "public/pixie/diamond/pixie-diamond-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 94,
+        "top": 106,
+        "right": 163,
+        "bottom": 168,
+        "width": 70,
+        "height": 63
+      },
+      "padding": {
+        "left": 94,
+        "right": 92,
+        "top": 106,
+        "bottom": 87
+      },
+      "bbox_area_ratio": 0.067291259765625,
+      "visible_pixel_count": 2846,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 26,
+        "a": 255,
+        "hex": "#00011a"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=6.7% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "diamond",
+      "stage": 2,
+      "file": "public/pixie/diamond/pixie-diamond-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 91,
+        "top": 101,
+        "right": 166,
+        "bottom": 168,
+        "width": 76,
+        "height": 68
+      },
+      "padding": {
+        "left": 91,
+        "right": 89,
+        "top": 101,
+        "bottom": 87
+      },
+      "bbox_area_ratio": 0.078857421875,
+      "visible_pixel_count": 3547,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 26,
+        "a": 255,
+        "hex": "#00011a"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=7.9% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "diamond",
+      "stage": 3,
+      "file": "public/pixie/diamond/pixie-diamond-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 88,
+        "top": 86,
+        "right": 166,
+        "bottom": 169,
+        "width": 79,
+        "height": 84
+      },
+      "padding": {
+        "left": 88,
+        "right": 89,
+        "top": 86,
+        "bottom": 86
+      },
+      "bbox_area_ratio": 0.10125732421875,
+      "visible_pixel_count": 4389,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 26,
+        "a": 255,
+        "hex": "#00011a"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=10.1% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "diamond",
+      "stage": 4,
+      "file": "public/pixie/diamond/pixie-diamond-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 87,
+        "top": 86,
+        "right": 169,
+        "bottom": 175,
+        "width": 83,
+        "height": 90
+      },
+      "padding": {
+        "left": 87,
+        "right": 86,
+        "top": 86,
+        "bottom": 80
+      },
+      "bbox_area_ratio": 0.113983154296875,
+      "visible_pixel_count": 5472,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 26,
+        "a": 255,
+        "hex": "#00011a"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=11.4% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "diamond",
+      "stage": 5,
+      "file": "public/pixie/diamond/pixie-diamond-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 81,
+        "top": 67,
+        "right": 173,
+        "bottom": 180,
+        "width": 93,
+        "height": 114
+      },
+      "padding": {
+        "left": 81,
+        "right": 82,
+        "top": 67,
+        "bottom": 75
+      },
+      "bbox_area_ratio": 0.161773681640625,
+      "visible_pixel_count": 7908,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 26,
+        "a": 255,
+        "hex": "#00011a"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "diamond",
+      "stage": 6,
+      "file": "public/pixie/diamond/pixie-diamond-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 71,
+        "top": 45,
+        "right": 179,
+        "bottom": 188,
+        "width": 109,
+        "height": 144
+      },
+      "padding": {
+        "left": 71,
+        "right": 76,
+        "top": 45,
+        "bottom": 67
+      },
+      "bbox_area_ratio": 0.239501953125,
+      "visible_pixel_count": 11829,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 26,
+        "a": 255,
+        "hex": "#00011a"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "fuoco",
+      "stage": 1,
+      "file": "public/pixie/fuoco/pixie-fuoco-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 93,
+        "top": 74,
+        "right": 161,
+        "bottom": 180,
+        "width": 69,
+        "height": 107
+      },
+      "padding": {
+        "left": 93,
+        "right": 94,
+        "top": 74,
+        "bottom": 75
+      },
+      "bbox_area_ratio": 0.1126556396484375,
+      "visible_pixel_count": 3201,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=11.3% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "fuoco",
+      "stage": 2,
+      "file": "public/pixie/fuoco/pixie-fuoco-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 89,
+        "top": 62,
+        "right": 166,
+        "bottom": 193,
+        "width": 78,
+        "height": 132
+      },
+      "padding": {
+        "left": 89,
+        "right": 89,
+        "top": 62,
+        "bottom": 62
+      },
+      "bbox_area_ratio": 0.1571044921875,
+      "visible_pixel_count": 4256,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "fuoco",
+      "stage": 3,
+      "file": "public/pixie/fuoco/pixie-fuoco-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 84,
+        "top": 50,
+        "right": 171,
+        "bottom": 204,
+        "width": 88,
+        "height": 155
+      },
+      "padding": {
+        "left": 84,
+        "right": 84,
+        "top": 50,
+        "bottom": 51
+      },
+      "bbox_area_ratio": 0.2081298828125,
+      "visible_pixel_count": 6359,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "fuoco",
+      "stage": 4,
+      "file": "public/pixie/fuoco/pixie-fuoco-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 77,
+        "top": 36,
+        "right": 185,
+        "bottom": 219,
+        "width": 109,
+        "height": 184
+      },
+      "padding": {
+        "left": 77,
+        "right": 70,
+        "top": 36,
+        "bottom": 36
+      },
+      "bbox_area_ratio": 0.3060302734375,
+      "visible_pixel_count": 10244,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "fuoco",
+      "stage": 5,
+      "file": "public/pixie/fuoco/pixie-fuoco-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 61,
+        "top": 24,
+        "right": 188,
+        "bottom": 231,
+        "width": 128,
+        "height": 208
+      },
+      "padding": {
+        "left": 61,
+        "right": 67,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.40625,
+      "visible_pixel_count": 14833,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "fuoco",
+      "stage": 6,
+      "file": "public/pixie/fuoco/pixie-fuoco-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 61,
+        "top": 24,
+        "right": 188,
+        "bottom": 231,
+        "width": 128,
+        "height": 208
+      },
+      "padding": {
+        "left": 61,
+        "right": 67,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.40625,
+      "visible_pixel_count": 14833,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "galaxy",
+      "stage": 1,
+      "file": "public/pixie/galaxy/pixie-galaxy-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 96,
+        "top": 110,
+        "right": 163,
+        "bottom": 168,
+        "width": 68,
+        "height": 59
+      },
+      "padding": {
+        "left": 96,
+        "right": 92,
+        "top": 110,
+        "bottom": 87
+      },
+      "bbox_area_ratio": 0.06121826171875,
+      "visible_pixel_count": 2649,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=6.1% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "galaxy",
+      "stage": 2,
+      "file": "public/pixie/galaxy/pixie-galaxy-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 91,
+        "top": 100,
+        "right": 164,
+        "bottom": 168,
+        "width": 74,
+        "height": 69
+      },
+      "padding": {
+        "left": 91,
+        "right": 91,
+        "top": 100,
+        "bottom": 87
+      },
+      "bbox_area_ratio": 0.077911376953125,
+      "visible_pixel_count": 3554,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=7.8% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "galaxy",
+      "stage": 3,
+      "file": "public/pixie/galaxy/pixie-galaxy-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 88,
+        "top": 91,
+        "right": 166,
+        "bottom": 169,
+        "width": 79,
+        "height": 79
+      },
+      "padding": {
+        "left": 88,
+        "right": 89,
+        "top": 91,
+        "bottom": 86
+      },
+      "bbox_area_ratio": 0.0952301025390625,
+      "visible_pixel_count": 4159,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=9.5% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "galaxy",
+      "stage": 4,
+      "file": "public/pixie/galaxy/pixie-galaxy-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 88,
+        "top": 86,
+        "right": 168,
+        "bottom": 169,
+        "width": 81,
+        "height": 84
+      },
+      "padding": {
+        "left": 88,
+        "right": 87,
+        "top": 86,
+        "bottom": 86
+      },
+      "bbox_area_ratio": 0.10382080078125,
+      "visible_pixel_count": 4717,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=10.4% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "galaxy",
+      "stage": 5,
+      "file": "public/pixie/galaxy/pixie-galaxy-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 83,
+        "top": 66,
+        "right": 173,
+        "bottom": 184,
+        "width": 91,
+        "height": 119
+      },
+      "padding": {
+        "left": 83,
+        "right": 82,
+        "top": 66,
+        "bottom": 71
+      },
+      "bbox_area_ratio": 0.1652374267578125,
+      "visible_pixel_count": 8335,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "galaxy",
+      "stage": 6,
+      "file": "public/pixie/galaxy/pixie-galaxy-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 69,
+        "top": 44,
+        "right": 184,
+        "bottom": 193,
+        "width": 116,
+        "height": 150
+      },
+      "padding": {
+        "left": 69,
+        "right": 71,
+        "top": 44,
+        "bottom": 62
+      },
+      "bbox_area_ratio": 0.2655029296875,
+      "visible_pixel_count": 13462,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "heart",
+      "stage": 1,
+      "file": "public/pixie/heart/pixie-heart-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 89,
+        "top": 100,
+        "right": 173,
+        "bottom": 170,
+        "width": 85,
+        "height": 71
+      },
+      "padding": {
+        "left": 89,
+        "right": 82,
+        "top": 100,
+        "bottom": 85
+      },
+      "bbox_area_ratio": 0.0920867919921875,
+      "visible_pixel_count": 4118,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=9.2% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "heart",
+      "stage": 2,
+      "file": "public/pixie/heart/pixie-heart-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 83,
+        "top": 89,
+        "right": 172,
+        "bottom": 171,
+        "width": 90,
+        "height": 83
+      },
+      "padding": {
+        "left": 83,
+        "right": 83,
+        "top": 89,
+        "bottom": 84
+      },
+      "bbox_area_ratio": 0.113983154296875,
+      "visible_pixel_count": 4800,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=11.4% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "heart",
+      "stage": 3,
+      "file": "public/pixie/heart/pixie-heart-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 78,
+        "top": 84,
+        "right": 180,
+        "bottom": 171,
+        "width": 103,
+        "height": 88
+      },
+      "padding": {
+        "left": 78,
+        "right": 75,
+        "top": 84,
+        "bottom": 84
+      },
+      "bbox_area_ratio": 0.1383056640625,
+      "visible_pixel_count": 6416,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "heart",
+      "stage": 4,
+      "file": "public/pixie/heart/pixie-heart-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 76,
+        "top": 81,
+        "right": 180,
+        "bottom": 174,
+        "width": 105,
+        "height": 94
+      },
+      "padding": {
+        "left": 76,
+        "right": 75,
+        "top": 81,
+        "bottom": 81
+      },
+      "bbox_area_ratio": 0.150604248046875,
+      "visible_pixel_count": 7042,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "heart",
+      "stage": 5,
+      "file": "public/pixie/heart/pixie-heart-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 72,
+        "top": 69,
+        "right": 181,
+        "bottom": 185,
+        "width": 110,
+        "height": 117
+      },
+      "padding": {
+        "left": 72,
+        "right": 74,
+        "top": 69,
+        "bottom": 70
+      },
+      "bbox_area_ratio": 0.196380615234375,
+      "visible_pixel_count": 9754,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "heart",
+      "stage": 6,
+      "file": "public/pixie/heart/pixie-heart-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 64,
+        "top": 55,
+        "right": 188,
+        "bottom": 189,
+        "width": 125,
+        "height": 135
+      },
+      "padding": {
+        "left": 64,
+        "right": 67,
+        "top": 55,
+        "bottom": 66
+      },
+      "bbox_area_ratio": 0.2574920654296875,
+      "visible_pixel_count": 12811,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "hologram",
+      "stage": 1,
+      "file": "public/pixie/hologram/pixie-hologram-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 59,
+        "top": 77,
+        "right": 204,
+        "bottom": 178,
+        "width": 146,
+        "height": 102
+      },
+      "padding": {
+        "left": 59,
+        "right": 51,
+        "top": 77,
+        "bottom": 77
+      },
+      "bbox_area_ratio": 0.22723388671875,
+      "visible_pixel_count": 8545,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "hologram",
+      "stage": 2,
+      "file": "public/pixie/hologram/pixie-hologram-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 50,
+        "top": 73,
+        "right": 205,
+        "bottom": 181,
+        "width": 156,
+        "height": 109
+      },
+      "padding": {
+        "left": 50,
+        "right": 50,
+        "top": 73,
+        "bottom": 74
+      },
+      "bbox_area_ratio": 0.25946044921875,
+      "visible_pixel_count": 9695,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "hologram",
+      "stage": 3,
+      "file": "public/pixie/hologram/pixie-hologram-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 47,
+        "top": 58,
+        "right": 207,
+        "bottom": 196,
+        "width": 161,
+        "height": 139
+      },
+      "padding": {
+        "left": 47,
+        "right": 48,
+        "top": 58,
+        "bottom": 59
+      },
+      "bbox_area_ratio": 0.3414764404296875,
+      "visible_pixel_count": 11918,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "hologram",
+      "stage": 4,
+      "file": "public/pixie/hologram/pixie-hologram-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 41,
+        "top": 49,
+        "right": 213,
+        "bottom": 208,
+        "width": 173,
+        "height": 160
+      },
+      "padding": {
+        "left": 41,
+        "right": 42,
+        "top": 49,
+        "bottom": 47
+      },
+      "bbox_area_ratio": 0.42236328125,
+      "visible_pixel_count": 14656,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "hologram",
+      "stage": 5,
+      "file": "public/pixie/hologram/pixie-hologram-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 41,
+        "top": 39,
+        "right": 214,
+        "bottom": 215,
+        "width": 174,
+        "height": 177
+      },
+      "padding": {
+        "left": 41,
+        "right": 41,
+        "top": 39,
+        "bottom": 40
+      },
+      "bbox_area_ratio": 0.469940185546875,
+      "visible_pixel_count": 18027,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "hologram",
+      "stage": 6,
+      "file": "public/pixie/hologram/pixie-hologram-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 35,
+        "top": 27,
+        "right": 210,
+        "bottom": 228,
+        "width": 176,
+        "height": 202
+      },
+      "padding": {
+        "left": 35,
+        "right": 45,
+        "top": 27,
+        "bottom": 27
+      },
+      "bbox_area_ratio": 0.54248046875,
+      "visible_pixel_count": 23268,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "ice",
+      "stage": 1,
+      "file": "public/pixie/ice/pixie-ice-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 88,
+        "top": 72,
+        "right": 168,
+        "bottom": 181,
+        "width": 81,
+        "height": 110
+      },
+      "padding": {
+        "left": 88,
+        "right": 87,
+        "top": 72,
+        "bottom": 74
+      },
+      "bbox_area_ratio": 0.135955810546875,
+      "visible_pixel_count": 4229,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "ice",
+      "stage": 2,
+      "file": "public/pixie/ice/pixie-ice-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 79,
+        "top": 59,
+        "right": 176,
+        "bottom": 194,
+        "width": 98,
+        "height": 136
+      },
+      "padding": {
+        "left": 79,
+        "right": 79,
+        "top": 59,
+        "bottom": 61
+      },
+      "bbox_area_ratio": 0.203369140625,
+      "visible_pixel_count": 5988,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "ice",
+      "stage": 3,
+      "file": "public/pixie/ice/pixie-ice-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 77,
+        "top": 43,
+        "right": 175,
+        "bottom": 211,
+        "width": 99,
+        "height": 169
+      },
+      "padding": {
+        "left": 77,
+        "right": 80,
+        "top": 43,
+        "bottom": 44
+      },
+      "bbox_area_ratio": 0.2552947998046875,
+      "visible_pixel_count": 8114,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "ice",
+      "stage": 4,
+      "file": "public/pixie/ice/pixie-ice-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 60,
+        "top": 34,
+        "right": 194,
+        "bottom": 220,
+        "width": 135,
+        "height": 187
+      },
+      "padding": {
+        "left": 60,
+        "right": 61,
+        "top": 34,
+        "bottom": 35
+      },
+      "bbox_area_ratio": 0.3852081298828125,
+      "visible_pixel_count": 11624,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "ice",
+      "stage": 5,
+      "file": "public/pixie/ice/pixie-ice-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 50,
+        "top": 24,
+        "right": 196,
+        "bottom": 230,
+        "width": 147,
+        "height": 207
+      },
+      "padding": {
+        "left": 50,
+        "right": 59,
+        "top": 24,
+        "bottom": 25
+      },
+      "bbox_area_ratio": 0.4643096923828125,
+      "visible_pixel_count": 17177,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "ice",
+      "stage": 6,
+      "file": "public/pixie/ice/pixie-ice-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 50,
+        "top": 24,
+        "right": 196,
+        "bottom": 230,
+        "width": 147,
+        "height": 207
+      },
+      "padding": {
+        "left": 50,
+        "right": 59,
+        "top": 24,
+        "bottom": 25
+      },
+      "bbox_area_ratio": 0.4643096923828125,
+      "visible_pixel_count": 17177,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "leaf",
+      "stage": 1,
+      "file": "public/pixie/leaf/pixie-leaf-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 68,
+        "top": 67,
+        "right": 186,
+        "bottom": 189,
+        "width": 119,
+        "height": 123
+      },
+      "padding": {
+        "left": 68,
+        "right": 69,
+        "top": 67,
+        "bottom": 66
+      },
+      "bbox_area_ratio": 0.2233428955078125,
+      "visible_pixel_count": 7404,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "leaf",
+      "stage": 2,
+      "file": "public/pixie/leaf/pixie-leaf-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 67,
+        "top": 59,
+        "right": 189,
+        "bottom": 198,
+        "width": 123,
+        "height": 140
+      },
+      "padding": {
+        "left": 67,
+        "right": 66,
+        "top": 59,
+        "bottom": 57
+      },
+      "bbox_area_ratio": 0.26275634765625,
+      "visible_pixel_count": 8896,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "leaf",
+      "stage": 3,
+      "file": "public/pixie/leaf/pixie-leaf-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 57,
+        "top": 49,
+        "right": 197,
+        "bottom": 206,
+        "width": 141,
+        "height": 158
+      },
+      "padding": {
+        "left": 57,
+        "right": 58,
+        "top": 49,
+        "bottom": 49
+      },
+      "bbox_area_ratio": 0.339935302734375,
+      "visible_pixel_count": 13883,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "leaf",
+      "stage": 4,
+      "file": "public/pixie/leaf/pixie-leaf-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 55,
+        "top": 48,
+        "right": 199,
+        "bottom": 210,
+        "width": 145,
+        "height": 163
+      },
+      "padding": {
+        "left": 55,
+        "right": 56,
+        "top": 48,
+        "bottom": 45
+      },
+      "bbox_area_ratio": 0.3606414794921875,
+      "visible_pixel_count": 14571,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "leaf",
+      "stage": 5,
+      "file": "public/pixie/leaf/pixie-leaf-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 44,
+        "top": 37,
+        "right": 221,
+        "bottom": 219,
+        "width": 178,
+        "height": 183
+      },
+      "padding": {
+        "left": 44,
+        "right": 34,
+        "top": 37,
+        "bottom": 36
+      },
+      "bbox_area_ratio": 0.497039794921875,
+      "visible_pixel_count": 19711,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "leaf",
+      "stage": 6,
+      "file": "public/pixie/leaf/pixie-leaf-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 18,
+        "top": 26,
+        "right": 227,
+        "bottom": 229,
+        "width": 210,
+        "height": 204
+      },
+      "padding": {
+        "left": 18,
+        "right": 28,
+        "top": 26,
+        "bottom": 26
+      },
+      "bbox_area_ratio": 0.6536865234375,
+      "visible_pixel_count": 27091,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "momo",
+      "stage": 1,
+      "file": "public/pixie/momo/pixie-momo-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 89,
+        "top": 98,
+        "right": 176,
+        "bottom": 188,
+        "width": 88,
+        "height": 91
+      },
+      "padding": {
+        "left": 89,
+        "right": 79,
+        "top": 98,
+        "bottom": 67
+      },
+      "bbox_area_ratio": 0.1221923828125,
+      "visible_pixel_count": 4134,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "momo",
+      "stage": 2,
+      "file": "public/pixie/momo/pixie-momo-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 85,
+        "top": 85,
+        "right": 175,
+        "bottom": 188,
+        "width": 91,
+        "height": 104
+      },
+      "padding": {
+        "left": 85,
+        "right": 80,
+        "top": 85,
+        "bottom": 67
+      },
+      "bbox_area_ratio": 0.1444091796875,
+      "visible_pixel_count": 4978,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "momo",
+      "stage": 3,
+      "file": "public/pixie/momo/pixie-momo-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 77,
+        "top": 72,
+        "right": 181,
+        "bottom": 188,
+        "width": 105,
+        "height": 117
+      },
+      "padding": {
+        "left": 77,
+        "right": 74,
+        "top": 72,
+        "bottom": 67
+      },
+      "bbox_area_ratio": 0.1874542236328125,
+      "visible_pixel_count": 7975,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "momo",
+      "stage": 4,
+      "file": "public/pixie/momo/pixie-momo-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 74,
+        "top": 69,
+        "right": 181,
+        "bottom": 189,
+        "width": 108,
+        "height": 121
+      },
+      "padding": {
+        "left": 74,
+        "right": 74,
+        "top": 69,
+        "bottom": 66
+      },
+      "bbox_area_ratio": 0.19940185546875,
+      "visible_pixel_count": 8471,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "momo",
+      "stage": 5,
+      "file": "public/pixie/momo/pixie-momo-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 70,
+        "top": 56,
+        "right": 185,
+        "bottom": 193,
+        "width": 116,
+        "height": 138
+      },
+      "padding": {
+        "left": 70,
+        "right": 70,
+        "top": 56,
+        "bottom": 62
+      },
+      "bbox_area_ratio": 0.2442626953125,
+      "visible_pixel_count": 11294,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "momo",
+      "stage": 6,
+      "file": "public/pixie/momo/pixie-momo-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 57,
+        "top": 44,
+        "right": 193,
+        "bottom": 194,
+        "width": 137,
+        "height": 151
+      },
+      "padding": {
+        "left": 57,
+        "right": 62,
+        "top": 44,
+        "bottom": 61
+      },
+      "bbox_area_ratio": 0.3156585693359375,
+      "visible_pixel_count": 15060,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "moonlight",
+      "stage": 1,
+      "file": "public/pixie/moonlight/pixie-moonlight-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 68,
+        "top": 70,
+        "right": 186,
+        "bottom": 188,
+        "width": 119,
+        "height": 119
+      },
+      "padding": {
+        "left": 68,
+        "right": 69,
+        "top": 70,
+        "bottom": 67
+      },
+      "bbox_area_ratio": 0.2160797119140625,
+      "visible_pixel_count": 10147,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "moonlight",
+      "stage": 2,
+      "file": "public/pixie/moonlight/pixie-moonlight-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 60,
+        "top": 67,
+        "right": 194,
+        "bottom": 187,
+        "width": 135,
+        "height": 121
+      },
+      "padding": {
+        "left": 60,
+        "right": 61,
+        "top": 67,
+        "bottom": 68
+      },
+      "bbox_area_ratio": 0.2492523193359375,
+      "visible_pixel_count": 10907,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "moonlight",
+      "stage": 3,
+      "file": "public/pixie/moonlight/pixie-moonlight-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 52,
+        "top": 57,
+        "right": 194,
+        "bottom": 198,
+        "width": 143,
+        "height": 142
+      },
+      "padding": {
+        "left": 52,
+        "right": 61,
+        "top": 57,
+        "bottom": 57
+      },
+      "bbox_area_ratio": 0.309844970703125,
+      "visible_pixel_count": 13114,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "moonlight",
+      "stage": 4,
+      "file": "public/pixie/moonlight/pixie-moonlight-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 53,
+        "top": 47,
+        "right": 219,
+        "bottom": 207,
+        "width": 167,
+        "height": 161
+      },
+      "padding": {
+        "left": 53,
+        "right": 36,
+        "top": 47,
+        "bottom": 48
+      },
+      "bbox_area_ratio": 0.4102630615234375,
+      "visible_pixel_count": 15743,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "moonlight",
+      "stage": 5,
+      "file": "public/pixie/moonlight/pixie-moonlight-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 27,
+        "top": 36,
+        "right": 228,
+        "bottom": 215,
+        "width": 202,
+        "height": 180
+      },
+      "padding": {
+        "left": 27,
+        "right": 27,
+        "top": 36,
+        "bottom": 40
+      },
+      "bbox_area_ratio": 0.5548095703125,
+      "visible_pixel_count": 22744,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "moonlight",
+      "stage": 6,
+      "file": "public/pixie/moonlight/pixie-moonlight-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 16,
+        "top": 25,
+        "right": 229,
+        "bottom": 225,
+        "width": 214,
+        "height": 201
+      },
+      "padding": {
+        "left": 16,
+        "right": 26,
+        "top": 25,
+        "bottom": 30
+      },
+      "bbox_area_ratio": 0.656341552734375,
+      "visible_pixel_count": 30263,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "orbit",
+      "stage": 1,
+      "file": "public/pixie/orbit/pixie-orbit-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 71,
+        "top": 0,
+        "right": 183,
+        "bottom": 255,
+        "width": 113,
+        "height": 256
+      },
+      "padding": {
+        "left": 71,
+        "right": 72,
+        "top": 0,
+        "bottom": 0
+      },
+      "bbox_area_ratio": 0.44140625,
+      "visible_pixel_count": 28928,
+      "opaque": false,
+      "has_transparency": true,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0,
+        "hex": "#000000"
+      },
+      "bbox_method": "alpha",
+      "warnings": []
+    },
+    {
+      "species": "orbit",
+      "stage": 2,
+      "file": "public/pixie/orbit/pixie-orbit-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 74,
+        "top": 0,
+        "right": 181,
+        "bottom": 255,
+        "width": 108,
+        "height": 256
+      },
+      "padding": {
+        "left": 74,
+        "right": 74,
+        "top": 0,
+        "bottom": 0
+      },
+      "bbox_area_ratio": 0.421875,
+      "visible_pixel_count": 27648,
+      "opaque": false,
+      "has_transparency": true,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0,
+        "hex": "#000000"
+      },
+      "bbox_method": "alpha",
+      "warnings": []
+    },
+    {
+      "species": "orbit",
+      "stage": 3,
+      "file": "public/pixie/orbit/pixie-orbit-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 72,
+        "top": 0,
+        "right": 182,
+        "bottom": 255,
+        "width": 111,
+        "height": 256
+      },
+      "padding": {
+        "left": 72,
+        "right": 73,
+        "top": 0,
+        "bottom": 0
+      },
+      "bbox_area_ratio": 0.43359375,
+      "visible_pixel_count": 28416,
+      "opaque": false,
+      "has_transparency": true,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0,
+        "hex": "#000000"
+      },
+      "bbox_method": "alpha",
+      "warnings": []
+    },
+    {
+      "species": "orbit",
+      "stage": 4,
+      "file": "public/pixie/orbit/pixie-orbit-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 70,
+        "top": 0,
+        "right": 184,
+        "bottom": 255,
+        "width": 115,
+        "height": 256
+      },
+      "padding": {
+        "left": 70,
+        "right": 71,
+        "top": 0,
+        "bottom": 0
+      },
+      "bbox_area_ratio": 0.44921875,
+      "visible_pixel_count": 29440,
+      "opaque": false,
+      "has_transparency": true,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0,
+        "hex": "#000000"
+      },
+      "bbox_method": "alpha",
+      "warnings": []
+    },
+    {
+      "species": "orbit",
+      "stage": 5,
+      "file": "public/pixie/orbit/pixie-orbit-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 70,
+        "top": 0,
+        "right": 184,
+        "bottom": 255,
+        "width": 115,
+        "height": 256
+      },
+      "padding": {
+        "left": 70,
+        "right": 71,
+        "top": 0,
+        "bottom": 0
+      },
+      "bbox_area_ratio": 0.44921875,
+      "visible_pixel_count": 29440,
+      "opaque": false,
+      "has_transparency": true,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0,
+        "hex": "#000000"
+      },
+      "bbox_method": "alpha",
+      "warnings": []
+    },
+    {
+      "species": "orbit",
+      "stage": 6,
+      "file": "public/pixie/orbit/pixie-orbit-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 60,
+        "top": 0,
+        "right": 194,
+        "bottom": 255,
+        "width": 135,
+        "height": 256
+      },
+      "padding": {
+        "left": 60,
+        "right": 61,
+        "top": 0,
+        "bottom": 0
+      },
+      "bbox_area_ratio": 0.52734375,
+      "visible_pixel_count": 34560,
+      "opaque": false,
+      "has_transparency": true,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0,
+        "hex": "#000000"
+      },
+      "bbox_method": "alpha",
+      "warnings": []
+    },
+    {
+      "species": "overseer",
+      "stage": 1,
+      "file": "public/pixie/overseer/pixie-overseer-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 107,
+        "top": 104,
+        "right": 152,
+        "bottom": 173,
+        "width": 46,
+        "height": 70
+      },
+      "padding": {
+        "left": 107,
+        "right": 103,
+        "top": 104,
+        "bottom": 82
+      },
+      "bbox_area_ratio": 0.04913330078125,
+      "visible_pixel_count": 1691,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 24,
+        "a": 255,
+        "hex": "#000018"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=4.9% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "overseer",
+      "stage": 2,
+      "file": "public/pixie/overseer/pixie-overseer-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 92,
+        "top": 96,
+        "right": 161,
+        "bottom": 173,
+        "width": 70,
+        "height": 78
+      },
+      "padding": {
+        "left": 92,
+        "right": 94,
+        "top": 96,
+        "bottom": 82
+      },
+      "bbox_area_ratio": 0.08331298828125,
+      "visible_pixel_count": 2763,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 24,
+        "a": 255,
+        "hex": "#000018"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=8.3% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "overseer",
+      "stage": 3,
+      "file": "public/pixie/overseer/pixie-overseer-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 91,
+        "top": 86,
+        "right": 169,
+        "bottom": 184,
+        "width": 79,
+        "height": 99
+      },
+      "padding": {
+        "left": 91,
+        "right": 86,
+        "top": 86,
+        "bottom": 71
+      },
+      "bbox_area_ratio": 0.1193389892578125,
+      "visible_pixel_count": 4676,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 24,
+        "a": 255,
+        "hex": "#000018"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=11.9% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "overseer",
+      "stage": 4,
+      "file": "public/pixie/overseer/pixie-overseer-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 82,
+        "top": 68,
+        "right": 172,
+        "bottom": 188,
+        "width": 91,
+        "height": 121
+      },
+      "padding": {
+        "left": 82,
+        "right": 83,
+        "top": 68,
+        "bottom": 67
+      },
+      "bbox_area_ratio": 0.1680145263671875,
+      "visible_pixel_count": 7325,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 24,
+        "a": 255,
+        "hex": "#000018"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "overseer",
+      "stage": 5,
+      "file": "public/pixie/overseer/pixie-overseer-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 83,
+        "top": 63,
+        "right": 175,
+        "bottom": 190,
+        "width": 93,
+        "height": 128
+      },
+      "padding": {
+        "left": 83,
+        "right": 80,
+        "top": 63,
+        "bottom": 65
+      },
+      "bbox_area_ratio": 0.181640625,
+      "visible_pixel_count": 8073,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 24,
+        "a": 255,
+        "hex": "#000018"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "overseer",
+      "stage": 6,
+      "file": "public/pixie/overseer/pixie-overseer-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 65,
+        "top": 36,
+        "right": 186,
+        "bottom": 198,
+        "width": 122,
+        "height": 163
+      },
+      "padding": {
+        "left": 65,
+        "right": 69,
+        "top": 36,
+        "bottom": 57
+      },
+      "bbox_area_ratio": 0.303436279296875,
+      "visible_pixel_count": 14861,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 24,
+        "a": 255,
+        "hex": "#000018"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "robot",
+      "stage": 1,
+      "file": "public/pixie/robot/pixie-robot-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 87,
+        "top": 83,
+        "right": 166,
+        "bottom": 186,
+        "width": 80,
+        "height": 104
+      },
+      "padding": {
+        "left": 87,
+        "right": 89,
+        "top": 83,
+        "bottom": 69
+      },
+      "bbox_area_ratio": 0.126953125,
+      "visible_pixel_count": 4109,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 27,
+        "a": 255,
+        "hex": "#00011b"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "robot",
+      "stage": 2,
+      "file": "public/pixie/robot/pixie-robot-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 87,
+        "top": 80,
+        "right": 169,
+        "bottom": 187,
+        "width": 83,
+        "height": 108
+      },
+      "padding": {
+        "left": 87,
+        "right": 86,
+        "top": 80,
+        "bottom": 68
+      },
+      "bbox_area_ratio": 0.13677978515625,
+      "visible_pixel_count": 4694,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 27,
+        "a": 255,
+        "hex": "#00011b"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "robot",
+      "stage": 3,
+      "file": "public/pixie/robot/pixie-robot-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 81,
+        "top": 77,
+        "right": 175,
+        "bottom": 187,
+        "width": 95,
+        "height": 111
+      },
+      "padding": {
+        "left": 81,
+        "right": 80,
+        "top": 77,
+        "bottom": 68
+      },
+      "bbox_area_ratio": 0.1609039306640625,
+      "visible_pixel_count": 5767,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 27,
+        "a": 255,
+        "hex": "#00011b"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "robot",
+      "stage": 4,
+      "file": "public/pixie/robot/pixie-robot-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 79,
+        "top": 68,
+        "right": 178,
+        "bottom": 189,
+        "width": 100,
+        "height": 122
+      },
+      "padding": {
+        "left": 79,
+        "right": 77,
+        "top": 68,
+        "bottom": 66
+      },
+      "bbox_area_ratio": 0.1861572265625,
+      "visible_pixel_count": 6598,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 27,
+        "a": 255,
+        "hex": "#00011b"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "robot",
+      "stage": 5,
+      "file": "public/pixie/robot/pixie-robot-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 74,
+        "top": 57,
+        "right": 183,
+        "bottom": 198,
+        "width": 110,
+        "height": 142
+      },
+      "padding": {
+        "left": 74,
+        "right": 72,
+        "top": 57,
+        "bottom": 57
+      },
+      "bbox_area_ratio": 0.23834228515625,
+      "visible_pixel_count": 9088,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 27,
+        "a": 255,
+        "hex": "#00011b"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "robot",
+      "stage": 6,
+      "file": "public/pixie/robot/pixie-robot-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 66,
+        "top": 43,
+        "right": 186,
+        "bottom": 201,
+        "width": 121,
+        "height": 159
+      },
+      "padding": {
+        "left": 66,
+        "right": 69,
+        "top": 43,
+        "bottom": 54
+      },
+      "bbox_area_ratio": 0.2935638427734375,
+      "visible_pixel_count": 12448,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 27,
+        "a": 255,
+        "hex": "#00011b"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "scintille",
+      "stage": 1,
+      "file": "public/pixie/scintille/pixie-scintille-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 100,
+        "top": 81,
+        "right": 156,
+        "bottom": 176,
+        "width": 57,
+        "height": 96
+      },
+      "padding": {
+        "left": 100,
+        "right": 99,
+        "top": 81,
+        "bottom": 79
+      },
+      "bbox_area_ratio": 0.08349609375,
+      "visible_pixel_count": 2368,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=8.3% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "scintille",
+      "stage": 2,
+      "file": "public/pixie/scintille/pixie-scintille-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 89,
+        "top": 54,
+        "right": 166,
+        "bottom": 201,
+        "width": 78,
+        "height": 148
+      },
+      "padding": {
+        "left": 89,
+        "right": 89,
+        "top": 54,
+        "bottom": 54
+      },
+      "bbox_area_ratio": 0.1761474609375,
+      "visible_pixel_count": 4969,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "scintille",
+      "stage": 3,
+      "file": "public/pixie/scintille/pixie-scintille-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 86,
+        "top": 48,
+        "right": 169,
+        "bottom": 205,
+        "width": 84,
+        "height": 158
+      },
+      "padding": {
+        "left": 86,
+        "right": 86,
+        "top": 48,
+        "bottom": 50
+      },
+      "bbox_area_ratio": 0.2025146484375,
+      "visible_pixel_count": 5854,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "scintille",
+      "stage": 4,
+      "file": "public/pixie/scintille/pixie-scintille-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 77,
+        "top": 37,
+        "right": 178,
+        "bottom": 219,
+        "width": 102,
+        "height": 183
+      },
+      "padding": {
+        "left": 77,
+        "right": 77,
+        "top": 37,
+        "bottom": 36
+      },
+      "bbox_area_ratio": 0.284820556640625,
+      "visible_pixel_count": 8453,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "scintille",
+      "stage": 5,
+      "file": "public/pixie/scintille/pixie-scintille-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 55,
+        "top": 24,
+        "right": 192,
+        "bottom": 231,
+        "width": 138,
+        "height": 208
+      },
+      "padding": {
+        "left": 55,
+        "right": 63,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.43798828125,
+      "visible_pixel_count": 12175,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "scintille",
+      "stage": 6,
+      "file": "public/pixie/scintille/pixie-scintille-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 55,
+        "top": 24,
+        "right": 192,
+        "bottom": 231,
+        "width": 138,
+        "height": 208
+      },
+      "padding": {
+        "left": 55,
+        "right": 63,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.43798828125,
+      "visible_pixel_count": 12175,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "shade",
+      "stage": 1,
+      "file": "public/pixie/shade/pixie-shade-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 92,
+        "top": 96,
+        "right": 170,
+        "bottom": 175,
+        "width": 79,
+        "height": 80
+      },
+      "padding": {
+        "left": 92,
+        "right": 85,
+        "top": 96,
+        "bottom": 80
+      },
+      "bbox_area_ratio": 0.096435546875,
+      "visible_pixel_count": 4514,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=9.6% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "shade",
+      "stage": 2,
+      "file": "public/pixie/shade/pixie-shade-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 85,
+        "top": 96,
+        "right": 173,
+        "bottom": 175,
+        "width": 89,
+        "height": 80
+      },
+      "padding": {
+        "left": 85,
+        "right": 82,
+        "top": 96,
+        "bottom": 80
+      },
+      "bbox_area_ratio": 0.108642578125,
+      "visible_pixel_count": 4831,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=10.9% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "shade",
+      "stage": 3,
+      "file": "public/pixie/shade/pixie-shade-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 82,
+        "top": 86,
+        "right": 175,
+        "bottom": 179,
+        "width": 94,
+        "height": 94
+      },
+      "padding": {
+        "left": 82,
+        "right": 80,
+        "top": 86,
+        "bottom": 76
+      },
+      "bbox_area_ratio": 0.13482666015625,
+      "visible_pixel_count": 5748,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "shade",
+      "stage": 4,
+      "file": "public/pixie/shade/pixie-shade-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 79,
+        "top": 74,
+        "right": 176,
+        "bottom": 180,
+        "width": 98,
+        "height": 107
+      },
+      "padding": {
+        "left": 79,
+        "right": 79,
+        "top": 74,
+        "bottom": 75
+      },
+      "bbox_area_ratio": 0.160003662109375,
+      "visible_pixel_count": 7008,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "shade",
+      "stage": 5,
+      "file": "public/pixie/shade/pixie-shade-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 74,
+        "top": 67,
+        "right": 181,
+        "bottom": 185,
+        "width": 108,
+        "height": 119
+      },
+      "padding": {
+        "left": 74,
+        "right": 74,
+        "top": 67,
+        "bottom": 70
+      },
+      "bbox_area_ratio": 0.19610595703125,
+      "visible_pixel_count": 9786,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "shade",
+      "stage": 6,
+      "file": "public/pixie/shade/pixie-shade-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 61,
+        "top": 56,
+        "right": 187,
+        "bottom": 189,
+        "width": 127,
+        "height": 134
+      },
+      "padding": {
+        "left": 61,
+        "right": 68,
+        "top": 56,
+        "bottom": 66
+      },
+      "bbox_area_ratio": 0.259674072265625,
+      "visible_pixel_count": 12950,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "spark",
+      "stage": 1,
+      "file": "public/pixie/spark/pixie-spark-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 87,
+        "top": 73,
+        "right": 169,
+        "bottom": 181,
+        "width": 83,
+        "height": 109
+      },
+      "padding": {
+        "left": 87,
+        "right": 86,
+        "top": 73,
+        "bottom": 74
+      },
+      "bbox_area_ratio": 0.1380462646484375,
+      "visible_pixel_count": 5125,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "spark",
+      "stage": 2,
+      "file": "public/pixie/spark/pixie-spark-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 85,
+        "top": 70,
+        "right": 174,
+        "bottom": 181,
+        "width": 90,
+        "height": 112
+      },
+      "padding": {
+        "left": 85,
+        "right": 81,
+        "top": 70,
+        "bottom": 74
+      },
+      "bbox_area_ratio": 0.15380859375,
+      "visible_pixel_count": 5619,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "spark",
+      "stage": 3,
+      "file": "public/pixie/spark/pixie-spark-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 75,
+        "top": 66,
+        "right": 181,
+        "bottom": 184,
+        "width": 107,
+        "height": 119
+      },
+      "padding": {
+        "left": 75,
+        "right": 74,
+        "top": 66,
+        "bottom": 71
+      },
+      "bbox_area_ratio": 0.1942901611328125,
+      "visible_pixel_count": 7797,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "spark",
+      "stage": 4,
+      "file": "public/pixie/spark/pixie-spark-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 76,
+        "top": 65,
+        "right": 181,
+        "bottom": 184,
+        "width": 106,
+        "height": 120
+      },
+      "padding": {
+        "left": 76,
+        "right": 74,
+        "top": 65,
+        "bottom": 71
+      },
+      "bbox_area_ratio": 0.194091796875,
+      "visible_pixel_count": 8312,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "spark",
+      "stage": 5,
+      "file": "public/pixie/spark/pixie-spark-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 75,
+        "top": 55,
+        "right": 186,
+        "bottom": 189,
+        "width": 112,
+        "height": 135
+      },
+      "padding": {
+        "left": 75,
+        "right": 69,
+        "top": 55,
+        "bottom": 66
+      },
+      "bbox_area_ratio": 0.230712890625,
+      "visible_pixel_count": 10902,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "spark",
+      "stage": 6,
+      "file": "public/pixie/spark/pixie-spark-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 59,
+        "top": 47,
+        "right": 190,
+        "bottom": 189,
+        "width": 132,
+        "height": 143
+      },
+      "padding": {
+        "left": 59,
+        "right": 65,
+        "top": 47,
+        "bottom": 66
+      },
+      "bbox_area_ratio": 0.28802490234375,
+      "visible_pixel_count": 13624,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "triste",
+      "stage": 1,
+      "file": "public/pixie/triste/pixie-triste-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 87,
+        "top": 83,
+        "right": 166,
+        "bottom": 173,
+        "width": 80,
+        "height": 91
+      },
+      "padding": {
+        "left": 87,
+        "right": 89,
+        "top": 83,
+        "bottom": 82
+      },
+      "bbox_area_ratio": 0.111083984375,
+      "visible_pixel_count": 2887,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=11.1% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "triste",
+      "stage": 2,
+      "file": "public/pixie/triste/pixie-triste-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 82,
+        "top": 59,
+        "right": 172,
+        "bottom": 195,
+        "width": 91,
+        "height": 137
+      },
+      "padding": {
+        "left": 82,
+        "right": 83,
+        "top": 59,
+        "bottom": 60
+      },
+      "bbox_area_ratio": 0.1902313232421875,
+      "visible_pixel_count": 4177,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "triste",
+      "stage": 3,
+      "file": "public/pixie/triste/pixie-triste-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 79,
+        "top": 50,
+        "right": 175,
+        "bottom": 204,
+        "width": 97,
+        "height": 155
+      },
+      "padding": {
+        "left": 79,
+        "right": 80,
+        "top": 50,
+        "bottom": 51
+      },
+      "bbox_area_ratio": 0.2294158935546875,
+      "visible_pixel_count": 5515,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "triste",
+      "stage": 4,
+      "file": "public/pixie/triste/pixie-triste-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 73,
+        "top": 33,
+        "right": 180,
+        "bottom": 221,
+        "width": 108,
+        "height": 189
+      },
+      "padding": {
+        "left": 73,
+        "right": 75,
+        "top": 33,
+        "bottom": 34
+      },
+      "bbox_area_ratio": 0.31146240234375,
+      "visible_pixel_count": 8224,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "triste",
+      "stage": 5,
+      "file": "public/pixie/triste/pixie-triste-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 57,
+        "top": 24,
+        "right": 197,
+        "bottom": 231,
+        "width": 141,
+        "height": 208
+      },
+      "padding": {
+        "left": 57,
+        "right": 58,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.447509765625,
+      "visible_pixel_count": 12873,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "triste",
+      "stage": 6,
+      "file": "public/pixie/triste/pixie-triste-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 57,
+        "top": 24,
+        "right": 197,
+        "bottom": 231,
+        "width": 141,
+        "height": 208
+      },
+      "padding": {
+        "left": 57,
+        "right": 58,
+        "top": 24,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.447509765625,
+      "visible_pixel_count": 12873,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "void",
+      "stage": 1,
+      "file": "public/pixie/void/pixie-void-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 104,
+        "top": 122,
+        "right": 151,
+        "bottom": 193,
+        "width": 48,
+        "height": 72
+      },
+      "padding": {
+        "left": 104,
+        "right": 104,
+        "top": 122,
+        "bottom": 62
+      },
+      "bbox_area_ratio": 0.052734375,
+      "visible_pixel_count": 1089,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=5.3% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "void",
+      "stage": 2,
+      "file": "public/pixie/void/pixie-void-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 97,
+        "top": 100,
+        "right": 156,
+        "bottom": 194,
+        "width": 60,
+        "height": 95
+      },
+      "padding": {
+        "left": 97,
+        "right": 99,
+        "top": 100,
+        "bottom": 61
+      },
+      "bbox_area_ratio": 0.08697509765625,
+      "visible_pixel_count": 2373,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=8.7% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "void",
+      "stage": 3,
+      "file": "public/pixie/void/pixie-void-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 94,
+        "top": 94,
+        "right": 152,
+        "bottom": 196,
+        "width": 59,
+        "height": 103
+      },
+      "padding": {
+        "left": 94,
+        "right": 103,
+        "top": 94,
+        "bottom": 59
+      },
+      "bbox_area_ratio": 0.0927276611328125,
+      "visible_pixel_count": 3072,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=9.3% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "void",
+      "stage": 4,
+      "file": "public/pixie/void/pixie-void-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 90,
+        "top": 67,
+        "right": 164,
+        "bottom": 198,
+        "width": 75,
+        "height": 132
+      },
+      "padding": {
+        "left": 90,
+        "right": 91,
+        "top": 67,
+        "bottom": 57
+      },
+      "bbox_area_ratio": 0.15106201171875,
+      "visible_pixel_count": 4434,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "void",
+      "stage": 5,
+      "file": "public/pixie/void/pixie-void-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 90,
+        "top": 58,
+        "right": 164,
+        "bottom": 199,
+        "width": 75,
+        "height": 142
+      },
+      "padding": {
+        "left": 90,
+        "right": 91,
+        "top": 58,
+        "bottom": 56
+      },
+      "bbox_area_ratio": 0.162506103515625,
+      "visible_pixel_count": 5643,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "void",
+      "stage": 6,
+      "file": "public/pixie/void/pixie-void-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 79,
+        "top": 30,
+        "right": 174,
+        "bottom": 207,
+        "width": 96,
+        "height": 178
+      },
+      "padding": {
+        "left": 79,
+        "right": 81,
+        "top": 30,
+        "bottom": 48
+      },
+      "bbox_area_ratio": 0.2607421875,
+      "visible_pixel_count": 10016,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "voidcore",
+      "stage": 1,
+      "file": "public/pixie/voidcore/pixie-voidcore-stage-1.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 99,
+        "top": 86,
+        "right": 158,
+        "bottom": 169,
+        "width": 60,
+        "height": 84
+      },
+      "padding": {
+        "left": 99,
+        "right": 97,
+        "top": 86,
+        "bottom": 86
+      },
+      "bbox_area_ratio": 0.076904296875,
+      "visible_pixel_count": 1922,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "bbox_area_ratio=7.7% below 12.0% (character is tiny on canvas)",
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "voidcore",
+      "stage": 2,
+      "file": "public/pixie/voidcore/pixie-voidcore-stage-2.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 88,
+        "top": 67,
+        "right": 166,
+        "bottom": 186,
+        "width": 79,
+        "height": 120
+      },
+      "padding": {
+        "left": 88,
+        "right": 89,
+        "top": 67,
+        "bottom": 69
+      },
+      "bbox_area_ratio": 0.1446533203125,
+      "visible_pixel_count": 3542,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "voidcore",
+      "stage": 3,
+      "file": "public/pixie/voidcore/pixie-voidcore-stage-3.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 85,
+        "top": 56,
+        "right": 170,
+        "bottom": 198,
+        "width": 86,
+        "height": 143
+      },
+      "padding": {
+        "left": 85,
+        "right": 85,
+        "top": 56,
+        "bottom": 57
+      },
+      "bbox_area_ratio": 0.187652587890625,
+      "visible_pixel_count": 5463,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "voidcore",
+      "stage": 4,
+      "file": "public/pixie/voidcore/pixie-voidcore-stage-4.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 78,
+        "top": 41,
+        "right": 176,
+        "bottom": 213,
+        "width": 99,
+        "height": 173
+      },
+      "padding": {
+        "left": 78,
+        "right": 79,
+        "top": 41,
+        "bottom": 42
+      },
+      "bbox_area_ratio": 0.2613372802734375,
+      "visible_pixel_count": 8522,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "voidcore",
+      "stage": 5,
+      "file": "public/pixie/voidcore/pixie-voidcore-stage-5.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 63,
+        "top": 22,
+        "right": 191,
+        "bottom": 231,
+        "width": 129,
+        "height": 210
+      },
+      "padding": {
+        "left": 63,
+        "right": 64,
+        "top": 22,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.413360595703125,
+      "visible_pixel_count": 15173,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    },
+    {
+      "species": "voidcore",
+      "stage": 6,
+      "file": "public/pixie/voidcore/pixie-voidcore-stage-6.png",
+      "canvas": {
+        "width": 256,
+        "height": 256
+      },
+      "bbox": {
+        "left": 63,
+        "top": 22,
+        "right": 191,
+        "bottom": 231,
+        "width": 129,
+        "height": 210
+      },
+      "padding": {
+        "left": 63,
+        "right": 64,
+        "top": 22,
+        "bottom": 24
+      },
+      "bbox_area_ratio": 0.413360595703125,
+      "visible_pixel_count": 15173,
+      "opaque": true,
+      "has_transparency": false,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      },
+      "bbox_method": "luma",
+      "warnings": [
+        "opaque (baked background)"
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "species": "galaxy",
+      "stages": 6,
+      "median_bbox_ratio": 0.10382080078125,
+      "min_bbox_ratio": 0.06121826171875,
+      "max_bbox_ratio": 0.2655029296875,
+      "avg_padding": {
+        "left": 85.83333333333333,
+        "right": 85.33333333333333,
+        "top": 82.83333333333333,
+        "bottom": 79.83333333333333
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      }
+    },
+    {
+      "species": "diamond",
+      "stages": 6,
+      "median_bbox_ratio": 0.113983154296875,
+      "min_bbox_ratio": 0.067291259765625,
+      "max_bbox_ratio": 0.239501953125,
+      "avg_padding": {
+        "left": 85.33333333333333,
+        "right": 85.66666666666667,
+        "top": 81.83333333333333,
+        "bottom": 80.33333333333333
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 26,
+        "a": 255,
+        "hex": "#00011a"
+      }
+    },
+    {
+      "species": "crown",
+      "stages": 6,
+      "median_bbox_ratio": 0.1174163818359375,
+      "min_bbox_ratio": 0.07574462890625,
+      "max_bbox_ratio": 0.2320404052734375,
+      "avg_padding": {
+        "left": 87.66666666666667,
+        "right": 85.33333333333333,
+        "top": 75,
+        "bottom": 83.66666666666667
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 25,
+        "a": 255,
+        "hex": "#000119"
+      }
+    },
+    {
+      "species": "heart",
+      "stages": 6,
+      "median_bbox_ratio": 0.150604248046875,
+      "min_bbox_ratio": 0.0920867919921875,
+      "max_bbox_ratio": 0.2574920654296875,
+      "avg_padding": {
+        "left": 77,
+        "right": 76,
+        "top": 79.66666666666667,
+        "bottom": 78.33333333333333
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      }
+    },
+    {
+      "species": "void",
+      "stages": 6,
+      "median_bbox_ratio": 0.15106201171875,
+      "min_bbox_ratio": 0.052734375,
+      "max_bbox_ratio": 0.2607421875,
+      "avg_padding": {
+        "left": 92.33333333333333,
+        "right": 94.83333333333333,
+        "top": 78.5,
+        "bottom": 57.166666666666664
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "shade",
+      "stages": 6,
+      "median_bbox_ratio": 0.160003662109375,
+      "min_bbox_ratio": 0.096435546875,
+      "max_bbox_ratio": 0.259674072265625,
+      "avg_padding": {
+        "left": 78.83333333333333,
+        "right": 78,
+        "top": 79.16666666666667,
+        "bottom": 74.5
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 25,
+        "a": 255,
+        "hex": "#000019"
+      }
+    },
+    {
+      "species": "overseer",
+      "stages": 6,
+      "median_bbox_ratio": 0.1680145263671875,
+      "min_bbox_ratio": 0.04913330078125,
+      "max_bbox_ratio": 0.303436279296875,
+      "avg_padding": {
+        "left": 86.66666666666667,
+        "right": 85.83333333333333,
+        "top": 75.5,
+        "bottom": 70.66666666666667
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 24,
+        "a": 255,
+        "hex": "#000018"
+      }
+    },
+    {
+      "species": "robot",
+      "stages": 6,
+      "median_bbox_ratio": 0.1861572265625,
+      "min_bbox_ratio": 0.126953125,
+      "max_bbox_ratio": 0.2935638427734375,
+      "avg_padding": {
+        "left": 79,
+        "right": 78.83333333333333,
+        "top": 68,
+        "bottom": 63.666666666666664
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 1,
+        "b": 27,
+        "a": 255,
+        "hex": "#00011b"
+      }
+    },
+    {
+      "species": "spark",
+      "stages": 6,
+      "median_bbox_ratio": 0.1942901611328125,
+      "min_bbox_ratio": 0.1380462646484375,
+      "max_bbox_ratio": 0.28802490234375,
+      "avg_padding": {
+        "left": 76.16666666666667,
+        "right": 74.83333333333333,
+        "top": 62.666666666666664,
+        "bottom": 70.33333333333333
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      }
+    },
+    {
+      "species": "momo",
+      "stages": 6,
+      "median_bbox_ratio": 0.19940185546875,
+      "min_bbox_ratio": 0.1221923828125,
+      "max_bbox_ratio": 0.3156585693359375,
+      "avg_padding": {
+        "left": 75.33333333333333,
+        "right": 73.16666666666667,
+        "top": 70.66666666666667,
+        "bottom": 65
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 2,
+        "b": 25,
+        "a": 255,
+        "hex": "#000219"
+      }
+    },
+    {
+      "species": "blip",
+      "stages": 6,
+      "median_bbox_ratio": 0.206451416015625,
+      "min_bbox_ratio": 0.1287689208984375,
+      "max_bbox_ratio": 0.309814453125,
+      "avg_padding": {
+        "left": 73.83333333333333,
+        "right": 72.83333333333333,
+        "top": 69.33333333333333,
+        "bottom": 67
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 0,
+        "g": 3,
+        "b": 28,
+        "a": 255,
+        "hex": "#00031c"
+      }
+    },
+    {
+      "species": "voidcore",
+      "stages": 6,
+      "median_bbox_ratio": 0.2613372802734375,
+      "min_bbox_ratio": 0.076904296875,
+      "max_bbox_ratio": 0.413360595703125,
+      "avg_padding": {
+        "left": 79.33333333333333,
+        "right": 79.66666666666667,
+        "top": 49,
+        "bottom": 50.333333333333336
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "caffe",
+      "stages": 6,
+      "median_bbox_ratio": 0.2764434814453125,
+      "min_bbox_ratio": 0.1012115478515625,
+      "max_bbox_ratio": 0.38720703125,
+      "avg_padding": {
+        "left": 78.66666666666667,
+        "right": 79.33333333333333,
+        "top": 46.166666666666664,
+        "bottom": 46
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "scintille",
+      "stages": 6,
+      "median_bbox_ratio": 0.284820556640625,
+      "min_bbox_ratio": 0.08349609375,
+      "max_bbox_ratio": 0.43798828125,
+      "avg_padding": {
+        "left": 77,
+        "right": 79.5,
+        "top": 44.666666666666664,
+        "bottom": 44.5
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "devil",
+      "stages": 6,
+      "median_bbox_ratio": 0.304412841796875,
+      "min_bbox_ratio": 0.1210784912109375,
+      "max_bbox_ratio": 0.304412841796875,
+      "avg_padding": {
+        "left": 83.83333333333333,
+        "right": 84.5,
+        "top": 39,
+        "bottom": 39.333333333333336
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "fuoco",
+      "stages": 6,
+      "median_bbox_ratio": 0.3060302734375,
+      "min_bbox_ratio": 0.1126556396484375,
+      "max_bbox_ratio": 0.40625,
+      "avg_padding": {
+        "left": 77.5,
+        "right": 78.5,
+        "top": 45,
+        "bottom": 45.333333333333336
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "triste",
+      "stages": 6,
+      "median_bbox_ratio": 0.31146240234375,
+      "min_bbox_ratio": 0.111083984375,
+      "max_bbox_ratio": 0.447509765625,
+      "avg_padding": {
+        "left": 72.5,
+        "right": 73.83333333333333,
+        "top": 45.5,
+        "bottom": 45.833333333333336
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "banana",
+      "stages": 6,
+      "median_bbox_ratio": 0.3201141357421875,
+      "min_bbox_ratio": 0.11932373046875,
+      "max_bbox_ratio": 0.4189453125,
+      "avg_padding": {
+        "left": 76,
+        "right": 76.5,
+        "top": 41.166666666666664,
+        "bottom": 41.833333333333336
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "angel",
+      "stages": 6,
+      "median_bbox_ratio": 0.326904296875,
+      "min_bbox_ratio": 0.1300048828125,
+      "max_bbox_ratio": 0.326904296875,
+      "avg_padding": {
+        "left": 81.16666666666667,
+        "right": 82.16666666666667,
+        "top": 38.666666666666664,
+        "bottom": 38.833333333333336
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "leaf",
+      "stages": 6,
+      "median_bbox_ratio": 0.3606414794921875,
+      "min_bbox_ratio": 0.2233428955078125,
+      "max_bbox_ratio": 0.6536865234375,
+      "avg_padding": {
+        "left": 51.5,
+        "right": 51.833333333333336,
+        "top": 47.666666666666664,
+        "bottom": 46.5
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "ice",
+      "stages": 6,
+      "median_bbox_ratio": 0.3852081298828125,
+      "min_bbox_ratio": 0.135955810546875,
+      "max_bbox_ratio": 0.4643096923828125,
+      "avg_padding": {
+        "left": 67.33333333333333,
+        "right": 70.83333333333333,
+        "top": 42.666666666666664,
+        "bottom": 44
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "moonlight",
+      "stages": 6,
+      "median_bbox_ratio": 0.4102630615234375,
+      "min_bbox_ratio": 0.2160797119140625,
+      "max_bbox_ratio": 0.656341552734375,
+      "avg_padding": {
+        "left": 46,
+        "right": 46.666666666666664,
+        "top": 50.333333333333336,
+        "bottom": 51.666666666666664
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "hologram",
+      "stages": 6,
+      "median_bbox_ratio": 0.42236328125,
+      "min_bbox_ratio": 0.22723388671875,
+      "max_bbox_ratio": 0.54248046875,
+      "avg_padding": {
+        "left": 45.5,
+        "right": 46.166666666666664,
+        "top": 53.833333333333336,
+        "bottom": 54
+      },
+      "opaque_stages": 6,
+      "bg_estimate": {
+        "r": 9,
+        "g": 9,
+        "b": 20,
+        "a": 255,
+        "hex": "#090914"
+      }
+    },
+    {
+      "species": "orbit",
+      "stages": 6,
+      "median_bbox_ratio": 0.44921875,
+      "min_bbox_ratio": 0.421875,
+      "max_bbox_ratio": 0.52734375,
+      "avg_padding": {
+        "left": 69.5,
+        "right": 70.33333333333333,
+        "top": 0,
+        "bottom": 0
+      },
+      "opaque_stages": 0,
+      "bg_estimate": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0,
+        "hex": "#000000"
+      }
+    }
+  ]
+}
