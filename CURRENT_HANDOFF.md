@@ -1,8 +1,142 @@
 # CURRENT_HANDOFF — SplitVote
 
-Last updated: 20 May 2026 (end of day) — Emotional Recognition Loop (Phase 1 + Phase 2) + retention instrumentation shipped; GA4 proxy fix from 19 May also pushed.
+Last updated: 21 May 2026 (afternoon update) — **PM override**: AdSense review is noted but no longer a product freeze. Product iteration continues. New PM insight: the post-vote reveal is the core retention hook (social comparison / self-positioning), not the vote itself. Next sprint candidate: `REVEAL-SELF-POSITIONING-COPY-01`.
 PM: Matteo
 Implementer: Claude Code (Sonnet 4.6 / Opus 4.7) + Codex (VS Code)
+
+## 0. Session 21 May 2026 (afternoon update) — PM override: AdSense not a blocker; reveal loop prioritized
+
+### PM directive (afternoon)
+
+**AdSense review is no longer a product freeze constraint.** Product development and launch iteration continue. If a public change is desirable for the product and passes normal QA, it ships. AdSense-specific files (`<AdSlot>` gating, `public/ads.txt`, `app/layout.tsx` AdSense loader, Consent Mode v2 signals) still get extra care, but they are not a roadmap blocker. If AdSense rejects the site post-change, the site can be resubmitted later.
+
+The morning's "freeze ruleset" (see §0a below) is **superseded**. Treat it as historical context, not as a current constraint.
+
+### PM product insight (afternoon)
+
+The SplitVote loop people respond to is **not** the vote itself. The vote is the trigger. The product hook is the **post-vote reveal** — seeing whether the user is in the majority, the minority, on a near-even split, or against a landslide. This is social comparison, self-positioning, and identity interpretation, not polling. Already encoded in `DESIGN.md → Visual / Brand Voice`:
+> "Post-vote: immediately show how you compare to the world (minority/majority banner, result bars)"
+> "Reveal the split / Scopri il risultato — CTA copy emphasizes the social reveal, not just 'vote'"
+
+Architecture already supports it: 6-state `revealState` enum (`low_sample | tie | close | minority | landslide | majority`) lives at `app/results/[id]/ResultsClientPage.tsx:371-381`, shipped 20 May (`1384296`). EN+IT copy strings for each state exist at `:47-55` (EN) and `:125-133` (IT). Reveal-state events are instrumented in 14 GA4 sites. The system is there; what's missing is the **copy is functional but not yet emotionally sharp enough** to make the user think "yeah — this is what I came here for."
+
+### Next sprint — top candidate
+
+**`REVEAL-SELF-POSITIONING-COPY-01`** — sharpen the 5 reveal desc strings (EN + IT, parity) to lean harder into self-positioning identity language. Implementation prompt below in §Recommended implementation prompt. Single file (`app/results/[id]/ResultsClientPage.tsx`), copy-only, no schema/route/analytics change. ~20-30 LOC. Risk: low — the same surface was tuned 8 days ago in `8638c96` with no regressions.
+
+### Working state at this update
+
+- **Branch**: `main`, aligned with `origin/main` after this commit pushes.
+- **Working tree**: 73 modified + 5 untracked (the new draft `docs/dilemma-quality-rubric.md` is sitting locally, see §Rubric draft status below) = 78 dirty entries.
+
+### Rubric draft status
+
+`docs/dilemma-quality-rubric.md` (250 LOC, 18.9 KB) was drafted earlier today per `DILEMMA-QUALITY-RUBRIC-DRAFT-ONLY-01`. It defines a 6-axis editorial scoring framework (divisiveness, identity_relevance, moral_tension, ambiguity, curiosity_potential, emotional_weight) for human admin review of dilemma drafts. Explicitly internal-only, not an auto-publish gate, not a public claim. **Awaiting PM review** before commit. Not bundled into the afternoon override commit to keep concerns separate.
+
+### Reframed SEO backlog (no longer "frozen")
+
+The 3 sprints captured in §0a remain valid as **prioritizable backlog**, no longer freeze-gated:
+
+| # | Sprint | Locale | Notes |
+|---|---|---|---|
+| A | `SEO-IT-LEALTA-ONESTA-DIFFERENZE-FAQ-01` | IT | Top SEO ship — add IT FAQ Q&A on `lealta-vs-onesta` blog. ~15 LOC. |
+| B | `SEO-LOYALTY-HONESTY-SNIPPET-TUNE-01` | EN | Meta + intro phrasing tune on `loyalty-vs-honesty-when-they-collide`. ~5 LOC. |
+| C | `SEO-TROLLEY-FOOTBRIDGE-STATS-META-01` | EN | Meta description tune on `trolley-problem-statistics`. ~2 LOC. |
+
+PM priority order (afternoon directive): the **reveal-loop sprint comes first**, since it strengthens the core product hook. The SEO sprints follow. If AdSense recrawl happens during any of these ships, that's accepted risk per the new PM directive.
+
+### Recommended implementation prompt (REVEAL-SELF-POSITIONING-COPY-01)
+
+See the implementation prompt provided alongside this docs commit in the agent's final report.
+
+---
+
+## 0a. Session 21 May 2026 (morning) — AdSense review submitted + WIP triage + GSC SEO backlog
+
+> **Note (afternoon update, 21 May 2026):** the freeze framing in this section was **superseded** by the PM override above (§0). Kept here for historical context. Treat the freeze rules below as the morning posture, not as current policy.
+
+### Status
+
+- **AdSense review**: submitted earlier today. **Morning posture was to treat this as a freeze of public-surface changes; superseded by the afternoon PM override (§0). Kept here as historical context only.**
+- **Branch**: `main @ a7edae6`, aligned with `origin/main`.
+- **Working tree**: 73 modified + 4 untracked = 77 dirty entries. All remaining items are PM-decision clusters (Pixie pipeline G2+G3+tooling; admin content-pipeline script).
+
+### Ships earlier today (pushed, no public behavior change)
+
+| Commit | Title |
+|---|---|
+| `4d170b8` | chore(repo): ignore local workspace artifacts |
+| `09a454c` | feat(content): add clarity guard for generated drafts (admin/cron path only — stricter gate, no new public surface) |
+| `c3945a9` | docs(governance): add Codex agent guide |
+| `6e08252` | docs(reports): backfill recent audit artifacts |
+| `a7edae6` | docs(product): update strategy for emotional recognition loop |
+
+Verified: each diff is internal/docs/build-hygiene only. Zero AdSlot/cookie/analytics/sitemap/robots/legal/UI files touched. The associated Vercel rebuilds carry no user-perceptible change.
+
+### AdSense review freeze rules (morning posture — superseded by §0)
+
+> The list below was the morning's proposed freeze ruleset. **Superseded** by the afternoon PM override. Kept verbatim for transparency about the morning's reasoning. Do not apply as current policy.
+
+The morning sprint proposed that, while review was in progress, the following should NOT change:
+- `<AdSlot>` gating logic, AdSense loader (`app/layout.tsx`), `public/ads.txt`.
+- `hasStaticInsight` predicate (`lib/static-insights.ts`) and its consumers on `/play/[id]`, `/results/[id]`.
+- Robots, sitemap, `/store` + `/it/store` noindex.
+- Cookie consent (`components/CookieConsent.tsx`) — Consent Mode v2 default-denied signals.
+- Privacy + Terms + About + Editorial pages (EN+IT).
+- 41 static dilemma scenarios (`lib/scenarios.ts`, `lib/scenarios-it.ts`).
+- Blog content (`lib/blog.ts`) and per-id insights (`lib/static-insights.ts`).
+- 72 Pixie PNGs + Pixie pipeline ship (`public/pixie/**`, `scripts/generate-pixie-assets.mjs`).
+- Admin content-publish workflow (do not approve drafts that produce new public pages mid-review; do not run `scripts/insert-current-events-drafts.mjs --write`).
+
+Safe during review: admin-only API/dashboard, internal-only docs, reports, tests, build/repo hygiene, read-only audits. Emergency-only (PM GO required): critical security fix, outage fix, demonstrable legal correction.
+
+### GSC query snapshot (21 May 2026)
+
+22 total impressions / 0 clicks across 9 unique queries:
+
+| Query | Imp | Locale | Cluster |
+|---|---|---|---|
+| split vote | 11 | EN | Brand |
+| loyalty and honesty | 3 | EN | Loyalty vs honesty |
+| vote split | 2 | EN | Brand |
+| trolley problem footbridge variant approval rate | 1 | EN | Trolley stats |
+| lealtà e onestà differenze | 1 | IT | Lealtà vs onestà |
+| differenza tra onestà e lealtà | 1 | IT | Lealtà vs onestà |
+| split the vote | 1 | EN | Brand |
+| truth vs loyalty | 1 | EN | Loyalty vs honesty |
+| honesty and loyalty | 1 | EN | Loyalty vs honesty |
+
+7 of 9 queries cluster on loyalty/honesty/truth (EN + IT). Existing page-level coverage is strong; gap is at the snippet/FAQ/meta layer — no new URLs proposed. Brand queries (14 imp) are surfacing organically without action.
+
+### SEO backlog (morning section — labels superseded by §0)
+
+> The morning sprint labeled all three sprints below as "Frozen." Per the afternoon PM override (§0), these are **no longer frozen** — they are unblocked backlog ready for prioritization alongside the reveal-loop sprint. The original labels are kept verbatim below for transparency about the morning's framing.
+
+1. **`SEO-IT-LEALTA-ONESTA-DIFFERENZE-FAQ-01`** — priority #1 post-review. Add 3-5 IT FAQ Q&A to the existing `lealta-vs-onesta-quando-le-due-virtu-non-possono-coesistere` blog post answering `differenza tra onestà e lealtà` / `lealtà e onestà differenze` intent verbatim. Single file (`lib/blog.ts`), ~15 LOC, no new URL, no sitemap change. *(Morning label: "Frozen" — now unblocked per §0.)*
+2. **`SEO-LOYALTY-HONESTY-SNIPPET-TUNE-01`** — priority #2 post-review. Meta description + intro phrasing tune on `/blog/loyalty-vs-honesty-when-they-collide` to include `loyalty and honesty` / `truth vs loyalty` / `honesty and loyalty` phrasings. ~5 LOC. *(Morning label: "Frozen" — now unblocked per §0.)*
+3. **`SEO-TROLLEY-FOOTBRIDGE-STATS-META-01`** — priority #3 post-review. Meta description tune on `/blog/trolley-problem-statistics` for `footbridge variant approval rate` query. ~2 LOC. *(Morning label: "Frozen" — now unblocked per §0.)*
+
+### Recommended next sprint (AdSense-review-safe)
+
+`DILEMMA-QUALITY-RUBRIC-01` — docs-only formalization of the 6-axis quality scoring rubric (divisiveness, identity_relevance, moral_tension, ambiguity, curiosity_potential, emotional_weight) into a new internal doc. ROADMAP backlog item ready. Zero public surface, zero AdSense impact. ~1 h.
+
+Alternatives also safe during review: `PIXIE-PIPELINE-VISUAL-QA-PREP-01` (read-only diff audit, no ship), `LAUNCH-AUDIT-ADSENSE-DELTA-RECONCILE-01` (internal doc update).
+
+After AdSense review concludes, ship `SEO-IT-LEALTA-ONESTA-DIFFERENZE-FAQ-01` first.
+
+### Remaining PM WIP (unchanged from 20 May EOD minus closed items)
+
+73 modified:
+- 72 Pixie PNGs (G3 — paired with G2)
+- `scripts/generate-pixie-assets.mjs` (G2 — paired with G3)
+
+4 untracked:
+- `scripts/generate-pixie-emoji-assets.py` (Pixie pipeline)
+- `scripts/normalize-pixie-assets.py` (Pixie pipeline)
+- `scripts/slice-pixies.js` (Pixie pipeline)
+- `scripts/insert-current-events-drafts.mjs` (admin content tool — bucket B vs C decision, `--write` production-Redis capability)
+
+---
 
 ## 0. Session 20 May 2026 — Emotional Recognition Loop + Retention Instrumentation — ✅ SHIPPED
 

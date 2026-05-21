@@ -3,7 +3,50 @@
 > Piattaforma globale di behavioral data gamificata.
 > Dilemmi morali in tempo reale → profili morali → loop virali → insight aggregati.
 
-Ultimo aggiornamento: 20 Maggio 2026 (fine giornata) — Emotional Recognition Loop (Phase 1 reveal + Phase 2 routing + sticky CTA refactor + home copy) + retention instrumentation shipped; GA4 proxy fix from 19 May pushed.
+Ultimo aggiornamento: 21 Maggio 2026 (afternoon update) — **PM override**: AdSense review is noted but no longer a product freeze. Product iteration continues. PM insight: the post-vote reveal is the core retention hook (social comparison / self-positioning), not the vote itself. Next sprint candidate: `REVEAL-SELF-POSITIONING-COPY-01`.
+
+---
+
+## 21 May 2026 (afternoon update) — PM override: AdSense not a blocker; reveal loop prioritized
+
+**PM directive**: AdSense review is **no longer a product freeze constraint**. Product development and launch iteration continue. Public changes ship when they improve the product and pass normal QA. AdSense-specific files (`<AdSlot>`, `public/ads.txt`, AdSense loader, Consent Mode v2 signals) still get extra care, but they are not a roadmap blocker. If AdSense rejects post-change, the site can be resubmitted later. The morning's freeze framing (see below) is **superseded**.
+
+**PM product insight**: the SplitVote loop people respond to is not the vote — it's the **post-vote reveal**. Seeing whether you are in the majority, minority, near-even split, or against a landslide is the actual product hook: social comparison, self-positioning, identity interpretation. The architecture already supports this — the 6-state `revealState` enum and EN+IT copy strings live in `app/results/[id]/ResultsClientPage.tsx`, shipped 20 May (`8638c96` UX + `1384296` instrumentation). What's missing is **copy that lands the self-positioning moment harder**.
+
+### Next candidates (post-PM override)
+
+| # | Sprint | Status | Notes |
+|---|---|---|---|
+| **A** | **`REVEAL-SELF-POSITIONING-COPY-01`** | **Top — implementation-ready** | Sharpen the 5 reveal desc strings (EN + IT parity) in `app/results/[id]/ResultsClientPage.tsx` (lines `:47-55` EN, `:125-133` IT) to lean harder into identity/self-positioning language. Copy-only, single file, ~20-30 LOC. Risk: low — same surface was tuned 8 days ago without regressions. |
+| B | `DILEMMA-QUALITY-RUBRIC-01` | Draft sitting locally — awaiting PM review | `docs/dilemma-quality-rubric.md` drafted earlier today (250 LOC). 6-axis editorial framework (divisiveness, identity_relevance, moral_tension, ambiguity, curiosity_potential, emotional_weight). Internal-only, not an auto-publish gate. **Awaiting PM review** before commit. |
+| C | `PIXIE-PIPELINE-VISUAL-QA-PREP-01` | Ready | Read-only audit of 72 Pixie PNG diffs species-by-species + contact-sheet report. Does NOT ship the PNG ship itself. ~45 min. |
+| D | `SEO-IT-LEALTA-ONESTA-DIFFERENZE-FAQ-01` | Ready (unblocked by override) | IT FAQ Q&A on `lealta-vs-onesta` blog — see backlog table below. ~15 LOC. |
+| E | `SEO-LOYALTY-HONESTY-SNIPPET-TUNE-01` | Ready (unblocked) | EN meta + intro tune. ~5 LOC. |
+| F | `SEO-TROLLEY-FOOTBRIDGE-STATS-META-01` | Ready (unblocked) | EN meta tune. ~2 LOC. |
+
+PM priority order (afternoon directive): **A first** (reveal-loop is the core product hook), then C/B in parallel as PM time allows, then SEO sprints in batch.
+
+### SEO backlog (from 21 May 2026 GSC query snapshot, no longer freeze-gated)
+
+22 impressions / 0 clicks across 9 queries; 7 of 9 cluster on loyalty/honesty/truth (EN + IT). Existing pages already cover the topics — gap is at the snippet/FAQ/meta layer. No new URLs proposed.
+
+| # | Sprint | Locale | URL type | Target queries (imp) | Effort |
+|---|---|---|---|---|---|
+| A | `SEO-IT-LEALTA-ONESTA-DIFFERENZE-FAQ-01` | IT | existing blog `lealta-vs-onesta-quando-le-due-virtu-non-possono-coesistere` | `lealtà e onestà differenze` (1), `differenza tra onestà e lealtà` (1) | ~15 LOC, single file |
+| B | `SEO-LOYALTY-HONESTY-SNIPPET-TUNE-01` | EN | existing blog `loyalty-vs-honesty-when-they-collide` | `loyalty and honesty` (3), `truth vs loyalty` (1), `honesty and loyalty` (1) | ~5 LOC |
+| C | `SEO-TROLLEY-FOOTBRIDGE-STATS-META-01` | EN | existing blog `trolley-problem-statistics` | `trolley problem footbridge variant approval rate` (1) | ~2 LOC |
+
+Brand queries (`split vote` 11 imp, `vote split` 2 imp, `split the vote` 1 imp = 14 total) need no action — brand discovery is healthy.
+
+### Morning posture (superseded)
+
+> **Note**: the morning entry below treated AdSense submission as a freeze constraint. **Superseded by the PM override above.** Kept for historical context only.
+
+### Morning context (21 May 2026)
+
+**AdSense review submitted** earlier today and is currently in progress. The morning posture treated this as a public-surface freeze; the afternoon PM override lifted that constraint.
+
+**Internal ships today** (no public behavior change): repo hygiene + `.vercelignore` (`4d170b8`), content-generation clarity guard for admin/cron path (`09a454c`), Codex governance pointer (`c3945a9`), reports backfill (`6e08252`), PRODUCT_STRATEGY update for emotional recognition loop (`a7edae6`).
 
 ---
 
