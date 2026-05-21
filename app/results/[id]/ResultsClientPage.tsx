@@ -49,7 +49,7 @@ const EN_COPY = {
   minorityDesc:      "You're in the minority. Most went the other way.",
   majorityTitle:     (pct: number) => `🌍 ${pct}% of SplitVote voters agree with you.`,
   majorityDesc:      "You're with the crowd. Just not all of it.",
-  closeSplitTitle:   (pct: number) => `You're on the ${pct}% side — almost a coin flip.`,
+  closeSplitTitle:   (pct: number) => `🌗 You're on the ${pct}% side — almost a coin flip.`,
   closeSplitDesc:    "Half think like you. Half don't. That's the tension.",
   landslideTitle:    (pct: number) => `🌊 ${pct}% of SplitVote voters agree with you.`,
   landslideDesc:     "You're with the wave. Almost no one disagreed.",
@@ -127,7 +127,7 @@ const IT_COPY = {
   minorityDesc:      'Sei in minoranza. La maggioranza la pensa diversamente.',
   majorityTitle:     (pct: number) => `🌍 Il ${pct}% dei votanti su SplitVote è d'accordo con te.`,
   majorityDesc:      'Sei con la folla. Ma non con tutti.',
-  closeSplitTitle:   (pct: number) => `Sei nel ${pct}% — quasi un tiro di moneta.`,
+  closeSplitTitle:   (pct: number) => `🌗 Sei nel ${pct}% — quasi testa o croce.`,
   closeSplitDesc:    'Metà la pensa come te. Metà no. È questa la tensione.',
   landslideTitle:    (pct: number) => `🌊 Il ${pct}% dei votanti su SplitVote è d'accordo con te.`,
   landslideDesc:     "Sei nell'onda. Quasi nessuno ha scelto altro.",
@@ -599,7 +599,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
           isTie
             ? 'border-purple-500/40 bg-gradient-to-r from-red-500/15 via-purple-500/10 to-blue-500/15'
             : isClose
-            ? 'border-purple-500/30 bg-purple-500/10'
+            ? 'border-purple-500/50 bg-purple-500/10'
             : isMinority
             ? 'border-orange-500/30 bg-orange-500/10'
             : isUserOnLandslideSide
