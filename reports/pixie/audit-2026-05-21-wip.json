@@ -1,0 +1,2584 @@
+{
+  "date": "2026-05-21",
+  "input": "/Volumes/LOS ANGELES/Matteo/Dev Roba Mia/splitvote/public/pixie",
+  "records": [
+    {
+      "relpath": "angel/pixie-angel-stage-1.png",
+      "species": "angel",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 15440,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "angel/pixie-angel-stage-2.png",
+      "species": "angel",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 22804,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "angel/pixie-angel-stage-3.png",
+      "species": "angel",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 36820,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "angel/pixie-angel-stage-4.png",
+      "species": "angel",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 42576,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "angel/pixie-angel-stage-5.png",
+      "species": "angel",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 42576,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "angel/pixie-angel-stage-6.png",
+      "species": "angel",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 42576,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "banana/pixie-banana-preview-sheet.png",
+      "species": "banana",
+      "stage": null,
+      "ext": ".png",
+      "width": 2172,
+      "height": 724,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1026061,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-banana-preview-sheet.png",
+        "non_canonical_size:2172x724",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "banana/pixie-banana-stage-1.png",
+      "species": "banana",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 11026,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "banana/pixie-banana-stage-2.png",
+      "species": "banana",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 21402,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "banana/pixie-banana-stage-3.png",
+      "species": "banana",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 28693,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "banana/pixie-banana-stage-4.png",
+      "species": "banana",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 40799,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "banana/pixie-banana-stage-5.png",
+      "species": "banana",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 53438,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "banana/pixie-banana-stage-6.png",
+      "species": "banana",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 53438,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "blip/pixie-blip-preview-sheet.png",
+      "species": "blip",
+      "stage": null,
+      "ext": ".png",
+      "width": 1676,
+      "height": 296,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 256647,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-blip-preview-sheet.png",
+        "non_canonical_size:1676x296"
+      ]
+    },
+    {
+      "relpath": "blip/pixie-blip-stage-1.png",
+      "species": "blip",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 36116,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "blip/pixie-blip-stage-2.png",
+      "species": "blip",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 37434,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "blip/pixie-blip-stage-3.png",
+      "species": "blip",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 44327,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "blip/pixie-blip-stage-4.png",
+      "species": "blip",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 43730,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "blip/pixie-blip-stage-5.png",
+      "species": "blip",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 46439,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "blip/pixie-blip-stage-6.png",
+      "species": "blip",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 60391,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "caffe/pixie-caffe-preview-sheet.png",
+      "species": "caffe",
+      "stage": null,
+      "ext": ".png",
+      "width": 1810,
+      "height": 869,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1220131,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-caffe-preview-sheet.png",
+        "non_canonical_size:1810x869",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "caffe/pixie-caffe-stage-1.png",
+      "species": "caffe",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 11821,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "caffe/pixie-caffe-stage-2.png",
+      "species": "caffe",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 21464,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "caffe/pixie-caffe-stage-3.png",
+      "species": "caffe",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 29230,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "caffe/pixie-caffe-stage-4.png",
+      "species": "caffe",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 36441,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "caffe/pixie-caffe-stage-5.png",
+      "species": "caffe",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 49479,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "caffe/pixie-caffe-stage-6.png",
+      "species": "caffe",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 49479,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "crown/pixie-crown-stage-1.png",
+      "species": "crown",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 25335,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "crown/pixie-crown-stage-2.png",
+      "species": "crown",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 25839,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "crown/pixie-crown-stage-3.png",
+      "species": "crown",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 31737,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "crown/pixie-crown-stage-4.png",
+      "species": "crown",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 33768,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "crown/pixie-crown-stage-5.png",
+      "species": "crown",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 39135,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "crown/pixie-crown-stage-6.png",
+      "species": "crown",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 49949,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "devil/pixie-devil-stage-1.png",
+      "species": "devil",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 14061,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "devil/pixie-devil-stage-2.png",
+      "species": "devil",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 23491,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "devil/pixie-devil-stage-3.png",
+      "species": "devil",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 33444,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "devil/pixie-devil-stage-4.png",
+      "species": "devil",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 43283,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "devil/pixie-devil-stage-5.png",
+      "species": "devil",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 43283,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "devil/pixie-devil-stage-6.png",
+      "species": "devil",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 43283,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "diamond/pixie-diamond-stage-1.png",
+      "species": "diamond",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 24445,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "diamond/pixie-diamond-stage-2.png",
+      "species": "diamond",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 27430,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "diamond/pixie-diamond-stage-3.png",
+      "species": "diamond",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 30491,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "diamond/pixie-diamond-stage-4.png",
+      "species": "diamond",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 33017,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "diamond/pixie-diamond-stage-5.png",
+      "species": "diamond",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 39870,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "diamond/pixie-diamond-stage-6.png",
+      "species": "diamond",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 51249,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "fuoco/pixie-fuoco-preview-sheet.png",
+      "species": "fuoco",
+      "stage": null,
+      "ext": ".png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1418359,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-fuoco-preview-sheet.png",
+        "non_canonical_size:1672x941",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "fuoco/pixie-fuoco-stage-1.png",
+      "species": "fuoco",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 11037,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "fuoco/pixie-fuoco-stage-2.png",
+      "species": "fuoco",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 17165,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "fuoco/pixie-fuoco-stage-3.png",
+      "species": "fuoco",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 24798,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "fuoco/pixie-fuoco-stage-4.png",
+      "species": "fuoco",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 38607,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "fuoco/pixie-fuoco-stage-5.png",
+      "species": "fuoco",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 51502,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "fuoco/pixie-fuoco-stage-6.png",
+      "species": "fuoco",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 51502,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "galaxy/pixie-galaxy-stage-1.png",
+      "species": "galaxy",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 22883,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "galaxy/pixie-galaxy-stage-2.png",
+      "species": "galaxy",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 26822,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "galaxy/pixie-galaxy-stage-3.png",
+      "species": "galaxy",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 29857,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "galaxy/pixie-galaxy-stage-4.png",
+      "species": "galaxy",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 31688,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "galaxy/pixie-galaxy-stage-5.png",
+      "species": "galaxy",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 40672,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "galaxy/pixie-galaxy-stage-6.png",
+      "species": "galaxy",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 56577,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "heart/pixie-heart-preview-sheet.png",
+      "species": "heart",
+      "stage": null,
+      "ext": ".png",
+      "width": 1676,
+      "height": 296,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 215630,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-heart-preview-sheet.png",
+        "non_canonical_size:1676x296"
+      ]
+    },
+    {
+      "relpath": "heart/pixie-heart-stage-1.png",
+      "species": "heart",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 29154,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "heart/pixie-heart-stage-2.png",
+      "species": "heart",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 31401,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "heart/pixie-heart-stage-3.png",
+      "species": "heart",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 37041,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "heart/pixie-heart-stage-4.png",
+      "species": "heart",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 38483,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "heart/pixie-heart-stage-5.png",
+      "species": "heart",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 44291,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "heart/pixie-heart-stage-6.png",
+      "species": "heart",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 54314,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "hologram/pixie-hologram-preview-sheet.png",
+      "species": "hologram",
+      "stage": null,
+      "ext": ".png",
+      "width": 2070,
+      "height": 760,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1568756,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-hologram-preview-sheet.png",
+        "non_canonical_size:2070x760",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "hologram/pixie-hologram-stage-1.png",
+      "species": "hologram",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 24147,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "hologram/pixie-hologram-stage-2.png",
+      "species": "hologram",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 27708,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "hologram/pixie-hologram-stage-3.png",
+      "species": "hologram",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 34647,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "hologram/pixie-hologram-stage-4.png",
+      "species": "hologram",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 44637,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "hologram/pixie-hologram-stage-5.png",
+      "species": "hologram",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 52029,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "hologram/pixie-hologram-stage-6.png",
+      "species": "hologram",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 65159,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "ice/pixie-ice-preview-sheet.png",
+      "species": "ice",
+      "stage": null,
+      "ext": ".png",
+      "width": 1870,
+      "height": 841,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1555351,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-ice-preview-sheet.png",
+        "non_canonical_size:1870x841",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "ice/pixie-ice-stage-1.png",
+      "species": "ice",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 17053,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "ice/pixie-ice-stage-2.png",
+      "species": "ice",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 24829,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "ice/pixie-ice-stage-3.png",
+      "species": "ice",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 33174,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "ice/pixie-ice-stage-4.png",
+      "species": "ice",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 45251,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "ice/pixie-ice-stage-5.png",
+      "species": "ice",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 61064,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "ice/pixie-ice-stage-6.png",
+      "species": "ice",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 61064,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "leaf/pixie-leaf-preview-sheet.png",
+      "species": "leaf",
+      "stage": null,
+      "ext": ".png",
+      "width": 2172,
+      "height": 724,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1595168,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-leaf-preview-sheet.png",
+        "non_canonical_size:2172x724",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "leaf/pixie-leaf-stage-1.png",
+      "species": "leaf",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 22041,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "leaf/pixie-leaf-stage-2.png",
+      "species": "leaf",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 27692,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "leaf/pixie-leaf-stage-3.png",
+      "species": "leaf",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 43548,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "leaf/pixie-leaf-stage-4.png",
+      "species": "leaf",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 46772,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "leaf/pixie-leaf-stage-5.png",
+      "species": "leaf",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 60478,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "leaf/pixie-leaf-stage-6.png",
+      "species": "leaf",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 80777,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "momo/pixie-momo-preview-sheet.png",
+      "species": "momo",
+      "stage": null,
+      "ext": ".png",
+      "width": 1676,
+      "height": 296,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 265066,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-momo-preview-sheet.png",
+        "non_canonical_size:1676x296"
+      ]
+    },
+    {
+      "relpath": "momo/pixie-momo-stage-1.png",
+      "species": "momo",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 33214,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "momo/pixie-momo-stage-2.png",
+      "species": "momo",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 34827,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "momo/pixie-momo-stage-3.png",
+      "species": "momo",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 44364,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "momo/pixie-momo-stage-4.png",
+      "species": "momo",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 45193,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "momo/pixie-momo-stage-5.png",
+      "species": "momo",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 52555,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "momo/pixie-momo-stage-6.png",
+      "species": "momo",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 63924,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "moonlight/pixie-moonlight-preview-sheet.png",
+      "species": "moonlight",
+      "stage": null,
+      "ext": ".png",
+      "width": 2068,
+      "height": 760,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1458342,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-moonlight-preview-sheet.png",
+        "non_canonical_size:2068x760",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "moonlight/pixie-moonlight-stage-1.png",
+      "species": "moonlight",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 24380,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "moonlight/pixie-moonlight-stage-2.png",
+      "species": "moonlight",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 28243,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "moonlight/pixie-moonlight-stage-3.png",
+      "species": "moonlight",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 34889,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "moonlight/pixie-moonlight-stage-4.png",
+      "species": "moonlight",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 43656,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "moonlight/pixie-moonlight-stage-5.png",
+      "species": "moonlight",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 60324,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "moonlight/pixie-moonlight-stage-6.png",
+      "species": "moonlight",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 78626,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "orbit/pixie-orbit-preview-sheet.png",
+      "species": "orbit",
+      "stage": null,
+      "ext": ".png",
+      "width": 1676,
+      "height": 296,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 183488,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-orbit-preview-sheet.png",
+        "non_canonical_size:1676x296"
+      ]
+    },
+    {
+      "relpath": "orbit/pixie-orbit-stage-1.png",
+      "species": "orbit",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 37515,
+      "naming_ok": true,
+      "notes": []
+    },
+    {
+      "relpath": "orbit/pixie-orbit-stage-2.png",
+      "species": "orbit",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 38292,
+      "naming_ok": true,
+      "notes": []
+    },
+    {
+      "relpath": "orbit/pixie-orbit-stage-3.png",
+      "species": "orbit",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 41677,
+      "naming_ok": true,
+      "notes": []
+    },
+    {
+      "relpath": "orbit/pixie-orbit-stage-4.png",
+      "species": "orbit",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 47236,
+      "naming_ok": true,
+      "notes": []
+    },
+    {
+      "relpath": "orbit/pixie-orbit-stage-5.png",
+      "species": "orbit",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 50930,
+      "naming_ok": true,
+      "notes": []
+    },
+    {
+      "relpath": "orbit/pixie-orbit-stage-6.png",
+      "species": "orbit",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 61468,
+      "naming_ok": true,
+      "notes": []
+    },
+    {
+      "relpath": "overseer/pixie-overseer-stage-1.png",
+      "species": "overseer",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 20182,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "overseer/pixie-overseer-stage-2.png",
+      "species": "overseer",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 27221,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "overseer/pixie-overseer-stage-3.png",
+      "species": "overseer",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 32779,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "overseer/pixie-overseer-stage-4.png",
+      "species": "overseer",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 39514,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "overseer/pixie-overseer-stage-5.png",
+      "species": "overseer",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 42122,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "overseer/pixie-overseer-stage-6.png",
+      "species": "overseer",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 61729,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "robot/pixie-robot-preview-sheet.png",
+      "species": "robot",
+      "stage": null,
+      "ext": ".png",
+      "width": 1676,
+      "height": 296,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 224407,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-robot-preview-sheet.png",
+        "non_canonical_size:1676x296"
+      ]
+    },
+    {
+      "relpath": "robot/pixie-robot-stage-1.png",
+      "species": "robot",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 31186,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "robot/pixie-robot-stage-2.png",
+      "species": "robot",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 34198,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "robot/pixie-robot-stage-3.png",
+      "species": "robot",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 38311,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "robot/pixie-robot-stage-4.png",
+      "species": "robot",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 40609,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "robot/pixie-robot-stage-5.png",
+      "species": "robot",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 47365,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "robot/pixie-robot-stage-6.png",
+      "species": "robot",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 56470,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "scintille/pixie-scintille-preview-sheet.png",
+      "species": "scintille",
+      "stage": null,
+      "ext": ".png",
+      "width": 1847,
+      "height": 851,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1320157,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-scintille-preview-sheet.png",
+        "non_canonical_size:1847x851",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "scintille/pixie-scintille-stage-1.png",
+      "species": "scintille",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 10365,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "scintille/pixie-scintille-stage-2.png",
+      "species": "scintille",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 21948,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "scintille/pixie-scintille-stage-3.png",
+      "species": "scintille",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 25868,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "scintille/pixie-scintille-stage-4.png",
+      "species": "scintille",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 36466,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "scintille/pixie-scintille-stage-5.png",
+      "species": "scintille",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 49318,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "scintille/pixie-scintille-stage-6.png",
+      "species": "scintille",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 49318,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "shade/pixie-shade-preview-sheet.png",
+      "species": "shade",
+      "stage": null,
+      "ext": ".png",
+      "width": 1676,
+      "height": 296,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 152311,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-shade-preview-sheet.png",
+        "non_canonical_size:1676x296"
+      ]
+    },
+    {
+      "relpath": "shade/pixie-shade-stage-1.png",
+      "species": "shade",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 31267,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "shade/pixie-shade-stage-2.png",
+      "species": "shade",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 32199,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "shade/pixie-shade-stage-3.png",
+      "species": "shade",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 35084,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "shade/pixie-shade-stage-4.png",
+      "species": "shade",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 38674,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "shade/pixie-shade-stage-5.png",
+      "species": "shade",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 43445,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "shade/pixie-shade-stage-6.png",
+      "species": "shade",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 55241,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "spark/pixie-spark-preview-sheet.png",
+      "species": "spark",
+      "stage": null,
+      "ext": ".png",
+      "width": 1676,
+      "height": 296,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "bytes": 64218,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-spark-preview-sheet.png",
+        "non_canonical_size:1676x296"
+      ]
+    },
+    {
+      "relpath": "spark/pixie-spark-stage-1.png",
+      "species": "spark",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 34949,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "spark/pixie-spark-stage-2.png",
+      "species": "spark",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 37055,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "spark/pixie-spark-stage-3.png",
+      "species": "spark",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 44897,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "spark/pixie-spark-stage-4.png",
+      "species": "spark",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 44267,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "spark/pixie-spark-stage-5.png",
+      "species": "spark",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 47249,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "spark/pixie-spark-stage-6.png",
+      "species": "spark",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 57956,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "triste/pixie-triste-preview-sheet.png",
+      "species": "triste",
+      "stage": null,
+      "ext": ".png",
+      "width": 1983,
+      "height": 793,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 1065078,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-triste-preview-sheet.png",
+        "non_canonical_size:1983x793",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "triste/pixie-triste-stage-1.png",
+      "species": "triste",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 10964,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "triste/pixie-triste-stage-2.png",
+      "species": "triste",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 17735,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "triste/pixie-triste-stage-3.png",
+      "species": "triste",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 23460,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "triste/pixie-triste-stage-4.png",
+      "species": "triste",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 37298,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "triste/pixie-triste-stage-5.png",
+      "species": "triste",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 52146,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "triste/pixie-triste-stage-6.png",
+      "species": "triste",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 52146,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "void/pixie-void-stage-1.png",
+      "species": "void",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 5553,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "void/pixie-void-stage-2.png",
+      "species": "void",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 10064,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "void/pixie-void-stage-3.png",
+      "species": "void",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 12446,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "void/pixie-void-stage-4.png",
+      "species": "void",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 16683,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "void/pixie-void-stage-5.png",
+      "species": "void",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 20493,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "void/pixie-void-stage-6.png",
+      "species": "void",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 33651,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "voidcore/pixie-voidcore-preview-sheet.png",
+      "species": "voidcore",
+      "stage": null,
+      "ext": ".png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 2040164,
+      "naming_ok": false,
+      "notes": [
+        "non_canonical_filename:pixie-voidcore-preview-sheet.png",
+        "non_canonical_size:1672x941",
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "voidcore/pixie-voidcore-stage-1.png",
+      "species": "voidcore",
+      "stage": 1,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 9322,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "voidcore/pixie-voidcore-stage-2.png",
+      "species": "voidcore",
+      "stage": 2,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 16837,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "voidcore/pixie-voidcore-stage-3.png",
+      "species": "voidcore",
+      "stage": 3,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 24201,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "voidcore/pixie-voidcore-stage-4.png",
+      "species": "voidcore",
+      "stage": 4,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 36249,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "voidcore/pixie-voidcore-stage-5.png",
+      "species": "voidcore",
+      "stage": 5,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 58991,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    },
+    {
+      "relpath": "voidcore/pixie-voidcore-stage-6.png",
+      "species": "voidcore",
+      "stage": 6,
+      "ext": ".png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "has_alpha": false,
+      "bytes": 58991,
+      "naming_ok": true,
+      "notes": [
+        "no_alpha_channel",
+        "unusual_mode:RGB"
+      ]
+    }
+  ]
+}
