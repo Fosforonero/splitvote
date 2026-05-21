@@ -30,12 +30,27 @@ Visual quality assurance over `pixie/work/`: generate review sheets, surface PM-
 
 ## Output
 
-- Review sheet PNG at `reports/pixie/review-sheet-YYYY-MM-DD.png` (contact-sheet style).
+- Review sheet PNG at `reports/pixie/review-sheet-YYYY-MM-DD.png` (single-root contact-sheet style).
+- Compare-mode sheets (when invoked with `--baseline-input` + `--wip-input`):
+  - Per-species: `reports/pixie/review-sheets/<species>-baseline-vs-wip-YYYY-MM-DD.png` (6 cols × 2 rows, baseline above WIP, stage 1..6 left to right).
+  - Optional combined: `reports/pixie/review-sheets/baseline-vs-wip-YYYY-MM-DD.png` (every species stacked vertically) via `--combined`.
 - Markdown report at `reports/pixie/review-YYYY-MM-DD.md`:
   - Per-asset verdict: `accept` / `rework` / `pm_decision`.
   - For `rework`: specific issue + suggested fix.
   - For `pm_decision`: the trade-off and the two options.
 - A summary line: total accepted / reworked / pending.
+
+## Compare-mode CLI quick reference
+
+```
+python3 scripts/pixie/generate_review_sheet.py \
+  --baseline-input pixie/original \
+  --wip-input public/pixie \
+  --species angel,banana,caffe,devil,fuoco,hologram,ice,leaf,moonlight,scintille,triste,voidcore \
+  --per-species
+```
+
+Flags: `--baseline-input` + `--wip-input` (both required for compare), `--species <csv>` (filter, optional — defaults to every species in either root), `--per-species` (one PNG per species, default), `--combined` (single stacked PNG), `--tile <px>` (default 192 in compare mode), `--reports <dir>` (default `reports/pixie`). The script only ingests files matching `pixie-<species>-stage-<N>.png` — preview-sheet PNGs and `.gitkeep` are skipped automatically. Safety guard refuses any write under `public/pixie/` or `pixie/original/`.
 
 ## Do Not
 

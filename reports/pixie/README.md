@@ -10,7 +10,9 @@ Generated output from the Pixie pipeline scripts (`scripts/pixie/*.py`) and find
 | `normalize-YYYY-MM-DD.{md,log}` | `scripts/pixie/normalize_pixie.py` / `pixie-normalizer` | Per-file normalization log + summary counts. |
 | `enhance-YYYY-MM-DD.{md,log}` | `pixie-enhancer` | Stage-effect application log. |
 | `review-YYYY-MM-DD.md` | `pixie-reviewer` | Per-asset verdict (`accept` / `rework` / `pm_decision`). |
-| `review-sheet-YYYY-MM-DD.png` | `scripts/pixie/generate_review_sheet.py` | Contact-sheet PNG for visual QA. |
+| `review-sheet-YYYY-MM-DD.png` | `scripts/pixie/generate_review_sheet.py` (single-root) | Contact-sheet PNG for visual QA. |
+| `review-sheets/<species>-baseline-vs-wip-YYYY-MM-DD.png` | `scripts/pixie/generate_review_sheet.py` (compare mode, `--per-species`) | Per-species baseline-vs-WIP side-by-side (6 cols × 2 rows). |
+| `review-sheets/baseline-vs-wip-YYYY-MM-DD.png` | `scripts/pixie/generate_review_sheet.py` (compare mode, `--combined`) | Single combined sheet stacking every species vertically. |
 | `validate-YYYY-MM-DD.{md,json}` | `scripts/pixie/validate_pixie.py` / `pixie-validator` | Final promotion-readiness gate. |
 
 ## Conventions
