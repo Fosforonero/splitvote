@@ -529,7 +529,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
   // Share vertical story card via Web Share API (PNG only — SVG is rejected by Instagram/TikTok)
   const shareStory = async () => {
     if (!mounted) return
-    track('story_card_clicked', { scenario_id: scenario.id, locale })
+    track('story_card_clicked', { scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
     setStorySharing(true)
     const filename = `splitvote-story-${scenario.id}.png`
     try {
@@ -773,7 +773,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
               /* Continue path */
               <Link
                 href={`${sharePrefix}/play/${nextPathId}?path=${pathCategory}&step=${pathStep + 1}&target=${pathTarget}`}
-                onClick={() => track('path_continue_clicked', { scenario_id: scenario.id, locale, path: pathCategory, step: pathStep + 1 })}
+                onClick={() => track('path_continue_clicked', { scenario_id: scenario.id, locale, path: pathCategory, step: pathStep + 1, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })}
                 className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm px-6 py-3.5 transition-colors text-center"
               >
                 {copy.pathContinue}
@@ -821,7 +821,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
       <details className="group mb-6">
         <summary
           className="cursor-pointer list-none rounded-2xl border border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 hover:border-cyan-500/40 transition-all p-4 flex items-center justify-between gap-3 min-h-[56px]"
-          onClick={() => track('expert_insight_toggled', { scenario_id: scenario.id, locale })}
+          onClick={() => track('expert_insight_toggled', { scenario_id: scenario.id, locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })}
         >
           <div className="flex items-center gap-2 flex-1 min-w-0">
             <span aria-hidden className="text-base leading-none flex-shrink-0">💡</span>
@@ -1111,7 +1111,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
             href={storyCardUrl}
             download={`splitvote-story-${scenario.id}.png`}
             onClick={() => {
-              track('story_card_clicked', { scenario_id: scenario.id, locale, action: 'download' })
+              track('story_card_clicked', { scenario_id: scenario.id, locale, action: 'download', reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })
               trackServerEvent('story_card_download')
             }}
             className="flex flex-col items-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-[var(--muted)] hover:text-white font-bold text-xs px-3 py-3 rounded-xl transition-all"
@@ -1165,7 +1165,7 @@ export default function ResultsClientPage({ scenario, pctA, pctB, total, voted, 
           </div>
           <a
             href={isIT ? '/login?locale=it' : '/login'}
-            onClick={() => track('signup_cta_clicked', { source: 'results', locale })}
+            onClick={() => track('signup_cta_clicked', { source: 'results', locale, reveal_state: revealState, ...(pctVoted !== null ? { reveal_pct_voted: pctVoted } : {}) })}
             className="flex-shrink-0 w-full sm:w-auto text-center text-sm font-bold px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition-colors neon-glow-blue min-h-[48px] flex items-center justify-center"
           >
             {copy.anonCTAButton}
